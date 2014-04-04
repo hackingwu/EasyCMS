@@ -1,0 +1,14 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+<@guestbookPage  num='1' page='${page!1}' siteid='${site.id}' state='1' action='${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=guestbook/guestbookList.html';guestbookList,pager>
+
+<ul>
+    <#list guestbookList as guestbook>
+        <li>
+            <a href="${contextPath}templet_pro.do?guestbookid=${guestbook.id}&siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=guestbook/guestbook.html">${guestbook.title}</a>
+        </li>
+    </#list>
+</ul>
+${pager.formPageStr}
+</@guestbookPage>
+<#include "../inc/foot.html"/>

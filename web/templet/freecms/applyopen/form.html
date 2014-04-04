@@ -1,0 +1,469 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<script>
+    function validata(form) {
+        if (document.getElementById("type0").checked) {
+            if (document.getElementById("name").value == "") {
+                alert("请输入名称");
+                document.getElementById("name").focus();
+                return false;
+            }
+            if (document.getElementById("unit").value == "") {
+                alert("请输入工作单位");
+                document.getElementById("unit").focus();
+                return false;
+            }
+            if (document.getElementById("cardtype").value == "") {
+                alert("请输入证件名称");
+                document.getElementById("cardtype").focus();
+                return false;
+            }
+            if (document.getElementById("cardid").value == "") {
+                alert("请输入证件号码");
+                document.getElementById("cardid").focus();
+                return false;
+            }
+            if (document.getElementById("address").value == "") {
+                alert("请输入联系地址");
+                document.getElementById("address").focus();
+                return false;
+            }
+            if (document.getElementById("postcode").value == "") {
+                alert("请输入邮政编码");
+                document.getElementById("postcode").focus();
+                return false;
+            }
+            if (document.getElementById("tel").value == "") {
+                alert("请输入联系电话");
+                document.getElementById("tel").focus();
+                return false;
+            }
+            if (document.getElementById("fax").value == "") {
+                alert("请输入传真");
+                document.getElementById("fax").focus();
+                return false;
+            }
+            if (document.getElementById("email").value == "") {
+                alert("请输入电子邮箱");
+                document.getElementById("email").focus();
+                return false;
+            }
+        } else {
+            if (document.getElementById("lpname").value == "") {
+                alert("请输入名称");
+                document.getElementById("lpname").focus();
+                return false;
+            }
+            if (document.getElementById("unitcode").value == "") {
+                alert("请输入组织机构代码");
+                document.getElementById("unitcode").focus();
+                return false;
+            }
+            if (document.getElementById("legalperson").value == "") {
+                alert("请输入法人代表");
+                document.getElementById("legalperson").focus();
+                return false;
+            }
+            if (document.getElementById("linkman").value == "") {
+                alert("请输入联系人姓名");
+                document.getElementById("linkman").focus();
+                return false;
+            }
+            if (document.getElementById("linkmantel").value == "") {
+                alert("请输入联系人电话");
+                document.getElementById("linkmantel").focus();
+                return false;
+            }
+            if (document.getElementById("lpfax").value == "") {
+                alert("请输入传真");
+                document.getElementById("lpfax").focus();
+                return false;
+            }
+            if (document.getElementById("buslicense").value == "") {
+                alert("请输入营业执照信息");
+                document.getElementById("buslicense").focus();
+                return false;
+            }
+            if (document.getElementById("lpaddress").value == "") {
+                alert("请输入联系地址");
+                document.getElementById("lpaddress").focus();
+                return false;
+            }
+            if (document.getElementById("lppostcode").value == "") {
+                alert("请输入邮政编码");
+                document.getElementById("lppostcode").focus();
+                return false;
+            }
+            if (document.getElementById("lpemail").value == "") {
+                alert("请输入电子邮箱");
+                document.getElementById("lpemail").focus();
+                return false;
+            }
+        }
+
+        if (document.getElementById("detail").value == "") {
+            alert("请输入所需信息的内容描述");
+            document.getElementById("detail").focus();
+            return false;
+        }
+        if (document.getElementById("touse").value == "") {
+            alert("请输入所需信息的用途");
+            document.getElementById("touse").focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+<form name="applyopenForm" method="post"
+      action="${contextPath}applyopen_save.do?siteid=${site.id}&templetPath=applyopen/applyopenSave.html"
+      onsubmit="return validata(this);">
+<script type="text/javascript">
+    function typechange(v) {
+        if (1 == v) {
+            document.getElementById("table0").style.display = "none";
+            document.getElementById("table1").style.display = "block";
+        } else {
+            document.getElementById("table0").style.display = "block";
+            document.getElementById("table1").style.display = "none";
+        }
+    }
+</script>
+<table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF">
+    <tr>
+        <td height="25" align="left" valign="middle" bgcolor="#F2F4F5" style="padding-left:10px;">
+            <input name="applyopen.type" type="radio" id="type0" onclick="typechange(0)" value="0" checked="checked"/>
+            公民
+            <input type="radio" name="applyopen.type" id="type1" onclick="typechange(1)" value="1"/>
+            法人/其他组织
+        </td>
+    </tr>
+</table>
+<table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF" id="table0">
+    <tr>
+        <td width="35" height="170" align="center" valign="middle" bgcolor="#F2F4F5" class="ysqgk_wz1"><p>申</p>
+
+            <p>请</p>
+
+            <p>人</p>
+
+            <p>信</p>
+
+            <p>息</p></td>
+        <td height="170" align="center" valign="middle" bgcolor="#FFFFFF">
+            <table width="660" border="0" cellpadding="0" cellspacing="1" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="28" rowspan="5" align="center" valign="middle" bgcolor="#EFF1F2" class="ysqgk_wz2"
+                        style="padding-left:6px;"><p>公</p>
+
+                        <p>民</p></td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">姓名<span class="hong_wz">*</span></td>
+                    <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.name" type="text" class="ysqgk_box1"
+                                                         id="name"/></td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">工作单位<span class="hong_wz">*</span></td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><input
+                            name="applyopen.unit" type="text" class="ysqgk_box1" id="unit"/></td>
+                </tr>
+                <tr>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">证件名称<span class="hong_wz">*</span></td>
+                    <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.cardtype" type="text" class="ysqgk_box1"
+                                                         id="cardtype"/></td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">证件号码<span class="hong_wz">*</span></td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><input
+                            name="applyopen.cardid" type="text" class="ysqgk_box1" id="cardid"/></td>
+                </tr>
+                <tr>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">联系地址<span class="hong_wz">*</span></td>
+                    <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.address" type="text" class="ysqgk_box1"
+                                                         id="address"/></td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">邮政编码<span class="hong_wz">*</span></td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><input
+                            name="applyopen.postcode" type="text" class="ysqgk_box1" id="postcode"/></td>
+                </tr>
+                <tr>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">联系电话<span class="hong_wz">*</span></td>
+                    <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.tel" type="text" class="ysqgk_box1" id="tel"/>
+                    </td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">传真<span class="hong_wz">*</span></td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><input
+                            name="applyopen.fax" type="text" class="ysqgk_box1" id="fax"/></td>
+                </tr>
+                <tr>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">电子信箱<span class="hong_wz">*</span></td>
+                    <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.email" type="text" class="ysqgk_box2"
+                                                         id="email"/></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF" id="table1" style="display:none">
+    <tr>
+        <td width="35" height="170" align="center" valign="middle" bgcolor="#F2F4F5" class="ysqgk_wz1"><p>申</p>
+
+            <p>请</p>
+
+            <p>人</p>
+
+            <p>信</p>
+
+            <p>息</p></td>
+        <td height="170" align="center" valign="middle" bgcolor="#FFFFFF">
+            <table width="660" border="0" cellpadding="0" cellspacing="1" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="28" rowspan="8" align="center" valign="middle" bgcolor="#EFF1F2" class="ysqgk_wz2"
+                        style="padding-left:6px;"><p>法</p>
+
+                        <p>人</p>
+
+                        <p>/</p>
+
+                        <p>其</p>
+
+                        <p>他</p>
+
+                        <p>组</p>
+
+                        <p>织</p></td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">名称<span class="hong_wz">*</span></td>
+                    <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.lpname" type="text" class="ysqgk_box1"
+                                                         id="lpname"/></td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">组织机构代码
+                    </td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><input
+                            name="applyopen.unitcode" type="text" class="ysqgk_box1" id="unitcode"/></td>
+                </tr>
+                <tr>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">法人代表<span class="hong_wz">*</span></td>
+                    <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.legalperson" type="text" class="ysqgk_box1"
+                                                         id="legalperson"/></td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">联系人姓名<span class="hong_wz">*</span></td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><input
+                            name="applyopen.linkman" type="text" class="ysqgk_box1" id="linkman"/></td>
+                </tr>
+                <tr>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">联系人电话<span class="hong_wz">*</span></td>
+                    <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.linkmantel" type="text" class="ysqgk_box1"
+                                                         id="linkmantel"/></td>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">传真<span class="hong_wz">*</span></td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><input
+                            name="applyopen.lpfax" type="text" class="ysqgk_box1" id="lpfax"/></td>
+                </tr>
+                <tr>
+                    <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">营业执照信息<span class="hong_wz">*</span></td>
+                    <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.buslicense" type="text" class="ysqgk_box2"
+                                                         id="buslicense"/></td>
+                </tr>
+                <tr>
+                    <td height="30" align="left" valign="middle" bgcolor="#F4F5F6" style="padding-left:6px;">联系地址<span
+                            class="hong_wz">*</span></td>
+                    <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.lpaddress" type="text" class="ysqgk_box2"
+                                                         id="lpaddress"/></td>
+                </tr>
+                <tr>
+                    <td height="30" align="left" valign="middle" bgcolor="#F4F5F6" style="padding-left:6px;">邮政编码<span
+                            class="hong_wz">*</span></td>
+                    <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.lppostcode" type="text" class="ysqgk_box2"
+                                                         id="lppostcode"/></td>
+                </tr>
+                <tr>
+                    <td height="30" align="left" valign="middle" bgcolor="#F4F5F6" style="padding-left:6px;">电子信箱<span
+                            class="hong_wz">*</span></td>
+                    <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;"><input name="applyopen.lpemail" type="text" class="ysqgk_box2"
+                                                         id="lpemail"/></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF">
+    <tr>
+        <td width="35" height="170" align="center" valign="middle" bgcolor="#F2F4F5" class="ysqgk_wz1"><p>所</p>
+
+            <p>需</p>
+
+            <p>信</p>
+
+            <p>息</p>
+
+            <p>情</p>
+
+            <p>况</p></td>
+        <td height="170" align="center" valign="middle" bgcolor="#FFFFFF">
+            <table width="660" border="0" cellspacing="1" cellpadding="0" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="142" height="60" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">所需信息的内容描述<span class="hong_wz">*</span></td>
+                    <td height="60" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><textarea
+                            name="applyopen.detail" cols="45" rows="5" class="ysqgk_box3" id="detail"></textarea></td>
+                </tr>
+                <tr>
+                    <td width="142" height="60" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">所需信息的用途<span class="hong_wz">*</span></td>
+                    <td height="60" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;"><textarea
+                            name="applyopen.touse" cols="45" rows="5" class="ysqgk_box3" id="touse"></textarea></td>
+                </tr>
+            </table>
+            <table width="660" border="0" cellspacing="1" cellpadding="0" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="220" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">所需信息的指定提供方式(单选)
+                    </td>
+                    <td width="220" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">获取信息的方式(单选)
+                    </td>
+                    <td height="30" align="left" valign="middle" bgcolor="#F4F5F6" style="padding-left:6px;">是否申请减免费用
+                    </td>
+                </tr>
+                <tr>
+                    <td width="220" height="130" align="center" valign="top" bgcolor="#FFFFFF">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input name="applyopen.pubtype"
+                                                                                                type="radio" id="radio3"
+                                                                                                value="0"
+                                                                                                checked="checked"/>
+                                    纸面
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input type="radio"
+                                                                                                name="applyopen.pubtype"
+                                                                                                id="radio4" value="1"/>
+                                    电子邮件
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input type="radio"
+                                                                                                name="applyopen.pubtype"
+                                                                                                id="radio6" value="2"/>
+                                    光盘
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input type="radio"
+                                                                                                name="applyopen.pubtype"
+                                                                                                id="radio5" value="3"/>
+                                    磁盘
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="220" height="130" align="center" valign="top" bgcolor="#FFFFFF">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input name="applyopen.gettype"
+                                                                                                type="radio" id="radio7"
+                                                                                                value="0"
+                                                                                                checked="checked"/>
+                                    邮寄
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input type="radio"
+                                                                                                name="applyopen.gettype"
+                                                                                                id="radio8" value="1"/>
+                                    快递
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input type="radio"
+                                                                                                name="applyopen.gettype"
+                                                                                                id="radio9" value="2"/>
+                                    电子邮件
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input type="radio"
+                                                                                                name="applyopen.gettype"
+                                                                                                id="radio11" value="3"/>
+                                    传真
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input type="radio"
+                                                                                                name="applyopen.gettype"
+                                                                                                id="radio10" value="4"/>
+                                    自行领取
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td height="130" align="center" valign="top" bgcolor="#FFFFFF">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle">
+                                    <input name="applyopen.applyfree" type="radio" id="radio12" value="1"/>
+                                    申请。请提供相关证明
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle"><input type="radio"
+                                                                                                name="applyopen.applyfree"
+                                                                                                id="radio13" value="0"
+                                                                                                checked="checked"/>
+                                    不
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;">
+                        <input type="radio" name="applyopen.othertype" id="radio14" value="0" checked/>
+                        否
+                        <input type="radio" name="applyopen.othertype" id="radio15" value="1"/>
+                        是 若受理机关无法按指定方式提供所需信息，也可接受其他方式
+                    </td>
+                </tr>
+            </table>
+            <table width="660" border="0" cellspacing="1" cellpadding="0" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="142" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">所需信息的编号
+                    </td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                        <input name="applyopen.infonum" type="text" class="ysqgk_box2" id="infonum"/></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<table width="710" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td height="40" align="center" valign="middle"><input type="submit" name="button" id="button" value="提交"/>
+            <input type="reset" name="button2" id="button2" value="取消"/></td>
+    </tr>
+</table>
+</form>
+<#include "../inc/foot.html"/>
+

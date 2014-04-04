@@ -1,0 +1,95 @@
+<#include "inc/head.html"/>
+<div class="wp_l l">
+    <div class="sort">
+
+        <@channelList siteid="${site.id}" parid="par" ;channel>
+        <H2>${channel.name}</H2>
+        <UL>
+            <@channelList siteid="${site.id}" parid="${channel.id}" ;sonChannel>
+            <LI><A href="${sonChannel.pageurl}">${sonChannel.name}</A></LI>
+        </
+        @channelList>
+        </UL>
+    </
+    @channelList>
+
+</div>
+<div class="clear"></div>
+<div class="chognzhi">
+
+    <iframe name="alimamaifrm" frameborder="0" marginheight="0" marginwidth="0" border="0" scrolling="no" width="210"
+            height="200"
+            src="http://www.taobao.com/go/app/tbk_app/chongzhi_210_200.php?pid=mm_13244061_4058676_13200271&page=chongzhi_210_200.php&size_w=210&size_h=200&stru_phone=1&stru_game=1&stru_travel=1"></iframe>
+</div>
+</div>
+<div class="wp_r r">
+    <div class="shop">
+        <ul class="shop_menu">
+            <li class="active" id="stgm0" onclick="showStm(0)">
+                <label>
+                    淘宝皇冠店铺
+                </label>
+            </li>
+        </ul>
+        <div class="shop_r r">
+            <a href="#" onclick="copyToClip();" target="_self">本站所有上榜网店是由数万名热心网友推荐整理而成，真实可信赖！</a>
+        </div>
+        <div id="stm0" class="shop_bd">
+            <ul class="shop_con">
+                <@link siteid="${site.id}" classPagemark="shop" num="48";link,index>
+                <li><a
+                        href="${link.url}"
+                        target="_blank">${link.name}
+                </a>
+                </li>
+            </
+            @link>
+            </ul>
+        </div>
+    </div>
+    <div class="coolsite" id="coolsite">
+        <h3>
+            <label>
+                淘宝诚信店铺精选
+            </label>
+        </h3>
+
+        <div class="coolsite_more r">
+            <span>促销活动：</span>
+            <@link siteid="${site.id}" classPagemark="cxhd" num="4";link,index>
+            <a
+                    href="${link.url}"
+                    target="_blank">${link.name}
+            </a> &nbsp;&nbsp;
+        </
+        @link>
+    </div>
+    <div class="coolsite_bd">
+        <div class="coolsite_inner">
+            <ul>
+
+                <@channelList siteid="${site.id}" parid="par" ;channel>
+                <@channelList siteid="${site.id}" parid="${channel.id}" ;sonChannel>
+                <li>
+                    <a href="${sonChannel.pageurl}" class="r">更多&raquo;</a>
+                    <label style="width:75px">
+                        <a href="${sonChannel.pageurl}">${sonChannel.name}</a>
+                    </label>
+
+                    <@infoList siteid="${site.id}" channelParid="${sonChannel.id}" num="6" titleLen="6"; info,index>
+                    <a href="${info.pageurl}" target="_blank">${info.showtitle}</a>
+                </
+                @infoList>
+                </li>
+            </
+            @channelList>
+        </
+        @channelList>
+
+
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+<!--<#include "inc/foot.html"/>-->

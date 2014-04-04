@@ -1,0 +1,11 @@
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+<ul>
+    <@unitList parid="" filter="mail";unit,index>
+    <li>
+        ${unit.name}
+    </li>
+</@unitList>
+</ul>
+<#include "../inc/foot.html"/>

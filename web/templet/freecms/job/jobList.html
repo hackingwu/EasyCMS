@@ -1,0 +1,10 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+<ul>
+    <@jobList num='10' siteid='${site.id}' ;job,index>
+    <li>
+        <a href="${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=job/job.html&jobid=${job.id}">${job.name}</a>
+    </li>
+</@jobList>
+</ul>
+<#include "../inc/foot.html"/>

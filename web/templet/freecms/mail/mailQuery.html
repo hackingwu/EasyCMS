@@ -1,0 +1,126 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+<form name="mailForm" method="post"
+      action="${contextPath}templet_pro.do?siteid=${site.id}&templetPath=mail/mailQuery.html&currChannelid=${currChannel.id}">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="60" height="35" align="center" valign="middle">查询码：</td>
+            <td width="160" height="35" align="left" valign="middle"><input type="text" name="querycode"
+                                                                            style="width:150px;"/></td>
+        </tr>
+        <tr>
+            <td width="80" height="35" align="center" valign="middle"><input type="submit" name="button3" id="button3"
+                                                                             value="查询"/></td>
+            <td width="80" height="35" align="center" valign="middle"><input type="reset" name="button4" id="button4"
+                                                                             value="重置"/></td>
+        </tr>
+    </table>
+</form>
+<@mailQuery querycode='${querycode!""}';mail>
+<TABLE width="98%" border=0 align=center cellPadding=1 cellspacing="1" bgcolor="#FFFFFF">
+    <tr>
+        <td width="15%" height=25 align="center" bgcolor="#FFFFFF">
+            <span style="letter-spacing:6px; padding-left:6px">收信人</span></td>
+        <td width="38%" height="25" align="left">&nbsp;&nbsp;
+            <#if ((mail.unitid!"") != "")>
+                ${mail.unitname!""}
+            </#if>
+
+        </td>
+        <td width="11%" height="25" align="center">信件类型</td>
+        <td width="36%" height="25" align="left">&nbsp;&nbsp;
+            ${mail.mailtype!""}
+        </td>
+    </tr>
+    <tr>
+        <td width="15%" height="25" align="center"> 信件标题</td>
+        <td height="25" colspan="3" align="left" style="padding-left:17px">
+            ${mail.title!""}
+        </td>
+    </tr>
+    <tr>
+        <td height="25" align="center">写信人姓名</td>
+        <td height="25" align="left">&nbsp;&nbsp;
+            ${mail.writer!""}
+        </td>
+        <td height="25" align="center">联系电话</td>
+        <td height="25" align="left">&nbsp;&nbsp;
+            ${mail.tel!""}
+        </td>
+    </tr>
+    <tr>
+        <td height="25" align="center">联系地址</td>
+        <td height="25" align="left">&nbsp;&nbsp;
+            ${mail.address!""}
+        </td>
+        <td height="25" align="center">电子信箱</td>
+        <td height="25" align="left">&nbsp;&nbsp;
+            ${mail.email!""}
+        </td>
+    </tr>
+    <tr>
+        <td height="25" align="center">是否公开</td>
+        <td height="25" colspan="3" align="left" bgcolor="#FFFFFF">&nbsp;
+            <#if ((mail.isopen!"") == "1")>是</#if>
+            <#if ((mail.isopen!"") != "1")>否</#if>
+
+        </td>
+    </tr>
+    <tr>
+        <td align="center">信件内容</td>
+        <td height="80" colspan="3" align="left">&nbsp;&nbsp;
+            ${mail.content!""}
+        </td>
+    </tr>
+    <TR>
+        <TD align="left">
+            添加时间
+        </TD>
+        <TD align="left">
+            ${mail.addtimeStr!""}
+        </TD>
+        <TD align="left">
+            IP
+        </TD>
+        <TD align="left">
+            ${mail.ip!"" }
+        </TD>
+    </TR>
+    <TR>
+        <TD align="left">
+            办理状态
+        </TD>
+        <TD align="left" colspan="3">
+            <#if ((mail.state!"") == "1")>已办结</#if>
+            <#if ((mail.state!"") != "1")>处理中</#if>
+        </TD>
+    </TR>
+    <TR>
+        <TD align="left">
+            转办流程
+        </TD>
+        <TD align="left" colspan="3">
+            ${mail.proflow!"" }
+        </TD>
+    </TR>
+    <TR>
+        <TD align="left">
+            办理结果
+        </TD>
+        <TD align="left" colspan="3">
+            ${mail.recontent!"" }
+        </TD>
+    </TR>
+    <TR>
+        <TD align="left">
+            办理时间
+        </TD>
+        <TD align="left" colspan="3">
+            ${mail.retimeStr!""}
+        </TD>
+    </TR>
+</TABLE>
+</@mailQuery>
+<#include "../inc/foot.html"/>
+
+

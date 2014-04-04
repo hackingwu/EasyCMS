@@ -1,0 +1,120 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<@job id='${jobid!""}' ; job>
+<TABLE cellSpacing=4 cellPadding=4 width="95%" align=center>
+    <TBODY>
+
+    <TR>
+        <TD width="30%" align="left">
+            <LABEL id=ctl01_ctl00_label>
+                <NOBR>
+                    <SPAN id=ctl01_ctl00_lblLabel>职位名称：</SPAN>
+                </NOBR>
+            </LABEL>
+        </TD>
+        <TD width="70%" align="left">
+            ${job.name!""}
+        </TD>
+    </TR>
+    <TR>
+        <TD width="30%" align="left">
+            <LABEL id=ctl01_ctl00_label>
+                <NOBR>
+                    <SPAN id=ctl01_ctl00_lblLabel>所属部门：</SPAN>
+                </NOBR>
+            </LABEL>
+        </TD>
+        <TD width="70%" align="left">
+            ${job.unitname!"" }
+        </TD>
+    </TR>
+
+    <TR>
+        <TD width="30%" align="left">
+            <LABEL id=ctl01_ctl00_label>
+                <NOBR>
+                    <SPAN id=ctl01_ctl00_lblLabel>工作地点：</SPAN>
+                </NOBR>
+            </LABEL>
+        </TD>
+        <TD width="70%" align="left">
+            ${job.address!"" }
+        </TD>
+    </TR>
+
+    <TR>
+        <TD width="30%" align="left">
+            <LABEL id=ctl01_ctl00_label>
+                <NOBR>
+                    <SPAN id=ctl01_ctl00_lblLabel>招聘人数：</SPAN>
+                </NOBR>
+            </LABEL>
+        </TD>
+        <TD width="70%" align="left">
+            ${job.num!"" }
+        </TD>
+    </TR>
+    <TR>
+        <TD width="30%" align="left">
+            <LABEL id=ctl01_ctl00_label>
+                <NOBR>
+                    <SPAN id=ctl01_ctl00_lblLabel>工作职责：</SPAN>
+                </NOBR>
+            </LABEL>
+        </TD>
+        <TD width="70%" align="left">
+            ${job.duty!"" }
+        </TD>
+    </TR>
+    <TR>
+        <TD width="30%" align="left">
+            <LABEL id=ctl01_ctl00_label>
+                <NOBR>
+                    <SPAN id=ctl01_ctl00_lblLabel>职位要求：</SPAN>
+                </NOBR>
+            </LABEL>
+        </TD>
+        <TD width="70%" align="left">
+            ${job.jobrequire!"" }
+        </TD>
+    </TR>
+    <TR>
+        <TD width="30%" align="left">
+            <LABEL id=ctl01_ctl00_label>
+                <NOBR>
+                    <SPAN id=ctl01_ctl00_lblLabel>添加时间：</SPAN>
+                </NOBR>
+            </LABEL>
+        </TD>
+        <TD width="70%" align="left">
+            ${job.addtimeStr!"" }
+
+        </TD>
+    </TR>
+    <TR>
+        <TD width="30%" align="left">
+            <LABEL id=ctl01_ctl00_label>
+                <NOBR>
+                    <SPAN id=ctl01_ctl00_lblLabel>结束时间：</SPAN>
+                </NOBR>
+            </LABEL>
+        </TD>
+        <TD width="70%" align="left">
+            ${job.endtimeStr!"" }
+
+        </TD>
+    </TR>
+    <TR>
+        <TD align="center" colspan="10">
+            <input type="button" value="投递简历"
+                   onclick="location.href='${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=job/resume.html&jobid=${job.id}'"
+                   class="button"/>&nbsp;
+            <input type="button" value="返 回" onclick="history.back(-1)" class="button"/>
+        </TD>
+    </TR>
+    </TBODY>
+</TABLE>
+</@job>
+<#include "../inc/foot.html"/>
+

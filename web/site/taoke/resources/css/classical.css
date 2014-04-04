@@ -1,0 +1,657 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+body, th, td {
+    font-size: 12px;
+    font-family: Tahoma;
+}
+
+ul li, dl, dt, dd {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+input {
+    padding: 2px;
+}
+
+label {
+    cursor: pointer;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+.clear {
+    clear: both;
+    overflow: hidden;
+    height: 0;
+}
+
+em, cite {
+    font-style: normal;
+}
+
+h1, h2, h2, h3, h4 {
+    font-size: 100%;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f00;
+    text-decoration: underline;
+}
+
+.hot, .hot a {
+    color: #f00;
+}
+
+.header {
+    background: #f7f7f7;
+    border-bottom: 1px solid #e6e6e6;
+    height: 25px;
+    line-height: 25px;
+}
+
+.header_inner {
+    width: 960px;
+    padding: 0 10px;
+    margin: 0 auto;
+    color: #ccc;
+    text-align: left;
+}
+
+.header a {
+    color: #999;
+}
+
+.header_r span {
+    color: #ff0000;
+}
+
+.header_r .head_favorite {
+    background: #f35f39;
+}
+
+.header_r .head_friend {
+    background: #f3397c;
+}
+
+.header_r a, .header_r a:hover {
+    color: #fff;
+    padding: 2px 8px;
+}
+
+.top {
+    height: 85px;
+}
+
+.top_inner {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.top h1 {
+    background: url(../images/logo.gif) no-repeat 4px center;
+    width: 365px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.top h1 a {
+    display: block;
+    color: #996c33;
+    font-weight: normal;
+    line-height: 90px;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.top a:hover {
+    color: #996c33;
+    text-decoration: none;
+}
+
+.top .top_topic {
+    padding: 12px 0 0 0;
+}
+
+.top .top_topic img {
+    vertical-align: top;
+    border: 0;
+}
+
+.menu, .menu_l, .menu_r {
+    background: url(../images/menu.gif) no-repeat;
+}
+
+.menu {
+    width: 957px;
+    padding: 0 0 0 3px;
+    margin: 0 auto;
+}
+
+.menu_l {
+    background-position: right 0;
+    width: 954px;
+    padding: 0 3px 0 0;
+}
+
+.menu_r {
+    background-repeat: repeat-x;
+    background-position: 0 -65px;
+    width: 954px;
+    height: 65px;
+    overflow: hidden;
+}
+
+.menu_fvorite {
+    background: url(../images/menu_fvorite.gif) no-repeat center;
+    width: 105px;
+    height: 35px;
+    line-height: 33px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.menu_fvorite a {
+    color: #fff799;
+    padding: 0 0 0 18px;
+}
+
+.menu_fvorite a:hover {
+    color: #fffde0;
+    text-decoration: none;
+}
+
+.menu_hot {
+    background: url(../images/ico_arrow_white.gif) no-repeat 3px 14px;
+    width: 435px;
+    line-height: 35px;
+    padding: 0 0 0 13px;
+    overflow: hidden;
+}
+
+.menu_hot a {
+    color: #fff;
+}
+
+.menu_hot a:hover {
+    color: #fff799;
+}
+
+.menu_search {
+    background: url(../images/top_search_ico.gif) no-repeat 0 9px;
+    width: 321px;
+    height: 35px;
+    overflow: hidden;
+    padding: 4px 0 0 75px;
+}
+
+.menu_search .keyword {
+    background: url(../images/search_txt.gif) #fff no-repeat;
+    border: 1px solid #ea3609;
+    width: 238px;
+    padding: 5px 0 2px 6px;
+    font-size: 14px;
+    color: #999;
+    text-align: left;
+}
+
+.menu_search button {
+    background: url(../images/search_btn.gif) no-repeat;
+    border: 0;
+    width: 70px;
+    height: 25px;
+    text-indent: -1000em;
+    overflow: hidden;
+}
+
+.shop_hot {
+    background: url(../images/shop_hot_ico.gif) no-repeat 12px 4px;
+    width: 960px;
+    padding: 0 10px;
+    line-height: 24px;
+    margin: 0 auto;
+    color: #666666;
+    text-align: left;
+}
+
+.shop_hot strong {
+    color: #996c33;
+    padding: 0 8px 0 24px;
+}
+
+.shop_hot a {
+    color: #666666;
+    margin: 0 1px 0 0;
+    _margin: 0 1px;
+}
+
+.wp {
+    margin: 0 auto;
+    width: 960px;
+    padding: 0 10px;
+}
+
+.wp_l {
+    width: 216px;
+    margin: 10px 0 0 0;
+}
+
+.wp_r {
+    width: 735px;
+    margin: 10px 0 0 0;
+}
+
+.footer {
+    background: url(../images/foot_bg.gif) repeat-x;
+    width: 100%;
+    height: 50px;
+    margin: 10px auto 0 auto;
+}
+
+.foot_inner {
+    width: 960px;
+    padding: 12px;
+    margin: 0 auto;
+}
+
+.footer .foot_menu {
+    text-align: left;
+}
+
+.footer, .footer a {
+    color: #999999;
+}
+
+.copyright {
+    padding: 4px 0 0 0;
+}
+
+.category_footer {
+    color: #999;
+    padding: 10px 0;
+}
+
+.path {
+    background: url(../images/base_shop_line.gif) repeat-x bottom;
+    width: 960px;
+    line-height: 36px;
+    margin: 0 auto;
+}
+
+.path_inner {
+    background: url(../images/ico_arrow_brown.gif) no-repeat 6px 15px;
+    padding: 0 0 0 15px;
+    color: #999;
+    text-align: left;
+}
+
+.path_inner a {
+    color: #999;
+}
+
+.path em {
+    padding: 6px 0 0 0;
+}
+
+.sort {
+    font-size: 14px;
+    text-align: center;
+}
+
+.sort h2 {
+    background: url(../images/sidebar_h.gif) no-repeat;
+    width: 216px;
+    height: 39px;
+    line-height: 30px;
+    color: #fff;
+    clear: both;
+}
+
+.sort ul {
+    float: left;
+    border: 1px solid #e9d4b6;
+    border-top: 0;
+    background: #fffde7;
+    width: 206px;
+    margin: 0 0 0 4px;
+    _margin: 0 0 0 2px;
+    padding: 0 0 10px 0;
+}
+
+.sort li {
+    float: left;
+    line-height: 28px;
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.sort li a {
+    color: #996c33;
+}
+
+.shop {
+    margin: 0 0 8px 0;
+}
+
+.shop .shop_menu {
+    width: 100%;
+    height: 25px;
+}
+
+.shop .shop_menu li {
+    float: left;
+    background: url(../images/shop_old_menu.gif) 0 -35px;
+    color: #81511c;
+    margin: 0 6px 0 0;
+    padding: 0 0 0 3px;
+}
+
+.shop .shop_menu li label {
+    display: block;
+    background: url(../images/shop_old_menu.gif) right -35px;
+    line-height: 25px;
+    padding: 0 10px;
+}
+
+.shop .shop_menu .active {
+    background: url(../images/shop_old_menu.gif);
+    font-weight: bold;
+    color: #fff;
+}
+
+.shop .shop_menu .active label {
+    background: url(../images/shop_old_menu.gif) right 0;
+}
+
+.shop .shop_bd {
+    border: 2px solid #ffa915;
+    padding: 5px 0;
+}
+
+.shop .shop_con {
+    margin: 0 auto;
+    width: 720px;
+    height: 252px;
+    overflow: hidden;
+}
+
+.shop .shop_con li {
+    background: url(../images/base_shop_line.gif) repeat-x bottom;
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    overflow: hidden;
+    width: 120px;
+}
+
+.shop .shop_history {
+    background: url(../images/coolsite_bg.gif);
+    padding: 0 4px;
+    margin: 0 auto;
+    width: 98%;
+    height: 217px;
+    overflow: hidden;
+}
+
+.shop .shop_history li {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    width: 120px;
+    text-align: center;
+}
+
+.shop .shop_history_null li {
+    background: url(../images/fm_bg.png) repeat-x;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.shop .delrecord {
+    background: #f0f0f0;
+    width: 99%;
+    height: 21px;
+    text-align: right;
+    margin: 5px auto 0 auto;
+    padding: 9px 0 0 0;
+}
+
+.shop .delrecord a {
+    background: url(../images/del.gif) no-repeat 0 3px;
+    padding: 0 10px 0 13px;
+}
+
+.shop .shop_con a, .shop .shop_history a {
+    font-size: 14px;
+}
+
+.shop_r {
+    margin: -22px 2px 0 0;
+    font-size: 14px;
+}
+
+.coolsite h3 {
+    background: url(../images/coolsite_h.gif) repeat-x;
+    border: 1px solid #ebca99;
+    height: 26px;
+    text-align: left
+}
+
+.coolsite h3 label {
+    background: url(../images/coolsite_ico.gif) no-repeat 10px 4px;
+    line-height: 26px;
+    padding: 0 0 0 20px;
+    color: #996c33;
+}
+
+.coolsite .coolsite_bd {
+    border: 1px solid #d8d8d8;
+    border-top: 0;
+    padding: 2px;
+}
+
+.coolsite .coolsite_inner {
+    background: url(../images/coolsite_bg.gif);
+}
+
+.coolsite ul {
+    background: url(../images/coolsite_label.gif) repeat-y 10px 0;
+}
+
+.coolsite li {
+    width: 100%;
+    height: 31px;
+    line-height: 31px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.coolsite li label {
+    float: left;
+    color: #fff;
+    width: 42px;
+    text-align: right;
+}
+
+.coolsite li label a, .coolsite li label a:hover {
+    color: #fff;
+    font-size: 12px;
+    margin: 0;
+}
+
+.coolsite li a {
+    margin: 0 12px 0 20px;
+    font-size: 14px;
+}
+
+.coolsite li .r {
+    margin: 0 6px 0 0;
+    font-size: 12px;
+    font-family: Verdana, Arial, Helvetica, sans-serif
+}
+
+.coolsite_more {
+    background: url(../images/ico_new.gif) no-repeat 0 2px;
+    margin: -22px 6px 0 0;
+    padding: 0 0 0 15px;
+    color: #fac199;
+}
+
+.coolsite_more span {
+    color: #81511c;
+}
+
+.coolsite_more a {
+    color: #eb6100;
+}
+
+.category {
+    margin: 10px 0 0 0;
+}
+
+.category h3 {
+    float: left;
+    background: url(../images/shop_menu.gif);
+    height: 25px;
+    color: #81511c;
+    padding: 0 0 0 3px;
+}
+
+.category h3 a {
+    display: block;
+    background: url(../images/shop_menu.gif) right 0;
+    line-height: 25px;
+    padding: 0 10px;
+    color: #fff;
+}
+
+.category_bd {
+    float: left;
+    border: 2px solid #ffa915;
+    width: 956px;
+    margin: 0 0 10px 0;
+}
+
+.category ul {
+    float: left;
+    background: url(../images/category_bg.gif);
+    width: 956px;
+    padding: 4px 0;
+}
+
+.category ul li {
+    float: left;
+    width: 191px;
+    height: 30px;
+    line-height: 32px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+}
+
+.category ul li a {
+    padding: 0 0 0 20px;
+}
+
+.category em.r {
+    margin: -4px 0 0 0;
+}
+
+.chognzhi {
+    margin: 10px auto 0 auto;
+    width: 212px;
+}
+
+.select_box {
+    background: url(../images/select_box.png);
+    width: 207px;
+    height: 26px;
+    padding: 0 0 0 5px;
+}
+
+.select_box ul {
+    background: url(../images/select_box.png) 297px 0;
+    width: 207px;
+}
+
+.select_box li {
+    float: left;
+    width: 90px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.select_box li.cur {
+    background: url(../images/select_box.png) no-repeat -270px 0;
+}
+
+.select_box li a {
+    display: block;
+    width: 90px;
+    height: 26px;
+    cursor: pointer;
+    outline: none;
+}
+
+.select_bd {
+    border: 1px solid #ccc;
+    border-top: 0;
+    overflow: hidden;
+    text-align: left;
+}
+
+.links {
+    width: 958px;
+    margin: 10px auto 0 auto;
+    padding: 8px 0 4px 0;
+    border: #e4e4e4 solid 1px;
+    background: #fafafa;
+    white-space: nowrap;
+}
+
+.links h4 {
+    float: left;
+    width: 100px;
+    text-align: center;
+    color: #7a7a7a;
+    margin-top: 5px;
+    *+ margin-top : 6 px;
+}
+
+.links a {
+    display: block;
+    float: left;
+    margin-right: 12px;
+    color: #7a7a7a;
+    line-height: 30px;
+    font-family: "����";
+    text-decoration: underline;
+}
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          

@@ -1,0 +1,10 @@
+<#include "inc/head.html"/>
+<h1>${currChannel.name}</h1>
+<ul>
+    <@channelList siteid="${site.id}" parid="${currChannel.id}" ;sonChannel>
+    <li>
+        <a href="${sonChannel.pageurl}" target="_blank">${sonChannel.name}</a>
+    </li>
+</@channelList>
+</ul>
+<#include "inc/foot.html"/>

@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords"
+          content="郑州博丰软件有限公司，郑州网站建设，郑州网站制作，郑州做网站，软件开发，网站推广，网站优化"/>
+    <meta name="description"
+          content="郑州博丰软件有限公司一直致力于品牌网站建设、软件定制开发、网站推广，平面设计"/>
+    <meta name="copyright" contect="郑州博丰软件有限公司"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <title>WSCMS(内容管理系统)-企业演示网站</title>
+    <link href="/site/company/resources/images/style.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #copyright {
+            width: 88px;
+        }
+
+        #copyright span {
+            width: 88px;
+            height: 26px;
+            text-align: right;
+            float: right;
+            position: relative;
+        }
+
+        .partners {
+            cursor: pointer;
+            width: 88px;
+            height: 12px;
+            border: 0;
+            margin-right: 20px;
+            background: #e70112;
+            color: #FFF;
+        }
+
+        .down {
+            text-align: center;
+            position: absolute;
+            top: -120px;
+            left: 0;
+            width: 88px;
+            border: 1px solid #CCC;
+            display: none;
+        }
+
+        .down a {
+            float: left;
+            list-style-type: none;
+            width: 88px;
+            cursor: pointer;
+            height: 20px;
+            line-height: 20px;
+            background: #b4acac;
+            color: #FFF;
+            border: 1px solid #CCC;
+        }
+
+        .down a:hover, .down:hover {
+            background: #F66;
+        }
+    </style>
+    <script type="text/javascript">
+        var ks = 0;
+    </script>
+    <script src="/site/company/resources/js/shadeLayer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/site/company/resources/js/swfobject.js"></script>
+    <script src="/site/company/resources/js/photopng.js" type="text/javascript"></script>
+    <script src="/site/company/resources/js/embeded.js" type="text/javascript"></script>
+    <script src="/site/company/resources/js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var k = 0;
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3522367-4']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+
+<body>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#gonggaodiv").css({"display": "block"});
+        $("#gonggaodiv").animate({width: 700, height: 730}, "fast");
+        $("#close_gonggao").click(function () {
+            $("#gonggaodiv").animate({width: 0, height: 0}, "fast", function () {
+                $("#gonggaodiv").css({"display": "none"});
+                $("#bg_color").css({"display": "none"});
+            });
+        })
+    });
+</script>
+<div id="container">
+    <div class="head">
+        <div class="logo">
+            <img src="/site/company/resources/images/logo.png" width="256" height="81"/>
+        </div>
+        <div class="topnav">
+            业务咨询
+            <a target=blank
+               href=tencent://message/?uin=565321924&Site=博丰软件&Menu=yes><img
+                    border="0" SRC=http://wpa.qq.com/pa?p=1:565321924:1
+                    alt="点击这里给我发消息">
+            </a> 售后服务
+            <a target=blank
+               href=tencent://message/?uin=124812878&Site=博丰软件&Menu=yes><img
+                    border="0" SRC=http://wpa.qq.com/pa?p=1:124812878:1
+                    alt="点击这里给我发消息">
+            </a>
+            <a href="javascript:void(0)" onclick="shadeLayer.init('loginbox')"/><a
+                href="listOne.aspx?channel=lxfc">联系我们 13838558267</a>
+        </div>
+        <div class="nav">
+            <div id="banner_pf" onmouseout="pfout()">
+                <a href="/site/company/index.html"
+                   onclick="javascript:window.top.location.href='/Default.aspx'"
+                   onmouseout="pfout()">
+                    <li onmouseover="pfgd(0,this)">
+                        首页
+                    </li>
+                </a>
+                <a onmouseout="pfout()"
+                   onclick="javascript:window.top.location.href='/site/company/aboutbf/index.html'"
+                   href="/site/company/aboutbf/index.html">
+                    <li
+                            onmouseover="pfgd(1,this)">
+                        关于博丰
+                    </li>
+                </a>
+                <a onmouseout="pfout()"
+                   onclick="javascript:window.top.location.href='/site/company/news/index.html'"
+                   href="/site/company/news/index.html">
+                    <li
+                            onmouseover="pfgd(2,this)">
+                        新闻中心
+                    </li>
+                </a>
+                <a onmouseout="pfout()"
+                   onclick="javascript:window.top.location.href='/site/company/soft/index.html'"
+                   href="/site/company/soft/index.html">
+                    <li
+                            onmouseover="pfgd(3,this)">
+                        软件开发
+                    </li>
+                </a>
+                <a onmouseout="pfout()"
+                   onclick="javascript:window.top.location.href='/site/company/website/index.html'"
+                   href="/site/company/website/index.html">
+                    <li
+                            onmouseover="pfgd(4,this)">
+                        网站建设
+                    </li>
+                </a>
+                <a onmouseout="pfout()"
+                   onclick="javascript:window.top.location.href='/site/company/mobile/index.html'"
+                   href="/site/company/mobile/index.html">
+                    <li
+                            onmouseover="pfgd(5,this)">
+                        手机开发
+                    </li>
+                </a>
+                <a onmouseout="pfout()"
+                   onclick="javascript:window.top.location.href='/site/company/added/index.html'"
+                   href="/site/company/added/index.html">
+                    <li
+                            onmouseover="pfgd(6,this)">
+                        增值服务
+                    </li>
+                </a>
+                <a onmouseout="pfout()"
+                   onclick="javascript:window.top.location.href='/site/company/contactus/index.html'"
+                   href="/site/company/contactus/index.html">
+                    <li
+                            onmouseover="pfgd(7,this)">
+                        联系我们
+                    </li>
+                </a>
+
+
+                <div id="pf"></div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        function showAndHide(obj, types) {
+            var Layer = window.document.getElementById(obj);
+            switch (types) {
+                case "show":
+                    Layer.style.display = "block";
+                    break;
+                case "hide":
+                    Layer.style.display = "none";
+            }
+        }
+        function getValue(obj, str) {
+            window.open(str);
+        }
+    </script>
+    <script type="text/javascript">
+        pfout();
+    </script>
+    <div class="sub_banner"><img
+            src="/upload/6ec601fd-69a0-4469-a6f7-d1edb7136481/b7d31659-6463-4bb2-a9f6-a2d6aeb5d237.jpg"/></div>
+    <!---location start --->
+    <div class="location">
+        <div class="location_middle">
+            <div class="location_title">
+                <a href="/site/company/index.html">首页</a>
+                -> <a href="/site/company/soft/index.html">软件开发</a>
+                -> <a href="/site/company/wscms/index.html">WSCMS(内容管理系统)</a>
+
+
+            </div>
+            <div class="loaction_title_right"></div>
+
+        </div>
+    </div>
+    <!---location end --->
+    <div class="sub_main">
+        <div class="sub_main_left">
+
+            <a id="about_subnav" href="/site/company/softcustom/index.html"
+                    >软件定制开发</a>
+            <a id="about_subnav" href="/site/company/solution/index.html"
+                    >解决方案</a>
+            <a id="about_subnav" href="/site/company/ws/index.html"
+                    >WS应用集成系统</a>
+            <a id="about_subnav" href="/site/company/wscms/index.html"
+               style="background-position:0 100%;color:#FFF;"
+                    >WSCMS(内容管理系统)</a>
+
+        </div>
+        <div class="sub_main_right">
+            <div class="height_content_a_top"
+                 style="width:790px; background-image:url(/site/company/resources/images/height_content_a_top.jpg);"></div>
+            <div class="height_content_a_middle"
+                 style="width:740px; background-image:url(/site/company/resources/images/height_content_a_middle.jpg);">
+
+                <div>
+                    <p>
+                        WS系列内容管理系统是国内最专业的java网站内容管理系统之一，它将是您轻松建站的首选利器。它最大的特点就是摒弃所谓的伪静态化处理（所谓伪静态，即每次访问页面时依然访问数据库，这样会造成服务器压力，降低系统性能与访问速度），实现真正的静态化页面处理技术，提高系统性能与访问速度。采用struts2.0+MyBatis3+Freemaker2.3.16技术框架，开发有WSCMS专用页面标签，以XML命名空间风格创建页面模板，模板全部使用文件形式保存，对用户设计模板、网站升级转移均提供很大的便利，健壮的模板标签为网站管理员DIY
+                        自己的网站提供了强有力的支持。模型与模块概念并存：在模型不能满足用户所有需求的情况下，WSCMS推出一些互动的模块对系统进行补充，尽量满足用户的需求。众多的应用支持：为用户提供了各类网站建设的一体化解决方案，并支持网站群建设。<br/>
+                        本系统现在的版本为V2.0。<br/>
+                        WSCMS最适合应用于以下领域：<br/>
+                        &bull;政府机关，通过建立政府门户，有利于各种信息和资源的整合，为政府和社会公众之间加强联系和沟通，从而使政府可以更快、更便捷、更有效开展工作；<br/>
+                        &bull;行业网站，针对不同行业，强化内部的信息划分，体现行业的特色，网站含有行业的动态信息、产品、市场、技术、人才等信息，树立行业信息权威形象，为行业内产品供应链管理，提供实际的商业机会；<br/>
+                        &bull;教育机构，通过网络信息的引入，使得教育机构之间及教育机构内部和教育者之间进行信息传递，全面提升教育类网站的层面；<br/>
+                        &bull;媒体机构，互联网这种新媒体已经强而有力的冲击了传统媒体，在这个演变过程中，各类媒体机构应对自己核心有一个重新认识和重新发展的过程，建立一个数字技术平台以适应数字化时代的需求；<br/>
+                        &bull;收费网站，内容收费类型的网站，用户可以在线提供产品销售，或者内容收费，简单清晰的盈利模式，确保您以最小的投资，取得最大的回报；<br/>
+                        &bull;企业网站，无论大型还是中小型企业，利用网络传递信息在一定程度上提高了办事的效率，提高企业的竞争力；<br/>
+                        &bull;个人站长，兴趣为主导，建立各种题材新颖，内容丰富的网站，通过共同兴趣的信息交流，可以让您形成自己具有特色的用户圈，产生个人需求，并为其服务；</p>
+                </div>
+
+
+            </div>
+            <div class="height_content_a_bottom"
+                 style="width:790px; background-image:url(/site/company/resources/images/height_content_a_bottom.jpg);"></div>
+
+        </div>
+    </div>
+
+    <img src="/site/company/resources/images/why.png" width="1003"/>
+    <br>
+
+    <div class="foot">
+        <div class="bottom_menu">
+            友情链接：&nbsp;&nbsp;
+            <a href="http://www.fanhuan.com/come/#9300558" target="_blank">返还网</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://www.weituitui.com/t248292" target="_blank">微推推</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://www.ppdai.com/reg/vkqiang" target="_blank">拍拍贷</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://www.taobao.com" target="_blank">天猫</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://www.jumei.com/?r=i21816114" target="_blank">聚美优品</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://un.zhubajie.com/r/?u=2507721" target="_blank">猪八戒</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://www.51fanli.com/reg.asp?id=15943315" target="_blank">我要返利网</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="bottom_copy">
+            <p>
+						<span class="x_menu_wz"><a
+                                onclick="javascript:window.top.location.href='/Default.aspx'"
+                                href="/Default.aspx">首页</a>
+							
+							| &nbsp;<a
+                                    href="/site/company/aboutbf/index.html">关于博丰</a> &nbsp;
+							| &nbsp;<a
+                                    href="/site/company/news/index.html">新闻中心</a> &nbsp;
+							| &nbsp;<a
+                                    href="/site/company/soft/index.html">软件开发</a> &nbsp;
+							| &nbsp;<a
+                                    href="/site/company/website/index.html">网站建设</a> &nbsp;
+							| &nbsp;<a
+                                    href="/site/company/mobile/index.html">手机开发</a> &nbsp;
+							| &nbsp;<a
+                                    href="/site/company/added/index.html">增值服务</a> &nbsp;
+							| &nbsp;<a
+                                    href="/site/company/contactus/index.html">联系我们</a> &nbsp;
+							 </span>
+                <br/>
+                版权所有:企业演示网站 Copyright ©2010-2012 , Inc. All Rights Reserved
+                豫ICP备11031096
+                <br/>
+                建议使用1024*768分辨率浏览
+            </p>
+        </div>
+    </div>
+</div>
+<script>/*
+ window.onload=function(){
+ new Marquee("banner_logo",2,20,1000,50,20,1,1000,1);
+ };
+ function Marquee(){
+ this.ID=document.getElementById(arguments[0]);
+ this.Direction=arguments[1];
+ this.Step=arguments[2];
+ this.Width=arguments[3];
+ this.Height=arguments[4];
+ this.Timer=arguments[5];
+ this.WaitTime=arguments[6];
+ this.StopTime=arguments[7];
+ if(arguments[8]){this.ScrollStep=arguments[8];}else{this.ScrollStep=this.Direction>1?this.Width:this.Height;}
+ this.CTL=this.StartID=this.Stop=this.MouseOver=0;
+ this.ID.style.overflowX=this.ID.style.overflowY="hidden";
+ this.ID.noWrap=true;
+ this.ID.style.width=this.Width;
+ this.ID.style.height=this.Height;
+ this.ClientScroll=this.Direction>1?this.ID.scrollWidth:this.ID.scrollHeight;
+ this.ID.innerHTML+=this.ID.innerHTML;
+ this.Start(this,this.Timer,this.WaitTime,this.StopTime);
+ }
+ Marquee.prototype.Start=function(msobj,timer,waittime,stoptime){
+ msobj.StartID=function(){msobj.Scroll();}
+ msobj.Continue=function(){
+ if(msobj.MouseOver==1){setTimeout(msobj.Continue,waittime);}
+ else{clearInterval(msobj.TimerID); msobj.CTL=msobj.Stop=0; msobj.TimerID=setInterval(msobj.StartID,timer);}
+ }
+ msobj.Pause=function(){msobj.Stop=1; clearInterval(msobj.TimerID); setTimeout(msobj.Continue,waittime);}
+ msobj.Begin=function(){
+ msobj.TimerID=setInterval(msobj.StartID,timer);
+ msobj.ID.onmouseover=function(){}
+ msobj.ID.onmouseout=function(){}
+ }
+ setTimeout(msobj.Begin,stoptime);
+ }
+ Marquee.prototype.Scroll=function(){
+ switch(this.Direction){
+ case 0:
+ this.CTL+=this.Step;
+ if(this.CTL>=this.ScrollStep&&this.WaitTime>0){this.ID.scrollTop+=this.ScrollStep+this.Step-this.CTL; this.Pause(); return;}
+ else{if(this.ID.scrollTop>=this.ClientScroll) this.ID.scrollTop-=this.ClientScroll; this.ID.scrollTop+=this.Step;}
+ break;
+ case 1:
+ this.CTL+=this.Step;
+ if(this.CTL>=this.ScrollStep&&this.WaitTime>0){this.ID.scrollTop-=this.ScrollStep+this.Step-this.CTL; this.Pause(); return;}
+ else{if(this.ID.scrollTop<=0) this.ID.scrollTop+=this.ClientScroll; this.ID.scrollTop-=this.Step;}
+ break;
+ case 2:
+ this.CTL+=this.Step;
+ if(this.CTL>=this.ScrollStep&&this.WaitTime>0){this.ID.scrollLeft+=this.ScrollStep+this.Step-this.CTL; this.Pause(); return;}
+ else{if(this.ID.scrollLeft>=this.ClientScroll) this.ID.scrollLeft-=this.ClientScroll; this.ID.scrollLeft+=this.Step;}
+ break;
+ case 3:
+ this.CTL+=this.Step;
+ if(this.CTL>=this.ScrollStep&&this.WaitTime>0){this.ID.scrollLeft-=this.ScrollStep+this.Step-this.CTL; this.Pause(); return;}
+ else{if(this.ID.scrollLeft<=0) this.ID.scrollLeft+=this.ClientScroll; this.ID.scrollLeft-=this.Step;}
+ break;
+ }
+ }*/
+</script>
+</body>
+</html>
+
+
+<STYLE type=text/css>
+    .qqbox A:link {
+        COLOR: #000;
+        TEXT-DECORATION: none
+    }
+
+    .qqbox A:visited {
+        COLOR: #000;
+        TEXT-DECORATION: none
+    }
+
+    .qqbox A:hover {
+        COLOR: #f80000;
+        TEXT-DECORATION: underline
+    }
+
+    .qqbox A:active {
+        COLOR: #f80000;
+        TEXT-DECORATION: underline
+    }
+
+    .qqbox {
+        POSITION: absolute;
+        WIDTH: 132px;
+        LETTER-SPACING: 0px;
+        HEIGHT: auto;
+        COLOR: #000000;
+        FONT-SIZE: 12px;
+        OVERFLOW: hidden;
+        TOP: 200px;
+        RIGHT: 0px
+    }
+
+    .qqlv {
+        POSITION: relative;
+        WIDTH: 25px;
+        FLOAT: right;
+        HEIGHT: 256px;
+        OVERFLOW: hidden
+    }
+
+    .qqkf {
+        BORDER-BOTTOM: #cc0000 6px solid;
+        BORDER-LEFT: #cc0000 6px solid;
+        WIDTH: 120px;
+        BACKGROUND: #fff;
+        HEIGHT: auto;
+        OVERFLOW: hidden;
+        BORDER-TOP: #cc0000 6px solid;
+        TOP: 0px;
+        RIGHT: 0px;
+        BORDER-RIGHT: #cc0000 6px solid
+    }
+
+    .qqkfbt {
+        BORDER-BOTTOM: #fff 1px solid;
+        POSITION: relative;
+        TEXT-ALIGN: center;
+        BORDER-LEFT: #fff 1px solid;
+        LINE-HEIGHT: 20px;
+        WIDTH: 118px;
+        BACKGROUND: #cc0000;
+        HEIGHT: 20px;
+        COLOR: #fff;
+        OVERFLOW: hidden;
+        BORDER-TOP: #fff 1px solid;
+        CURSOR: pointer;
+        FONT-WEIGHT: bold;
+        BORDER-RIGHT: #fff 1px solid
+    }
+
+    .qqkfhm {
+        POSITION: relative;
+        LINE-HEIGHT: 22px;
+        MARGIN: 3px 0px;
+        WIDTH: 112px;
+        PADDING-RIGHT: 8px;
+        HEIGHT: 22px;
+        OVERFLOW: hidden
+    }
+
+    .bgdh {
+        PADDING-LEFT: 10px;
+        WIDTH: 102px
+    }
+
+    #K1 {
+        PADDING-LEFT: 15px
+    }
+</STYLE>
+
+<DIV id=divQQbox class=qqbox>
+    <DIV id=meumid class=qqlv>
+        <IMG src="/site/company/resources/images/qq.gif">
+    </DIV>
+    <DIV style="DISPLAY: none" id=contentid class=qqkf>
+        <DIV id=qq-1 class=qqkfbt onfocus=this.blur();>
+            客 服 中 心
+        </DIV>
+        <DIV id=K1>
+            <DIV>
+                业务咨询
+                <br/>
+                <a target=blank
+                   href=tencent://message/?uin=565321924&Site=博丰软件&Menu=yes><img
+                        border="0" SRC=http://wpa.qq.com/pa?p=1:565321924:1
+                        alt="点击这里给我发消息">
+                </a>
+                <br/>
+                售后服务
+                <br/>
+                <a target=blank
+                   href=tencent://message/?uin=124812878&Site=博丰软件&Menu=yes><img
+                        border="0" SRC=http://wpa.qq.com/pa?p=1:124812878:1
+                        alt="点击这里给我发消息">
+                </a>
+            </DIV>
+        </DIV>
+    </DIV>
+</DIV>
+<SCRIPT language=javascript>
+    function showandhide(h_id, hon_class, hout_class, c_id, totalnumber, activeno) {
+        var h_id, hon_id, hout_id, c_id, totalnumber, activeno;
+        for (var i = 1; i <= totalnumber; i++) {
+            document.getElementById(c_id + i).style.display = 'none';
+            document.getElementById(h_id + i).className = hout_class;
+        }
+        document.getElementById(c_id + activeno).style.display = 'block';
+        document.getElementById(h_id + activeno).className = hon_class;
+    }
+    var tips;
+    var theTop = 200;
+    var old = theTop;
+    function initFloatTips() {
+        tips = document.getElementById('divQQbox');
+        moveTips();
+    }
+    function moveTips() {
+        var tt = 50;
+        if (window.innerHeight) {
+            pos = window.pageYOffset
+        } else if (document.documentElement && document.documentElement.scrollTop) {
+            pos = document.documentElement.scrollTop
+        } else if (document.body) {
+            pos = document.body.scrollTop;
+        }
+        pos = pos - tips.offsetTop + theTop;
+        pos = tips.offsetTop + pos / 10;
+        if (pos < theTop) {
+            pos = theTop;
+        }
+        if (pos != old) {
+            tips.style.top = pos + "px";
+            tt = 10; //alert(tips.style.top); 
+        }
+        old = pos;
+        setTimeout(moveTips, tt);
+    }
+    initFloatTips();
+    if (typeof (HTMLElement) != "undefined") //firefox定义contains()方法，ie下不起作用
+    {
+        HTMLElement.prototype.contains = function (obj) {
+            while (obj != null && typeof (obj.tagName) != "undefind") {
+                if (obj == this) return true;
+                obj = obj.parentNode;
+            }
+            return false;
+        }
+    }
+    function show() {
+        document.getElementById("meumid").style.display = "none"
+        document.getElementById("contentid").style.display = "block"
+    }
+    function hideMsgBox(theEvent) {
+        if (theEvent) {
+            var browser = navigator.userAgent;
+            if (browser.indexOf("Firefox") > 0) { //如果是Firefox
+                if (document.getElementById("contentid").contains(theEvent.relatedTarget)) {
+                    return
+                }
+            }
+            if (browser.indexOf("MSIE") > 0 || browser.indexOf("Presto") >= 0) {
+                if (document.getElementById('contentid').contains(event.toElement)) {
+                    return;
+                }
+            }
+        }
+        document.getElementById("meumid").style.display = "block";
+        document.getElementById("contentid").style.display = "none";
+    }
+    show();
+</SCRIPT>
+

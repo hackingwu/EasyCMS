@@ -1,0 +1,152 @@
+body {
+    scrollbar-face-color: #D7E0EB;
+    scrollbar-highlight-color: #E9EDF3;
+    scrollbar-shadow-color: #B4C7E4;
+    scrollbar-3dlight-color: #F3F7F8;
+    scrollbar-arrow-color: #2B61B4;
+    scrollbar-track-color: #EFEFEF;
+    scrollbar-darkshadow-color: #DEE3E7;
+}
+
+A:link {
+    COLOR: #0a4173;
+}
+
+A:visited {
+    COLOR: #0a4173;
+}
+
+A:hover {
+    COLOR: #1274BA;
+}
+
+A:active {
+    COLOR: #1274BA;
+}
+
+.reverse a:link, .reverse a:visited, .reverse a:active {
+    color: #1274BA;
+}
+
+.reverse:hover {
+    color: white;
+    background: #1274BA;
+}
+
+.emphasize {
+    color: #E83820;
+}
+
+.colordiv {
+    line-height: 25px;
+    background: #F5FBFF;
+    text-align: left;
+}
+
+.toptitle, .toptitle a:link, .toptitle a:visited {
+    background-image: url(bg_top.gif);
+}
+
+.toptitle a:hover {
+    background-image: url(bg_top2.gif);
+}
+
+.toptitle_r, .toptitle_r a:link, .toptitle_r a:visited {
+    background-image: url(bg_top.gif);
+}
+
+.toptitle_r a:hover {
+    background-image: url(bg_top2.gif);
+}
+
+.topline {
+    background-color: #93b9dc
+}
+
+.lefttab {
+    background-image: url(bg_left.gif);
+}
+
+.lefttab2 {
+    background: url(bg_left2.gif) no-repeat left top;
+    border: 1px #FFF solid;
+}
+
+.tabOn {
+    background-image: url(tabon.gif);
+}
+
+.tabOff {
+    background-image: url(taboff.gif);
+}
+
+.tabOn6 {
+    background-image: url(tabon6.gif);
+}
+
+.tabOff6 {
+    background-image: url(taboff6.gif);
+}
+
+.column {
+    border: 1px #93b9dc solid;
+}
+
+.column100 {
+    border: 1px #93b9dc solid;
+}
+
+.columntitle {
+    background: #bfd3e6;
+    border-bottom: 1px #93b9dc solid;
+    color: #000000;
+}
+
+.columntitle span {
+    color: #000000;
+}
+
+.columnsubtitle {
+    background: #F5FBFF;
+    border-top: 1px #d5e3ef solid;
+    color: #0A4173;
+}
+
+.separator {
+    background: #eff2f4;
+}
+
+.colorfocus {
+    border: 1px #86a1ba double;
+    background-color: #fff8e6;
+}
+
+.colorblur {
+    border: 1px #86a1ba double;
+    background-color: #ffffff;
+}
+
+.inputfocus {
+    border: 1px #86a1ba double;
+    background-color: #fff8e6;
+}
+
+.inputblur {
+    border: 1px #86a1ba double;
+    background-color: #ffffff;
+}
+
+.button {
+    border: 1px #93b9dc solid;
+    background: url(button_bg.gif) repeat;
+    cursor: hand
+}
+
+.summary-title {
+    background: #f0f6fc;
+    border-top: 1px #d5e3ef solid;
+}
+
+.tdbg-dark {
+    background: #d5e3ef;
+}

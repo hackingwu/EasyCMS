@@ -1,0 +1,14 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+<@jobPage  num='1' page='${page!1}' siteid='${site.id}' action='${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=job/jobPage.html';jobList,pager>
+
+<ul>
+    <#list jobList as job>
+        <li>
+            <a href="${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=job/job.html&jobid=${job.id}">${job.name}</a>
+        </li>
+    </#list>
+</ul>
+${pager.formPageStr}
+</@jobPage>
+<#include "../inc/foot.html"/>

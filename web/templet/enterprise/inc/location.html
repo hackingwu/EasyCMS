@@ -1,0 +1,18 @@
+<div class="sub_banner"><img src="${currChannel.img}"/></div>
+<!---location start --->
+<div class="location">
+    <div class="location_middle">
+        <div class="location_title">
+            <a href="${contextPath}site/${site.sourcepath}/index.html">首页</a>
+            <@channelPath siteid="${site.id}" id="${currChannel.id}" ;channel>
+            -> <a href="${channel.pageurl}">${channel.name}</a>
+        </
+        @channelPath>
+
+        <#if currInfo??>-${currInfo.title!""}</#if>
+    </div>
+    <div class="loaction_title_right"></div>
+
+</div>
+</div>
+<!---location end --->

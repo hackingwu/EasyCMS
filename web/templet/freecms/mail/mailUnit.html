@@ -1,0 +1,135 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<script>
+    function validata(form) {
+        if (document.getElementById("mailtype").value == "") {
+            alert("请选择信件类型");
+            document.getElementById("mailtype").focus();
+            return false;
+        }
+        if (document.getElementById("title").value == "") {
+            alert("请输入信件标题");
+            document.getElementById("title").focus();
+            return false;
+        }
+        if (document.getElementById("writer").value == "") {
+            alert("请输入写信人");
+            document.getElementById("writer").focus();
+            return false;
+        }
+        if (document.getElementById("address").value == "") {
+            alert("请输入联系地址");
+            document.getElementById("address").focus();
+            return false;
+        }
+        if (document.getElementById("content").value == "") {
+            alert("请输入信件内容");
+            document.getElementById("content").focus();
+            return false;
+        }
+        if (document.getElementById("validatecode").value == "") {
+            alert("请输入验证码");
+            document.getElementById("validatecode").focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+<form name='mailForm' method='post'
+      action='${contextPath}templet_pro.do?siteid=${site.id}&templetPath=<@URLEncoder str="mail/mailSave.html";content>${content}</@URLEncoder>'
+      onsubmit="return validata(this);">
+    <TABLE width="98%" border=0 align=center cellPadding=1 cellspacing="1" bgcolor="#FFFFFF">
+        <tr>
+            <td width="15%" height=25 align="center" bgcolor="#FFFFFF">
+                <span style="letter-spacing:6px; padding-left:6px">收信人</span></td>
+            <td width="38%" height="25" align="left">&nbsp;&nbsp;
+
+                <select name="unitid">
+                    <option value=''>请选择</option>
+                    <@unitList parid="" filter="mail";unit,index>
+
+                    <option value="${unit.id}">${unit.name}</option>
+                </@unitList>
+                </select>
+
+            </td>
+            <td width="11%" height="25" align="center">信件类型</td>
+            <td width="36%" height="25" align="left">&nbsp;&nbsp;
+
+
+                <select name="mailtype" id="mailtype">
+
+                    <option value="">请选择类型</option>
+                    <@config code="mailType" split=",";configvalue,index>
+                    <option value="${configvalue}">${configvalue}</option>
+
+                </@config>
+                </select>        <font color="#FF0000"> * </font></td>
+        </tr>
+        <tr>
+            <td width="15%" height="25" align="center"> 信件标题</td>
+            <td height="25" colspan="3" align="left" style="padding-left:17px">
+                <input name="title" id="title" size=30 maxlength="50"
+                       onKeyPress="if (this.value.length==50) alert('不能多于50个字符！');">
+                <font color="#FF0000"> * </font></td>
+        </tr>
+        <tr>
+            <td height="25" align="center">写信人姓名</td>
+            <td height="25" align="left">&nbsp;&nbsp;
+                <input name=writer id=writer size=20 maxlength="16"
+                       onKeyPress="if (this.value.length==16) alert('不能多于16个字符！');">
+                <font color="#FF0000"> * </font></td>
+            <td height="25" align="center">联系电话</td>
+            <td height="25" align="left">&nbsp;&nbsp;
+                <input name=tel id=tel size=24 maxlength="24"
+                       onKeyPress="if (this.value.length==24) alert('不能多于24个字符！');"></td>
+        </tr>
+        <tr>
+            <td height="25" align="center">联系地址</td>
+            <td height="25" align="left">&nbsp;&nbsp;
+                <input name=address id=address size=30 maxlength="50"
+                       onKeyPress="if (this.value.length==50) alert('不能多于50个字符！');">
+                <font color="#FF0000"> * </font></td>
+            <td height="25" align="center">电子信箱</td>
+            <td height="25" align="left">&nbsp;&nbsp;
+                <input name=email id=email size=20 maxlength="30"
+                       onKeyPress="if (this.value.length==30) alert('不能多于30个字符！');">
+            </td>
+        </tr>
+        <tr>
+            <td height="25" align="center">是否公开</td>
+            <td height="25" colspan="3" align="left" bgcolor="#FFFFFF">&nbsp;
+                <input name="isopen" type="radio" value="1" checked>
+                公开
+                <input type="radio" name="isopen" value="0">
+                不公开
+            </td>
+        </tr>
+        <tr>
+            <td align="center">信件内容</td>
+            <td height="80" colspan="3" align="left">&nbsp;&nbsp;
+                <textarea name="content" cols="65" rows="6" id="content"></textarea>
+                <font color="#FF0000"> * </font></td>
+        </tr>
+        <tr>
+            <td height="25" align="center"><span style="letter-spacing:6px">验证码</span></td>
+            <td height="25" align="left" colspan="3">&nbsp;&nbsp;
+                <input type="text" id="validatecode" name="validatecode" size=10 maxlength="4">
+                &nbsp;&nbsp; <font color="#000000"> <img src="${contextPath}image.jsp" title="点击重新获取验证码"
+                                                         style="cursor:hand"
+                                                         onclick="this.src='${contextPath}image.jsp?date='+new Date();"/>
+
+                </font></td>
+        </tr>
+        <tr>
+            <td height="45" colspan="4" align="center" valign="bottom"><input type="submit" value="提 交"
+                                                                              style="font-size:14px;width:66px;height:26px;TEXT-ALIGN: center;padding-top:3px">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset" value="重 置"
+                       style="font-size:14px;width:66px;height:26px;TEXT-ALIGN: center;padding-top:3px"></td>
+        </tr>
+    </TABLE>
+</form>
+<#include "../inc/foot.html"/>
+

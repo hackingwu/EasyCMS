@@ -1,0 +1,16 @@
+<#include "inc/head.html"/>
+<h1>搜索结果</h1>
+
+<@infoSearch siteid="${site.id}"  num="25" action="${contextPath}templet_pro.ws"
+titleLen="48" dateFormat="yyyy-MM-dd" key="${key}"; infoList,pager>
+<ul>
+    <#list infoList as info>
+        <li>
+            <a href="${info.pageurl}" target="_blank">${info.showtitle}</a>
+            ${info.addtimeStr}
+        </li>
+    </#list>
+</ul>
+${pager.pageStr}
+</@infoSearch>
+<#include "inc/foot.html"/>

@@ -1,0 +1,665 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+body, th, td {
+    font-size: 12px;
+    font-family: Tahoma;
+    color #565553;
+}
+
+ul li, dl, dt, dd {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+input {
+    padding: 2px;
+}
+
+label {
+    cursor: pointer;
+}
+
+em, cite {
+    font-style: normal;
+}
+
+h1, h2, h2, h3, h4, button {
+    font-size: 100%;
+}
+
+button {
+    padding: 0 4px;
+    cursor: pointer;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+.clear {
+    clear: both;
+    overflow: hidden;
+    height: 0;
+}
+
+a {
+    color: #565553;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f00;
+    text-decoration: underline;
+}
+
+.header {
+    background: #f7f7f7;
+    border-bottom: 1px solid #e6e6e6;
+    height: 25px;
+    line-height: 25px;
+}
+
+.header_inner {
+    width: 960px;
+    padding: 0 10px;
+    margin: 0 auto;
+    color: #ccc;
+    text-align: left;
+}
+
+.header a {
+    color: #999;
+}
+
+.header_r span {
+    color: #ff0000;
+}
+
+.header_r .head_qqbook, .header_r .head_qqbook:hover {
+    background: #f3397c;
+    padding: 1px 8px 1px 8px;
+}
+
+.header_r .head_favorite {
+    background: #f35f39;
+}
+
+.header_r .head_friend {
+    background: #f3397c;
+}
+
+.header_r a, .header_r a:hover {
+    color: #fff;
+    padding: 3px 8px 1px 8px;
+    _padding: 1px 8px 2px 8px;
+}
+
+.top {
+    height: 85px;
+}
+
+.top_inner {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.top h1 {
+    background: url(../images/logo.gif) no-repeat 4px center;
+    width: 364px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.top h1 a {
+    display: block;
+    color: #996c33;
+    font-weight: normal;
+    line-height: 90px;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.top a:hover {
+    color: #996c33;
+    text-decoration: none;
+}
+
+.top .top_topic {
+    padding: 12px 0 0 0;
+}
+
+.top .top_topic img {
+    vertical-align: top;
+    border: 0;
+}
+
+.menu, .menu_l, .menu_r {
+    background: url(../images/menu.gif) no-repeat;
+}
+
+.menu {
+    width: 957px;
+    padding: 0 0 0 3px;
+    margin: 0 auto;
+}
+
+.menu_l {
+    background-position: right 0;
+    width: 954px;
+    padding: 0 3px 0 0;
+}
+
+.menu_r {
+    background-repeat: repeat-x;
+    background-position: 0 -65px;
+    width: 954px;
+    height: 65px;
+    overflow: hidden;
+}
+
+.menu ul {
+    float: left;
+}
+
+.menu li {
+    float: left;
+    background: url(../images/menu_line.gif) no-repeat right 2px;
+    height: 38px;
+    line-height: 38px;
+    overflow: hidden;
+    padding: 0 8px;
+}
+
+.menu li a {
+    display: block;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+.menu li a:hover {
+    color: #fff;
+}
+
+.menu .selected label {
+    display: block;
+    background: url(../images/list_menu_selected.gif) no-repeat 0 4px;
+    padding: 0 0 0 13px;
+}
+
+.menu .selected a {
+    display: block;
+    background: url(../images/list_menu_selected.gif) no-repeat right 4px;
+    color: #ff6620;
+    padding: 0 13px 0 0;
+}
+
+.menu .selected a:hover {
+    color: #ff6620;
+}
+
+.menu_search {
+    background: url(../images/top_search_ico.gif) no-repeat 0 9px;
+    width: 321px;
+    height: 35px;
+    overflow: hidden;
+    padding: 4px 0 0 75px;
+}
+
+.menu_search .keyword {
+    background: url(../images/search_txt.gif) #fff no-repeat;
+    border: 1px solid #ea3609;
+    width: 238px;
+    padding: 5px 0 2px 6px;
+    font-size: 14px;
+    color: #999;
+    text-align: left;
+}
+
+.menu_search button {
+    background: url(../images/search_btn.gif) no-repeat;
+    border: 0;
+    width: 70px;
+    height: 25px;
+    text-indent: -1000em;
+    overflow: hidden;
+}
+
+.shop_hot {
+    background: url(../images/shop_hot_ico.gif) no-repeat 12px 4px;
+    width: 960px;
+    padding: 0 10px;
+    line-height: 24px;
+    margin: 0 auto;
+    color: #efdcc2;
+    text-align: left;
+}
+
+.shop_hot strong {
+    color: #996c33;
+    padding: 0 8px 0 24px;
+}
+
+.shop_hot a {
+    color: #666666;
+    margin: 0 1px 0 3px;
+}
+
+.shop_hot span {
+    margin: 0 1px;
+}
+
+.shop_hot em, .shop_hot em a {
+    color: #eb6100;
+    margin: 0;
+}
+
+.wp {
+    margin: 0 auto;
+    width: 960px;
+    padding: 0 10px;
+}
+
+.wp_r {
+    width: 755px;
+    margin: 8px 0 0 0;
+}
+
+.footer {
+    background: url(../images/foot_bg.gif) repeat-x;
+    width: 100%;
+    height: 50px;
+    margin: 10px auto 0 auto;
+}
+
+.foot_inner {
+    width: 950px;
+    padding: 16px 12px;
+    margin: 0 auto;
+}
+
+.footer .foot_menu {
+    text-align: left;
+}
+
+.footer, .footer a {
+    color: #999999;
+}
+
+.btn {
+    border: 1px solid #d3ba95;
+    background: url(../images/btn_bg.gif) repeat-x;
+    height: 21px;
+    line-height: 20px;
+    color: #996c33;
+}
+
+.dot_line {
+    background: url(../images/dot_line.gif) repeat-x bottom;
+}
+
+.mt10 {
+    margin: 10px 0 0 0;
+}
+
+.bg_btm {
+    background: #e6e6e6;
+    height: 2px;
+    font-szie: 0;
+    line-height: 0;
+    margin: 0 1px;
+}
+
+.hot {
+    color: #f00;
+}
+
+.f_org, a.f_org, .f_org a {
+    color: #fe6800;
+}
+
+.box {
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+
+.box h3 {
+    float: left;
+    background: url(../images/index_menu.gif) no-repeat;
+    text-align: left;
+    width: 20px;
+    height: 222px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+    padding: 32px 0 0 4px;
+}
+
+.box .prefect {
+    background-position: -26px 0;
+}
+
+.box .pop {
+    background-position: -52px 0;
+}
+
+.crown_bd {
+    border: 2px solid #ffa915;
+    padding: 1px 2px;
+    width: 723px;
+}
+
+.crown_inner {
+    background: url(../images/box_crown_bg.gif);
+}
+
+.crown_inner ul {
+    background: url(../images/box_crown.gif) repeat-y 10px 0;
+}
+
+.prefect_bd {
+    border: 2px solid #64b949;
+    padding: 1px 2px;
+    width: 723px;
+}
+
+.prefect_inner {
+    background: url(../images/box_prefect_bg.gif);
+}
+
+.prefect_inner ul {
+    background: url(../images/box_prefect.gif) repeat-y 10px 0;
+}
+
+.pop_bd {
+    border: 2px solid #5d8cc2;
+    padding: 1px 2px;
+    width: 723px;
+}
+
+.pop_inner {
+    background: url(../images/box_pop_bg.gif);
+}
+
+.pop_inner ul {
+    background: url(../images/box_pop.gif) repeat-y 10px 0;
+}
+
+.box li {
+    width: 100%;
+    height: 31px;
+    line-height: 31px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.box li label {
+    float: left;
+    color: #fff;
+    width: 42px;
+    text-align: right;
+}
+
+.box li label a, .box li label a:hover {
+    color: #fff;
+    font-size: 12px;
+    margin: 0;
+}
+
+.box li a {
+    margin: 0 18px 0 20px;
+    font-size: 14px;
+}
+
+.box li .r {
+    margin: 0 6px 0 0;
+    font-size: 12px;
+    font-family: Verdana, Arial, Helvetica, sans-serif
+}
+
+.list_sort {
+    width: 192px;
+    float: left;
+}
+
+.list_shop {
+    width: 760px;
+}
+
+.shop_sort {
+    background: url(../images/shop_sch_bg.gif) no-repeat;
+    padding: 7px 0 0 0;
+}
+
+.shop_sort h3 {
+    border: 1px solid #dabf96;
+    height: 26px;
+    line-height: 26px;
+    color: #996c33;
+    margin: -1px 0 0 0;
+}
+
+.shop_sort .shop_sort_fst {
+    background: url(../images/index_sort_ico.gif) no-repeat #fffecf 6px 5px;
+    border-top: 0px;
+    text-align: left;
+    padding: 0 0 0 26px;
+}
+
+.shop_sort .shop_sort_fst em {
+    margin: -26px 10px 0 0;
+    font-weight: normal;
+}
+
+.shop_sort .shop_sort_fst em a {
+    color: #996c33;
+}
+
+.shop_sort_box {
+    border: 1px solid #d8d8d8;
+    border-top: 0;
+    background: #fafafa;
+    padding: 6px 0 0 0;
+}
+
+.shop_sort_box .sort_tj li {
+    text-align: left;
+    overflow: hidden;
+}
+
+.shop_sort_box .sort_tj li a {
+    display: block;
+    background: url(../images/shop_history_ico.gif) no-repeat 10px 9px;
+    text-align: left;
+    height: 23px;
+    line-height: 23px;
+    padding: 0 0 0 20px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.shop_sort_box .hot {
+    color: #f00;
+}
+
+.more_sort {
+    border-top: 2px solid #dedede;
+    background: #eaeaea;
+    padding: 5px 0 3px 5px;
+}
+
+.more_sort a img {
+    filter: alpha(opacity=70)
+}
+
+.more_sort a:hover img {
+    filter: alpha(opacity=100)
+}
+
+.good_box {
+    border: 1px solid #d8d8d8;
+    border-top: 0;
+    background: #fafafa;
+    padding: 2px 0 1px 0;
+}
+
+.good_box li {
+    background: url(../images/dot_line.gif) repeat-x bottom;
+    width: 178px;
+    height: 75px;
+    padding: 8px 0 6px 0;
+    margin: 0 auto;
+    clear: both;
+}
+
+.good_box .tgjg li {
+    background: none;
+    float: right;
+    width: 100px;
+    height: auto;
+    padding: 0;
+    text-align: left;
+}
+
+.good_box .tgjg li a {
+    display: block;
+    height: 34px;
+    line-height: 16px;
+    overflow: hidden;
+    margin: 0 0 3px 0;
+    text-align: left;
+}
+
+.good_box em {
+    color: #996c33;
+    line-height: 20px;
+}
+
+.sort_more {
+    background: url(../images/index_sort_more.gif) no-repeat center;
+    width: 169px;
+    height: 32px;
+    line-height: 30px;
+    margin: 0 auto;
+    padding: 6px 0;
+}
+
+.sort_more a {
+    display: block;
+    height: 32px;
+    color: #fff;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.sort_more a:hover {
+    color: #FFFF99;
+    text-decoration: none;
+}
+
+#layer_categories {
+    position: absolute;
+    visibility: hidden;
+    top: 0px;
+    left: 0px;
+    border: 3px solid #ff7350;
+    background: #fff;
+    width: 486px;
+    height: 351px;
+    z-index: 4;
+    overflow: hidden;
+}
+
+#categoriescontent {
+    border: 1px solid #ff4415;
+    background: #fff;
+    height: 100%;
+    overflow: hidden;
+}
+
+#layer_categories span {
+    float: left;
+    background: url(../images/dot_line_yel.gif) repeat-x bottom #fffee1;
+    border-right: 1px solid #fee0b2;
+    font-size: 14px;
+    width: 83px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #eb6100;
+    font-weight: bold;
+}
+
+#layer_mask {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#layer_categories ul {
+    float: left;
+    background: url(../images/dot_line_yel.gif) repeat-x bottom;
+    width: 400px;
+    height: 52px;
+    padding: 8px 0 0 0;
+}
+
+#layer_categories ul li {
+    float: left;
+    list-style-type: none;
+    white-space: nowrap;
+    height: 22px;
+    line-height: 22px;
+    text-align: left;
+    padding: 0 8px 0 12px;
+}
+
+.links {
+    width: 956px;
+    margin: 10px auto 0 auto;
+    padding: 8px 0 6px 0;
+    border: #e0e0e0 solid 1px;
+    background: #f8f8f8;
+    white-space: nowrap;
+}
+
+.links h4 {
+    float: left;
+    width: 100px;
+    text-align: center;
+    color: #7a7a7a;
+    margin-top: 6px;
+    height: 18px;
+}
+
+.links a {
+    display: block;
+    float: left;
+    margin-right: 12px;
+    color: #7a7a7a;
+    line-height: 26px;
+    font-family: "����";
+    text-decoration: underline;
+}
+
+.links a:hover {
+    color: #f00
+}
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

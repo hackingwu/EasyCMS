@@ -1,0 +1,14 @@
+<#include "inc/head.html"/>
+<h1>${currInfo.title} 的全部评论</h1>
+<@commentPage  num='10' page='${page!1}' objtype="info" objid="${currInfo.id}"
+action='${contextPath}templet_pro.do?siteid=${site.id}&currInfoid=${currInfo.id}&currChannelid=${currChannel.id}&templetPath=comment.html';commentList,pager>
+<ul>
+    <#list commentList as comment>
+        <li>
+            ${comment.content!""}
+        </li>
+    </#list>
+</ul>
+${pager.formPageStr}
+</@commentPage>
+<#include "inc/foot.html"/>

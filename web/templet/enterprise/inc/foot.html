@@ -1,0 +1,288 @@
+<img src="${contextPath}site/${site.sourcepath}/resources/images/why.png" width="1003"/>
+<br>
+<div class="foot">
+    <div class="bottom_menu">
+        友情链接：&nbsp;&nbsp;
+        <@link siteid="${site.id}" classPagemark="yqlj" ;link>
+        <a href="${link.url}" target="_blank">${link.name}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    </
+    @link>
+</div>
+<div class="bottom_copy">
+    <p>
+						<span class="x_menu_wz"><a
+                                onclick="javascript:window.top.location.href='/Default.aspx'"
+                                href="/Default.aspx">首页</a>
+							
+						<@channelList siteid="${site.id}" parid="par" navigation="1" state="1";channel,index> 
+							| &nbsp;<a href="${channel.pageurl}">${channel.name}</a> &nbsp;
+						</@channelList>
+        </span>
+        <br/>
+        版权所有:${site.name} Copyright ©2010-2012 , Inc. All Rights Reserved
+        ${site.recordcode}
+        <br/>
+        建议使用1024*768分辨率浏览
+    </p>
+</div>
+</div>
+</div>
+<script>/*
+ window.onload=function(){
+ new Marquee("banner_logo",2,20,1000,50,20,1,1000,1);
+ };
+ function Marquee(){
+ this.ID=document.getElementById(arguments[0]);
+ this.Direction=arguments[1];
+ this.Step=arguments[2];
+ this.Width=arguments[3];
+ this.Height=arguments[4];
+ this.Timer=arguments[5];
+ this.WaitTime=arguments[6];
+ this.StopTime=arguments[7];
+ if(arguments[8]){this.ScrollStep=arguments[8];}else{this.ScrollStep=this.Direction>1?this.Width:this.Height;}
+ this.CTL=this.StartID=this.Stop=this.MouseOver=0;
+ this.ID.style.overflowX=this.ID.style.overflowY="hidden";
+ this.ID.noWrap=true;
+ this.ID.style.width=this.Width;
+ this.ID.style.height=this.Height;
+ this.ClientScroll=this.Direction>1?this.ID.scrollWidth:this.ID.scrollHeight;
+ this.ID.innerHTML+=this.ID.innerHTML;
+ this.Start(this,this.Timer,this.WaitTime,this.StopTime);
+ }
+ Marquee.prototype.Start=function(msobj,timer,waittime,stoptime){
+ msobj.StartID=function(){msobj.Scroll();}
+ msobj.Continue=function(){
+ if(msobj.MouseOver==1){setTimeout(msobj.Continue,waittime);}
+ else{clearInterval(msobj.TimerID); msobj.CTL=msobj.Stop=0; msobj.TimerID=setInterval(msobj.StartID,timer);}
+ }
+ msobj.Pause=function(){msobj.Stop=1; clearInterval(msobj.TimerID); setTimeout(msobj.Continue,waittime);}
+ msobj.Begin=function(){
+ msobj.TimerID=setInterval(msobj.StartID,timer);
+ msobj.ID.onmouseover=function(){}
+ msobj.ID.onmouseout=function(){}
+ }
+ setTimeout(msobj.Begin,stoptime);
+ }
+ Marquee.prototype.Scroll=function(){
+ switch(this.Direction){
+ case 0:
+ this.CTL+=this.Step;
+ if(this.CTL>=this.ScrollStep&&this.WaitTime>0){this.ID.scrollTop+=this.ScrollStep+this.Step-this.CTL; this.Pause(); return;}
+ else{if(this.ID.scrollTop>=this.ClientScroll) this.ID.scrollTop-=this.ClientScroll; this.ID.scrollTop+=this.Step;}
+ break;
+ case 1:
+ this.CTL+=this.Step;
+ if(this.CTL>=this.ScrollStep&&this.WaitTime>0){this.ID.scrollTop-=this.ScrollStep+this.Step-this.CTL; this.Pause(); return;}
+ else{if(this.ID.scrollTop<=0) this.ID.scrollTop+=this.ClientScroll; this.ID.scrollTop-=this.Step;}
+ break;
+ case 2:
+ this.CTL+=this.Step;
+ if(this.CTL>=this.ScrollStep&&this.WaitTime>0){this.ID.scrollLeft+=this.ScrollStep+this.Step-this.CTL; this.Pause(); return;}
+ else{if(this.ID.scrollLeft>=this.ClientScroll) this.ID.scrollLeft-=this.ClientScroll; this.ID.scrollLeft+=this.Step;}
+ break;
+ case 3:
+ this.CTL+=this.Step;
+ if(this.CTL>=this.ScrollStep&&this.WaitTime>0){this.ID.scrollLeft-=this.ScrollStep+this.Step-this.CTL; this.Pause(); return;}
+ else{if(this.ID.scrollLeft<=0) this.ID.scrollLeft+=this.ClientScroll; this.ID.scrollLeft-=this.Step;}
+ break;
+ }
+ }*/
+</script>
+</body>
+</html>
+
+
+<STYLE type=text/css>
+    .qqbox A:link {
+        COLOR: #000;
+        TEXT-DECORATION: none
+    }
+
+    .qqbox A:visited {
+        COLOR: #000;
+        TEXT-DECORATION: none
+    }
+
+    .qqbox A:hover {
+        COLOR: #f80000;
+        TEXT-DECORATION: underline
+    }
+
+    .qqbox A:active {
+        COLOR: #f80000;
+        TEXT-DECORATION: underline
+    }
+
+    .qqbox {
+        POSITION: absolute;
+        WIDTH: 132px;
+        LETTER-SPACING: 0px;
+        HEIGHT: auto;
+        COLOR: #000000;
+        FONT-SIZE: 12px;
+        OVERFLOW: hidden;
+        TOP: 200px;
+        RIGHT: 0px
+    }
+
+    .qqlv {
+        POSITION: relative;
+        WIDTH: 25px;
+        FLOAT: right;
+        HEIGHT: 256px;
+        OVERFLOW: hidden
+    }
+
+    .qqkf {
+        BORDER-BOTTOM: #cc0000 6px solid;
+        BORDER-LEFT: #cc0000 6px solid;
+        WIDTH: 120px;
+        BACKGROUND: #fff;
+        HEIGHT: auto;
+        OVERFLOW: hidden;
+        BORDER-TOP: #cc0000 6px solid;
+        TOP: 0px;
+        RIGHT: 0px;
+        BORDER-RIGHT: #cc0000 6px solid
+    }
+
+    .qqkfbt {
+        BORDER-BOTTOM: #fff 1px solid;
+        POSITION: relative;
+        TEXT-ALIGN: center;
+        BORDER-LEFT: #fff 1px solid;
+        LINE-HEIGHT: 20px;
+        WIDTH: 118px;
+        BACKGROUND: #cc0000;
+        HEIGHT: 20px;
+        COLOR: #fff;
+        OVERFLOW: hidden;
+        BORDER-TOP: #fff 1px solid;
+        CURSOR: pointer;
+        FONT-WEIGHT: bold;
+        BORDER-RIGHT: #fff 1px solid
+    }
+
+    .qqkfhm {
+        POSITION: relative;
+        LINE-HEIGHT: 22px;
+        MARGIN: 3px 0px;
+        WIDTH: 112px;
+        PADDING-RIGHT: 8px;
+        HEIGHT: 22px;
+        OVERFLOW: hidden
+    }
+
+    .bgdh {
+        PADDING-LEFT: 10px;
+        WIDTH: 102px
+    }
+
+    #K1 {
+        PADDING-LEFT: 15px
+    }
+</STYLE>
+
+<DIV id=divQQbox class=qqbox>
+    <DIV id=meumid class=qqlv>
+        <IMG src="${contextPath}site/${site.sourcepath}/resources/images/qq.gif">
+    </DIV>
+    <DIV style="DISPLAY: none" id=contentid class=qqkf>
+        <DIV id=qq-1 class=qqkfbt onfocus=this.blur();>
+            客 服 中 心
+        </DIV>
+        <DIV id=K1>
+            <DIV>
+                业务咨询
+                <br/>
+                <a target=blank
+                   href=tencent://message/?uin=565321924&Site=博丰软件&Menu=yes><img
+                        border="0" SRC=http://wpa.qq.com/pa?p=1:565321924:1
+                        alt="点击这里给我发消息">
+                </a>
+                <br/>
+                售后服务
+                <br/>
+                <a target=blank
+                   href=tencent://message/?uin=124812878&Site=博丰软件&Menu=yes><img
+                        border="0" SRC=http://wpa.qq.com/pa?p=1:124812878:1
+                        alt="点击这里给我发消息">
+                </a>
+            </DIV>
+        </DIV>
+    </DIV>
+</DIV>
+<SCRIPT language=javascript>
+    function showandhide(h_id, hon_class, hout_class, c_id, totalnumber, activeno) {
+        var h_id, hon_id, hout_id, c_id, totalnumber, activeno;
+        for (var i = 1; i <= totalnumber; i++) {
+            document.getElementById(c_id + i).style.display = 'none';
+            document.getElementById(h_id + i).className = hout_class;
+        }
+        document.getElementById(c_id + activeno).style.display = 'block';
+        document.getElementById(h_id + activeno).className = hon_class;
+    }
+    var tips;
+    var theTop = 200;
+    var old = theTop;
+    function initFloatTips() {
+        tips = document.getElementById('divQQbox');
+        moveTips();
+    }
+    function moveTips() {
+        var tt = 50;
+        if (window.innerHeight) {
+            pos = window.pageYOffset
+        } else if (document.documentElement && document.documentElement.scrollTop) {
+            pos = document.documentElement.scrollTop
+        } else if (document.body) {
+            pos = document.body.scrollTop;
+        }
+        pos = pos - tips.offsetTop + theTop;
+        pos = tips.offsetTop + pos / 10;
+        if (pos < theTop) {
+            pos = theTop;
+        }
+        if (pos != old) {
+            tips.style.top = pos + "px";
+            tt = 10; //alert(tips.style.top); 
+        }
+        old = pos;
+        setTimeout(moveTips, tt);
+    }
+    initFloatTips();
+    if (typeof (HTMLElement) != "undefined") //firefox定义contains()方法，ie下不起作用
+    {
+        HTMLElement.prototype.contains = function (obj) {
+            while (obj != null && typeof (obj.tagName) != "undefind") {
+                if (obj == this) return true;
+                obj = obj.parentNode;
+            }
+            return false;
+        }
+    }
+    function show() {
+        document.getElementById("meumid").style.display = "none"
+        document.getElementById("contentid").style.display = "block"
+    }
+    function hideMsgBox(theEvent) {
+        if (theEvent) {
+            var browser = navigator.userAgent;
+            if (browser.indexOf("Firefox") > 0) { //如果是Firefox
+                if (document.getElementById("contentid").contains(theEvent.relatedTarget)) {
+                    return
+                }
+            }
+            if (browser.indexOf("MSIE") > 0 || browser.indexOf("Presto") >= 0) {
+                if (document.getElementById('contentid').contains(event.toElement)) {
+                    return;
+                }
+            }
+        }
+        document.getElementById("meumid").style.display = "block";
+        document.getElementById("contentid").style.display = "none";
+    }
+    show();
+</SCRIPT>
+

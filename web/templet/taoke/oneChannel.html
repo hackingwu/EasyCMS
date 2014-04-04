@@ -1,0 +1,23 @@
+<#include "inc/head.html"/>
+<div class="path"><em class="r"><img src="${contextPath}site/${site.sourcepath}/resources/images/top100.gif"/></em>
+
+    <div class="path_inner">您目前的位置：<a href="${contextPath}site/${site.sourcepath}/index.html">首页</a>
+        <@channelPath siteid="${site.id}" id="${currChannel.id}" ;channel>
+        - <a href="${channel.pageurl}">${channel.name}</a>
+    </
+    @channelPath>
+</div></div>
+<div class="category">
+    <h3>${currChannel.name}</h3>
+
+    <div class="category_bd">
+        <ul>
+            <@infoList siteid="${site.id}" channelParid="${currChannel.id}" num="100" titleLen="13"; info,index>
+            <li><a href="${info.pageurl}" target="_blank">${info.showtitle}</a></li>
+        </
+        @infoList>
+        </ul></div>
+
+
+</div>
+<#include "inc/foot.html"/>

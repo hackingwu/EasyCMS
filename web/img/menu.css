@@ -1,0 +1,88 @@
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul.container {
+    /* The topmost UL */
+    width: 155px;
+}
+
+li {
+    list-style: none;
+    text-align: left;
+}
+
+li.menu {
+    /* The main list elements */
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 155px;
+}
+
+li.button a {
+    /* The section titles */
+    display: block;
+    font-family: BPreplay, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    height: 24px;
+    overflow: hidden;
+    padding-top: 5px;
+    padding-left: 20px;
+    width: 155px;
+    cursor: hand;
+}
+
+li.button a:hover {
+    /* Removing the inherited underline from the titles */
+    text-decoration: none;
+}
+
+li.button a span {
+    /* This span acts as the right part of the section's background */
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4px;
+    display: block;
+}
+
+/* Setting up different styles for each section color */
+
+li.button a.blue {
+    background: url(blue.png) no-repeat top left;
+    color: #FFFFFF;
+}
+
+.dropdown {
+    /* The expandable lists */
+    display: none;
+    padding-top: 5px;
+    width: 155px;
+    font-family: BPreplay, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.dropdown li {
+    /* Each element in the expandable list */
+    background-color: #BFD3E6;
+    border: 1px solid #93B9DC;
+    color: #CCCCCC;
+    margin: 5px 0;
+    padding: 4px 18px;
+}
+
+.clear {
+    clear: both;
+}
+
+a, a:visited {
+    color: #0196e3;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

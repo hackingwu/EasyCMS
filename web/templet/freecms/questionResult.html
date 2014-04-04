@@ -1,0 +1,22 @@
+<#include "inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<@questionOne id='${questionid!""}' ; question,answerList>
+${question.name!""}<br>
+<table>
+    <tr>
+        <td>选项</td>
+        <td>选择次数</td>
+        <td>占比</td>
+    </tr>
+    <#list answerList as answer>
+        <tr>
+            <td>${answer.name!""}</td>
+            <td>${answer.selectnum!0}</td>
+            <td>${((answer.selectnum!0)/(question.selectnum!1))?string.percent}</td>
+        </tr>
+    </#list>
+</table>
+</@questionOne>
+<#include "inc/foot.html"/>
+

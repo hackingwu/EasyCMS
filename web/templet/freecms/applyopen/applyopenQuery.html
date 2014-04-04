@@ -1,0 +1,375 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<form name="mailForm" method="post"
+      action="${contextPath}templet_pro.do?siteid=${site.id}&templetPath=applyopen/applyopenQuery.html&currChannelid=${currChannel.id}">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="60" height="35" align="center" valign="middle">查询码：</td>
+            <td width="160" height="35" align="left" valign="middle"><input type="text" name="querycode"
+                                                                            style="width:150px;"/></td>
+        </tr>
+        <tr>
+            <td width="80" height="35" align="center" valign="middle"><input type="submit" name="button3" id="button3"
+                                                                             value="查询"/></td>
+            <td width="80" height="35" align="center" valign="middle"><input type="reset" name="button4" id="button4"
+                                                                             value="重置"/></td>
+        </tr>
+    </table>
+</form>
+
+<@applyopenQuery querycode='${querycode!""}' cache='true';applyopen>
+<#if (""!=(applyopen.id!""))>
+<table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF">
+    <tr>
+        <td height="25" align="left" valign="middle" bgcolor="#F2F4F5" style="padding-left:10px;">
+            ${applyopen.typeStr }
+        </td>
+    </tr>
+</table>
+<#if "0"==(applyopen.type!"")>
+    <table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF" id="table0">
+        <tr>
+            <td width="35" height="170" align="center" valign="middle" bgcolor="#F2F4F5" class="ysqgk_wz1"><p>申</p>
+
+                <p>请</p>
+
+                <p>人</p>
+
+                <p>信</p>
+
+                <p>息</p></td>
+            <td height="170" align="center" valign="middle" bgcolor="#FFFFFF">
+                <table width="660" border="0" cellpadding="0" cellspacing="1" bgcolor="#D8DEE5">
+                    <tr>
+                        <td width="28" rowspan="5" align="center" valign="middle" bgcolor="#EFF1F2" class="ysqgk_wz2"
+                            style="padding-left:6px;"><p>公</p>
+
+                            <p>民</p></td>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">姓名
+                        </td>
+                        <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                            style="padding-left:6px;">${applyopen.name}
+                        </td>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">工作单位
+                        </td>
+                        <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                            ${applyopen.unit}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">证件名称
+                        </td>
+                        <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                            style="padding-left:6px;">${applyopen.cardtype}
+                        </td>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">证件号码
+                        </td>
+                        <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                            ${applyopen.cardid}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">联系地址
+                        </td>
+                        <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                            style="padding-left:6px;">${applyopen.address}
+                        </td>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">邮政编码
+                        </td>
+                        <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                            ${applyopen.postcode}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">联系电话
+                        </td>
+                        <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                            style="padding-left:6px;">${applyopen.tel}
+                        </td>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">传真
+                        </td>
+                        <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                            ${applyopen.fax}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                            style="padding-left:6px;">电子信箱
+                        </td>
+                        <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                            style="padding-left:6px;">${applyopen.email}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <#else>
+        <table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF" id="table1">
+            <tr>
+                <td width="35" height="170" align="center" valign="middle" bgcolor="#F2F4F5" class="ysqgk_wz1"><p>申</p>
+
+                    <p>请</p>
+
+                    <p>人</p>
+
+                    <p>信</p>
+
+                    <p>息</p></td>
+                <td height="170" align="center" valign="middle" bgcolor="#FFFFFF">
+                    <table width="660" border="0" cellpadding="0" cellspacing="1" bgcolor="#D8DEE5">
+                        <tr>
+                            <td width="28" rowspan="8" align="center" valign="middle" bgcolor="#EFF1F2"
+                                class="ysqgk_wz2" style="padding-left:6px;"><p>法</p>
+
+                                <p>人</p>
+
+                                <p>/</p>
+
+                                <p>其</p>
+
+                                <p>他</p>
+
+                                <p>组</p>
+
+                                <p>织</p></td>
+                            <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                                style="padding-left:6px;">名称
+                            </td>
+                            <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                                style="padding-left:6px;">${applyopen.lpname}
+                            </td>
+                            <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                                style="padding-left:6px;">组织机构代码
+                            </td>
+                            <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                                ${applyopen.unitcode}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                                style="padding-left:6px;">法人代表
+                            </td>
+                            <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                                style="padding-left:6px;">${applyopen.legalperson}
+                            </td>
+                            <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                                style="padding-left:6px;">联系人姓名
+                            </td>
+                            <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                                ${applyopen.linkman}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                                style="padding-left:6px;">联系人电话
+                            </td>
+                            <td width="200" height="30" align="left" valign="middle" bgcolor="#FFFFFF"
+                                style="padding-left:6px;">${applyopen.linkmantel}
+                            </td>
+                            <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                                style="padding-left:6px;">传真
+                            </td>
+                            <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                                ${applyopen.lpfax}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="110" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                                style="padding-left:6px;">营业执照信息
+                            </td>
+                            <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                                style="padding-left:6px;">${applyopen.buslicense}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="left" valign="middle" bgcolor="#F4F5F6" style="padding-left:6px;">
+                                联系地址
+                            </td>
+                            <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                                style="padding-left:6px;">${applyopen.lpaddress}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="left" valign="middle" bgcolor="#F4F5F6" style="padding-left:6px;">
+                                邮政编码
+                            </td>
+                            <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                                style="padding-left:6px;">${applyopen.lppostcode}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="30" align="left" valign="middle" bgcolor="#F4F5F6" style="padding-left:6px;">
+                                电子信箱
+                            </td>
+                            <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                                style="padding-left:6px;">${applyopen.lpemail}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+</#if>
+
+
+<table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF">
+    <tr>
+        <td width="35" height="170" align="center" valign="middle" bgcolor="#F2F4F5" class="ysqgk_wz1"><p>所</p>
+
+            <p>需</p>
+
+            <p>信</p>
+
+            <p>息</p>
+
+            <p>情</p>
+
+            <p>况</p></td>
+        <td height="170" align="center" valign="middle" bgcolor="#FFFFFF">
+            <table width="660" border="0" cellspacing="1" cellpadding="0" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="142" height="60" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">所需信息的内容描述
+                    </td>
+                    <td height="60" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                        ${applyopen.detail}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="142" height="60" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">所需信息的用途
+                    </td>
+                    <td height="60" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                        ${applyopen.touse}
+                    </td>
+                </tr>
+            </table>
+            <table width="660" border="0" cellspacing="1" cellpadding="0" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="220" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">所需信息的指定提供方式(单选)
+                    </td>
+                    <td width="220" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">获取信息的方式(单选)
+                    </td>
+                    <td height="30" align="left" valign="middle" bgcolor="#F4F5F6" style="padding-left:6px;">是否申请减免费用
+                    </td>
+                </tr>
+                <tr>
+                    <td width="220" align="center" valign="top" bgcolor="#FFFFFF">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle">
+                                    ${applyopen.pubtypeStr}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="220" align="center" valign="top" bgcolor="#FFFFFF">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle">
+                                    ${applyopen.gettypeStr}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td align="center" valign="top" bgcolor="#FFFFFF">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="210" height="24" align="left" valign="middle">
+                                    ${applyopen.applyfreeStr}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF"
+                        style="padding-left:6px;">
+                        若受理机关无法按指定方式提供所需信息，也可接受其他方式: ${applyopen.othertypeStr}
+                    </td>
+                </tr>
+            </table>
+            <table width="660" border="0" cellspacing="1" cellpadding="0" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="142" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">所需信息的编号
+                    </td>
+                    <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                        ${applyopen.infonum}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF">
+    <tr>
+        <td width="35" align="center" valign="middle" bgcolor="#F2F4F5" class="ysqgk_wz1"><p>办</p>
+
+            <p>理</p>
+
+            <p>情</p>
+
+            <p>况</p></td>
+        <td align="center" valign="middle" bgcolor="#FFFFFF">
+            <table width="660" border="0" cellspacing="1" cellpadding="0" bgcolor="#D8DEE5">
+                <tr>
+                    <td width="142" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">办理状态
+                    </td>
+                    <td align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">${applyopen.stateStr}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="142" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">转办流程
+                    </td>
+                    <td align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                        ${applyopen.proflow!""}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="142" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">办理结果
+                    </td>
+                    <td align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                        ${applyopen.recontent!""}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="142" height="30" align="left" valign="middle" bgcolor="#F4F5F6"
+                        style="padding-left:6px;">办理时间
+                    </td>
+                    <td align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
+                        ${applyopen.retimeStr!""}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<#else>
+    <table width="710" border="0" cellpadding="0" cellspacing="1" bgcolor="#E6E6E6">
+        <tr>
+            <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" class="lan_bwz" style="padding-right:10px">
+                <font color="red"><b>没有找到相关数据!</b></font>
+            </td>
+        </tr>
+    </table>
+</#if>
+</@applyopenQuery>
+<#include "../inc/foot.html"/>
+

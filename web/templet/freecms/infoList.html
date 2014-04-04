@@ -1,0 +1,16 @@
+<#include "inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<@infoPage siteid="${site.id}" channelid="${currChannel.id}" num="1" page="${page}"
+pagenum="${pagenum!0}" titleLen="48" dateFormat="yyyy-MM-dd"; infoList,pager>
+<ul>
+    <#list infoList as info>
+        <li>
+            <a href="${info.pageurl}" target="_blank">${info.showtitle}</a>
+            ${info.addtimeStr}
+        </li>
+    </#list>
+</ul>
+${pager.pageStr}
+</@infoPage>
+<#include "inc/foot.html"/>

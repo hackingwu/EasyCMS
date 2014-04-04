@@ -1,0 +1,15 @@
+<#include "inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<@questionPage  num='1' page='${page!1}' siteid='${site.id}' action='${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=question.html';questionList,pager>
+
+<ul>
+    <#list questionList as question>
+        <li>
+            <a href="${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=questionOne.html&questionid=${question.id}">${question.name}</a>
+        </li>
+    </#list>
+</ul>
+${pager.formPageStr}
+</@questionPage>
+<#include "inc/foot.html"/>

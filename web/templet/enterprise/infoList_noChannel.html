@@ -1,0 +1,45 @@
+<#include "inc/head.html"/>
+<#include "inc/location.html"/>
+<div class="sub_main">
+
+
+    <@infoPage siteid="${site.id}" channelid="${currChannel.id}" num="5" page="${page}"
+    pagenum="${pagenum!0}" titleLen="38" dateFormat="yyyy-MM-dd"; infoList,pager>
+    <div class="sub_main_right">
+        <#list infoList as info>
+
+            <div class="news_box" style="width:1000px;">
+                <div class="news_box_left"></div>
+                <div class="news_box_middle">
+                    <div class="news_box_text1">
+                        <div class="news_box_title1">
+                            <ul>
+                                <li class="news_box_title_font1"><a href="${info.pageurl}">${info.showtitle}</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="news_box_content1"><a href="${info.pageurl}"><@html code='${info.description!""}'
+                            length='300';value>
+                            ${value}
+                        </@html>
+                            </a></div>
+                        <div class="news_box_more1"><a href="${info.pageurl}">详情&gt;&gt;</a></div>
+                    </div>
+                </div>
+                <div class="news_box_right"></div>
+            </div>
+        </#list>
+
+
+    </div>
+    <center>
+        <div class="page" id="case_page"> ${pager.pageStr}</div>
+    </center>
+
+</@infoPage>
+
+
+</div>
+
+
+<#include "inc/foot.html"/>

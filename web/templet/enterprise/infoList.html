@@ -1,0 +1,49 @@
+<#include "inc/head.html"/>
+<#include "inc/location.html"/>
+<div class="sub_main">
+
+
+    <#include "inc/left.html"/>
+
+    <@infoPage siteid="${site.id}" channelid="${currChannel.id}" num="5" page="${page}"
+    pagenum="${pagenum!0}" titleLen="48" dateFormat="yyyy-MM-dd"; infoList,pager>
+    <div class="sub_main_right">
+        <#list infoList as info>
+            <div class="news_box">
+                <div class="news_box_left"></div>
+                <div class="news_box_middle" style="width:760px;">
+                    <div class="news_box_text" style="width:730px;">
+                        <div class="news_box_title">
+                            <ul>
+                                <li class="news_box_title_font" style="width:640px;"><a target='_blank'
+                                                                                        href="${info.pageurl}"
+                                                                                        title='${info.title}'>${info.showtitle}</a>
+                                </li>
+                                <li>2013-4-27</li>
+
+                            </ul>
+                        </div>
+                        <div class="news_box_content" style="width:730px;"><a target='_blank' href="${info.pageurl}"
+                                                                              title='${info.title}'>
+                            <@html code='${info.description!""}' length='300';value>
+                            ${value}
+                        </@html>
+                            </a></div>
+                        <div class="news_box_more" style="width:730px;"><a target='_blank' href="${info.pageurl}"
+                                                                           title='${info.title}'>详情&gt;&gt;</a></div>
+                    </div>
+                </div>
+                <div class="news_box_right"></div>
+            </div>
+        </#list>
+
+
+    </div>
+    <center>
+        <div class="page" id="case_page"> ${pager.pageStr}</div>
+    </center>
+
+</@infoPage>
+
+
+<#include "inc/foot.html"/>

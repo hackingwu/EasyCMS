@@ -1,0 +1,18 @@
+<#include "../inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<@mailPage  num='1' page='${page!1}'
+action='${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=mail/mailPage.html';mailList,pager>
+
+<ul>
+    <#list mailList as mail>
+        <li>
+            ${mail.title}
+        </li>
+    </#list>
+</ul>
+${pager.formPageStr}
+</@mailPage>
+<#include "../inc/foot.html"/>
+
+

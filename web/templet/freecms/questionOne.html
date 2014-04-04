@@ -1,0 +1,44 @@
+<#include "inc/head.html"/>
+<h1>${currChannel.name}</h1>
+
+<script type="text/javascript" src="${contextPath}/js/jquery-1.5.1.min.js"></script>
+<script>
+    function answer(id) {
+        var val = "";
+        var objs = document.getElementsByName(id);
+        if (objs != null && objs.length > 0) {
+            for (var i = 0; i < objs.length; i++) {
+                if (objs[i].checked) {
+                    if (val != "") {
+                        val += ",";
+                    }
+                    val += objs[i].value;
+                }
+            }
+        }
+        var data = "question.id=" + id.replace("question", "") + "&answerval=" + val;
+        $.post("${contextPath}question_answer.do", data, answerComplete, "text");
+    }
+    function answerComplete(data) {
+        alert(data);
+    }
+</script>
+<@questionOne id='${questionid!""}' ; question,answerList>
+${question.name!""}<br>
+<ul>
+    <#list answerList as answer>
+        <li>
+            <input type="${question.selecttypeStr!""}" name="question${question.id}" value="${answer.id!""}"
+            <#if ((answer.isselect!"") == "1")>
+                checked
+            </#if>
+            >${answer.name!""}
+        </li>
+    </#list>
+</ul>
+<input type="button" value="投票" onclick="answer('question${question.id}')">
+<input type="button" value="查看结果"
+       onclick="window.open('${contextPath}templet_pro.do?siteid=${site.id}&templetPath=questionResult.html&currChannelid=${currChannel.id}&questionid=${question.id}');"/>
+</@questionOne>
+<#include "inc/foot.html"/>
+
