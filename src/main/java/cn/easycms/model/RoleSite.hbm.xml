@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.easycms.model">
+    <class name="RoleSite" table="role_site">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+        <property name="siteadmin" column="siteadmin" type="string"/>
+        <set name="sites">
+            <key column="siteid"/>
+            <one-to-many class="Site"/>
+        </set>
+        <set name="roles">
+            <key column="roleid"/>
+            <one-to-many class="Role"/>
+        </set>
+    </class>
+</hibernate-mapping>

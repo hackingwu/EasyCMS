@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.easycms.model">
+    <class name="User" table="user">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="loginName" type="string"></property>
+        <property name="roleNames" type="string"></property>
+        <property name="name" type="string"></property>
+        <property name="pwd" type="string"></property>
+        <property name="sex" type="string"></property>
+        <property name="birthday" type="string"></property>
+        <property name="tel" type="string"></property>
+        <property name="mobilephone" type="string"></property>
+        <property name="email" type="string"></property>
+        <property name="isOk" type="string"></property>
+        <property name="lastLoginTime" type="timestamp"></property>
+        <property name="lastestLoginTime" type="timestamp"></property>
+        <property name="loginFailNum" type="java.lang.Integer"></property>
+        <property name="loginNum" type="java.lang.Integer"></property>
+        <property name="addTime" type="timestamp"></property>
+        <property name="unitNames" type="string"></property>
+        <property name="unitIds" type="string"></property>
+        <property name="ismail" type="string"></property>
+    </class>
+</hibernate-mapping>

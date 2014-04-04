@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/tx
+                            http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop.xsd
+                            ">
+    <!--spring 和 hibernate 整合-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <!--xml文件中&要换成&amp；-->
+        <property name="url"
+                  value="jdbc:mysql://localhost/easycms?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="wu123456"/>
+    </bean>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingLocations">
+            <value>classpath:cn/easycms/model/*.hbm.xml</value>
+        </property>
+        <property name="hibernateProperties">
+            <!--设置Hibernate属性-->
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.use_sql_comments">true</prop>
+                <prop key="hibernate.current_session_context_class">
+                    org.springframework.orm.hibernate4.SpringSessionContext
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="leePointcut" expression="execution(* cn.easycms.service..*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="leePointcut"/>
+    </aop:config>
+    <bean id="daoImplTemplate" abstract="true" lazy-init="true">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--*DaoImpl-->
+    <bean id="UserDaoImpl" class="cn.easycms.dao.UserDaoImpl" parent="daoImplTemplate"/>
+    <bean id="FuncDaoImpl" class="cn.easycms.dao.FuncDaoImpl" parent="daoImplTemplate"/>
+    <bean id="OperlogsDaoImpl" class="cn.easycms.dao.OperlogsDaoImpl" parent="daoImplTemplate"/>
+    <bean id="SiteDaoImpl" class="cn.easycms.dao.SiteDaoImpl" parent="daoImplTemplate"/>
+    <bean id="RoleSiteDaoImpl" class="cn.easycms.dao.SiteDaoImpl" parent="daoImplTemplate"/>
+    <bean id="RoleDaoImpl" class="cn.easycms.dao.RoleDaoImpl" parent="daoImplTemplate"/>
+    <bean id="UserService" class="cn.easycms.service.UserService">
+        <property name="userDaoImpl" ref="UserDaoImpl"/>
+    </bean>
+    <bean id="SiteService" class="cn.easycms.service.SiteService">
+        <property name="siteDaoImpl" ref="SiteDaoImpl"/>
+    </bean>
+    <bean id="OperlogsService" class="cn.easycms.service.OperlogsService">
+        <property name="operlogsDaoImpl" ref="OperlogsDaoImpl"/>
+    </bean>
+    <bean id="UserAction" class="cn.easycms.action.UserAction" scope="prototype">
+        <property name="userService" ref="UserService"/>
+        <property name="operlogsService" ref="OperlogsService"/>
+    </bean>
+</beans>

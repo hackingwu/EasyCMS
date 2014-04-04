@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.easycms.model">
+    <class name="Func" table="func">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="name" type="string"></property>
+        <property name="isOk" type="string"></property>
+        <property name="orderNum" type="string"></property>
+        <property name="url" type="string"></property>
+        <property name="parId" type="string"></property>
+
+    </class>
+</hibernate-mapping>

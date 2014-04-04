@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+
+<struts>
+
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.action.extension" value="do"/>
+    <constant name="struts.devMode" value="true"/>
+    <package name="cmsWeb" extends="struts-default" namespace="/">
+        <action name="*_*" class="{1}Action" method="{2}">
+            <result name="success">/admin/index.jsp</result>
+        </action>
+    </package>
+</struts>
