@@ -71,8 +71,16 @@
     <bean id="OperlogsService" class="cn.easycms.service.OperlogsService">
         <property name="operlogsDaoImpl" ref="OperlogsDaoImpl"/>
     </bean>
+    <bean id="FuncService" class="cn.easycms.service.FuncService">
+        <property name="funcDaoImpl" ref="FuncDaoImpl"/>
+    </bean>
     <bean id="UserAction" class="cn.easycms.action.UserAction" scope="prototype">
         <property name="userService" ref="UserService"/>
+
         <property name="operlogsService" ref="OperlogsService"/>
+    </bean>
+    <bean id="adminAction" class="cn.easycms.action.AdminAction" scope="prototype">
+        <property name="funcService" ref="FuncService"/>
+        <property name="siteService" ref="SiteService"/>
     </bean>
 </beans>

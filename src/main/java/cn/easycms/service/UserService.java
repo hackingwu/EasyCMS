@@ -4,6 +4,7 @@ import cn.easycms.dao.UserDaoImpl;
 import cn.easycms.model.User;
 import org.hibernate.Query;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class UserService {
         this.userDaoImpl = userDaoImpl;
     }
 
-    public String isExist(User user) {
+    public String isExist(HttpSession session,User user) {
         String msg = "";
         Query query = userDaoImpl.getCurrentSession().createQuery("from User u where u.loginName=? and u.pwd=?");
         query.setParameter(0, user.getLoginName());
@@ -29,6 +30,8 @@ public class UserService {
                 user.setLastLoginTime(user.getLastestLoginTime());
                 user.setLastestLoginTime(new Date());
                 userDaoImpl.update(user);
+                session.setAttribute("loginAdmin",user);
+                session.setAttribute("currentFolder","/"+user.getLoginName()+"/");
 
             } else {
                 msg = "此用户已禁用";

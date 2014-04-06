@@ -9,7 +9,7 @@
       href="../img/style3.css">
 <script>
     if (window.parent.location.href.toLowerCase().indexOf("/admin/index.jsp") == -1) {
-        window.parent.location.href = "<%=checkParentBasePath%>admin/admin_right.do";
+        window.parent.location.href = "<%=checkParentBasePath%>admin/Admin_right.do";
     }
 </script>
 <html>

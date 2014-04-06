@@ -1,0 +1,13 @@
+<?xml version = "1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.easycms.model">
+    <class name="RoleFunc" table="role_func">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+        <one-to-one name="role" class="cn.easycms.model.Role" cascade="all"/>
+        <one-to-one name="func" cascade="all"/>
+    </class>
+</hibernate-mapping>

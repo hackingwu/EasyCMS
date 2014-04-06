@@ -47,11 +47,12 @@ public class UserAction extends BaseAction {
         HttpSession session = getHttpSession();
 
         if (ValidateCode != null && ValidateCode.equals(session.getAttribute("rand"))) {
-            msg = userService.isExist(user);
+            msg = userService.isExist(session,user);
         } else {
             msg = "验证码错误!";
         }
         if (msg == null || "".equals(msg)) {
+
             operlogsService.log(user.getLoginName(), "登陆系统", getHttpRequest());
             return SUCCESS;
         } else {

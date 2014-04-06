@@ -58,4 +58,14 @@ public class Func {
     public void setParId(String parId) {
         this.parId = parId;
     }
+
+    private Boolean hasChildren;
+
+    public void setHasChildren(Boolean hasChildren) {
+        this.hasChildren = hasChildren;
+    }
+
+    public Boolean getHasChildren() {
+        return hasChildren;
+    }
 }

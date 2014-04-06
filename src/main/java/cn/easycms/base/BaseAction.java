@@ -1,5 +1,6 @@
 package cn.easycms.base;
 
+import cn.easycms.model.User;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 
@@ -23,4 +24,22 @@ public class BaseAction extends ActionSupport {
         return getHttpRequest().getSession();
     }
 
+    public boolean isAdminLogin(){
+        return "admin".equals(getLoginName());
+    }
+
+    private String getLoginName() {
+        if (getLoginAdmin()!=null){
+            return getLoginAdmin().getLoginName();
+        }
+        return "";
+    }
+
+    private User getLoginAdmin() {
+        if (getHttpSession().getAttribute("loginAdmin")!=null){
+            return (User)getHttpSession()
+                    .getAttribute("loginAdmin");
+        }
+        return null;
+    }
 }

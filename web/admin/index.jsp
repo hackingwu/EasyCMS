@@ -21,7 +21,7 @@
     <frame name="top" scrolling="no" src="admin_top.do">
     <!--所有.do都会被structs2处理-->
 
-    <frameset id="bottomframes" framespacing="0" border="false" cols="170,7,*" frameborder="0" scrolling="yes">
+    <frameset id="bottomframes" framespacing="0" border="false" cols="170,7,*" frameborder="0" scrolling="yes" >
         <frame name="left" scrolling="auto" marginwidth="0" marginheight="0" src="admin_left.do" noresize/>
         <frame id="separator" name="separator" src="separator.html" noresize scrolling="no"/>
         <frame name="right" id="right" scrolling="auto"
