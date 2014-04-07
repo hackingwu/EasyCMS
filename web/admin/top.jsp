@@ -4,7 +4,7 @@
 <%@include file="../util/checkParentFrame.jsp" %>
 <HTML>
 <HEAD>
-    <TITLE>FreeCMS-管理中心</TITLE>
+    <TITLE>EasyCMS-管理中心</TITLE>
     <META http-equiv=Content-Type content="text/html; charset=utf-8">
     <link rel="stylesheet" href="../img/style2.css" type="text/css"/>
     <script>
@@ -34,7 +34,7 @@
                                                                                                  src="../img/logo.png"/>&nbsp;
         </TD>
         <TD colspan="2" style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; line-height:28px; height:28px; text-align:right;">
-            &nbsp;您好:${loginAdmin.name }，欢迎使用 FreeCMS 1.5 &nbsp;&nbsp;&nbsp;
+            &nbsp;您好:${loginAdmin.name }，欢迎使用 EasyCMS &nbsp;&nbsp;&nbsp;
 
         </TD>
     </TR>

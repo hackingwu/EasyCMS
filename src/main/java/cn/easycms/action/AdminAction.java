@@ -1,8 +1,10 @@
 package cn.easycms.action;
 
 import cn.easycms.base.BaseAction;
+import cn.easycms.model.AdminLink;
 import cn.easycms.model.Func;
 import cn.easycms.model.Site;
+import cn.easycms.service.AdminLinkService;
 import cn.easycms.service.FuncService;
 import cn.easycms.service.SiteService;
 import freemarker.template.utility.StringUtil;
@@ -15,22 +17,69 @@ import java.util.List;
  */
 public class AdminAction extends BaseAction {
     List<Func> funcList;
-    private FuncService funcService;
-
-    public void setFuncService(FuncService funcServie) {
-        this.funcService = funcService;
-    }
 
     private SiteService siteService;
+    private FuncService funcService;
+    private AdminLinkService adminLinkService;
     private String funcid;
     private String siteid;
+    //right.jsp中的系统连接的List
+    private List<AdminLink> sysLink;
+    //用户的链接。
+    private List<AdminLink> userLink;
+
+    public List<AdminLink> getSysLink() {
+        return sysLink;
+    }
+
+    public List<AdminLink> getUserLink() {
+        return userLink;
+    }
+
+    public void setAdminLinkService(AdminLinkService adminLinkService) {
+        this.adminLinkService = adminLinkService;
+    }
 
     public void setSiteService(SiteService siteService) {
         this.siteService = siteService;
     }
+    public void setFuncService(FuncService funcService) { this.funcService = funcService; }
+
+    public List<Func> getFuncList() {
+        return funcList;
+    }
+
+    public void setFuncList(List<Func> funcList) {
+        this.funcList = funcList;
+    }
+
+    public SiteService getSiteService() {
+        return siteService;
+    }
+
+    public FuncService getFuncService() {
+        return funcService;
+    }
+
+    public String getFuncid() {
+        return funcid;
+    }
+
+    public void setFuncid(String funcid) {
+        this.funcid = funcid;
+    }
+
+    public String getSiteid() {
+        return siteid;
+    }
+
+    public void setSiteid(String siteid) {
+        this.siteid = siteid;
+    }
 
     public String left() {
         Site manageSite = null;
+
         if (siteid != null && siteid.trim().length() > 0) {
             manageSite = siteService.findById(siteid);
         } else {
@@ -99,6 +148,16 @@ public class AdminAction extends BaseAction {
             funcid = funcList.get(0).getId();
         }
         return "top";
+    }
+    /**
+     * 右侧
+     */
+    public String right(){
+        sysLink = adminLinkService.findLinkByType(AdminLink.TYPE_SYSTEM);
+
+        userLink= adminLinkService.findLinkByType(AdminLink.TYPE_USER);
+
+        return "right";
     }
 
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <HTML>
 <HEAD>
-    <TITLE>FreeCMS-管理中心</TITLE>
+    <TITLE>EasyCMS-管理中心</TITLE>
     <script>
         function changeDisplayMode() {
             if (document.getElementById("bottomframes").cols == "170,7,*") {
@@ -18,12 +18,13 @@
 </HEAD>
 
 <frameset id="mainframes" framespacing="0" border="false" rows="62,*" frameborder="0" scrolling="yes">
-    <frame name="top" scrolling="no" src="admin_top.do">
+<!-- rows="62,*"-->
+<frame name="top" scrolling="no" src="admin_top.do">
     <!--所有.do都会被structs2处理-->
-
-    <frameset id="bottomframes" framespacing="0" border="false" cols="170,7,*" frameborder="0" scrolling="yes" >
-        <frame name="left" scrolling="auto" marginwidth="0" marginheight="0" src="admin_left.do" noresize/>
-        <frame id="separator" name="separator" src="separator.html" noresize scrolling="no"/>
+<!-- cols="170,7,*" -->
+    <frameset id="bottomframes" framespacing="0" border="false"  frameborder="0" scrolling="yes" >
+        <frame name="left" scrolling="auto" marginwidth="0" marginheight="0" src="admin_left.do" />
+        <frame id="separator" name="separator" src="separator.html"  scrolling="no" />
         <frame name="right" id="right" scrolling="auto"
                src="<%=(request.getParameter("url")!=null && request.getParameter("url").trim().length()>0)?request.getParameter("url"):"admin_right.do" %>">
     </frameset>

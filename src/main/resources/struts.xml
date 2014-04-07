@@ -6,23 +6,25 @@
 
 
 <struts>
-
+    <constant name="struts.serve.static.browserCache" value="false"/>
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <constant name="struts.objectFactory" value="spring"/>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.action.extension" value="do"/>
     <constant name="struts.devMode" value="true"/>
-    <package name="cmsWeb" extends="struts-default" namespace="/">
-        <action name="*_*" class="{1}Action" method="{2}">
-            <result name="success">/admin/index.jsp</result>
-
+    <package name="root" extends="struts-default" namespace="/">
+        <action name="User_*" class="UserAction" method="{1}">
+            <result name="success" type="redirect">/admin/index.jsp</result>
         </action>
 
     </package>
-    <package name="admin" extends="struts-default" namespace="/admin">
-        <action name="*_*" class="{1}Action" method="{2}">
-            <result name="left">/admin/left.jsp</result>
-            <result name="top">/admin/top.jsp</result>
-            <result name="right">/admin/right.jsp</result>
-        </action>
 
+    <package name="admin" extends="struts-default" namespace="/admin">
+        <action name="admin_*" class="adminAction" method="{1}">
+            <result name="top">top.jsp</result>
+            <result name="left">left.jsp</result>
+            <result name="right">right.jsp</result>
+        </action>
     </package>
 </struts>

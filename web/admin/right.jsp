@@ -174,7 +174,7 @@
                         hello = "下午好，";
                     }
                     else if (hour < 19) {
-                        hello = "您好，";
+                        hello = "夕阳无限好，只是近黄昏！";
                     }
                     else if (hour < 22) {
                         hello = "晚上好，";
@@ -184,13 +184,13 @@
                     }
                     document.write(hello);
                 </script>
-                ${loginAdmin.loginname }
+                ${loginAdmin.loginName }
                 <span class="f_size normal addrtitle" id="spanGreeting">。</span><span
                     id="accountType"></span>
 
                 <div class="oneheight"></div>
                 <div class="level level_no" style="">
-                    欢迎使用FreeCMS系统 <br/>
+                    欢迎使用EasyCMS系统 <br/>
                     <jsp:include page="../util/sysInfo.jsp"></jsp:include>
                 </div>
             </li>
@@ -210,7 +210,7 @@
     <center>
         <table id="syslink">
             <tr>
-                <s:iterator value="syslink" id="bean" status="st">
+                <s:iterator value="sysLink" id="bean" status="st">
                 <td style="padding-left:15px;padding-right:15px;padding-top:10px;">
                     <a href='<s:property value="url"/>' target="_blank">
                         <img src='<s:property value="img"/>' class='pic' alt='<s:property value="name"/>'
@@ -226,7 +226,7 @@
         </table>
         <table id="userlink" style="display:none">
             <tr>
-                <s:iterator value="userlink" id="bean" status="st">
+                <s:iterator value="userLink" id="bean" status="st">
                 <td style="padding-left:15px;padding-right:15px;padding-top:10px;">
                     <a href='<s:property value="url"/>' target="_blank">
                         <img src='<s:property value="img"/>' class='pic' alt='<s:property value="name"/>'
