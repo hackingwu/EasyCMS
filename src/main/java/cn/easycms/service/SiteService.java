@@ -27,4 +27,30 @@ public class SiteService {
 
         return list==null||list.size()==0 ? null : (Site)list.get(0);
     }
+
+
+    public List selectByParId(String parId) {
+        return siteDaoImpl.getCurrentSession()
+                .createQuery("from Site where parId=?")
+                .setParameter(0,parId)
+                .list();
+    }
+
+    public Boolean hasChildren(String id) {
+        List list = selectByParId(id);
+        return list==null||list.size()==0?false:true;
+
+    }
+
+    public Boolean haveSourcePath(String sourcePath) {
+        List list = siteDaoImpl.getCurrentSession()
+                .createQuery("from Site where sourcePath=?")
+                .setParameter(0,sourcePath)
+                .list();
+        return list==null||list.size()==0?false:true;
+    }
+
+    public void insert(Site site) {
+        siteDaoImpl.save(site);
+    }
 }

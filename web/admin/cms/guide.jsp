@@ -45,7 +45,7 @@
                     </LABEL>
                 </TD>
                 <TD width="70%" align="left">
-                    <input type="hidden" name="site.parid" id="parid"/>
+                    <input type="hidden" name="site.parId" id="parid"/>
                     <INPUT onblur="this.className='colorblur';" id=parname title="点击选择父站点"
                            class=colorblur onfocus="this.className='colorfocus';" style="cursor:hand"
                            maxLength=50 type=text value="" readonly onClick="parButton()"/>
@@ -85,7 +85,7 @@
                            onpropertychange="checkLoginName(this)"
                            class=colorblur
                            onfocus="this.className='colorfocus';" ${site!=null && site.id!=null && site.id !=""?"readonly":"" }
-                           maxLength=50 type=text name=site.sourcepath value="">
+                           maxLength=50 type=text name=site.sourcePath value="">
                     <SPAN id=ctl03>*</SPAN>
                 </TD>
             </TR>
@@ -103,7 +103,7 @@
                 <TD width="70%" align="left">
                     <INPUT onblur="this.className='colorblur';" id=sitedomain
                            class=colorblur onfocus="this.className='colorfocus';"
-                           maxLength=50 type=text name=site.sitedomain value="">
+                           maxLength=50 type=text name=site.siteDomain value="">
                 </TD>
             </TR>
             <TR>
@@ -122,7 +122,7 @@
                            class=colorblur onfocus="this.className='colorfocus';"
                            onkeyup=if(!isInt(value))execCommand('undo')
                            onafterpaste=if(!isInt(value))execCommand('undo')
-                           maxLength=50 type=text name=site.ordernum value="">
+                           maxLength=50 type=text name=site.orderNum value="">
                 </TD>
             </TR>
             <TR>

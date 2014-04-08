@@ -8,8 +8,8 @@ import java.util.Set;
  */
 public class RoleSite {
     private String id;
-    private Set<Role> roles = new HashSet<Role>();
-    private Set<Site> sites = new HashSet<Site>();
+    private Role role = new Role();
+    private Site site = new Site();
     private String siteadmin;
 
     public String getId() {
@@ -20,20 +20,20 @@ public class RoleSite {
         this.id = id;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
-    public Set<Site> getSites() {
-        return sites;
+    public Site getSite() {
+        return site;
     }
 
-    public void setSites(Set<Site> sites) {
-        this.sites = sites;
+    public void setSite(Site site) {
+        this.site = site;
     }
 
     public String getSiteadmin() {

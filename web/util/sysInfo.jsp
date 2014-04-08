@@ -7,4 +7,4 @@
 个人主页  :  <a>https://github.com/hackingwu</a><br />
 <br/>
 <br/>
-<a href="" style="font-size: 20px;color: tomato">Buy Me a Beer</a>
+<!--<a href="" style="font-size: 20px;color: tomato">Buy Me a Beer</a>-->

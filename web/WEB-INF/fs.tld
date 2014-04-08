@@ -75,7 +75,7 @@
 
     <tag>
         <name>string</name>
-        <tagclass>cn.freeteam.tag.StringTag</tagclass>
+        <tagclass>cn.easycms.tag.StringTag</tagclass>
         <bodycontent>JSP</bodycontent>
 
 

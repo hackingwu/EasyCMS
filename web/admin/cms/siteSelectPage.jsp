@@ -23,101 +23,51 @@
     <script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
     <link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css"/>
     </script>
-    </
-    head >
-    < body >
-    < DIV
-    class
-    = tab >
-            < DIV
-    class
-    = tabOn >
+    </head >
+    <body>
+    <DIV class = tab>
+            <DIV class = tabOn>
             选择站点
-            <
-    /
-    DIV >
-    < DIV
-    class
-    = clearer > <
-    /
-    DIV >
-    <
-    /
-    DIV >
-    < DIV
-    class
-    = column >
-            < div
-    id = "man_zone"
-    style = "text-align:left" >
+            </DIV>
 
+            <DIV class = clearer></DIV>
+    </DIV>
+    <DIV class = column>
+            <div id = "man_zone" style = "text-align:left">
+                <ul id = "mixedpar">
+                    <s:if test="%{#session.loginAdmin.loginname == 'admin'}">
+                        <s:iterator value="siteList" status="bean">
+                            <li id = "<s:property value="id"/>" class= "hasChildren" >
+                                <span>
+                                    <font size = "2" >
+                                        <a href="#" onclick = "showDetail('<s:property value="id"/>','<s:property value="name"/>','')" > < b ><s:property value="name"/> < /b>
+                                        </a>
+                                    </font>
+                                </span>
+                                <ul>
+                                    <li><span>&nbsp;</spn></li>
+                                </ul>
+                            </li>
 
-            < ul
-    id = "mixedpar" >
-            <s:if test="%{#session.loginAdmin.loginname == 'admin'}">
-            <s:iterator value="siteList" status="bean">
-            < li
-    id = "<s:property value="id"/>"
-    class
-    = "hasChildren" >
-            < span > < font
-    size = "2" >
-            < a
-    href = "#"
-    onclick = "showDetail('<s:property value="id"/>','<s:property value="name"/>','')" > < b ><s:property value="name"/> < /b></
-    a > <
-    /
-    font >
-    <
-    /
-    span >
-    < ul >
-    < li > < span > & nbsp;
-    <
-    /span></
-    li >
-    <
-    /
-    ul >
-    <
-    /
-    li >
-    </s:iterator>
-    </s:if>
-    <s:if test="%{ #session.loginAdmin.loginname != 'admin'}">
-    <s:iterator value="siteList" status="bean">
-    < li
-    id = "<s:property value="id"/>"
-    class
-    = "hasChildren" >
-            < span > < font
-    size = "2" >
-            < a
-    href = "#"
-    onclick = "showDetail('<s:property value="id"/>','<s:property value="name"/>','')" > < b ><s:property value="name"/> < /b></
-    a > <
-    /
-    font >
-    <
-    /
-    span >
-    <
-    /
-    li >
-    </s:iterator>
-    </s:if>
-    <
-    /
-    ul >
+                        </s:iterator>
+                    </s:if>
+                    <s:if test="%{ #session.loginAdmin.loginname != 'admin'}">
+                        <s:iterator value="siteList" status="bean">
+                            <li id = "<s:property value="id"/>" class = "hasChildren">
+                                <span>
+                                   <font size="2">
+                                        <a href="#" onclick = "showDetail('<s:property value="id"/>','<s:property value="name"/>','')" > < b ><s:property value="name"/> < /b>
+                                        </a>
+                                   </font>
+                                </spn>
+                            </li>
+                        </s:iterator>>
+                    </s:if>
+                </ul>
+            </div>
+    </DIV>
 
-    <
-    /
-    div >
-    <
-    /
-    DIV >
-
-    < script
+    <script
     type = "text/javascript" >
             function initTreesPar() {
                 $("#mixedpar").treeview({

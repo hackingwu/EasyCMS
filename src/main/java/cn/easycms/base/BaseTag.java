@@ -43,7 +43,7 @@ public class BaseTag extends TagSupport{
 
         public String getLoginCompany(){
             if (getSession().getAttribute("loginCompany")!=null){
-                return (String)getSession().getAttribute("loginCompany"):
+                return (String)getSession().getAttribute("loginCompany");
             }
             return "";
         }

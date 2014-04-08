@@ -20,11 +20,22 @@
 
     </package>
 
-    <package name="admin" extends="struts-default" namespace="/admin">
-        <action name="admin_*" class="adminAction" method="{1}">
-            <result name="top">top.jsp</result>
-            <result name="left">left.jsp</result>
-            <result name="right">right.jsp</result>
+   <package name="admin" extends="struts-default" namespace="/admin">
+        <action name="*_*" class="{1}Action" method="{2}">
+            <result name="{2}">{2}.jsp</result>
         </action>
+
     </package>
+
+    <package name="cms" extends="struts-default" namespace="/admin/cms">
+        <action name="*_*" class="{1}Action" method="{2}">
+            <result name="{2}">{2}.jsp</result>
+            <result name="siteSelect">siteSelect.jsp</result>
+            <result name="siteSelectPar">siteSelectPar.jsp</result>
+            <result name="siteSelectPage">siteSelectPage.jsp</result>
+            <result name="guideTemplate">siteGuideTemplate.jsp</result>
+        </action>
+
+    </package>
+
 </struts>

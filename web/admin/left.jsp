@@ -52,9 +52,10 @@
     <div style='padding-top:6px;'>
         <s:if test="%{#session.manageSite != null}">
             <span style="cursor:hand" title="点击选择管理站点"
-                  onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'"><fs:string len="8"
-                                                                                                         str="${manageSite.name }"></fs:string> </span>
-            <img style="cursor:hand" onclick="window.open('<%=basePath %>site/${manageSite.sourcepath }/index.html');"
+                  onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">
+                <fs:string len="8" str="${manageSite.name }"></fs:string>点击选择管理站点
+            </span>
+            <img style="cursor:hand" onclick="window.open('<%=basePath %>site/${manageSite.sourcePath }/index.html');"
                  title="点击预览站点" src="../img/www.gif">
         </s:if>
         <s:if test="%{#session.manageSite == null}">
@@ -66,8 +67,9 @@
 <div class="columncontent" style="text-align:left">
     <ul class="container">
 
-        <s:iterator value="#session.funcs" id="bean">
-            <s:if test="%{#bean.parid==funcid}">
+            <s:iterator value="#session.funcs" id="bean">
+
+            <s:if test="%{#bean.parId==funcid}">
                 <li class="menu">
                     <ul>
                         <li class="button">
@@ -80,7 +82,7 @@
                             <li class="dropdown">
                                 <ul>
                                     <s:iterator value="#session.funcs" id="sonbean">
-                                        <s:if test="%{#sonbean.parid==#bean.id}">
+                                        <s:if test="%{#sonbean.parId==#bean.id}">
                                             <li><a target="right"
                                                    <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"
                                             </s:if> ><s:property value="name"/></a></li>

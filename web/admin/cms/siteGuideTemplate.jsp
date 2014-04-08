@@ -78,7 +78,7 @@
                            class=colorblur onfocus="this.className='colorfocus';"
                            maxLength=50 type=text name=templet.name value="">
                     <SPAN id=ctl03>*</SPAN>
-                </TD>
+                    </TD>
             </TR>
 
             <TR>

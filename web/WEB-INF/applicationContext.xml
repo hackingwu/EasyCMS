@@ -88,4 +88,8 @@
         <property name="siteService" ref="SiteService"/>
         <property name="adminLinkService" ref="AdminLinkService"/>
     </bean>
+    <bean id="siteAction" class="cn.easycms.action.SiteAction">
+        <property name="siteService" ref="SiteService"/>
+        <property name="operlogsService" ref="OperlogsService"/>
+    </bean>
 </beans>

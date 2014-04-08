@@ -213,8 +213,9 @@
                 <s:iterator value="sysLink" id="bean" status="st">
                 <td style="padding-left:15px;padding-right:15px;padding-top:10px;">
                     <a href='<s:property value="url"/>' target="_blank">
-                        <img src='<s:property value="img"/>' class='pic' alt='<s:property value="name"/>'
+                        <img src='../${img}' class='pic' alt='<s:property value="name"/>'
                              title='<s:property value="name"/>' width='190' height='150'/>
+
                     </a>
                 </td>
                 <s:if test='%{(#st.index+1)%4==0}'>
@@ -229,8 +230,9 @@
                 <s:iterator value="userLink" id="bean" status="st">
                 <td style="padding-left:15px;padding-right:15px;padding-top:10px;">
                     <a href='<s:property value="url"/>' target="_blank">
-                        <img src='<s:property value="img"/>' class='pic' alt='<s:property value="name"/>'
+                        <img src='../${img}' class='pic' alt='<s:property value="name"/>'
                              title='<s:property value="name"/>' width='190' height='150'/>
+
                     </a>
                 </td>
                 <s:if test='%{(#st.index+1)%4==0}'>

@@ -28,14 +28,14 @@ public class BaseAction extends ActionSupport {
         return "admin".equals(getLoginName());
     }
 
-    private String getLoginName() {
+    public String getLoginName() {
         if (getLoginAdmin()!=null){
             return getLoginAdmin().getLoginName();
         }
         return "";
     }
 
-    private User getLoginAdmin() {
+    public User getLoginAdmin() {
         if (getHttpSession().getAttribute("loginAdmin")!=null){
             return (User)getHttpSession()
                     .getAttribute("loginAdmin");

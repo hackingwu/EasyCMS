@@ -8,13 +8,7 @@
             <generator class="uuid"/>
         </id>
         <property name="siteadmin" column="siteadmin" type="string"/>
-        <set name="sites">
-            <key column="siteid"/>
-            <one-to-many class="Site"/>
-        </set>
-        <set name="roles">
-            <key column="roleid"/>
-            <one-to-many class="Role"/>
-        </set>
+        <one-to-one name="site" class="cn.easycms.model.Site" cascade="all"/>
+        <one-to-one name="role" class="cn.easycms.model.Role" cascade="all"/>
     </class>
 </hibernate-mapping>
