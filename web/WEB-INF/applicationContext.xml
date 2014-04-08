@@ -63,6 +63,8 @@
     <bean id="RoleSiteDaoImpl" class="cn.easycms.dao.SiteDaoImpl" parent="daoImplTemplate"/>
     <bean id="RoleDaoImpl" class="cn.easycms.dao.RoleDaoImpl" parent="daoImplTemplate"/>
     <bean id="AdminLinkDaoImpl" class="cn.easycms.dao.AdminLinkDaoImpl" parent="daoImplTemplate"/>
+    <bean id="TemplateDaoImpl" class="cn.easycms.dao.TemplateDaoImpl" parent="daoImplTemplate"/>
+
     <bean id="UserService" class="cn.easycms.service.UserService">
         <property name="userDaoImpl" ref="UserDaoImpl"/>
     </bean>
@@ -78,6 +80,9 @@
     <bean id="FuncService" class="cn.easycms.service.FuncService">
         <property name="funcDaoImpl" ref="FuncDaoImpl"/>
     </bean>
+    <bean id="TemplateService" class="cn.easycms.service.TemplateService">
+        <property name="templateDaoImpl" ref="TemplateDaoImpl"/>
+    </bean>
     <bean id="UserAction" class="cn.easycms.action.UserAction" scope="prototype">
         <property name="userService" ref="UserService"/>
 
@@ -91,5 +96,6 @@
     <bean id="siteAction" class="cn.easycms.action.SiteAction">
         <property name="siteService" ref="SiteService"/>
         <property name="operlogsService" ref="OperlogsService"/>
+        <property name="templateService" ref="TemplateService"/>
     </bean>
 </beans>

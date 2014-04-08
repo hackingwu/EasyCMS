@@ -1,11 +1,15 @@
 package cn.easycms.action;
 
+import antlr.StringUtils;
 import cn.easycms.base.BaseAction;
 import cn.easycms.model.Site;
+import cn.easycms.model.Template;
 import cn.easycms.service.OperlogsService;
 import cn.easycms.service.SiteService;
+import cn.easycms.service.TemplateService;
 import cn.easycms.util.FileUtil;
 import cn.easycms.util.ResponseUtil;
+import freemarker.template.utility.StringUtil;
 
 import java.util.List;
 
@@ -16,8 +20,27 @@ public class SiteAction extends BaseAction {
 
     private String type;
     private List siteList;
+    private Template template;
+    private String realPath = getHttpSession().getServletContext().getRealPath("/");
+    public Template getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(Template template) {
+        this.template = template;
+    }
+
     private SiteService siteService;
     private OperlogsService operlogsService;
+    private TemplateService templateService;
+
+    public TemplateService getTemplateService() {
+        return templateService;
+    }
+
+    public void setTemplateService(TemplateService templateService) {
+        this.templateService = templateService;
+    }
 
     public OperlogsService getOperlogsService() {
         return operlogsService;
@@ -175,10 +198,36 @@ public class SiteAction extends BaseAction {
             return null;
         }
         //如果源文件目录不存在，则可以创建源文件目录
-        FileUtil.mkdir(site.getSourcePath());
+        FileUtil.mkdir(realPath+"site/"+site.getSourcePath());
         siteService.insert(site);
         operlogsService.log(getLoginName(),"添加站点"+site.getName(),getHttpRequest());
         return "guideTemplate";
 
+    }
+
+    /**
+     * 建站向导->模板选择
+     * @return
+     */
+
+    public String guideTemplate(){
+        //这里的site是建站向导第一步“创建向导”时让在request中的。
+        //id是保存site的时候uuid。
+        if (site!=null && StringUtils.isNotEmpty(site.getId())){
+            site=siteService.findById(site.getId());
+        }
+        if (site!=null){
+            //选择模板和创建新模板 radio传值，之前就用过type，所有不用再new。
+            if ("0".equals(type)){
+                //选择模板
+                site.setIndexTemplate(template.getId());
+            }else{
+                //创建新模板
+                template.setState("1");
+                template.setAddUser(getLoginAdmin());
+                site.setIndexTemplate(templateService.add(template));
+                FileUtil.copyDirectory(realPath+"/template/default",realPath+"/template/"+template.getId());
+            }
+        }
     }
 }

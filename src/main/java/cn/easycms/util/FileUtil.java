@@ -21,4 +21,21 @@ public class FileUtil {
             System.out.println(file.getAbsolutePath());
         }
     }
+
+    public static void copyDirectory(String sourceDir, String targetDir) {
+        File sourceFolder = new File(sourceDir);
+        if (sourceFolder.exists()){
+            File targetFolder = new File(targetDir);
+            if (!targetFolder.exists()){
+                targetFolder.mkdirs();
+            }
+            File[] files = sourceFolder.listFiles();
+            for (int i = 0 ; i < files.length;i++){
+                if (files[i].isFile()){
+                    File sourceFile = file[i];
+                    File targetFile = new File(new File);
+                }
+            }
+        }
+    }
 }

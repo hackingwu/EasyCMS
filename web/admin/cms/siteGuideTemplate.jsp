@@ -54,7 +54,7 @@
                     </LABEL>
                 </TD>
                 <TD width="70%" align="left">
-                    <input type="hidden" name="templet.id" id="id"/>
+                    <input type="hidden" name="template.id" id="id"/>
                     <INPUT onblur="this.className='colorblur';" id=templetname title="点击选择父站点"
                            onclick="selectTemplet('${site.id }')"
                            class=colorblur onfocus="this.className='colorfocus';" style="cursor:hand"
@@ -76,7 +76,7 @@
                 <TD width="70%" align="left">
                     <INPUT onblur="this.className='colorblur';" id=name
                            class=colorblur onfocus="this.className='colorfocus';"
-                           maxLength=50 type=text name=templet.name value="">
+                           maxLength=50 type=text name=template.name value="">
                     <SPAN id=ctl03>*</SPAN>
                     </TD>
             </TR>

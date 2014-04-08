@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.easycms.model">
+    <class name="Template" table="template">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="name" type="string"/>
+        <property name="state" type="string"/>
+        <property name="useSites" type="string"/>
+        <property name="useSiteNames" type="string"/>
+        <property name="orderNum" type="string"/>
+        <many-to-one name="addUser" class="cn.easycms.model.User" cascade="save-update"/>
+    </class>
+</hibernate-mapping>
