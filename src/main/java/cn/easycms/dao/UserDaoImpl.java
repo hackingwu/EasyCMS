@@ -2,6 +2,7 @@ package cn.easycms.dao;
 
 
 import cn.easycms.base.BaseDaoImpl;
+import cn.easycms.model.User;
 
 import java.util.List;
 
@@ -15,4 +16,8 @@ public class UserDaoImpl extends BaseDaoImpl {
         return getCurrentSession().createQuery("from User").list();
     }
 
+    @Override
+    public Object get(String id) {
+        return getCurrentSession().get(User.class,id);
+    }
 }

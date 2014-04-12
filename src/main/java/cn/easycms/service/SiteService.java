@@ -2,9 +2,14 @@ package cn.easycms.service;
 
 import cn.easycms.dao.SiteDaoImpl;
 import cn.easycms.model.Site;
+import cn.easycms.util.StringUtil;
 import org.hibernate.Query;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by hackingwu on 2014/4/4.
@@ -52,5 +57,23 @@ public class SiteService {
 
     public void insert(Site site) {
         siteDaoImpl.save(site);
+    }
+
+    public void update(Site site) {
+        siteDaoImpl.update(site);
+    }
+
+    public void html(String id, ServletContext getServletContext, String contextPath, HttpServletRequest httpRequest, String loginName) {
+
+        Site site = findById(id);
+        //有site并且site有模板
+        if (site!=null && StringUtil.isNotEmpty(site.getIndexTemplate())){
+            Map<String,Object> data = new HashMap<String,Object>();
+            data.put("site",site);
+            //contextPath 比getContextPath多了"/";
+            data.put("contextPath",contextPath);
+            data.put("contextPathNo",httpRequest.getContextPath());
+            FreeMarkerUtil.createHTML();
+        }
     }
 }

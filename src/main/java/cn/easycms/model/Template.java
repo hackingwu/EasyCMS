@@ -67,4 +67,26 @@ public class Template {
     public void setAddUser(User addUser) {
         this.addUser = addUser;
     }
+
+    public final static String STATE_Y="1";
+    public final static String STATA_N="0";
+    public final static String STATE_DEL="3";
+    private String stateStr;
+    private String noDel;
+
+    public String getNoDel() {
+        return noDel;
+    }
+
+    public void setNoDel(String noDel) {
+        this.noDel = noDel;
+    }
+
+    public String getStateStr() {
+        return state.equals("2")?"已删除":(state.equals("0")?"否":"是");
+    }
+
+    public void setStateStr(String stateStr) {
+        this.stateStr = stateStr;
+    }
 }

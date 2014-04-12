@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@include file="../../util/checkParentFrame.jsp" %>
+<script src="js/siteGuideTemplet.js" type="text/javascript"/>
 <DIV class="column">
 
     <table cellspacing="1" cellpadding="1"
@@ -12,7 +13,7 @@
                 <b>模板名称</b>
             </TD>
         </TR>
-        <s:iterator value="templetList" status="bean">
+        <s:iterator value="templateList" status="bean">
             <TR class="tdbg" onMouseOver="this.className='tdbg-dark';"
                 onMouseOut="this.className='tdbg';">
                 <TD align="left" style="cursor:hand"

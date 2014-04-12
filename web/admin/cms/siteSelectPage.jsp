@@ -37,10 +37,11 @@
                 <ul id = "mixedpar">
                     <s:if test="%{#session.loginAdmin.loginname == 'admin'}">
                         <s:iterator value="siteList" status="bean">
-                            <li id = "<s:property value="id"/>" class= "hasChildren" >
+                            <li id = "${id}" class= "hasChildren" >
                                 <span>
                                     <font size = "2" >
-                                        <a href="#" onclick = "showDetail('<s:property value="id"/>','<s:property value="name"/>','')" > < b ><s:property value="name"/> < /b>
+                                        <a href="#" onclick = "showDetail('<s:property value="id"/>','<s:property value="name"/>','')" >
+                                            < b ><s:property value="name"/> < /b>
                                         </a>
                                     </font>
                                 </span>
@@ -53,10 +54,11 @@
                     </s:if>
                     <s:if test="%{ #session.loginAdmin.loginname != 'admin'}">
                         <s:iterator value="siteList" status="bean">
-                            <li id = "<s:property value="id"/>" class = "hasChildren">
+                            <li id = "{id}" class = "hasChildren">
                                 <span>
                                    <font size="2">
-                                        <a href="#" onclick = "showDetail('<s:property value="id"/>','<s:property value="name"/>','')" > < b ><s:property value="name"/> < /b>
+                                        <a href="#" onclick = "showDetail('<s:property value="id"/>','<s:property value="name"/>','')" >
+                                            < b ><s:property value="name"/> < /b>
                                         </a>
                                    </font>
                                 </spn>

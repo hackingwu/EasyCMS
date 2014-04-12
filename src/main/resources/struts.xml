@@ -28,14 +28,22 @@
     </package>
 
     <package name="cms" extends="struts-default" namespace="/admin/cms">
-        <action name="*_*" class="{1}Action" method="{2}">
-            <result name="{2}">{2}.jsp</result>
+        <global-results>
+            <result name="showMessage">/showMessage.jsp</result>
+        </global-results>
+        <action name="site_*" class="siteAction" method="{1}">
+            <result name="{1}">{1}.jsp</result>
             <result name="siteSelect">siteSelect.jsp</result>
             <result name="siteSelectPar">siteSelectPar.jsp</result>
             <result name="siteSelectPage">siteSelectPage.jsp</result>
             <result name="guideTemplate">siteGuideTemplate.jsp</result>
+            <result name="guideCompleted">siteGuideCompleted.jsp</result>
+            <result name="guideInit">siteGuideInit.jsp</result>
         </action>
+        <action name="template_*" class="templateAction" method="{1}">
+            <result name="select">templateSelect.jsp</result>
 
+        </action>
     </package>
 
 </struts>

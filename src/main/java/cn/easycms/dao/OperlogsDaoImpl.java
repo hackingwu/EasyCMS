@@ -2,6 +2,7 @@ package cn.easycms.dao;
 
 
 import cn.easycms.base.BaseDaoImpl;
+import cn.easycms.model.Operlogs;
 
 import java.util.List;
 
@@ -15,4 +16,8 @@ public class OperlogsDaoImpl extends BaseDaoImpl {
         return getCurrentSession().createQuery("from Operlogs").list();
     }
 
+    @Override
+    public Object get(String id) {
+        return getCurrentSession().get(Operlogs.class,id);
+    }
 }

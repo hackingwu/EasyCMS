@@ -21,9 +21,7 @@ public abstract class BaseDaoImpl implements BaseDao {
     }
 
     @Override
-    public Object get(String id) {
-        return getCurrentSession().get(RoleSite.class, id);
-    }
+    public abstract Object get(String id) ;
 
     @Override
     public void save(Object object) {

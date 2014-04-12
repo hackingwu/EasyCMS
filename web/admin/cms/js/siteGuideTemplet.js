@@ -17,7 +17,7 @@ function save(form) {
 }
 //选择模板
 function selectTemplet(id) {
-    $.weeboxs.open('templet_select.do?site.id=' + id, {title: '选择模板', contentType: 'ajax', height: 370, width: 280
+    $.weeboxs.open('template_select.do?site.id=' + id, {title: '选择模板', contentType: 'ajax', height: 370, width: 280
     });
 }
 function selectTempletDo(id, name) {

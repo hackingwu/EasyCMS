@@ -24,7 +24,7 @@
     <script type="text/javascript" src="js/siteGuideTemplet.js"></script>
 </HEAD>
 <BODY style="padding:0;margin:0">
-<form name="myForm" method="post" action="site_guideTemplet.do?pageFuncId=${param.pageFuncId }" id="myForm"
+<form name="myForm" method="post" action="site_guideTemplate.do?pageFuncId=${param.pageFuncId }" id="myForm"
       style="margin: 0px">
     <input type="hidden" name="site.id" value="${site.id }"/>
 

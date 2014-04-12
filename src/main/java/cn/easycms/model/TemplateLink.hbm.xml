@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.easycms.model">
+    <class name="TemplateLink" table="template_link">
+        <id name="id" column="id" type="string">
+            <generator class="uuid"/>
+        </id>
+        <property name="type" type="string"/>
+        <property name="img" type="string"/>
+        <property name="isOk" type="string"/>
+        <property name="name" type="string"/>
+        <property name="orderNum" type="java.lang.Integer"/>
+        <property name="pageMark" type="string"/>
+        <property name="parId" type="string"/>
+        <property name="site" type="string"/>
+        <property name="url" type="string"/>
+        <many-to-one name="template" class="cn.easycms.model.Template" cascade="all"/>
+    </class>
+</hibernate-mapping>

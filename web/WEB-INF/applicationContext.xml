@@ -64,7 +64,11 @@
     <bean id="RoleDaoImpl" class="cn.easycms.dao.RoleDaoImpl" parent="daoImplTemplate"/>
     <bean id="AdminLinkDaoImpl" class="cn.easycms.dao.AdminLinkDaoImpl" parent="daoImplTemplate"/>
     <bean id="TemplateDaoImpl" class="cn.easycms.dao.TemplateDaoImpl" parent="daoImplTemplate"/>
-
+    <bean id="TemplateChannelDaoImpl" class="cn.easycms.dao.TemplateChannelDaoImpl" parent="daoImplTemplate"/>
+    <bean id="TemplateLinkDaoImpl" class="cn.easycms.dao.TemplateLinkDaoImpl" parent="daoImplTemplate"/>
+    <bean id="ChannelDaoImpl" class="cn.easycms.dao.ChannelDaoImpl" parent="daoImplTemplate"/>
+    <bean id="LinkDaoImpl" class="cn.easycms.dao.LinkDaoImpl" parent="daoImplTemplate"/>
+    <!-- *Service -->
     <bean id="UserService" class="cn.easycms.service.UserService">
         <property name="userDaoImpl" ref="UserDaoImpl"/>
     </bean>
@@ -83,11 +87,27 @@
     <bean id="TemplateService" class="cn.easycms.service.TemplateService">
         <property name="templateDaoImpl" ref="TemplateDaoImpl"/>
     </bean>
+    <bean id="TemplateChannelService" class="cn.easycms.service.TemplateChannelService">
+        <property name="templateChannelDaoImpl" ref="TemplateChannelDaoImpl"/>
+
+    </bean>
+    <bean id="TemplateLinkService" class="cn.easycms.service.TemplateLinkService">
+        <property name="templateLinkDaoImpl" ref="TemplateLinkDaoImpl"/>
+
+    </bean>
+    <bean id="ChannelService" class="cn.easycms.service.ChannelService">
+        <property name="channelDaoImpl" ref="ChannelDaoImpl"/>
+    </bean>
+    <bean id="LinkService" class="cn.easycms.service.LinkService">
+        <property name="linkDaoImpl" ref="LinkDaoImpl"/>
+    </bean>
+    <!-- *Action-->
     <bean id="UserAction" class="cn.easycms.action.UserAction" scope="prototype">
         <property name="userService" ref="UserService"/>
 
         <property name="operlogsService" ref="OperlogsService"/>
     </bean>
+
     <bean id="adminAction" class="cn.easycms.action.AdminAction" scope="prototype">
         <property name="funcService" ref="FuncService"/>
         <property name="siteService" ref="SiteService"/>
@@ -96,6 +116,16 @@
     <bean id="siteAction" class="cn.easycms.action.SiteAction">
         <property name="siteService" ref="SiteService"/>
         <property name="operlogsService" ref="OperlogsService"/>
+        <property name="templateService" ref="TemplateService"/>
+        <property name="templateChannelService" ref="TemplateChannelService"/>
+        <property name="templateLinkService" ref="TemplateLinkService"/>
+        <property name="linkService" ref="LinkService"/>
+        <property name="channelService" ref="ChannelService"/>
+    </bean>
+    <bean id="templateAction" class="cn.easycms.action.TemplateAction">
+        <property name="siteService" ref="SiteService"/>
+        <property name="templateChannelService" ref="TemplateChannelService"/>
+        <property name="templateLinkService" ref="TemplateLinkService"/>
         <property name="templateService" ref="TemplateService"/>
     </bean>
 </beans>

@@ -18,7 +18,7 @@
     </div>
     <form action="site_guideInit.do">
         <input type="hidden" name="site.id" value="${site.id }"/>
-        <input type="hidden" name="site.indextemplet" value="${site.indextemplet }"/>
+        <input type="hidden" name="site.indexTemplate" value="${site.indexTemplate }"/>
         您选择的站点模板有初始化数据，是否对此站点进行初始化?<br/>
         <input type="submit" class="button" value=" 是(推荐) "/>
         <input type="button" class="button" value=" 跳 过 "
