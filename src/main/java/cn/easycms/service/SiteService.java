@@ -2,6 +2,7 @@ package cn.easycms.service;
 
 import cn.easycms.dao.SiteDaoImpl;
 import cn.easycms.model.Site;
+import cn.easycms.util.FreeMarkerUtil;
 import cn.easycms.util.StringUtil;
 import org.hibernate.Query;
 
@@ -63,7 +64,7 @@ public class SiteService {
         siteDaoImpl.update(site);
     }
 
-    public void html(String id, ServletContext getServletContext, String contextPath, HttpServletRequest httpRequest, String loginName) {
+    public void html(String id, ServletContext servletContext, String contextPath, HttpServletRequest httpRequest, String loginName) {
 
         Site site = findById(id);
         //有site并且site有模板
@@ -73,7 +74,11 @@ public class SiteService {
             //contextPath 比getContextPath多了"/";
             data.put("contextPath",contextPath);
             data.put("contextPathNo",httpRequest.getContextPath());
-            FreeMarkerUtil.createHTML();
+            String realPath = httpRequest.getSession().getServletContext().getRealPath("/");
+            FreeMarkerUtil.createHTML(servletContext,data,
+                    "template/"+site.getIndexTemplate().trim()+"index.html",
+                    realPath+"/site/"+site.getSourcePath()+"/index.html");
+
         }
     }
 }

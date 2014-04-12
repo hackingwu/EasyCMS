@@ -322,7 +322,8 @@ public class SiteAction extends BaseAction {
     public String preview(){
         if(StringUtil.isNotEmpty(site.getId())){
             site  = siteService.findById(site.getId());
-            siteService.html(site.getId(),getServletContext,getContextPath(),getHttpRequest(),getLoginName());
+            siteService.html(site.getId(),getServletContext(),getContextPath(),getHttpRequest(),getLoginName());
+            log("首页静态化："+site.getName());
             try {
                 getHttpResponse().sendRedirect("/site"+site.getSourcePath()+"/index.html");
             } catch (IOException e) {
@@ -330,7 +331,7 @@ public class SiteAction extends BaseAction {
                 return showMessage("预览站点失败："+e.getMessage(),getForwardUrl(),getForwardSeconds());
             }
         }
-
+        return null;
     }
 
 

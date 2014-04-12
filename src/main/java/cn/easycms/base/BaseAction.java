@@ -53,7 +53,7 @@ public class BaseAction extends ActionSupport {
         return getHttpRequest().getSession();
     }
 
-    public ServletContext getServletContext{
+    public ServletContext getServletContext(){
         return ServletActionContext.getServletContext();
     }
     public String getContextPath(){
