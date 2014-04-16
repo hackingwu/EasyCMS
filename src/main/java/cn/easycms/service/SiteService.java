@@ -4,10 +4,12 @@ import cn.easycms.dao.SiteDaoImpl;
 import cn.easycms.model.Site;
 import cn.easycms.util.FreeMarkerUtil;
 import cn.easycms.util.StringUtil;
+import freemarker.template.TemplateException;
 import org.hibernate.Query;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +66,7 @@ public class SiteService {
         siteDaoImpl.update(site);
     }
 
-    public void html(String id, ServletContext servletContext, String contextPath, HttpServletRequest httpRequest, String loginName) {
+    public void html(String id, ServletContext servletContext, String contextPath, HttpServletRequest httpRequest, String loginName) throws IOException,TemplateException{
 
         Site site = findById(id);
         //有site并且site有模板

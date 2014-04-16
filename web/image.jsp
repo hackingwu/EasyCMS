@@ -19,7 +19,7 @@
     response.setHeader("Cache-Control", "no-cache");
     response.setDateHeader("Expires", 0);
 
-    int width = 60, height = 20;
+    int width = 100, height = 44;
     BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
 
@@ -46,9 +46,9 @@
     for (int i = 0; i < 4; i++) {
         String rand = String.valueOf(random.nextInt(10));
         sRand += rand;
-
+        g.setFont(new Font("Times New Roman",Font.BOLD,30));
         g.setColor(new Color(20 + random.nextInt(110), 20 + random.nextInt(110), 20 + random.nextInt(110)));
-        g.drawString(rand, 13 * i + 6, 16);
+        g.drawString(rand, 25 * i + 6, 30);
     }
 // ??????SESSION
     session.setAttribute("rand", sRand);

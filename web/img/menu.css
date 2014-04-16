@@ -15,7 +15,7 @@ li {
 }
 
 li.menu {
-    /* The main list elements */
+     The main list elements
     padding-top: 2px;
     padding-bottom: 2px;
     width: 155px;
@@ -27,7 +27,7 @@ li.button a {
     font-family: BPreplay, Arial, Helvetica, sans-serif;
     font-size: 13px;
     height: 24px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding-top: 5px;
     padding-left: 20px;
     width: 155px;

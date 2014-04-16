@@ -1,96 +1,99 @@
-<%@ page language="java" pageEncoding="UTF-8" %>
-
-<%@include file="../util/loading.jsp" %>
-<%@include file="../util/checkParentFrame.jsp" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: hackingwu
+  Date: 2014/4/16
+  Time: 15:21
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-
-<%@taglib prefix="fs" uri="/fs-tags" %>
 <html>
 <head>
-
-    <link rel="stylesheet" href="../js/jquery.treeview.css"/>
-
-    <script src="../js/check.js" type="text/javascript"></script>
-    <script src="../js/jquery-1.5.1.min.js" type="text/javascript"></script>
-    <script src="../js/jquery.cookie.js" type="text/javascript"></script>
-    <script src="../js/jquery.treeview.js" type="text/javascript"></script>
-    <script src="../js/jquery.treeview.edit.js" type="text/javascript"></script>
-    <script src="../js/jquery.treeview.async.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="../img/menu.css"/>
-    <script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="../js/menu.js"></script>
-    <style type="text/css">
-
-        .lefttab {
-            margin: 0;
-            padding: 0;
-            line-height: 33px;
-            height: 33px;
-            width: 100%;
-            text-align: center;
-            font-weight: bold;
+    <script type="text/javascript" src="../js/jquery-1.5.1.min.js"></script>
+    <link href="../bootstrap/css/bootstrap.css">
+    <style>
+        a:hover{
+            padding: 10px;
+            color: #000000;
+        }
+        .dropdown{
+            display: none;
         }
 
-        .lefttab A:link, .lefttab A:visited, .lefttab A:hover, .lefttab A:active {
-            font-weight: bold;
-        }
+        .dropdown ul{
 
-        .lefttab {
-            background-image: url(../img/bg_left.gif);
-        }
+            padding-left:10px;
 
-        a:link, a:visited, a: hover, a:active {
+        }
+        li,ul{
+            list-style-type: none;
+            padding:2px;
+            color: #777777;
+        }
+        a{
             text-decoration: none;
-            color: #6A5ACD;
-            background-color: transparent;
+            color: #777777
+        }
+        hr{
+
+            margin: 1px 0;
+            overflow: hidden;
+            background-color: #e5e5e5;
+            border: 0px;
+            height: 1px;
+        }
+        body{
+            text-shadow: 0 1px 0 #fff;
+            background-color: #f7f5fa;
+            align-content: space-between;
+            overflow: hidden;
         }
 
     </style>
 </head>
 <body>
-<div class="lefttab">
-    <div style='padding-top:6px;'>
-        <s:if test="%{#session.manageSite != null}">
-            <span style="cursor:hand" title="点击选择管理站点"
-                  onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">
-                <fs:string len="8" str="${manageSite.name }"></fs:string>点击选择管理站点
-            </span>
-            <img style="cursor:hand" onclick="window.open('<%=basePath %>site/${manageSite.sourcePath }/index.html');"
-                 title="点击预览站点" src="../img/www.gif">
-        </s:if>
-        <s:if test="%{#session.manageSite == null}">
-            <span style="cursor:hand" title="点击选择管理站点"
-                  onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">请选择管理站点</span>
-        </s:if>
-    </div>
-</div>
-<div class="columncontent" style="text-align:left">
-    <ul class="container">
 
-            <s:iterator value="#session.funcs" id="bean">
+
+    <ul class="nav nav-tabs nav-stacked">
+        <li class="nav-divider">
+        <s:iterator value="#session.funcs" id="bean">
 
             <s:if test="%{#bean.parId==funcid}">
-                <li class="menu">
-                    <ul>
-                        <li class="button">
-                            <a
-                                    <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"
-                            </s:if> class="blue"><b><s:property value="name"/></b> <span></span></a>
-                        </li>
+                <li>
 
+                    <ul>
                         <s:if test='%{"1" == #bean.hasChildren}'>
+
+                            <li class="dropdown-menu">
+
+                                <a>
+                                    <img src="../img/plus.jpg" width="10" height="10">&nbsp;<s:property value="name"/>
+                                </a>
+                                <hr>
+                            </li>
                             <li class="dropdown">
                                 <ul>
                                     <s:iterator value="#session.funcs" id="sonbean">
                                         <s:if test="%{#sonbean.parId==#bean.id}">
                                             <li><a target="right"
-                                                   <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"
-                                            </s:if> ><s:property value="name"/></a></li>
+                                                <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"
+                                                </s:if> ><s:property value="name"/></a>
+                                                <hr>
+                                            </li>
                                         </s:if>
                                     </s:iterator>
                                 </ul>
                             </li>
                         </s:if>
+                        <s:else>
+                            <li>
+                                <a target="right"
+                                <s:if test="%{url!=''}">
+                                    href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"
+                                </s:if> >
+                                    &nbsp;&nbsp;&nbsp;<s:property value="name"/></a><hr>
+                            </li>
+                        </s:else>
                     </ul>
                 </li>
             </s:if>
@@ -98,8 +101,7 @@
     </ul>
 
 
-</div>
 
-
+<script type="text/javascript" src="../js/menu.js"></script>
 </body>
 </html>

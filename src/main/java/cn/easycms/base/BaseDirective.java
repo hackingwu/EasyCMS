@@ -5,6 +5,7 @@ import freemarker.core.Environment;
 import freemarker.template.TemplateModelException;
 
 import java.util.Map;
+import java.util.UUID;
 
 /**
  *
@@ -48,5 +49,14 @@ public class BaseDirective {
     public String getData(Environment env,String key,String defaultData){
         String temp = getData(env,key);
         return temp.equals("")?defaultData:temp;
+    }
+    public String getCommonScriptStr(String path){
+        return "<script src='" + path + "js/jquery-1.5.1.min.js'></script>";
+    }
+    public String getUUID(){
+        return UUID.randomUUID().toString().replace("-","");
+    }
+    public String getImgStr(String path){
+        return "<img src='"+path+"'/>";
     }
 }

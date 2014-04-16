@@ -3,7 +3,7 @@
 <div class="foot">
     <div class="bottom_menu">
         友情链接：&nbsp;&nbsp;
-        <@link siteid="${site.id}" classPagemark="yqlj" ;link>
+        <@link siteId="${site.id}" classPagemark="yqlj" ;link>
         <a href="${link.url}" target="_blank">${link.name}</a>&nbsp;&nbsp;&nbsp;&nbsp;
     </
     @link>
@@ -14,8 +14,8 @@
                                 onclick="javascript:window.top.location.href='/Default.aspx'"
                                 href="/Default.aspx">首页</a>
 							
-						<@channelList siteid="${site.id}" parid="par" navigation="1" state="1";channel,index> 
-							| &nbsp;<a href="${channel.pageurl}">${channel.name}</a> &nbsp;
+						<@channelList siteId="${site.id}" parId="par" navigation="1" state="1";channel,index>
+							| &nbsp;<a href="${channel.pageUrl}">${channel.name}</a> &nbsp;
 						</@channelList>
         </span>
         <br/>

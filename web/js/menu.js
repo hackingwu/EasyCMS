@@ -5,7 +5,7 @@ $(document).ready(function () {
     $.easing.def = "easeOutBounce";
 
     /* Binding a click event handler to the links: */
-    $('li.button a').click(function (e) {
+    $('li.dropdown-menu a').click(function (e) {
 
         /* Finding the drop down list that corresponds to the current section: */
         var dropDown = $(this).parent().next();

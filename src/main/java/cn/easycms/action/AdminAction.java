@@ -95,6 +95,7 @@ public class AdminAction extends BaseAction {
             }
         }
         getHttpSession().setAttribute("manageSite", manageSite);
+        //第一次进来没有点击站点或者系统或者会员，funcid为空
         if (funcid == null || funcid.trim().length() == 0) {
             if (getHttpSession().getAttribute("funid") != null && StringUtils.isNotEmpty(getHttpSession().getAttribute("funcid").toString())) {
                 funcid = getHttpSession().getAttribute("funid").toString();

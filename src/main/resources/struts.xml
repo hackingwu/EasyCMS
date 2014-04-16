@@ -22,7 +22,9 @@
 
    <package name="admin" extends="struts-default" namespace="/admin">
         <action name="*_*" class="{1}Action" method="{2}">
+
             <result name="{2}">{2}.jsp</result>
+
         </action>
 
     </package>
