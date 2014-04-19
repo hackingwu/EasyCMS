@@ -68,6 +68,7 @@
     <bean id="TemplateLinkDaoImpl" class="cn.easycms.dao.TemplateLinkDaoImpl" parent="daoImplTemplate"/>
     <bean id="ChannelDaoImpl" class="cn.easycms.dao.ChannelDaoImpl" parent="daoImplTemplate"/>
     <bean id="LinkDaoImpl" class="cn.easycms.dao.LinkDaoImpl" parent="daoImplTemplate"/>
+    <bean id="InfoDaoImpl" class="cn.easycms.dao.InfoDaoImpl" parent="daoImplTemplate"/>
     <!-- *Service -->
     <bean id="UserService" class="cn.easycms.service.UserService">
         <property name="userDaoImpl" ref="UserDaoImpl"/>
@@ -101,6 +102,9 @@
     <bean id="LinkService" class="cn.easycms.service.LinkService">
         <property name="linkDaoImpl" ref="LinkDaoImpl"/>
     </bean>
+    <bean id="InfoService" class="cn.easycms.service.InfoService">
+        <property name="infoDaoImpl" ref="InfoDaoImpl"/>
+    </bean>
     <!-- *Action-->
     <bean id="UserAction" class="cn.easycms.action.UserAction" scope="prototype">
         <property name="userService" ref="UserService"/>
@@ -127,5 +131,21 @@
         <property name="templateChannelService" ref="TemplateChannelService"/>
         <property name="templateLinkService" ref="TemplateLinkService"/>
         <property name="templateService" ref="TemplateService"/>
+    </bean>
+
+
+    <!-- directive-->
+    <bean id="channelListDirective" class="cn.easycms.directive.ChannelListDirective">
+        <property name="siteService" ref="SiteService"/>
+        <property name="channelService" ref="ChannelService"/>
+    </bean>
+    <bean id="LinkDirective" class="cn.easycms.directive.LinkDirective">
+        <property name="linkService" ref="LinkService"/>
+        <property name="siteService" ref="SiteService"/>
+    </bean>
+    <bean id="InfoListDirective" class="cn.easycms.directive.InfoListDirective">
+        <property name="channelService" ref="ChannelService"/>
+        <property name="infoService" ref="InfoService"/>
+        <property name="siteService" ref="SiteService"/>
     </bean>
 </beans>

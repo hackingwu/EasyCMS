@@ -27,6 +27,7 @@ public class BaseDirective {
         }
         return value;
     }
+
     public int getParam(Map data,String key,int defaultParam){
         int value = defaultParam;
         if (StringUtil.isNotEmpty(key)){

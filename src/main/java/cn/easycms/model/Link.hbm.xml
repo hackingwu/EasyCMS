@@ -14,9 +14,9 @@
         <property name="url"   type="string"/>
         <property name="isOk"  type="string"/>
         <property name="orderNum" type="java.lang.Integer"/>
+        <many-to-one name="site" class="cn.easycms.model.Site" cascade="all"/>
         <property name="type"     type="string"/>
         <property name="img"      type="string"/>
         <property name="pageMark" type="string"/>
-        <many-to-one name="site" class="cn.easycms.model.Site" cascade="all"/>
     </class>
 </hibernate-mapping>

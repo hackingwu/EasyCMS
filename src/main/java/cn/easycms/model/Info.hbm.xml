@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+       "-//Hibernate/Hibernate Mapping 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.easycms.model">
+        <class name="Info" table="info">
+            <id name="id" type="string" column="id"><generator class="uuid"/></id>
+            <property name="site" type="string"/>
+            <many-to-one name="channel" class="cn.easycms.model.Channel" cascade="all"/>
+            <property name="title" type="string"/>
+            <property name="shortTitle" type="string"/>
+            <property name="titleBlod" type="string"/>
+            <property name="source" type="string"/>
+            <property name="author" type="string"/>
+            <property name="description" type="string"/>
+            <property name="content" type="string"><column name="content" length="65536"/></property>
+            <property name="tags" type="string"/>
+            <property name="img" type="string"/>
+            <property name="url" type="string"/>
+            <property name="attchs" type="string"/>
+            <property name="addTime" type="timestamp"/>
+            <property name="template" type="string"/>
+            <property name="isHot" type="string"/>
+            <property name="isTop" type="string"/>
+            <property name="topEndTime" type="timestamp"/>
+            <property name="clickNum" type="string"/>
+            <property name="addUser" type="string"/>
+            <property name="state" type="string"/>
+            <property name="isSign" type="string"/>
+            <property name="video" type="string"/>
+            <property name="isComment" type="string"/>
+            <property name="indexNum" type="string"/>
+            <property name="openType" type="string"/>
+            <property name="openTimeType" type="string"/>
+            <property name="openEndTime" type="timestamp"/>
+            <property name="htmlIndexNum" type="java.lang.Integer"/>
+            <property name="isImgs" type="string"/>
+        </class>
+</hibernate-mapping>

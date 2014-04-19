@@ -15,6 +15,8 @@ public class Link {
     private Site site;
     private String type;
     private String img;
+    //pageMark就是Name的首字母缩写
+    private String pageMark;
 
     public String getId() {
         return id;
@@ -96,6 +98,51 @@ public class Link {
         this.pageMark = pageMark;
     }
 
-    //pageMark就是Name的首字母缩写
-    private String pageMark;
+
+
+
+
+    //-----------------Link独有，数据库中没有
+    private String isClass;//是否查询分类
+    private String className;//分类名称
+
+    public final static String TYPE_DOWN = "1";
+    public final static String TYPE_IMG  = "2";
+    public final static String TYPE_TEXT = "3";
+
+    public String getPageMarks() {
+        return pageMarks;
+    }
+
+    public void setPageMarks(String pageMarks) {
+        this.pageMarks = pageMarks;
+    }
+
+    public String getClassPageMarks() {
+        return classPageMarks;
+    }
+
+    public void setClassPageMarks(String classPageMarks) {
+        this.classPageMarks = classPageMarks;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getIsClass() {
+        return isClass;
+    }
+
+    public void setIsClass(String isClass) {
+        this.isClass = isClass;
+    }
+
+    private String pageMarks;
+    private String classPageMarks;
+
 }

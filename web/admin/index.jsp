@@ -19,7 +19,7 @@
 </HEAD>
 
 
-<frameset id="mainframes" cols="*,1024,*" border="false" framespacing="0">
+<frameset id="mainframes" cols="120,*,120" border="false" framespacing="0">
     <frame src="blank.html">
 
     <frameset id="contentframes" framespacing="0" border="false" rows="60,*" frameborder="0" scrolling="yes" >

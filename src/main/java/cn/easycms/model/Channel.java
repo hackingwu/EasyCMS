@@ -24,6 +24,15 @@ public class Channel {
     private String htmlSite;
     private Integer indexNum;
     private Integer maxPage;
+    private String sitePath;
+
+    public String getSitePath() {
+        return sitePath;
+    }
+
+    public void setSitePath(String sitePath) {
+        this.sitePath = sitePath;
+    }
 
     public String getId() {
         return id;
@@ -184,4 +193,14 @@ public class Channel {
     public void setMaxPage(Integer maxPage) {
         this.maxPage = maxPage;
     }
+
+    public String isHasChildren() {
+        return hasChildren;
+    }
+
+    public void setHasChildren(String hasChildren) {
+        this.hasChildren = hasChildren;
+    }
+
+    private String hasChildren;
 }
