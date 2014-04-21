@@ -25,13 +25,13 @@ public class InfoService {
         Criteria criteria = infoDaoImpl.getCurrentSession().createCriteria(Info.class);
         proSearchParam(info,criteria);
         if (orderAsc!=null&&orderAsc.size()>0){
-            for (String asc : orderAsc){
-                criteria.addOrder(Order.asc(asc));
+            for (Object asc : orderAsc){
+                criteria.addOrder(Order.asc(asc.toString()));
             }
         }
         if (orderDesc!=null&&orderDesc.size()>0)
-            for (String desc : orderDesc)
-                criteria.addOrder(Order.desc(desc));
+            for (Object desc : orderDesc)
+                criteria.addOrder(Order.desc(desc.toString()));
 
         criteria.setFirstResult((currPage-1)*pageSize);
         criteria.setMaxResults(pageSize);
@@ -40,25 +40,30 @@ public class InfoService {
     }
     public void proSearchParam(Info info, Criteria criteria){
         if (info!=null){
-            String newKey = SqlUtil.replace(info.getSearchKey())；
-            info.setSearchKey(newKey);
-            if (StringUtil.isNotEmpty(newKey)){
-                String keyWord = "%" + newKey + "%";
-                //关键字查询，查询title,shortTitle,tags
-                criteria.add(Restrictions.like("title",keyWord))
-                        .add(Restrictions.or(Restrictions.like("shortTitle",keyWord),Restrictions.like("description",keyWord),Restrictions.like("tags",keyWord)));
+            if (StringUtil.isNotEmpty(info.getSearchKey())){
+                String newKey = SqlUtil.replace(info.getSearchKey());
+                info.setSearchKey(newKey);
+                if (StringUtil.isNotEmpty(newKey)){
+                    String keyWord = "%" + newKey + "%";
+                    //关键字查询，查询title,shortTitle,tags
+                    criteria.add(Restrictions.like("title",keyWord))
+                            .add(Restrictions.or(Restrictions.like("shortTitle",keyWord),Restrictions.like("description",keyWord),Restrictions.like("tags",keyWord)));
 
+                }
             }
-            String newTags = SqlUtil.replace(info.getTags());
-            info.setTags(newTags);
-            if (StringUtil.isNotEmpty(newTags)){
-                String[] tags = newTags.split(",");
-                if (tags!=null && tags.length>0){
-                    for (int i = 0 ; i < tags.length;i++){
-                        criteria.add(Restrictions.or(Restrictions.like("shortTitle",tags[i]),Restrictions.like("description",tags[i]),Restrictions.like("tags",tags[i])));
+            if (StringUtil.isNotEmpty(info.getTags())){
+                String newTags = SqlUtil.replace(info.getTags());
+                info.setTags(newTags);
+                if (StringUtil.isNotEmpty(newTags)){
+                    String[] tags = newTags.split(",");
+                    if (tags!=null && tags.length>0){
+                        for (int i = 0 ; i < tags.length;i++){
+                            criteria.add(Restrictions.or(Restrictions.like("shortTitle",tags[i]),Restrictions.like("description",tags[i]),Restrictions.like("tags",tags[i])));
+                        }
                     }
                 }
             }
+
             if (StringUtil.isNotEmpty(info.getId())){
                 criteria.add(Restrictions.eq("id",info.getId()));
             }
@@ -67,7 +72,7 @@ public class InfoService {
             }
             if ("1".equals(info.getCheckOpenEndTime())){
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                criteria.add(Restrictions.or(Restrictions.eqOrIsNull("openEndTime",''),Restrictions.eq("openTimeType",'1'),Restrictions.gt("openEndTime",sdf.format(new Date()))));
+                criteria.add(Restrictions.or(Restrictions.eqOrIsNull("openEndTime",""),Restrictions.eq("openTimeType",'1'),Restrictions.gt("openEndTime",sdf.format(new Date()))));
             }
             if (info.getChannel()!=null){
                 criteria.add(Restrictions.eq("channel",info.getChannel()));
@@ -76,7 +81,7 @@ public class InfoService {
                 criteria.add(Restrictions.in("channel",info.getChannels()));
             }
             if (info.getChannelPageMark()!=null && info.getChannelPageMark().size()>0){
-                criteria.add(Restrictions.in("channel"),info.getChannelPageMark());
+                criteria.add(Restrictions.in("channel",info.getChannelPageMark()));
             }
             if (StringUtil.isNotEmpty(info.getImg())){
                 criteria.add(Restrictions.and(Restrictions.ne("img", ""), Restrictions.isNotNull("img")));

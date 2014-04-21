@@ -203,4 +203,13 @@ public class Channel {
     }
 
     private String hasChildren;
+    private String pageUrl="";
+
+    public String getPageUrl() {
+        return pageUrl;
+    }
+
+    public void setPageUrl(String pageUrl) {
+        this.pageUrl = pageUrl;
+    }
 }

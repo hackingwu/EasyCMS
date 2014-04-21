@@ -1,17 +1,10 @@
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>无标题文档</title>
-</head>
-
-<body>
-<@link siteId="${site.id}" classPagemark="yqlj" ;link>
-<a href="${link.url}" target="_blank">${link.name}</a>&nbsp;&nbsp;&nbsp;&nbsp;
-</
-@link>
-</body>
-</html>
+<@channelList siteId="6ec601fd-69a0-4469-a6f7-d1edb7136481" parId="" navigation="1" state="1";channel,index>
+<a onmouseout="pfout()"
+   onclick="javascript:window.top.location.href='${channel.pageUrl}'"
+   href="${channel.pageUrl}">
+    <li
+            onmouseover="pfgd(${index+1},this)">
+    ${channel.name}
+    </li>
+</a>
+</@channelList>

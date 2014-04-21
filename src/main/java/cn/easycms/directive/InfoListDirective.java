@@ -80,6 +80,7 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
         Writer out                = env.getOut();
         if (body!=null) {
             if (loopVars != null && loopVars.length > 0){
+                Site site          = siteService.findById(siteId);
                 Info info = new Info();
                 if (StringUtil.isNotEmpty(siteId)){
                     info.setSite(siteId);
@@ -87,27 +88,29 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
                 if (StringUtil.isNotEmpty(channelId)){
                     info.setChannel(channelService.findById(channelId));
                 }
-                if (StringUtil.isNotEmpty(channelPageMark)){
-                    List<Channel> list = channelService.findListBySiteAndPageMark(siteId, channelPageMark);
+                if (StringUtil.isNotEmpty(channelPageMark)&&site!=null){
+
+                    List<Channel> list = channelService.findListBySiteAndPageMark(site, channelPageMark);
                     info.setChannelPageMark(list);
                 }
-                if (StringUtil.isNotEmpty(channelParId)){
+                if (StringUtil.isNotEmpty(channelParId)&&site!=null){
                     List<Channel> channels = new ArrayList<Channel>();
                     channels.add(channelService.findById(channelParId));
-                    List<Channel> sonList = channelService.findSon(siteId,channelParId,"1","");
+                    List<Channel> sonList = channelService.findSon(site,channelParId,"1","");
                     if (sonList!=null && sonList.size()>0){
                         for (int i = 0 ; i < sonList.size();i++){
-                            channels.add(sonList.get(i).getId());
+                            channels.add(sonList.get(i));
                         }
                     }
                     info.setChannels(channels);
                 }
-                if (StringUtil.isNotEmpty(channelParPageMark)){
+                if (StringUtil.isNotEmpty(channelParPageMark)&&site!=null){
                     List<Channel> channels = new ArrayList<Channel>();
-                    Channel channel = channelService.findBySiteAndPageMark(siteId,channelParPageMark);
+
+                    Channel channel = channelService.findBySiteAndPageMark(site,channelParPageMark);
                     if (channel!=null){
                         channels.add(channel);
-                        List<Channel> sonList = channelService.findSon(siteId,channel.getId(),"1","");
+                        List<Channel> sonList = channelService.findSon(site,channel.getId(),"1","");
                         if (sonList!=null && sonList.size()>0){
                             for (int i = 0 ;i < sonList.size();i++){
                                 channels.add(sonList.get(i));
@@ -139,7 +142,6 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
                     }
                 }
                 List<Info> infoList = infoService.find(info,orderAsc,orderDesc,1,num);
-                Site site           = siteService.findById(siteId);
                 if (infoList!=null  &&  infoList.size()>0){
                     int i = 0;
                     for (Info temp : infoList){

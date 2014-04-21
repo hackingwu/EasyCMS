@@ -23,6 +23,7 @@
     <script src="../../js/check.js" type="text/javascript"></script>
     <script type="text/javascript" src="../../js/checkLoginName.js"></script>
     <script type="text/javascript" src="js/siteGuide.js"></script>
+
 </HEAD>
 <BODY style="padding:0;margin:0">
 <form name="myForm" method="post" action="site_guideSite.do?pageFuncId=${param.pageFuncId }" id="myForm"
@@ -48,7 +49,7 @@
                     <input type="hidden" name="site.parId" id="parid"/>
                     <INPUT onblur="this.className='colorblur';" id=parname title="点击选择父站点"
                            class=colorblur onfocus="this.className='colorfocus';" style="cursor:hand"
-                           maxLength=50 type=text value="" readonly onClick="parButton()"/>
+                           maxLength=50 type=text value="" readonly onClick="selectPar()"/>
                 </TD>
             </TR>
             <TR>
@@ -84,8 +85,9 @@
                     <INPUT onblur="this.className='colorblur';" id=sourcepath oninput="checkLoginName(this)"
                            onpropertychange="checkLoginName(this)"
                            class=colorblur
-                           onfocus="this.className='colorfocus';" ${site!=null && site.id!=null && site.id !=""?"readonly":"" }
+                           onfocus="this.className='colorfocus';"
                            maxLength=50 type=text name=site.sourcePath value="">
+                    <!--${site!=null && site.id!=null && site.id !=""?"readonly":"" }-->
                     <SPAN id=ctl03>*</SPAN>
                 </TD>
             </TR>
@@ -134,6 +136,7 @@
             </TBODY>
         </TABLE>
     </DIV>
+
 </form>
 
 

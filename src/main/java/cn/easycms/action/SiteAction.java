@@ -1,12 +1,16 @@
 package cn.easycms.action;
 
 import cn.easycms.model.*;
+import cn.easycms.util.FreeMarkerUtil;
 import cn.easycms.util.StringUtil;
 import cn.easycms.base.BaseAction;
 import cn.easycms.service.*;
 import cn.easycms.util.FileUtil;
 import cn.easycms.util.ResponseUtil;
+import freemarker.template.TemplateException;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.*;
 
@@ -33,6 +37,11 @@ public class SiteAction extends BaseAction {
     private TemplateLinkService templateLinkService;
     private ChannelService channelService;
     private LinkService linkService;
+    private FreeMarkerUtil freeMarkerUtil;//freeMarkerUtil的作用和service一样只不过命名更像本身类。
+
+    public void setFreeMarkerUtil(FreeMarkerUtil freeMarkerUtil) {
+        this.freeMarkerUtil = freeMarkerUtil;
+    }
 
     public void setChannelService(ChannelService channelService) {
         this.channelService = channelService;
@@ -324,9 +333,9 @@ public class SiteAction extends BaseAction {
             site  = siteService.findById(site.getId());
 
             try {
-                siteService.html(site.getId(),getServletContext(),getContextPath(),getHttpRequest(),getLoginName());
+                html(site.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
                 log("首页静态化："+site.getName());
-                getHttpResponse().sendRedirect("/site"+site.getSourcePath()+"/index.html");
+                getHttpResponse().sendRedirect("/EasyCMS/site/"+site.getSourcePath()+"/index.html");
             } catch (Exception e) {
                 e.printStackTrace();
                 return showMessage("预览站点失败："+e.getMessage(),getForwardUrl(),getForwardSeconds());
@@ -334,6 +343,7 @@ public class SiteAction extends BaseAction {
         }
         return null;
     }
+
 
 
 
@@ -466,6 +476,25 @@ public class SiteAction extends BaseAction {
                     }
                 }
             }
+        }
+    }
+
+    //--freemarker生成html
+    public void html(String id, ServletContext servletContext, String contextPath, HttpServletRequest httpRequest, String loginName) throws IOException,TemplateException {
+
+        Site site = siteService.findById(id);
+        //有site并且site有模板
+        if (site!=null && StringUtil.isNotEmpty(site.getIndexTemplate())){
+            Map<String,Object> data = new HashMap<String,Object>();
+            data.put("site",site);
+            //contextPath 比getContextPath多了"/";
+            data.put("contextPath",contextPath);
+            data.put("contextPathNo",httpRequest.getContextPath());
+            String realPath = httpRequest.getSession().getServletContext().getRealPath("/");
+            freeMarkerUtil.createHTML(servletContext,data,
+                    "template/"+site.getIndexTemplate().trim()+"/index.html",
+                    realPath+"/site/"+site.getSourcePath()+"/index.html");
+
         }
     }
 

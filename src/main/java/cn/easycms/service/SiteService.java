@@ -20,6 +20,7 @@ import java.util.Map;
 public class SiteService {
     private SiteDaoImpl siteDaoImpl;
 
+
     public void setSiteDaoImpl(SiteDaoImpl siteDaoImpl) {
         this.siteDaoImpl = siteDaoImpl;
     }
@@ -66,21 +67,5 @@ public class SiteService {
         siteDaoImpl.update(site);
     }
 
-    public void html(String id, ServletContext servletContext, String contextPath, HttpServletRequest httpRequest, String loginName) throws IOException,TemplateException{
 
-        Site site = findById(id);
-        //有site并且site有模板
-        if (site!=null && StringUtil.isNotEmpty(site.getIndexTemplate())){
-            Map<String,Object> data = new HashMap<String,Object>();
-            data.put("site",site);
-            //contextPath 比getContextPath多了"/";
-            data.put("contextPath",contextPath);
-            data.put("contextPathNo",httpRequest.getContextPath());
-            String realPath = httpRequest.getSession().getServletContext().getRealPath("/");
-            FreeMarkerUtil.createHTML(servletContext,data,
-                    "template/"+site.getIndexTemplate().trim()+"index.html",
-                    realPath+"/site/"+site.getSourcePath()+"/index.html");
-
-        }
-    }
 }

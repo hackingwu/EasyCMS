@@ -1,197 +1,165 @@
 <#include "inc/head.html"/>
-<SCRIPT src="${contextPath}site/${site.sourcepath}/resources/js/lanrentuku.js" type=text/javascript></SCRIPT>
+<SCRIPT src="${contextPath}site/${site.sourcePath}/resources/js/lanrentuku.js" type=text/javascript></SCRIPT>
 <div id="banner">
     <DIV id=imgPlay>
         <UL class=imgs id=actor>
-
-            <@link classPagemark="index" ; link>
-            <LI>
-                <A href="${link.url!""}" target=_blank><IMG src="${link.img!""}"
-                width="1001" title="${link.name!""}">
-                </A>
-            </LI>
-        </
-        @link>
+            <@link classPageMark="index" ; link>
+                <LI>
+                    <A href="${link.url!}" target=_blank><IMG src="${link.img!}"
+                    width="1001" title="${link.name!}">
+                    </A>
+                </LI>
+            </@link>
 
         </UL>
-
-
         <DIV class=prev>
             上一张
         </DIV>
         <DIV class=next>
             下一张
         </DIV>
-    </DIV>
-</div>
+    </DIV><!-- end of imgPlay-->
+</div><!-- end of banner-->
 <div class="main">
     <div class="main_left">
         <div class="title_works">
-            <@channel siteid="${site.id}" pagemark="jcal" ;channel>
-            <a href="${channel.pageurl}"><img
-                    src="${contextPath}site/${site.sourcepath}/resources/images/title_works.jpg" width="141"
-                    height="37"/>
-            </a>
-        </
-        @channel>
-    </div>
-
-
-    <@infoList siteid="${site.id}" channelPagemark="jcal" num="2" titleLen="23" ; info,index>
-    <div class="h_works_box">
-        <div class="h_works_box_left"></div>
-        <div class="h_works_box_middle">
-            <div class="h_works_image">
-                <a href="${info.pageurl}"><img
-                        src="${contextPath}${(info.img!"")?replace("/", "" , "f")}" width="189"
-                    height="124" />
+            <@channel siteId="${site.id}" pageMark="jcal" ;channel>
+                <a href="${channel.pageUrl!}">
+                    <img src="${contextPath}site/${site.sourcePath!}/resources/images/title_works.jpg" width="141" height="37"/>
                 </a>
-            </div>
-            <div class="h_works_text">
-                <div class="h_works_title">
-                    <ul>
-                        <li>
-                            <h1>
-                                <a href="${info.pageurl}">${info.showtitle}</a>
-                            </h1>
-                        </li>
-                    </ul>
-                </div>
-                <div class="h_works_content">
-                    <a href="${info.pageurl}">
-                        <@html code='${info.description!""}' length='100';value>
-                        ${value}
-                    </@html>
+            </@channel>
+        </div><!-- end of title_works-->
+        <@infoList siteId="${site.id}" channelPageMark="jcal" num="2" titleLen="23" ; info,index>
+            <div class="h_works_box">
+            <div class="h_works_box_left"></div>
+            <div class="h_works_box_middle">
+                <div class="h_works_image">
+                    <a href="${info.pageUrl!}">
+                        <img src="${contextPath}${(info.img!)?replace("/", "" , "f")}" width="189" height="124" />
                     </a>
                 </div>
-            </div>
-        </div>
-        <div class="h_works_box_right"></div>
-    </div>
-</@infoList>
-</div>
-<div class="main_middle">
-    <div class="title_news">
-
+                <div class="h_works_text">
+                    <div class="h_works_title">
+                        <ul>
+                            <li>
+                                <h1>
+                                    <a href="${info.pageUrl!}">${info.showTitle!}</a>
+                                </h1>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="h_works_content">
+                        <a href="${info.pageUrl!}">
+                            <@html code='${info.description!}' length='100';value>
+                                ${value}
+                            </@html>
+                        </a>
+                    </div>
+                </div><!-- end of box_middle-->
+                <div class="h_works_box_right"></div>
+            </div><!-- enf of h_works_box-->
+        </@infoList>
+    </div><!--end of title_left-->
+    <div class="main_middle">
+        <div class="title_news">
         <table border="0" cellspacing="0" cellpadding="0" id="secTable"
                style="margin-left: 10px; margin-top: 15px;">
             <tr>
-                <td width="70" height="24" align="center" valign="middle"
-                    class="sec6">
-                    <@channel siteid="${site.id}" pagemark="bfdt" ;channel>
-                    <a href="${channel.pageurl}">${channel.name}</a>
-                </
-                @channel>
+                <td width="70" height="24" align="center" valign="middle" class="sec6">
+                    <@channel siteId="${site.id}" pageMark="bfdt" ;channel>
+                        <a href="${channel.pageUrl!}">${channel.name}</a>
+                    </@channel>
                 </td>
             </tr>
         </table>
-    </div>
-    <div class="h_news_box">
-        <div class="h_news_box_left"></div>
-        <div class="h_news_box_middle">
-
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td align="center">
+        </div><!--end title_news-->
+        <div class="h_news_box">
+            <div class="h_news_box_left"></div>
+            <div class="h_news_box_middle">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="center">
                         <table width="230" border="0" cellpadding="0" cellspacing="0"
                                id="mainTable">
                             <tbody style="DISPLAY: block">
                             <tr>
                                 <td height="273" align="center" valign="top">
                                     <div>
-
-                                        <@infoList siteid="${site.id}" num="1" channelPagemark="bfdt" titleLen="18"
-                                        img="1"; info,index>
-                                        <div class="h_news_image">
-                                            <a href="${info.pageurl}" title='${info.title}'><img
-                                                    src="${info.img}"
-                                                    width="227" height="125"/>
+                                        <@infoList siteId="${site.id}" num="1" channelPageMark="bfdt" titleLen="18" img="1"; info,index>
+                                            <div class="h_news_image">
+                                                <a href="${info.pageUrl}" title='${info.title}'>
+                                                <img src="${info.img}" width="227" height="125"/>
                                             </a>
-                                        </div>
-                                        <div class="h_news_title">
-                                            <ul>
-                                                <li>
-                                                    <h1>
-                                                        <a href="${info.pageurl}" title='${info.title}'>${info.showtitle}</a>
-                                                    </h1>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </
-                                    @infoList>
-
-                                    <table>
-
-                                        <@infoList siteid="${site.id}" num="5" channelPagemark="bfdt" titleLen="18" ;
-                                        info,index>
-                                        <tr>
-                                            <td width="16" align="center" class="lbx">
-                                                <img src="${contextPath}site/${site.sourcepath}/resources/images/01.jpg"
-                                                     width="4" height="4">
-                                            </td>
-                                            <td width="204" align="left" class="lbx">
-                                                <a href="${info.pageurl}" title='${info.title}'>${info.showtitle}</a>
-                                            </td>
-                                        </tr>
-                                    </
-                                    @infoList>
-
-
+                                            </div>
+                                            <div class="h_news_title">
+                                                <ul>
+                                                    <li>
+                                                        <h1>
+                                                            <a href="${info.pageUrl!}" title='${info.title!}'>${info.showTitle!}</a>
+                                                        </h1>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </@infoList>
+                                        <table>
+                                            <@infoList siteId="${site.id}" num="5" channelPageMark="bfdt" titleLen="18" ;info,index>
+                                                <tr>
+                                                <td width="16" align="center" class="lbx">
+                                                    <img src="${contextPath}site/${site.sourcePath!}/resources/images/01.jpg" width="4" height="4">
+                                                </td>
+                                                <td width="204" align="left" class="lbx">
+                                                    <a href="${info.pageUrl!}" title='${info.title!}'>${info.showTitle!}</a>
+                                                </td>
+                                            </tr>
+                                            </@infoList>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
                         </table>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--h_news_box_middle-->
 
+            <div class="h_news_box_right"></div>
+        </div><!--h_news_box-->
+    </div><!--end of main_middle-->
+    <div class="main_right">
+        <div class="title_blog">
+			<span class="title_works">
+				<@channel siteId="${site.id}" pageMark="gd" ;channel>
+					<a href="${channel.pageUrl}">
+                        <img src="${contextPath}site/${site.sourcePath}/resources/images/title_blog.jpg" width="92" height="37"/>
+                    </a>
+			    </@channel>
+            </span>
+        </div><!--end of title_blog-->
+        <div class="h_service_box">
+            <div class="h_service_box_left"></div>
+            <div class="h_service_box_middle">
+                <ul>
+                    <@infoList siteId="${site.id}" num="7" channelPageMark="gd" titleLen="18" ; info,index>
+                        <li>
+                            <a href="${info.pageUrl!}" title='${info.title!}'>${info.showTitle}</a>
+                        </li>
+                    </@infoList>
+                </ul>
+            </div><!--end of h_service_box_middle-->
+            <div class="h_service_box_right"></div>
+        </div><!--end of h_service_box-->
+        <div class="download" title="点击在线咨询" style="cursor: hand" onclick="window.open('tencent://message/?uin=565321924&Site=博丰软件&Menu=yes')"></div>
 
-        </div>
+    </div><!--enf of main_right-->
+    <nobr>
+        <!--
+    <div style="width:1001px;float:left;overflow:hidden;">
+    <div id="banner_logo">
+
     </div>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-    </td>
-    </tr>
-    </table>
-</div>
-<div class="h_news_box_right"></div>
-</div>
-</div>
-<div class="main_right">
-    <div class="title_blog">
-						<span class="title_works">
-						
-						<@channel siteid="${site.id}" pagemark="gd" ;channel>
-						<a href="${channel.pageurl}"><img
-                                src="${contextPath}site/${site.sourcepath}/resources/images/title_blog.jpg" width="92"
-                                height="37"/></a>
-						</@channel>
-        </span>
-    </div>
-    <div class="h_service_box">
-        <div class="h_service_box_left"></div>
-        <div class="h_service_box_middle">
-            <ul>
-
-                <@infoList siteid="${site.id}" num="7" channelPagemark="gd" titleLen="18" ; info,index>
-                <li>
-                    <a href="${info.pageurl}" title='${info.title}'>${info.showtitle}</a>
-                </li>
-            </
-            @infoList>
-
-
-            </ul>
-        </div>
-        <div class="h_service_box_right"></div>
-    </div>
-    <div class="download" title="点击在线咨询" style="cursor: hand"
-         onclick="window.open('tencent://message/?uin=565321924&Site=博丰软件&Menu=yes')"></div>
-</div>
-<nobr>
-    <!--
-<div style="width:1001px;float:left;overflow:hidden;">
-<div id="banner_logo">
-
-</div>
-</div>-->
-</nobr>
-<!--nobr这个标签很重要，没有他firefox里无法正常显示-->
-</div>
+    </div>-->
+    </nobr>
+    <!--nobr这个标签很重要，没有他firefox里无法正常显示-->
+</div><!--end of main-->
 <#include "inc/foot.html"/>

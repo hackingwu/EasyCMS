@@ -14,7 +14,7 @@
         <#if currChannel??>${currChannel.name!""}-</#if>
         ${site.name}
     </title>
-    <link href="${contextPath}site/${site.sourcepath}/resources/images/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${contextPath!}site/${site.sourcePath!}/resources/images/style.css" rel="stylesheet" type="text/css"/>
     <style>
         #copyright {
             width: 88px;
@@ -67,11 +67,11 @@
     <script type="text/javascript">
         var ks = 0;
     </script>
-    <script src="${contextPath}site/${site.sourcepath}/resources/js/shadeLayer.js" type="text/javascript"></script>
-    <script type="text/javascript" src="${contextPath}site/${site.sourcepath}/resources/js/swfobject.js"></script>
-    <script src="${contextPath}site/${site.sourcepath}/resources/js/photopng.js" type="text/javascript"></script>
-    <script src="${contextPath}site/${site.sourcepath}/resources/js/embeded.js" type="text/javascript"></script>
-    <script src="${contextPath}site/${site.sourcepath}/resources/js/jquery.js" type="text/javascript"></script>
+    <script src="${contextPath}site/${site.sourcePath}/resources/js/shadeLayer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="${contextPath}site/${site.sourcePath}/resources/js/swfobject.js"></script>
+    <script src="${contextPath}site/${site.sourcePath}/resources/js/photopng.js" type="text/javascript"></script>
+    <script src="${contextPath}site/${site.sourcePath}/resources/js/embeded.js" type="text/javascript"></script>
+    <script src="${contextPath}site/${site.sourcePath}/resources/js/jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
         var k = 0;
         var _gaq = _gaq || [];
@@ -108,8 +108,8 @@
 <div id="container">
     <div class="head">
         <div class="logo">
-            <img src="${contextPath}site/${site.sourcepath}/resources/images/logo.png" width="256" height="81"/>
-        </div>
+            <img src="${contextPath}site/${site.sourcePath}/resources/images/logo.png" width="256" height="81"/>
+        </div><!--end of logo-->
         <div class="topnav">
             业务咨询
             <a target=blank
@@ -124,34 +124,31 @@
             </a>
             <a href="javascript:void(0)" onclick="shadeLayer.init('loginbox')"/><a
                 href="listOne.aspx?channel=lxfc">联系我们 13838558267</a>
-        </div>
+        </div><!-- end of topnav-->
         <div class="nav">
             <div id="banner_pf" onmouseout="pfout()">
-                <a href="${contextPath}site/${site.sourcepath}/index.html"
+                <a href="${contextPath}site/${site.sourcePath}/index.html"
                    onclick="javascript:window.top.location.href='/Default.aspx'"
                    onmouseout="pfout()">
                     <li onmouseover="pfgd(0,this)">
                         首页
                     </li>
                 </a>
-                <@channelList siteid="${site.id}" parid="par" navigation="1" state="1";channel,index>
-                <a onmouseout="pfout()"
-                   onclick="javascript:window.top.location.href='${channel.pageurl}'"
-                   href="${channel.pageurl}">
-                    <li
-                            onmouseover="pfgd(${index+1},this)">
-                        ${channel.name}
-                    </li>
-                </a>
-            </
-            @channelList>
+                <@channelList siteId="${site.id}" parId="" navigation="1" state="1";channel,index>
+                    <a onmouseout="pfout()"
+                       onclick="javascript:window.top.location.href='${channel.pageUrl}'"
+                       href="${channel.pageUrl}">
+                        <li
+                                onmouseover="pfgd(${index+1},this)">
+                            ${channel.name}
+                        </li>
+                    </a>
+                </@channelList>
+                <div id="pf"></div>
+            </div><!--end of banner_pf-->
+        </div><!--end of nav-->
+    </div><!--end of head-->
 
-
-            <div id="pf"></div>
-        </div>
-
-    </div>
-</div>
 <script type="text/javascript">
     function showAndHide(obj, types) {
         var Layer = window.document.getElementById(obj);

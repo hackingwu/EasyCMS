@@ -56,12 +56,11 @@ public class ChannelListDirective extends BaseDirective implements TemplateDirec
         Writer out    = env.getOut();
         if (body!=null){
             if (loopVars != null && loopVars.length>0 && StringUtil.isNotEmpty(siteId)){
+                Site site = siteService.findById(siteId);
                 List<Channel> channelList = channelService.findBySiteAndParAndStateAndNavi(
-                        siteId, parId, state, navigation
+                        site, parId, state, navigation
                 );
                 if (channelList!=null && channelList.size()>0){
-                    Site site = siteService.findById(siteId);
-
                     int i = 0;
                     for (Channel channel:channelList){
                         if (site!=null){

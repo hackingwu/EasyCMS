@@ -13,7 +13,7 @@
     <script>
         parent.left.location.href = "../admin_left.do?siteid=${site.id}";
         function preview(siteid) {
-            window.open("../../site_preview.do?site.id=" + siteid);
+            window.open("site_preview.do?site.id=" + siteid);
         }
     </script>
 </head>

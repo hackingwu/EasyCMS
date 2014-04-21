@@ -15,14 +15,14 @@ public class BaseDirective {
 
     public String getParam(Map data,String key){
         String value = "";
-        if (StringUtil.isNotEmpty(key)){
+        if (data.get(key)!=null){
             value = data.get(key).toString();
         }
         return value;
     }
     public String getParam(Map data,String key,String defaultParam){
         String value = defaultParam;
-        if (StringUtil.isNotEmpty(key)){
+        if (data.get(key)!=null){
             value = data.get(key).toString();
         }
         return value;
@@ -30,7 +30,7 @@ public class BaseDirective {
 
     public int getParam(Map data,String key,int defaultParam){
         int value = defaultParam;
-        if (StringUtil.isNotEmpty(key)){
+        if (data.get(key)!=null){
             value = Integer.parseInt(data.get(key).toString());
         }
         return value;

@@ -1,5 +1,7 @@
 package cn.easycms.model;
 
+import cn.easycms.util.StringUtil;
+
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class Info {
     private Channel channel;
     private String title;
     private String shortTitle;
-    private String colorTitle;
+    private String titleColor;
     private String titleBlod;
     private String source;
     private String author;
@@ -82,12 +84,12 @@ public class Info {
         this.shortTitle = shortTitle;
     }
 
-    public String getColorTitle() {
-        return colorTitle;
+    public String getTitleColor() {
+        return titleColor;
     }
 
-    public void setColorTitle(String colorTitle) {
-        this.colorTitle = colorTitle;
+    public void setTitleColor(String titleColor) {
+        this.titleColor = titleColor;
     }
 
     public String getTitleBlod() {
@@ -378,5 +380,42 @@ public class Info {
 
     public void setSitePath(String sitePath) {
         this.sitePath = sitePath;
+    }
+    private String pageUrl = "";//本信息的链接地址
+
+    public String getPageUrl() {
+        return pageUrl;
+    }
+
+    public void setPageurl(String pageUrl) {
+        this.pageUrl = pageUrl;
+    }
+    //title或者shortTitle都是纯文本，showTitle根据titleColor和titleBlod（粗体）来增加标题的样式，为html中的最终title。
+    private String showTitle;
+    public String getShowTitle() {
+        if (!StringUtil.isNotEmpty(showTitle)) {
+            //showTitle为空
+            //默认为标题
+            showTitle=this.title;
+            //判断是否有短标题
+            if (StringUtil.isNotEmpty(shortTitle)) {
+                showTitle=shortTitle;
+            }
+            //判断标题长度
+            if (showTitleLen>0 && showTitle.length()>showTitleLen) {
+                showTitle=showTitle.substring(0, showTitleLen);
+            }
+            //添加标题颜色
+            showTitle="<font color='"+titleColor+"'>"+showTitle+"</font>";
+            //判断是否粗体
+            if ("1".equals(titleBlod)) {
+                showTitle="<b>"+showTitle+"</b>";
+            }
+        }
+        return showTitle;
+    }
+
+    public void setShowTitle(String showTitle) {
+        this.showTitle = showTitle;
     }
 }

@@ -17,5 +17,6 @@ public class SqlUtil {
         sql.replaceAll("--","");
         sql.replaceAll("'","");
         sql.replaceAll(";","");
+        return sql;
     }
 }

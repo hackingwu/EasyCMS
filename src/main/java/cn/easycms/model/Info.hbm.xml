@@ -10,6 +10,7 @@
             <many-to-one name="channel" class="cn.easycms.model.Channel" cascade="all"/>
             <property name="title" type="string"/>
             <property name="shortTitle" type="string"/>
+            <property name="titleColor" type="string"/>
             <property name="titleBlod" type="string"/>
             <property name="source" type="string"/>
             <property name="author" type="string"/>
@@ -24,7 +25,7 @@
             <property name="isHot" type="string"/>
             <property name="isTop" type="string"/>
             <property name="topEndTime" type="timestamp"/>
-            <property name="clickNum" type="string"/>
+            <property name="clickNum" type="java.lang.Integer"/>
             <property name="addUser" type="string"/>
             <property name="state" type="string"/>
             <property name="isSign" type="string"/>

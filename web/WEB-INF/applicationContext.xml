@@ -105,6 +105,14 @@
     <bean id="InfoService" class="cn.easycms.service.InfoService">
         <property name="infoDaoImpl" ref="InfoDaoImpl"/>
     </bean>
+    <!--FreeMarkerUtil-->
+    <bean id="FreeMarkerUtil" class="cn.easycms.util.FreeMarkerUtil">
+        <property name="linkDirective" ref="LinkDirective"/>
+        <property name="channelDirective" ref="ChannelDirective"/>
+        <property name="channelListDirective" ref="channelListDirective"/>
+        <property name="htmlDirective"        ref="HtmlDirective"/>
+        <property name="infoListDirective" ref="InfoListDirective"/>
+    </bean>
     <!-- *Action-->
     <bean id="UserAction" class="cn.easycms.action.UserAction" scope="prototype">
         <property name="userService" ref="UserService"/>
@@ -125,6 +133,7 @@
         <property name="templateLinkService" ref="TemplateLinkService"/>
         <property name="linkService" ref="LinkService"/>
         <property name="channelService" ref="ChannelService"/>
+        <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>
     </bean>
     <bean id="templateAction" class="cn.easycms.action.TemplateAction">
         <property name="siteService" ref="SiteService"/>
@@ -133,6 +142,9 @@
         <property name="templateService" ref="TemplateService"/>
     </bean>
 
+    <bean id="testAction" class="cn.easycms.action.TestAction">
+        <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>
+    </bean>
 
     <!-- directive-->
     <bean id="channelListDirective" class="cn.easycms.directive.ChannelListDirective">
@@ -148,4 +160,13 @@
         <property name="infoService" ref="InfoService"/>
         <property name="siteService" ref="SiteService"/>
     </bean>
+    <bean id="ChannelDirective" class="cn.easycms.directive.ChannelDirective">
+        <property name="channelService" ref="ChannelService"/>
+        <property name="siteService" ref="SiteService"/>
+    </bean>
+    <bean id="HtmlDirective" class="cn.easycms.directive.HtmlDirective">
+
+    </bean>
+
+
 </beans>

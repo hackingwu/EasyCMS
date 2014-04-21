@@ -1,33 +1,32 @@
-<img src="${contextPath}site/${site.sourcepath}/resources/images/why.png" width="1003"/>
+<img src="${contextPath}site/${site.sourcePath}/resources/images/why.png" width="1003"/>
 <br>
 <div class="foot">
     <div class="bottom_menu">
         友情链接：&nbsp;&nbsp;
-        <@link siteId="${site.id}" classPagemark="yqlj" ;link>
-        <a href="${link.url}" target="_blank">${link.name}</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    </
-    @link>
-</div>
-<div class="bottom_copy">
-    <p>
-						<span class="x_menu_wz"><a
-                                onclick="javascript:window.top.location.href='/Default.aspx'"
-                                href="/Default.aspx">首页</a>
-							
-						<@channelList siteId="${site.id}" parId="par" navigation="1" state="1";channel,index>
-							| &nbsp;<a href="${channel.pageUrl}">${channel.name}</a> &nbsp;
-						</@channelList>
-        </span>
-        <br/>
-        版权所有:${site.name} Copyright ©2010-2012 , Inc. All Rights Reserved
-        ${site.recordcode}
-        <br/>
-        建议使用1024*768分辨率浏览
-    </p>
-</div>
-</div>
-</div>
-<script>/*
+        <@link siteId="${site.id}" classPageMark="yqlj" ;link>
+            <a href="${link.url!}" target="_blank">${link.name!}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        </@link>
+
+    </div><!--end of bottom_menu-->
+    <div class="bottom_copy">
+        <p>
+			<span class="x_menu_wz">
+                <a onclick="javascript:window.top.location.href='/Default.aspx'" href="/Default.aspx">首页</a>
+					<@channelList siteId="${site.id}" parId="" navigation="1" state="1";channel,index>
+							| &nbsp;<a href="${channel.pageUrl!}">${channel.name!}</a> &nbsp;
+					</@channelList>
+            </span>
+            <br/>
+            版权所有:${site.name!} Copyright ©2010-2012 , Inc. All Rights Reserved ${site.recordCode!}
+            <br/>
+            建议使用1024*768分辨率浏览
+        </p>
+    </div><!-- end of bottom_copy-->
+</div><!--end of foot-->
+</div><!--end of container-->
+<!--
+<script>
+
  window.onload=function(){
  new Marquee("banner_logo",2,20,1000,50,20,1,1000,1);
  };
@@ -87,8 +86,9 @@
  else{if(this.ID.scrollLeft<=0) this.ID.scrollLeft+=this.ClientScroll; this.ID.scrollLeft-=this.Step;}
  break;
  }
- }*/
+ }
 </script>
+-->
 </body>
 </html>
 
@@ -186,7 +186,7 @@
 
 <DIV id=divQQbox class=qqbox>
     <DIV id=meumid class=qqlv>
-        <IMG src="${contextPath}site/${site.sourcepath}/resources/images/qq.gif">
+        <IMG src="${contextPath}site/${site.sourcePath}/resources/images/qq.gif">
     </DIV>
     <DIV style="DISPLAY: none" id=contentid class=qqkf>
         <DIV id=qq-1 class=qqkfbt onfocus=this.blur();>

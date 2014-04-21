@@ -1,7 +1,11 @@
 package cn.easycms.directive;
 
 import cn.easycms.base.BaseDirective;
+import cn.easycms.util.HtmlCodeUtil;
+import cn.easycms.util.StringUtil;
 import freemarker.core.Environment;
+import freemarker.ext.beans.BeansWrapper;
+import freemarker.ext.beans.StringModel;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
@@ -25,8 +29,18 @@ public class HtmlDirective extends BaseDirective implements TemplateDirectiveMod
         String delHtml = getParam(params,"delHtml");
         if (body!=null){
             if (loopVars!=null && loopVars.length>0){
-                if ()
+                if (StringUtil.isNotEmpty(code)){
+                    if (!"0".equals(delHtml)){
+                        //删除html标签，利用正则表达式
+                        code = HtmlCodeUtil.replaceHtml(code);
+                    }
+                    if (length>0 && code.length()>length){
+                        code = code.substring(0,length);
+                    }
+                }
             }
+            loopVars[0] = new StringModel(code,new BeansWrapper());
+            body.render(env.getOut());
         }
     }
 }

@@ -46,6 +46,10 @@
             <result name="select">templateSelect.jsp</result>
 
         </action>
+
+        <action name="test_*" class="testAction" method="{1}">
+
+        </action>
     </package>
 
 </struts>
