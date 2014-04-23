@@ -131,22 +131,22 @@
                 </TD>
                 <TD align="left" id="title<s:property value="id"/>">
                     <a title="点击打开信息页面"
-                       href='<%=basePath %>site/${manageSite.sourcepath }/<s:property value="pageurl"/>'
+                       href='<%=basePath %>site/${manageSite.sourcePath }/<s:property value="pageUrl"/>'
                        target="_blank"><s:property value="title"/></a>
                 </TD>
                 <TD align="left" id="issign<s:property value="id"/>">
-                    <s:if test='%{"1" == #obj.issign }'>
+                    <s:if test='%{"1" == #obj.isSign }'>
                         <a href='#' onclick='infosign("${obj.id }")' title="点击查看签收统计">是</a>
                     </s:if>
-                    <s:if test='%{"1" != #obj.issign }'>
+                    <s:if test='%{"1" != #obj.isSign }'>
                         否
                     </s:if>
                 </TD>
-                <TD align="left" id="iscomment<s:property value="id"/>">
-                    <s:property value="iscommentStr"/>
+                <TD align="left" id="isComment<s:property value="id"/>">
+                    <s:property value="isCommentStr"/>
                 </TD>
-                <TD align="left" id="addtime<s:property value="id"/>">
-                    <s:property value="addtimeStr"/>
+                <TD align="left" id="addTime<s:property value="id"/>">
+                    <s:property value="addTimeStr"/>
                 </TD>
             </TR>
         </s:iterator>

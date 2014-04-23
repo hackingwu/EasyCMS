@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>
-<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>
+<%--<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>--%>
+<%--<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>--%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -38,7 +38,7 @@
 <form action="site_configDo.do" method="post" id="configForm" enctype="multipart/form-data">
 <input type="hidden" name="site.id" id="siteId" value="<s:property value = 'site.id'/> "/>
 <input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
-<input type="hidden" name=site.parid value="${site.parid }"/>
+<input type="hidden" name=site.parId value="${site.parId }"/>
 
 <DIV class=tab>
     <DIV class=tabOn>
@@ -78,7 +78,7 @@
                 <SPAN id=ctl01_ctl00_lblLabel>源文件目录名：</SPAN>
             </NOBR>
         </LABEL>
-        <img src="../../img/help.gif" alt="请输入站点的源文件目录名，此站点的相关文件将放在此目录下"/>源文件目录名：
+
     </TD>
     <TD width="70%" align="left">
 
@@ -86,7 +86,7 @@
                onpropertychange="checkLoginName(this)"
                class=colorblur
                onfocus="this.className='colorfocus';" ${site!=null && site.id!=null&&site.id!=""?"readonly":""}
-               maxLength=50 type=text name=site.sourcepath value="${site.sourcepath }">
+               maxLength=50 type=text name=site.sourcePath value="${site.sourcePath }">
 
         <s:if test="site!=null &&site.id!=null&&site.id!=''">
             <label>站点已确定,源文件目录名无法修改</label>
@@ -112,7 +112,7 @@
     <TD width="70%" align="left">
         <input onblur="this.className='colorblur';" id=sitedomain
                class=colorblur onfocus="this.className='colorfocus';"
-               maxLength=50 type=text name=site.sitedomain value="${site.sitedomain }">
+               maxLength=50 type=text name=site.siteDomain value="${site.siteDomain }">
     </TD>
 </TR>
 <TR>
@@ -131,7 +131,7 @@
                onpropertychange="checkLoginName(this)"
                class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo')
                onafterpaste=if(!isInt(value))execCommand('undo')
-               maxLength=50 type=text name=site.ordernum value="${site.ordernum }">
+               maxLength=50 type=text name=site.orderNum value="${site.orderNum }">
     </TD>
 </TR>
 <TR>
@@ -230,7 +230,7 @@
     <TD width="70%" align="left">
         <input onblur="this.className='colorblur';" id=recordcode
                class=colorblur onfocus="this.className='colorfocus';"
-               maxLength=50 type=text name=site.recordcode value="${site.recordcode }">
+               maxLength=50 type=text name=site.recordCode value="${site.recordCode }">
 
     </TD>
 </TR>
@@ -246,80 +246,80 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="hidden" name=site.indextemplet value="${site.indextemplet }" id="indextemplet">
+        <input type="hidden" name=site.indexTemplate value="${site.indexTemplate }" id="indextemplet">
         <input onblur="this.className='colorblur';" id=indextempletName onclick="selectTemplet('${site.id }')"
                class=colorblur onfocus="this.className='colorfocus';" readonly style="cursor:hand"
-               maxLength=50 type=text name=site.indextempletName value="${site.indextempletName }">
+               maxLength=50 type=text name=site.indexTemplateName value="${site.indexTemplateName }">
         <a href="#" onclick="syncRes()" title="点击后将把模板资源文件(resources文件夹)复制并覆盖到此站点">同步资源文件</a>
     </TD>
 </TR>
-<TR>
-    <TD width="30%" align="left">
-        <LABEL id=ctl01_ctl00_label><IMG
-                style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-                id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请设置静态化调度
-                src="../../img/help.gif">
-            <NOBR>
-                <SPAN id=ctl01_ctl00_lblLabel>静态化调度：</SPAN>
-            </NOBR>
-        </LABEL>
-    </TD>
-    <TD width="70%" align="left">
+<%--<TR>--%>
+    <%--<TD width="30%" align="left">--%>
+        <%--<LABEL id=ctl01_ctl00_label><IMG--%>
+                <%--style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"--%>
+                <%--id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请设置静态化调度--%>
+                <%--src="../../img/help.gif">--%>
+            <%--<NOBR>--%>
+                <%--<SPAN id=ctl01_ctl00_lblLabel>静态化调度：</SPAN>--%>
+            <%--</NOBR>--%>
+        <%--</LABEL>--%>
+    <%--</TD>--%>
+    <%--<TD width="70%" align="left">--%>
 
-        <input type="hidden" name="htmlquartz.id" value="${htmlquartz.id }"/>
-        <table>
-            <tr>
-                <td>
-                    <select id="htmlquartzType" name="htmlquartz.type" onchange="htmlquartzTypeChange(this)">
-                        <option value="">无</option>
-                        <option value="0" ${"0" == htmlquartz.type ?"selected":"" }>定时生成首页</option>
-                        <option value="1" ${"1" == htmlquartz.type ?"selected":"" }>间隔重复生成首页</option>
-                    </select>
-                </td>
-                <td id="exetimeTd" style="display:${"0" == htmlquartz.type ?"block":"none" }">
-                    <select id="exetimehour" name="htmlquartz.exetimehour">
-                        <s:iterator value="hours" id="obj">
-                            <option value="${obj }"  ${obj == htmlquartz.exetimehour ?"selected":"" }>${obj }</option>
-                        </s:iterator>
-                    </select>时
-                    <select id="exetimemin" name="htmlquartz.exetimemin">
-                        <s:iterator value="mins" id="obj">
-                            <option value="${obj }"  ${obj == htmlquartz.exetimemin ?"selected":"" }>${obj }</option>
-                        </s:iterator>
-                    </select>分
-                </td>
-                <td id="intervalTd" style="display:${"1" == htmlquartz.type ?"block":"none" }">
-                    <table>
-                        <tr>
-                            <td>
-                                间隔单位:
-                                <select id="intervalType" name="htmlquartz.intervaltype"
-                                        onchange="intervalTypeChange(this)">
-                                    <option value="0" ${"0" == htmlquartz.intervaltype ?"selected":"" }>小时</option>
-                                    <option value="1" ${"1" == htmlquartz.intervaltype ?"selected":"" }>分钟</option>
-                                </select>
-                            </td>
-                            <td id="intervalhourTd" style="display:${"1" != htmlquartz.intervaltype ?"block":"none" }">
-                                <select id="intervalhour" name="htmlquartz.intervalhour">
-                                    <s:iterator value="hours" id="obj">
-                                        <option value="${obj }" ${obj == htmlquartz.intervalhour ?"selected":"" }>${obj }</option>
-                                    </s:iterator>
-                                </select>时
-                            </td>
-                            <td id="intervalminTd" style="display:${"1" == htmlquartz.intervaltype ?"block":"none" }">
-                                <select id="intervalmin" name="htmlquartz.intervalmin">
-                                    <s:iterator value="mins" id="obj">
-                                        <option value="${obj }" ${obj == htmlquartz.intervalmin ?"selected":"" }>${obj }</option>
-                                    </s:iterator>
-                                </select>分
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </TD>
-</TR>
+        <%--<input type="hidden" name="htmlquartz.id" value="${htmlquartz.id }"/>--%>
+        <%--<table>--%>
+            <%--<tr>--%>
+                <%--<td>--%>
+                    <%--<select id="htmlquartzType" name="htmlquartz.type" onchange="htmlquartzTypeChange(this)">--%>
+                        <%--<option value="">无</option>--%>
+                        <%--<option value="0" ${"0" == htmlquartz.type ?"selected":"" }>定时生成首页</option>--%>
+                        <%--<option value="1" ${"1" == htmlquartz.type ?"selected":"" }>间隔重复生成首页</option>--%>
+                    <%--</select>--%>
+                <%--</td>--%>
+                <%--<td id="exetimeTd" style="display:${"0" == htmlquartz.type ?"block":"none" }">--%>
+                    <%--<select id="exetimehour" name="htmlquartz.exetimehour">--%>
+                        <%--<s:iterator value="hours" id="obj">--%>
+                            <%--<option value="${obj }"  ${obj == htmlquartz.exetimehour ?"selected":"" }>${obj }</option>--%>
+                        <%--</s:iterator>--%>
+                    <%--</select>时--%>
+                    <%--<select id="exetimemin" name="htmlquartz.exetimemin">--%>
+                        <%--<s:iterator value="mins" id="obj">--%>
+                            <%--<option value="${obj }"  ${obj == htmlquartz.exetimemin ?"selected":"" }>${obj }</option>--%>
+                        <%--</s:iterator>--%>
+                    <%--</select>分--%>
+                <%--</td>--%>
+                <%--<td id="intervalTd" style="display:${"1" == htmlquartz.type ?"block":"none" }">--%>
+                    <%--<table>--%>
+                        <%--<tr>--%>
+                            <%--<td>--%>
+                                <%--间隔单位:--%>
+                                <%--<select id="intervalType" name="htmlquartz.intervaltype"--%>
+                                        <%--onchange="intervalTypeChange(this)">--%>
+                                    <%--<option value="0" ${"0" == htmlquartz.intervaltype ?"selected":"" }>小时</option>--%>
+                                    <%--<option value="1" ${"1" == htmlquartz.intervaltype ?"selected":"" }>分钟</option>--%>
+                                <%--</select>--%>
+                            <%--</td>--%>
+                            <%--<td id="intervalhourTd" style="display:${"1" != htmlquartz.intervaltype ?"block":"none" }">--%>
+                                <%--<select id="intervalhour" name="htmlquartz.intervalhour">--%>
+                                    <%--<s:iterator value="hours" id="obj">--%>
+                                        <%--<option value="${obj }" ${obj == htmlquartz.intervalhour ?"selected":"" }>${obj }</option>--%>
+                                    <%--</s:iterator>--%>
+                                <%--</select>时--%>
+                            <%--</td>--%>
+                            <%--<td id="intervalminTd" style="display:${"1" == htmlquartz.intervaltype ?"block":"none" }">--%>
+                                <%--<select id="intervalmin" name="htmlquartz.intervalmin">--%>
+                                    <%--<s:iterator value="mins" id="obj">--%>
+                                        <%--<option value="${obj }" ${obj == htmlquartz.intervalmin ?"selected":"" }>${obj }</option>--%>
+                                    <%--</s:iterator>--%>
+                                <%--</select>分--%>
+                            <%--</td>--%>
+                        <%--</tr>--%>
+                    <%--</table>--%>
+                <%--</td>--%>
+            <%--</tr>--%>
+        <%--</table>--%>
+    <%--</TD>--%>
+<%--</TR>--%>
 <TR>
     <TD align="center" colspan="10">
 

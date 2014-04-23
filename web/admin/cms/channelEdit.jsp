@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>
-<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>
+<%--<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>--%>
+<%--<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>--%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -44,7 +44,7 @@
 
 <input type="hidden" name="site.id" value="${site.id}">
 <input type="hidden" name="channel.site" value="${site.id }">
-<input type="hidden" name="channel.parid" value="${channel.parid }">
+<input type="hidden" name="channel.parId" value="${channel.parId }">
 <input type="hidden" name="channel.id" id="channelId" value="${channel.id }">
 
 <DIV class=column>
@@ -99,7 +99,7 @@
         <TD width="70%" align="left">
             <INPUT onblur="this.className='colorblur';" readonly
                    class=colorblur onfocus="this.className='colorfocus';"
-                   maxLength=50 type=text value="${channel.indexnum }">
+                   maxLength=50 type=text value="${channel.indexNum }">
         </TD>
     </TR>
 </s:if>
@@ -135,7 +135,7 @@
     <TD width="70%" align="left">
         <INPUT onblur="this.className='colorblur';" id=pagemark oninput="checkLoginName(this)"
                class=colorblur onfocus="this.className='colorfocus';" onpropertychange="checkLoginName(this)"
-               maxLength=50 type=text name=channel.pagemark value="${channel.pagemark }">
+               maxLength=50 type=text name=channel.pageMark value="${channel.pageMark }">
     </TD>
 </TR>
 
@@ -192,7 +192,7 @@
         <INPUT onblur="this.className='colorblur';" id=ordernum
                class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo')
                onafterpaste=if(!isInt(value))execCommand('undo')
-               maxLength=50 type=text name=channel.ordernum value="${channel.ordernum }">
+               maxLength=50 type=text name=channel.orderNum value="${channel.orderNum }">
     </TD>
 </TR>
 <TR>
@@ -226,8 +226,8 @@
     <TD width="70%" align="left">
         <INPUT onblur="this.className='colorblur';" id=templet readonly style="cursor:hand" title="点击选择模板文件"
                class=colorblur onfocus="this.className='colorfocus';"
-               onclick="selectTempletFile('${site.indextemplet }','templet')"
-               maxLength=50 type=text name=channel.templet value="${channel.templet }">
+               onclick="selectTempletFile('${site.indexTemplate }','templet')"
+               maxLength=50 type=text name=channel.template value="${channel.template }">
     </TD>
 </TR>
 <TR>
@@ -244,8 +244,8 @@
     <TD width="70%" align="left">
         <INPUT onblur="this.className='colorblur';" id=contenttemplet readonly style="cursor:hand" title="点击选择模板文件"
                class=colorblur onfocus="this.className='colorfocus';"
-               onclick="selectTempletFile('${site.indextemplet }','contenttemplet')"
-               maxLength=50 type=text name=channel.contenttemplet value="${channel.contenttemplet }">
+               onclick="selectTempletFile('${site.indexTemplate }','contenttemplet')"
+               maxLength=50 type=text name=channel.contentTemplate value="${channel.contentTemplate }">
     </TD>
 </TR>
 <TR>
@@ -290,7 +290,7 @@
         <INPUT onblur="this.className='colorblur';" id=maxpage onkeyup=if(!isInt(value))execCommand('undo')
                onafterpaste=if(!isInt(value))execCommand('undo')
                class=colorblur onfocus="this.className='colorfocus';"
-               maxLength=50 type=text name=channel.maxpage value="${channel.maxpage }">
+               maxLength=50 type=text name=channel.maxPage value="${channel.maxPage }">
     </TD>
 </TR>
 <TR>
@@ -306,13 +306,13 @@
         </LABEL>
     </TD>
     <TD align="left">
-        <input type="checkbox" name="channel.htmlchannel" value="1" ${"1" == channel.htmlchannel ?" checked ":"" }/>静态化所属栏目页面<br/>
-        <input type="checkbox" name="channel.htmlchannelold"
-               value="1" ${"1" == channel.htmlchannelold ?" checked ":"" }/>静态化原所属栏目页面<br/>
-        <input type="checkbox" name="channel.htmlparchannel"
-               value="1"  ${"1" == channel.htmlparchannel ?" checked ":"" }/>静态化所属栏目的所有父栏目页面<br/>
-        <input type="checkbox" name="channel.htmlsite"
-               value="1"  ${"1" == channel.htmlsite ?" checked ":"" }/>静态化站点首页<br/>
+        <input type="checkbox" name="channel.htmlChannel" value="1" ${"1" == channel.htmlChannel ?" checked ":"" }/>静态化所属栏目页面<br/>
+        <input type="checkbox" name="channel.htmlChannelOld"
+               value="1" ${"1" == channel.htmlChannelOld ?" checked ":"" }/>静态化原所属栏目页面<br/>
+        <input type="checkbox" name="channel.htmlParChannel"
+               value="1"  ${"1" == channel.htmlParChannel ?" checked ":"" }/>静态化所属栏目的所有父栏目页面<br/>
+        <input type="checkbox" name="channel.htmlSite"
+               value="1"  ${"1" == channel.htmlSite ?" checked ":"" }/>静态化站点首页<br/>
     </TD>
 </TR>
 <TR>
@@ -327,47 +327,47 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="hidden" name="htmlquartz.id" value="${htmlquartz.id }"/>
+        <input type="hidden" name="htmlQuartz.id" value="${htmlQuartz.id }"/>
         <table>
             <tr>
                 <td>
-                    <select id="htmlquartzType" name="htmlquartz.type" onchange="htmlquartzTypeChange(this)">
+                    <select id="htmlquartzType" name="htmlQuartz.type" onchange="htmlquartzTypeChange(this)">
                         <option value="">无</option>
-                        <option value="0" ${"0" == htmlquartz.type ?"selected":"" }>定时生成栏目页</option>
-                        <option value="1" ${"1" == htmlquartz.type ?"selected":"" }>间隔重复生成栏目页</option>
+                        <option value="0" ${"0" == htmlQuartz.type ?"selected":"" }>定时生成栏目页</option>
+                        <option value="1" ${"1" == htmlQuartz.type ?"selected":"" }>间隔重复生成栏目页</option>
                     </select>
                 </td>
-                <td id="exetimeTd" style="display:${"0" == htmlquartz.type ?"block":"none" }">
-                    <select id="exetimehour" name="htmlquartz.exetimehour">
+                <td id="exetimeTd" style="display:${"0" == htmlQuartz.type ?"block":"none" }">
+                    <select id="exetimehour" name="htmlQuartz.exeTimeHour">
                         <s:iterator value="hours" id="obj">
-                            <option value="${obj }"  ${obj == htmlquartz.exetimehour ?"selected":"" }>${obj }</option>
+                            <option value="${obj }"  ${obj == htmlQuartz.exeTimeHour ?"selected":"" }>${obj }</option>
                         </s:iterator>
                     </select>时
-                    <select id="exetimemin" name="htmlquartz.exetimemin">
+                    <select id="exetimemin" name="htmlQuartz.exeTimeMin">
                         <s:iterator value="mins" id="obj">
-                            <option value="${obj }"  ${obj == htmlquartz.exetimemin ?"selected":"" }>${obj }</option>
+                            <option value="${obj }"  ${obj == htmlQuartz.exeTimeMin ?"selected":"" }>${obj }</option>
                         </s:iterator>
                     </select>分
                 </td>
-                <td id="intervalTd" style="display:${"1" == htmlquartz.type ?"block":"none" }">
+                <td id="intervalTd" style="display:${"1" == htmlQuartz.type ?"block":"none" }">
                     <table>
                         <tr>
                             <td>
                                 间隔单位:
-                                <select id="intervalType" name="htmlquartz.intervaltype"
+                                <select id="intervalType" name="htmlQuartz.intervalType"
                                         onchange="intervalTypeChange(this)">
-                                    <option value="0" ${"0" == htmlquartz.intervaltype ?"selected":"" }>小时</option>
-                                    <option value="1" ${"1" == htmlquartz.intervaltype ?"selected":"" }>分钟</option>
+                                    <option value="0" ${"0" == htmlQuartz.intervalType ?"selected":"" }>小时</option>
+                                    <option value="1" ${"1" == htmlQuartz.intervalType ?"selected":"" }>分钟</option>
                                 </select>
                             </td>
-                            <td id="intervalhourTd" style="display:${"1" != htmlquartz.intervaltype ?"block":"none" }">
-                                <select id="intervalhour" name="htmlquartz.intervalhour">
+                            <td id="intervalhourTd" style="display:${"1" != htmlQuartz.intervalType ?"block":"none" }">
+                                <select id="intervalhour" name="htmlQuartz.intervalHour">
                                     <s:iterator value="hours" id="obj">
-                                        <option value="${obj }" ${obj == htmlquartz.intervalhour ?"selected":"" }>${obj }</option>
+                                        <option value="${obj }" ${obj == htmlQuartz.intervalHour ?"selected":"" }>${obj }</option>
                                     </s:iterator>
                                 </select>时
                             </td>
-                            <td id="intervalminTd" style="display:${"1" == htmlquartz.intervaltype ?"block":"none" }">
+                            <td id="intervalminTd" style="display:${"1" == htmlQuartz.intervaltype ?"block":"none" }">
                                 <select id="intervalmin" name="htmlquartz.intervalmin">
                                     <s:iterator value="mins" id="obj">
                                         <option value="${obj }" ${obj == htmlquartz.intervalmin ?"selected":"" }>${obj }</option>

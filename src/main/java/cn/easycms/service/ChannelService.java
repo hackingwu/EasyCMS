@@ -27,7 +27,8 @@ public class ChannelService {
     }
     public List<Channel> findBySiteAndParAndStateAndNavi(Site site,String parId,String state,String navigation){
         Criteria criteria = channelDaoImpl.getCurrentSession().createCriteria(Channel.class);
-        criteria.add(Restrictions.eq("site",site));
+        if(site!=null)
+            criteria.add(Restrictions.eq("site",site));
         if (parId!=null){
             criteria.add(Restrictions.eq("parId",parId));
         }
@@ -66,7 +67,7 @@ public class ChannelService {
     }
     public boolean hasChildren(String id){
         List list = channelDaoImpl.getCurrentSession()
-                .createCriteria("Channel.class")
+                .createCriteria(Channel.class)
                 .add(Restrictions.eq("parId",id))
                 .list();
         return list.size()>0?true:false;

@@ -8,7 +8,7 @@
     <uri>/fs-tags</uri>
     <tag>
         <name>operButtons</name>
-        <tagclass>cn.freeteam.tag.OperButtonsTag</tagclass>
+        <tagclass>cn.easycms.tag.OperButtonsTag</tagclass>
         <bodycontent>JSP</bodycontent>
 
         <attribute>
@@ -27,7 +27,7 @@
 
     <tag>
         <name>operButton</name>
-        <tagclass>cn.freeteam.tag.OperButtonTag</tagclass>
+        <tagclass>cn.easycms.tag.OperButtonTag</tagclass>
         <bodycontent>JSP</bodycontent>
 
         <attribute>
@@ -44,11 +44,9 @@
             <description>button名称</description>
         </attribute>
     </tag>
-
-
     <tag>
         <name>order</name>
-        <tagclass>cn.freeteam.tag.OrderTag</tagclass>
+        <tagclass>cn.easycms.tag.OrderTag</tagclass>
         <bodycontent>JSP</bodycontent>
 
         <attribute>

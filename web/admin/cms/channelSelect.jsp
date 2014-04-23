@@ -4,6 +4,11 @@
 <%@include file="../../util/checkParentFrame.jsp" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
+<link rel="stylesheet" href="../../js/jquery.treeview.css"/>
+
+<script src="../../js/jquery-1.5.1.min.js" type="text/javascript"></script>
+<script src="../../js/jquery.cookie.js" type="text/javascript"></script>
+<script src="../../js/jquery.treeview.js" type="text/javascript"></script>
 <DIV class=column>
     <div id="man_zone">
         <table width="99%" border="0" align="left" cellpadding="3" cellspacing="1">

@@ -23,7 +23,9 @@ public class FuncService {
     public List selectRoot(){
          return funcDaoImpl.getCurrentSession().createQuery("from Func where isOk='1' and parId=''").list();
     }
-
+    public Func findById(String id){
+        return (Func)funcDaoImpl.get(id);
+    }
     public List selectAll(){
 
         List funcs = funcDaoImpl.getCurrentSession().createCriteria(Func.class)

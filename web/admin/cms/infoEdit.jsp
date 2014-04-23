@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>
-<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>
-<%@page import="cn.freeteam.cms.model.Info" %>
+<%--<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>--%>
+<%--<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>--%>
+<%@page import="cn.easycms.model.Info" %>
 <%@page import="java.net.URLDecoder" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -50,7 +50,7 @@
 
 
 <input type="hidden" name="info.site" id="siteId" value="${site.id }"/>
-<s:if test="%{info.htmlIndexnum!=null}">
+<s:if test="%{info.htmlIndexNum!=null}">
     <TR>
         <TD width="30%" align="left">
             <LABEL id=ctl01_ctl00_label><IMG
@@ -65,7 +65,7 @@
         <TD width="70%" align="left">
             <INPUT onblur="this.className='inputblur';" readonly
                    class=inputblur onfocus="this.className='inputfocus';"
-                   maxLength=250 type=text value="${info.htmlIndexnum }">
+                   maxLength=250 type=text value="${info.htmlIndexNum }">
         </TD>
     </TR>
 </s:if>
@@ -82,7 +82,7 @@
     </TD>
     <TD width="70%" align="left">
         <input type="hidden" name="info.channel" id="channelId" value="${channel.id }"/>
-        <input type="hidden" name="oldchannelid" value="${channel.id }"/>
+        <input type="hidden" name="oldChannelId" value="${channel.id }"/>
         <INPUT onblur="this.className='inputblur';" readonly id="channelName" onclick="selectChannel()"
                class=inputblur onfocus="this.className='inputfocus';" style="cursor:hand" title="点击选择栏目"
                maxLength=50 type=text name=channel.name value="${channel.name }"/>
@@ -121,7 +121,7 @@
     <TD width="70%" align="left">
         <INPUT onblur="this.className='inputblur';" id=shortTitle
                class=inputblur onfocus="this.className='inputfocus';"
-               maxLength=250 type=text size="45" name=info.shorttitle value="${info.shorttitle }">
+               maxLength=250 type=text size="45" name=info.shortTitle value="${info.shortTitle }">
     </TD>
 </TR>
 <TR>
@@ -138,7 +138,7 @@
     <TD width="70%" align="left">
         <INPUT onblur="this.className='inputblur';" id=templet readonly style="cursor:hand" title="点击选择模板文件"
                class=inputblur onfocus="this.className='inputfocus';" onclick="selectTempletFile('templet')"
-               maxLength=50 type=text name=info.templet value="${info.templet }"/>
+               maxLength=50 type=text name=info.template value="${info.template }"/>
     </TD>
 </TR>
 <TR>
@@ -155,8 +155,8 @@
     <TD width="70%" align="left">
         <INPUT id=titleColor
                class="color"
-               maxLength=50 type=text name=info.titlecolor
-               value="${info.titlecolor }<s:if test="info==null || info.titlecolor == null || info.titlecolor ==''">000000</s:if>">
+               maxLength=50 type=text name=info.titleColor
+               value="${info.titleColor }<s:if test="info==null || info.titleColor == null || info.titleColor ==''">000000</s:if>">
     </TD>
 </TR>
 <TR>
@@ -171,10 +171,10 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="radio" id="isblob1" name="info.titleblod" value="1"
-               <s:if test="info.titleblod==1">checked="checked"</s:if>>是
-        <input type="radio" id="isblob0" name="info.titleblod" value="0"
-               <s:if test="info==null || info.titleblod==null || info.titleblod==0">checked="checked"</s:if> >否
+        <input type="radio" id="isblob1" name="info.titleBlod" value="1"
+               <s:if test="info.titleBlod==1">checked="checked"</s:if>>是
+        <input type="radio" id="isblob0" name="info.titleBlod" value="0"
+               <s:if test="info==null || info.titleBlod==null || info.titleBlod==0">checked="checked"</s:if> >否
     </TD>
 </TR>
 <TR>
@@ -264,9 +264,9 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="radio" id="ishot1" name="info.ishot" value="1" <s:if test="info.ishot==1">checked="checked"</s:if>>是
-        <input type="radio" id="ishot0" name="info.ishot" value="0"
-               <s:if test="info==null || info.ishot==null || info.ishot==0">checked="checked"</s:if> >否
+        <input type="radio" id="ishot1" name="info.isHot" value="1" <s:if test="info.isHot==1">checked="checked"</s:if>>是
+        <input type="radio" id="ishot0" name="info.isHot" value="0"
+               <s:if test="info==null || info.isHot==null || info.isHot==0">checked="checked"</s:if> >否
 
     </TD>
 </TR>
@@ -282,13 +282,13 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="radio" id="istop1" onclick="istop(1)" name="info.istop" value="1"
-               <s:if test="info.istop==1">checked="checked"</s:if>>是
-        <input type="radio" id="istop0" onclick="istop(0)" name="info.istop" value="0"
-               <s:if test="info==null || info.istop==null || info.istop==0">checked="checked"</s:if> >否
-        <input name="info.topendtime" id="topendtime" style="display:none"<s:if
-                test="info==null || info.istop==null || info.istop==0"></s:if> class="Wdate" title="选择固顶结束时间，没有则表示永远固顶!"
-               type="text" size="24" value="${info.topendtimeStr }"
+        <input type="radio" id="istop1" onclick="istop(1)" name="info.isTop" value="1"
+               <s:if test="info.isTop==1">checked="checked"</s:if>>是
+        <input type="radio" id="istop0" onclick="istop(0)" name="info.isTop" value="0"
+               <s:if test="info==null || info.isTop==null || info.isTop==0">checked="checked"</s:if> >否
+        <input name="info.topEndTime" id="topEndTime" style="display:none"<s:if
+                test="info==null || info.isTop==null || info.isTop==0"></s:if> class="Wdate" title="选择固顶结束时间，没有则表示永远固顶!"
+               type="text" size="24" value="${info.topEndTimeStr }"
                onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 
     </TD>
@@ -305,8 +305,8 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="radio" id="iscomment0" name="info.iscomment" value="0"
-               <s:if test="info==null || info.iscomment==null || info.iscomment==0">checked="checked"</s:if>>否
+        <input type="radio" id="iscomment0" name="info.isComment" value="0"
+               <s:if test="info==null || info.isComment==null || info.isComment==0">checked="checked"</s:if>>否
         <input type="radio" id="iscomment1" name="info.iscomment" value="1"
                <s:if test="info.iscomment==1">checked="checked"</s:if> >会员评论
         <input type="radio" id="iscomment2" name="info.iscomment" value="2"
@@ -350,7 +350,7 @@
                 <s:iterator value="userList" id="obj" status="bean">
                     <td><input name="signusers"
 
-                    <s:iterator value="infosignList" id="infosign">
+                    <s:iterator value="infoSignList" id="infosign">
                         ${obj.id == infosign.userid ?"checked":"" }
                     </s:iterator>
                                type="checkbox" value="<s:property value="id"/>"><s:property value="name"/></td>

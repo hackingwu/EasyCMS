@@ -88,4 +88,14 @@ public class InfoService {
             }
         }
     }
+
+    public Info findById(String id) {
+        return (Info)infoDaoImpl.get(id);
+    }
+
+    public int count(Info info) {
+        Criteria criteria = infoDaoImpl.getCurrentSession().createCriteria(Info.class);
+        proSearchParam(info,criteria);
+        return criteria.list().size();
+    }
 }

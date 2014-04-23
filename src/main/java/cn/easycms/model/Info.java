@@ -42,7 +42,15 @@ public class Info {
     private Integer htmlIndexNum;
     private String isImgs;
     private String checkOpenEndTime;
+    private String topEndTimeStr;
 
+    public String getTopEndTimeStr() {
+        return topEndTimeStr;
+    }
+
+    public void setTopEndTimeStr(String topEndTimeStr) {
+        this.topEndTimeStr = topEndTimeStr;
+    }
 
     public String getId() {
         return id;

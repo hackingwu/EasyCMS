@@ -41,4 +41,9 @@ public class UserService {
         }
         return msg;
     }
+
+    public List<User> findAll() {
+
+        return userDaoImpl.findAll();
+    }
 }

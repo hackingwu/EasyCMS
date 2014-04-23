@@ -164,9 +164,10 @@ public class SiteAction extends BaseAction {
 
         if (list!=null&&list.size()>0){
             for (int i = 0;i<list.size();i++){
-                if (site!=null && site.getId()!=null && site.getId().trim().length()>0 && site.getId().equals(list.get(i).getId())){
-                    continue;
-                }
+//                if (site!=null && site.getId()!=null && site.getId().trim().length()>0 && site.getId().equals(list.get(i).getId())){
+//                      忽略当前site。
+//                      continue;
+//                }
                 //如果不是json的开头
                 if (!"[".equals(stringBuilder.toString())){
                     stringBuilder.append(",");
@@ -344,15 +345,31 @@ public class SiteAction extends BaseAction {
         return null;
     }
 
+    /**
+     * 站点设置
+     * @param content
+     */
+    public String config(){
+        site = getManageSite();
+        if (site!=null){
+            if (StringUtil.isNotEmpty(site.getIndexTemplate())){
+                template = templateService.findById(site.getIndexTemplate());
+                if (template!=null){
+                    site.setIndexTemplateName(template.getName());
+                }
+            }
+        }else{
+            return showMessage("未选择管理站点：");
+        }
+        return "config";
 
-
+    }
 
 
 
     public void log(String content){
         operlogsService.log(getLoginName(),content,getHttpRequest());
     }
-
 
 
 

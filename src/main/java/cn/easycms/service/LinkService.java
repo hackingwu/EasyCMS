@@ -74,4 +74,13 @@ public class LinkService {
         }
         return ids;
     }
+
+    public int count(Link link) {
+        if (link!=null){
+            Criteria criteria = linkDaoImpl.getCurrentSession().createCriteria(Link.class);
+            proSearch(link,criteria);
+            return criteria.list().size();
+        }
+        return 0;
+    }
 }

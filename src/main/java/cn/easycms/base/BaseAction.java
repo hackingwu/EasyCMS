@@ -1,5 +1,6 @@
 package cn.easycms.base;
 
+import cn.easycms.model.Site;
 import cn.easycms.model.User;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
@@ -8,6 +9,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * Created by hackingwu on 2014/4/1.
@@ -16,6 +18,7 @@ public class BaseAction extends ActionSupport {
     private String showMessage;
     private String forwardUrl = "";
     private int forwardSeconds = 10;
+    private Map<String,Object> config;
 
     public String getShowMessage() {
         return showMessage;
@@ -62,7 +65,11 @@ public class BaseAction extends ActionSupport {
     public boolean isAdminLogin(){
         return "admin".equals(getLoginName());
     }
-
+    public boolean isSiteAdmin(){
+        if (getHttpSession().getAttribute("siteAdmin")!=null)
+            return (Boolean)getHttpSession().getAttribute("siteAdmin");
+        return false;
+    }
     public String getLoginName() {
         if (getLoginAdmin()!=null){
             return getLoginAdmin().getLoginName();
@@ -84,5 +91,36 @@ public class BaseAction extends ActionSupport {
         setForwardUrl(forwardUrl);
         return "showMessage";
 
+    }
+    public String showMessage(String showMessage){
+        return showMessage(showMessage,forwardUrl,forwardSeconds);
+    }
+    /**
+     * 获取当前管理站点
+     *
+     */
+    public Site getManageSite(){
+        Object site = getHttpSession().getAttribute("manageSite");
+        if (site!=null){
+            return (Site)site;
+        }
+        return null;
+    }
+    /**
+     * 获取配置
+     */
+    public Map<String, Object> getConfig(){
+        if (getApplication().get("config")!=null) {
+            return (Map<String, Object>)getApplication().get("config");
+        }else {
+            //重新生成
+            return setConfig();
+        }
+    }
+    public void setConfig(){
+
+    }
+    public Map<String,Object> getApplication(){
+        return ServletActionContext.getContext().getApplication();
     }
 }

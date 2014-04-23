@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>
-<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>
+<!--可视化HTML编辑器-->
+<%--<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>--%>
+<%--<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>--%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -68,7 +69,7 @@
                onpropertychange="checkLoginName(this)"
                class=colorblur
                onfocus="this.className='colorfocus';" ${site!=null && site.id!=null && site.id !=""?"readonly":"" }
-               maxLength=50 type=text name=site.sourcepath value="${site.sourcepath }">
+               maxLength=50 type=text name=site.sourcePath value="${site.sourcePath }">
         <SPAN id=ctl03>*</SPAN>
     </TD>
 </TR>

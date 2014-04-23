@@ -44,52 +44,55 @@
                         <s:iterator value="channelList" var="bean" status="stuts">
                             <li id="<s:property value="id"/>" class="hasChildren">
 					<span><font size="2">
-                        <s:if test='%{#session.siteAdmin || "1" == #bean.haveChannelRole }'>
-                            <b><a href="#"
-                                  onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')"><s:property
-                                    value="name"/></a></b>
+                        <%--<s:if test='%{#session.siteAdmin || "1" == #bean.haveChannelRole }'>--%>
+                            <%--<b><a href="#"--%>
+                                  <%--onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')"><s:property--%>
+                                    <%--value="name"/></a></b>--%>
+                        <%--</s:if>--%>
+                        <%--<s:if test='%{!#session.siteAdmin && "1"!=#bean.haveChannelRole}'>--%>
+                            <%--<s:property value="name"></s:property>--%>
+                        <%--</s:if>--%>
+                            <b>
+                                <a href="#" onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')"><s:property value="name"/></a>
+                            </b>
+            </font>
+            </span>
+                        <s:if test='%{"1"==#bean.hasChildren}'>
+                            <ul>
+                                <li><span>&nbsp;</span></li>
+                            </ul>
                         </s:if>
-                        <s:if test='%{!#session.siteAdmin && "1"!=#bean.haveChannelRole}'>
-                            <s:property value="name"></s:property>
-                        </s:if>
-                    </font>
-					</span>
-                                <s:if test='%{"1"==#bean.hasChildren}'>
-                                    <ul>
-                                        <li><span>&nbsp;</span></li>
-                                    </ul>
-                                </s:if>
-                            </li>
-                        </s:iterator>
-                    </ul>
-                </td>
-                <td width="70%">
+                    </li>
+                </s:iterator>
+            </ul>
+        </td>
+        <td width="70%">
 
-                    <iframe width="100%" height="500" id="infoFrame" framespacing="0" border="false"
-                            frameborder="0"></iframe>
+            <iframe width="100%" height="500" id="infoFrame" framespacing="0" border="false"
+                    frameborder="0"></iframe>
 
 
-                </td>
-            </tr>
-        </table>
-    </div>
+        </td>
+    </tr>
+</table>
+</div>
 </DIV>
 <script type="text/javascript">
-    $("#infoFrame").height($(document).height() - 80);
-    function initTrees() {
-        $("#mixed").treeview({
-            url: "channel_son.do?auth=1",
-            ajax: {
-                data: {
-                    "additional": function () {
-                        return "yeah: " + new Date;
-                    }
-                },
-                type: "post"
+$("#infoFrame").height($(document).height() - 80);
+function initTrees() {
+$("#mixed").treeview({
+    url: "channel_son.do?auth=1",
+    ajax: {
+        data: {
+            "additional": function () {
+                return "yeah: " + new Date;
             }
-        });
+        },
+        type: "post"
     }
-    initTrees();
+});
+}
+initTrees();
 </script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="fs" uri="/fs-tags" %>
 <html>
 <head>
     <script type="text/javascript" src="../js/jquery-1.5.1.min.js"></script>
@@ -50,11 +51,25 @@
         }
 
     </style>
+
 </head>
 <body>
+    <%
+        String path     = request.getContextPath();
+        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    %>
 
 
     <ul class="nav nav-tabs nav-stacked">
+        <li>
+            <s:if test="%{#session.manageSite != null}">
+                <span style="cursor:hand" title="点击选择管理站点" onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">&nbsp;&nbsp;请选择管理站点 </span>
+                <span onclick="window.open('<%=basePath %>site/${manageSite.sourcePath }/index.html');" title="点击预览"><i class="glyphicon glyphicon-globe"></i> </span>
+            </s:if>
+            <s:else>
+                <span style="cursor:hand" title="点击选择管理站点" onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">请选择管理站点</span>
+            </s:else>
+        </li>
         <li class="nav-divider">
         <s:iterator value="#session.funcs" id="bean">
 

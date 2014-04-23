@@ -17,6 +17,7 @@ public class Site {
     private String logo;
     private Integer orderNum;
     private Integer clickNum;
+    private String indexTemplateName;
 
     public String getId() {
         return id;
@@ -120,5 +121,13 @@ public class Site {
 
     public void setClickNum(Integer clickNum) {
         this.clickNum = clickNum;
+    }
+
+    public void setIndexTemplateName(String indexTemplateName) {
+        this.indexTemplateName = indexTemplateName;
+    }
+
+    public String getIndexTemplateName() {
+        return indexTemplateName;
     }
 }

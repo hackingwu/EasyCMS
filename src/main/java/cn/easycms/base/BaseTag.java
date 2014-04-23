@@ -1,6 +1,8 @@
 package cn.easycms.base;
 
 import cn.easycms.model.User;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,5 +48,9 @@ public class BaseTag extends TagSupport{
                 return (String)getSession().getAttribute("loginCompany");
             }
             return "";
+        }
+        public ApplicationContext getApplicationContext(){
+            return WebApplicationContextUtils.getWebApplicationContext(getRequest().getSession().getServletContext());
+
         }
 }

@@ -24,6 +24,11 @@
         <property name="mappingLocations">
             <value>classpath:cn/easycms/model/*.hbm.xml</value>
         </property>
+        <property name="packagesToScan">
+            <list>
+                <value>cn.easycms.model</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
             <!--设置Hibernate属性-->
             <props>
@@ -69,6 +74,11 @@
     <bean id="ChannelDaoImpl" class="cn.easycms.dao.ChannelDaoImpl" parent="daoImplTemplate"/>
     <bean id="LinkDaoImpl" class="cn.easycms.dao.LinkDaoImpl" parent="daoImplTemplate"/>
     <bean id="InfoDaoImpl" class="cn.easycms.dao.InfoDaoImpl" parent="daoImplTemplate"/>
+    <bean id="OperButtonDaoImpl" class="cn.easycms.dao.OperButtonDaoImpl" parent="daoImplTemplate"/>
+    <bean id="HtmlQuartzDaoImpl" class="cn.easycms.dao.HtmlQuartzDaoImpl" parent="daoImplTemplate"/>
+    <bean id="InfoImgDaoImpl" class="cn.easycms.dao.InfoImgDaoImpl" parent="daoImplTemplate"/>
+    <bean id="InfoSignDaoImpl" class="cn.easycms.dao.InfoSignDaoImpl" parent="daoImplTemplate"/>
+    <bean id="QuestionDaoImpl" class="cn.easycms.dao.QuestionDaoImpl" parent="daoImplTemplate"/>
     <!-- *Service -->
     <bean id="UserService" class="cn.easycms.service.UserService">
         <property name="userDaoImpl" ref="UserDaoImpl"/>
@@ -104,6 +114,21 @@
     </bean>
     <bean id="InfoService" class="cn.easycms.service.InfoService">
         <property name="infoDaoImpl" ref="InfoDaoImpl"/>
+    </bean>
+    <bean id="OperButtonService" class="cn.easycms.service.OperButtonService">
+        <property name="operButtonDaoImpl" ref="OperButtonDaoImpl"/>
+    </bean>
+    <bean id="HtmlQuartzService" class="cn.easycms.service.HtmlQuarztService">
+        <property name="htmlQuartzDaoImpl" ref="HtmlQuartzDaoImpl"/>
+    </bean>
+    <bean id="InfoImgService" class="cn.easycms.service.InfoImgService">
+        <property name="infoImgDaoImpl" ref="InfoImgDaoImpl"/>
+    </bean>
+    <bean id="InfoSignService" class="cn.easycms.service.InfoSignService">
+        <property name="infoSignDaoImpl" ref="InfoSignDaoImpl"/>
+    </bean>
+    <bean id="QuestionService" class="cn.easycms.service.QuestionService">
+        <property name="questionDaoImpl" ref="QuestionDaoImpl"/>
     </bean>
     <!--FreeMarkerUtil-->
     <bean id="FreeMarkerUtil" class="cn.easycms.util.FreeMarkerUtil">
@@ -141,7 +166,27 @@
         <property name="templateLinkService" ref="TemplateLinkService"/>
         <property name="templateService" ref="TemplateService"/>
     </bean>
-
+    <bean id="channelAction" class="cn.easycms.action.ChannelAction">
+        <property name="channelService" ref="ChannelService"/>
+        <property name="siteService"    ref="SiteService"/>
+        <property name="htmlQuarztService" ref="HtmlQuartzService"/>
+    </bean>
+    <bean id="infoAction" class="cn.easycms.action.InfoAction">
+        <property name="infoService" ref="InfoService"/>
+        <property name="channelService" ref="ChannelService"/>
+        <property name="infoImgService" ref="InfoImgService"/>
+        <property name="infoSignService" ref="InfoSignService"/>
+        <property name="userService" ref="UserService"/>
+    </bean>
+    <bean id="htmlAction" class="cn.easycms.action.HtmlAction">
+        <property name="channelService" ref="ChannelService"/>
+    </bean>
+    <bean id="linkAction" class="cn.easycms.action.LinkAction">
+        <property name="linkService" ref="LinkService"/>
+    </bean>
+    <bean id="questionAction" class="cn.easycms.action.QuestionAction">
+        <property name="questionService" ref="QuestionService"/>
+    </bean>
     <bean id="testAction" class="cn.easycms.action.TestAction">
         <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>
     </bean>

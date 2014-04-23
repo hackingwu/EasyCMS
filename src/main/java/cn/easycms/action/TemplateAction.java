@@ -8,6 +8,7 @@ import cn.easycms.service.SiteService;
 import cn.easycms.service.TemplateChannelService;
 import cn.easycms.service.TemplateLinkService;
 import cn.easycms.service.TemplateService;
+import cn.easycms.util.Pager;
 import cn.easycms.util.StringUtil;
 
 import java.util.List;
@@ -24,6 +25,53 @@ public class TemplateAction extends BaseAction {
     private Site site;
     private Template template;
     private List<Template> templateList;
+    private int currPage;
+    private int pageSize;
+    private String pageStr;
+
+    public String getPageStr() {
+        return pageStr;
+    }
+
+    public void setPageStr(String pageStr) {
+        this.pageStr = pageStr;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    private int totalCount;
+
+    public int getCurrPage() {
+        return currPage;
+    }
+
+    public void setCurrPage(int currPage) {
+        this.currPage = currPage;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getOrder() {
+        return order;
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
+    }
+
+    private String order;
 
     public List<Template> getTemplateList() {
         return templateList;
@@ -85,4 +133,37 @@ public class TemplateAction extends BaseAction {
         return "select";
 
     }
+
+    /**
+     * 模板管理
+     * 列表
+     * @return
+     */
+    public String list(){
+        if (template==null) {
+            template=new Template();
+        }
+        template.setNoDel("1");
+        //普通用户只查看自己添加的
+        if (!isAdminLogin()) {
+            template.setAddUser(getLoginAdmin());
+        }
+        if (!StringUtil.isNotEmpty(order)) {
+            order="orderNum";
+        }
+        templateList=templateService.find(template, order, currPage, pageSize);
+        totalCount=templateService.count(template);
+        Pager pager=new Pager(getHttpRequest());
+        pager.appendParam("template.name");
+        pager.appendParam("order");
+        pager.appendParam("pageSize");
+        pager.appendParam("pageFuncId");
+        pager.setCurrPage(currPage);
+        pager.setPageSize(pageSize);
+        pager.setTotalCount(totalCount);
+        pager.setOutStr("template_list.do");
+        pageStr=pager.getOutStr();
+        return "list";
+    }
+
 }
