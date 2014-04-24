@@ -36,8 +36,8 @@ public class Mail {
     private String email;
     private String isOpen;
     private String content;
-    private String quryCode;
-    private String addTime;
+    private String queryCode;
+    private Date addTime;
     private String ip;
     private String state;
     private String reContent;
@@ -127,19 +127,19 @@ public class Mail {
         this.content = content;
     }
     @Column(name = "queryCode")
-    public String getQuryCode() {
-        return quryCode;
+    public String getQueryCode() {
+        return queryCode;
     }
 
-    public void setQuryCode(String quryCode) {
-        this.quryCode = quryCode;
+    public void setQueryCode(String queryCode) {
+        this.queryCode = queryCode;
     }
     @Column(name = "addTime")
-    public String getAddTime() {
+    public Date getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(String addTime) {
+    public void setAddTime(Date addTime) {
         this.addTime = addTime;
     }
     @Column(name = "ip")
@@ -190,6 +190,16 @@ public class Mail {
     private String addTimeStr;
     private String reTimeStr;
     private String stateStr;
+    private String type;
+    @Transient
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Transient
     public String getUnitIds() {
         return unitIds;

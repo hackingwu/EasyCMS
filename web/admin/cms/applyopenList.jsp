@@ -34,7 +34,7 @@
                 <TD height="30" align=left style="padding-left: 10px;">
                     查询码:
 
-                    <input name="applyopen.querycode" type="text" maxlength="50"
+                    <input name="applyopen.queryCode" type="text" maxlength="50"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     名称:
@@ -107,7 +107,7 @@
             </TD>
 
             <TD>
-                <fs:order colName="查询码" col="querycode"/>
+                <fs:order colName="查询码" col="queryCode"/>
             </TD>
             <TD>
                 <fs:order colName="名称" col="name"/>
@@ -120,7 +120,7 @@
             </TD>
             <TD>
 
-                <fs:order colName="申报时间" col="addtime"/>
+                <fs:order colName="申报时间" col="addTime"/>
             </TD>
             <TD>
 
@@ -134,8 +134,8 @@
                 <TD align="center">
                     <INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 
-                <TD align="left" id="querycode<s:property value="id"/>">
-                    <s:property value="querycode"/>
+                <TD align="left" id="queryCode<s:property value="id"/>">
+                    <s:property value="queryCode"/>
                 </TD>
                 <TD align="left" id="name<s:property value="id"/>">
                     <s:property value="name"/>
@@ -146,8 +146,8 @@
                 <TD align="left" id="type<s:property value="id"/>">
                     <s:property value="typeStr"/>
                 </TD>
-                <TD align="left" id="addtime<s:property value="id"/>">
-                    <s:date name="addtime" format="yyyy-MM-dd"/>
+                <TD align="left" id="addTime<s:property value="id"/>">
+                    <s:date name="addTime" format="yyyy-MM-dd"/>
                 </TD>
                 <TD align="left" id="state<s:property value="id"/>">
                         ${"1"==bean.state?"已办结":"办理中" }

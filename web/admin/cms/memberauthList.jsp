@@ -95,7 +95,7 @@
                 <fs:order colName="名称" col="name"/>
             </TD>
             <TD>
-                <fs:order colName="排序号" col="ordernum"/>
+                <fs:order colName="排序号" col="orderNum"/>
             </TD>
         </TR>
 
@@ -112,8 +112,8 @@
                 <TD align="left" id="name<s:property value="id"/>">
                     <s:property value="name"/>
                 </TD>
-                <TD align="left" id="ordernum<s:property value="id"/>">
-                    <s:property value="ordernum"/>
+                <TD align="left" id="orderNum<s:property value="id"/>">
+                    <s:property value="orderNum"/>
                 </TD>
             </TR>
         </s:iterator>

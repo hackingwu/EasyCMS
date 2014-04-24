@@ -189,7 +189,7 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <INPUT onblur="this.className='colorblur';" id=ordernum
+        <INPUT onblur="this.className='colorblur';" id=orderNum
                class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo')
                onafterpaste=if(!isInt(value))execCommand('undo')
                maxLength=50 type=text name=channel.orderNum value="${channel.orderNum }">

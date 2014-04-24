@@ -127,7 +127,7 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input onblur="this.className='colorblur';" id=ordernum oninput="checkLoginName(this)"
+        <input onblur="this.className='colorblur';" id=orderNum oninput="checkLoginName(this)"
                onpropertychange="checkLoginName(this)"
                class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo')
                onafterpaste=if(!isInt(value))execCommand('undo')

@@ -118,7 +118,7 @@
                 <TD align="left" id="isopennewwin<s:property value="id"/>">
                     <s:property value="content"/>
                 </TD>
-                <TD align="left" id="ordernum<s:property value="id"/>">
+                <TD align="left" id="orderNum<s:property value="id"/>">
                     <s:property value="ip"/>
                 </TD>
             </TR>

@@ -116,7 +116,7 @@
             </TD>
             <TD width="20%">
 
-                <fs:order colName="添加时间" col="addtime"/>
+                <fs:order colName="添加时间" col="addTime"/>
             </TD>
         </TR>
 

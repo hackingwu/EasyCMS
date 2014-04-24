@@ -12,9 +12,9 @@
     <script type="text/javascript" src="js/mailPro.js"></script>
     <script>
         function checkform() {
-            if ($.trim($("#recontent").val()) == "") {
+            if ($.trim($("#reContent").val()) == "") {
                 alert("请输入办理结果");
-                $("#recontent").focus();
+                $("#reContent").focus();
                 return false;
             }
             return true;
@@ -118,7 +118,7 @@
                     <b>添加时间</b>
                 </TD>
                 <TD align="left">
-                    <s:date name="mail.addtime" format="yyyy-MM-dd"/>
+                    <s:date name="mail.addTime" format="yyyy-MM-dd"/>
                 </TD>
                 <TD align="left">
                     <b>IP</b>
@@ -140,7 +140,7 @@
                     <b>转办流程</b>
                 </TD>
                 <TD align="left" colspan="3">
-                    ${mail.proflow }
+                    ${mail.proFlow }
                 </TD>
             </TR>
             <TR>
@@ -151,17 +151,17 @@
 
                     <textarea onblur="this.className='colorblur';"
                               class=colorblur onfocus="this.className='colorfocus';"
-                              type=text id=recontent name=mail.recontent
-                              style="width:100%;height:100px">${mail.recontent }</textarea>
+                              type=text id=reContent name=mail.reContent
+                              style="width:100%;height:100px">${mail.reContent }</textarea>
                 </TD>
             </TR>
-            <s:if test="%{mail.retime != null}">
+            <s:if test="%{mail.reTime != null}">
                 <TR>
                     <TD align="left">
                         <b>办理时间</b>
                     </TD>
                     <TD align="left" colspan="3">
-                        <s:date name="mail.retime" format="yyyy-MM-dd"/>
+                        <s:date name="mail.reTime" format="yyyy-MM-dd"/>
                     </TD>
                 </TR>
             </s:if>

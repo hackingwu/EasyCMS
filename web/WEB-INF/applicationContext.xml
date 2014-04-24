@@ -79,6 +79,9 @@
     <bean id="InfoImgDaoImpl" class="cn.easycms.dao.InfoImgDaoImpl" parent="daoImplTemplate"/>
     <bean id="InfoSignDaoImpl" class="cn.easycms.dao.InfoSignDaoImpl" parent="daoImplTemplate"/>
     <bean id="QuestionDaoImpl" class="cn.easycms.dao.QuestionDaoImpl" parent="daoImplTemplate"/>
+    <bean id="ConfigDaoImpl" class="cn.easycms.dao.ConfigDaoImpl" parent="daoImplTemplate"/>
+    <bean id="MailDaoImpl" class="cn.easycms.dao.MailDaoImpl" parent="daoImplTemplate"/>
+    <bean id="ReportDaoImpl" class="cn.easycms.dao.ReportDaoImpl" parent="daoImplTemplate"/>
     <!-- *Service -->
     <bean id="UserService" class="cn.easycms.service.UserService">
         <property name="userDaoImpl" ref="UserDaoImpl"/>
@@ -129,6 +132,15 @@
     </bean>
     <bean id="QuestionService" class="cn.easycms.service.QuestionService">
         <property name="questionDaoImpl" ref="QuestionDaoImpl"/>
+    </bean>
+    <bean id="ConfigService" class="cn.easycms.service.ConfigService">
+        <property name="configDaoImpl" ref="ConfigDaoImpl"/>
+    </bean>
+    <bean id="MailService" class="cn.easycms.service.MailService">
+        <property name="mailDaoImpl" ref="MailDaoImpl"/>
+    </bean>
+    <bean id="ReportService" class="cn.easycms.service.ReportService">
+        <property name="reportDaoImpl" ref="ReportDaoImpl"/>
     </bean>
     <!--FreeMarkerUtil-->
     <bean id="FreeMarkerUtil" class="cn.easycms.util.FreeMarkerUtil">
@@ -186,6 +198,19 @@
     </bean>
     <bean id="questionAction" class="cn.easycms.action.QuestionAction">
         <property name="questionService" ref="QuestionService"/>
+    </bean>
+    <bean id="mailAction" class="cn.easycms.action.MailAction">
+        <property name="userService" ref="UserService"/>
+        <property name="mailService" ref="MailService"/>
+    </bean>
+    <bean id="adminLinkAction" class="cn.easycms.action.AdminLinkAction">
+        <property name="adminLinkService" ref="AdminLinkService"/>
+        <property name="operlogsService" ref="OperlogsService"/>
+    </bean>
+    <bean id="reportAction" class="cn.easycms.action.ReportAction">
+        <property name="userService" ref="UserService"/>
+        <property name="reportService" ref="ReportService"/>
+        <property name="operlogsService" ref="OperlogsService"/>
     </bean>
     <bean id="testAction" class="cn.easycms.action.TestAction">
         <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>

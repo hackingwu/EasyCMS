@@ -5,7 +5,7 @@
     <table border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td width="60" height="35" align="center" valign="middle">查询码：</td>
-            <td width="160" height="35" align="left" valign="middle"><input type="text" name="querycode"
+            <td width="160" height="35" align="left" valign="middle"><input type="text" name="queryCode"
                                                                             style="width:150px;"/></td>
         </tr>
         <tr>
@@ -16,7 +16,7 @@
         </tr>
     </table>
 </form>
-<@mailQuery querycode='${querycode!""}';mail>
+<@mailQuery queryCode='${queryCode!""}';mail>
 <TABLE width="98%" border=0 align=center cellPadding=1 cellspacing="1" bgcolor="#FFFFFF">
     <tr>
         <td width="15%" height=25 align="center" bgcolor="#FFFFFF">
@@ -77,7 +77,7 @@
             添加时间
         </TD>
         <TD align="left">
-            ${mail.addtimeStr!""}
+            ${mail.addTimeStr!""}
         </TD>
         <TD align="left">
             IP
@@ -100,7 +100,7 @@
             转办流程
         </TD>
         <TD align="left" colspan="3">
-            ${mail.proflow!"" }
+            ${mail.proFlow!"" }
         </TD>
     </TR>
     <TR>
@@ -108,7 +108,7 @@
             办理结果
         </TD>
         <TD align="left" colspan="3">
-            ${mail.recontent!"" }
+            ${mail.reContent!"" }
         </TD>
     </TR>
     <TR>
@@ -116,7 +116,7 @@
             办理时间
         </TD>
         <TD align="left" colspan="3">
-            ${mail.retimeStr!""}
+            ${mail.reTimeStr!""}
         </TD>
     </TR>
 </TABLE>

@@ -53,7 +53,7 @@
                                                        value="${bean.name }"/>
                                             </s:if>
                                         </s:iterator>
-										<select id="userid" name="applyopen.userid"
+										<select id="userId" name="applyopen.userId"
                                                 onchange="$('#username').val(this.options[this.selectedIndex].text);">
                                             <s:iterator value="userList" id="bean">
                                             <option value="${bean.id }">${bean.name }

@@ -12,7 +12,7 @@
         <property name="name" type="string"></property>
         <property name="pwd" type="string"></property>
         <property name="sex" type="string"></property>
-        <property name="birthday" type="string"></property>
+        <property name="birthday" type="timestamp"></property>
         <property name="tel" type="string"></property>
         <property name="mobilephone" type="string"></property>
         <property name="email" type="string"></property>

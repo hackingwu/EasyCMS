@@ -25,7 +25,7 @@
 <BODY>
 <FORM id=MyForm onsubmit="return FormSubmit()"
       method=post name=MyForm action=channel_auth.do>
-    <input type="hidden" id="userid" value="${user.id}"/>
+    <input type="hidden" id="userId" value="${user.id}"/>
     <input type="hidden" id="wasUser" name="wasUser" value="${wasUser}"/>
     <input type="hidden" name="operUser" value="${operUser}"/>
 

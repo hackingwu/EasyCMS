@@ -60,6 +60,20 @@ public class UserAction extends BaseAction {
             return null;
         }
     }
+    public String logout(){
+        HttpSession session =getHttpSession();
+        user=(User)session.getAttribute("loginAdmin");
+        if (user!=null) {
+            operlogsService.log(user.getLoginName(), "退出系统", getHttpRequest());
+        }
+        session.removeAttribute("loginAdmin");
+        session.removeAttribute("manageSite");
+        session.removeAttribute("siteAdmin");
+        session.removeAttribute("loginUnits");
+        session.removeAttribute("loginRoles");
+        session.removeAttribute("funcs");
+        return "login";
+    }
 
     public String getMsg() {
         return msg;

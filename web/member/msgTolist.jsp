@@ -123,8 +123,8 @@
                 <TD>
                         ${"1" == bean.issys ?"是":"否" }
                 </TD>
-                <TD id="addtime<s:property value="id"/>">
-                    <s:property value="addtimeStr"/>
+                <TD id="addTime<s:property value="id"/>">
+                    <s:property value="addTimeStr"/>
                 </TD>
             </TR>
         </s:iterator>

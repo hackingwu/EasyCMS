@@ -6,7 +6,7 @@
     <table border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td width="60" height="35" align="center" valign="middle">查询码：</td>
-            <td width="160" height="35" align="left" valign="middle"><input type="text" name="querycode"
+            <td width="160" height="35" align="left" valign="middle"><input type="text" name="queryCode"
                                                                             style="width:150px;"/></td>
         </tr>
         <tr>
@@ -17,7 +17,7 @@
         </tr>
     </table>
 </form>
-<@reportQuery querycode='${querycode!""}' cache='true';report>
+<@reportQuery queryCode='${queryCode!""}' cache='true';report>
 <#if (""!=(report.id!""))>
     <table width="710" border="0" cellpadding="0" cellspacing="1" bgcolor="#E6E6E6">
         <tr>
@@ -41,7 +41,7 @@
                 style="padding-right:10px">申报文件名称：
             </td>
             <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:10px">
-                ${report.filename}
+                ${report.fileName}
             </td>
         </tr>
         <tr>
@@ -68,7 +68,7 @@
                 style="padding-right:10px">联系人：
             </td>
             <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:10px">
-                ${report.linkman}
+                ${report.linkMan}
             </td>
         </tr>
         <tr>
@@ -101,7 +101,7 @@
                 style="padding-right:10px">转办流程
             </td>
             <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
-                ${report.proflow!"" }
+                ${report.proFlow!"" }
             </td>
         </tr>
         <tr>
@@ -110,14 +110,14 @@
             </td>
             <td height="120" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
                 <textarea name="content" cols="45" rows="5" class="jzxx_d_box"
-                          readonly>${report.recontent!"" }</textarea></td>
+                          readonly>${report.reContent!"" }</textarea></td>
         </tr>
         <tr>
             <td width="150" height="30" align="right" valign="middle" bgcolor="#FFFFFF" class="lan_bwz"
                 style="padding-right:10px">办理时间
             </td>
             <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
-                ${report.retimeStr!""}
+                ${report.reTimeStr!""}
             </td>
         </tr>
     </table>

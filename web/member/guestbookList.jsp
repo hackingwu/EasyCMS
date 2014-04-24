@@ -88,8 +88,8 @@
                 <TD>
                     <a href="guestbook_info.do?guestbook.id=<s:property value="id"/>"><s:property value="title"/></a>
                 </TD>
-                <TD id="addtime<s:property value="id"/>">
-                    <s:property value="addtimeStr"/>
+                <TD id="addTime<s:property value="id"/>">
+                    <s:property value="addTimeStr"/>
                 </TD>
                 <TD id="state<s:property value="id"/>">
                     <s:property value="stateStr"/>

@@ -68,7 +68,7 @@
                     </LABEL>
                 </TD>
                 <TD width="70%">
-                    ${loginAdmin.loginname }
+                    ${loginAdmin.loginName }
                 </TD>
             </TR>
             <TR>

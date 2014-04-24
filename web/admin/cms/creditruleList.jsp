@@ -127,7 +127,7 @@
                 <fs:order colName="经验" col="experience"/>
             </TD>
             <TD>
-                <fs:order colName="排序号" col="ordernum"/>
+                <fs:order colName="排序号" col="orderNum"/>
             </TD>
         </TR>
 
@@ -162,8 +162,8 @@
                 <TD align="left" id="experience<s:property value="id"/>">
                     <s:property value="experience"/>
                 </TD>
-                <TD align="left" id="ordernum<s:property value="id"/>">
-                    <s:property value="ordernum"/>
+                <TD align="left" id="orderNum<s:property value="id"/>">
+                    <s:property value="orderNum"/>
                 </TD>
             </TR>
         </s:iterator>

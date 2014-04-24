@@ -27,7 +27,7 @@
             <TD width="70%" align="left">
                 <INPUT onblur="this.className='colorblur';" id=name_edit
                        class=colorblur onfocus="this.className='colorfocus';"
-                       maxLength=50 type=text name=adminlink.name value="${adminlink.name }">
+                       maxLength=50 type=text name=adminLink.name value="${adminLink.name }">
                 <SPAN id=ctl03>*</SPAN>
             </TD>
         </TR>
@@ -46,11 +46,11 @@
                 </LABEL>
             </TD>
             <TD>
-                <input type="hidden" name="adminlink.img" id="img" value="${adminlink.img }"/>
+                <input type="hidden" name="adminLink.img" id="img" value="${adminLink.img }"/>
 							<span id="imgSpan">
-							<s:if test='%{adminlink.img!=null && adminlink.img != "" && adminlink.img != "null"}'>
-                                <a href="${adminlink.img }?date=<%=UUID.randomUUID() %>" target="_blank">
-                                    <img src="${adminlink.img }?date=<%=UUID.randomUUID() %>" width="60" height="40"
+							<s:if test='%{adminLink.img!=null && adminLink.img != "" && adminLink.img != "null"}'>
+                                <a href="${adminLink.img }?date=<%=UUID.randomUUID() %>" target="_blank">
+                                    <img src="${adminLink.img }?date=<%=UUID.randomUUID() %>" width="60" height="40"
                                          title="点击查看大图"/>
                                 </a>
                             </s:if>
@@ -74,7 +74,7 @@
             <TD width="70%" align="left">
                 <INPUT onblur="this.className='colorblur';" id=url
                        class=colorblur onfocus="this.className='colorfocus';"
-                       maxLength=500 size="40" type=text name=adminlink.url value="${adminlink.url }">
+                       maxLength=500 size="40" type=text name=adminLink.url value="${adminLink.url }">
                 <SPAN id=ctl03>*</SPAN>
             </TD>
         </TR>
@@ -91,10 +91,10 @@
                 </LABEL>
             </TD>
             <TD align="left">
-                <input type="radio" name="adminlink.isok" value="1"
-                       <s:if test="adminlink==null || adminlink.isok!=0">checked="checked"</s:if>>是
-                <input type="radio" id="isok0" name="adminlink.isok" value="0"
-                       <s:if test="adminlink.isok==0">checked="checked"</s:if> >否
+                <input type="radio" name="adminLink.isOk" value="1"
+                       <s:if test="adminLink==null || adminLink.isOk!=0">checked="checked"</s:if>>是
+                <input type="radio" id="isok0" name="adminLink.isOk" value="0"
+                       <s:if test="adminLink.isOk==0">checked="checked"</s:if> >否
             </TD>
         </TR>
         <TR>
@@ -110,7 +110,7 @@
                 </LABEL>
             </TD>
             <TD align="left">
-                <input type="text" id="ordernum" value="${adminlink.ordernum }" name="adminlink.ordernum"
+                <input type="text" id="orderNum" value="${adminLink.orderNum }" name="adminLink.orderNum"
                        onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')
                        class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
             </TD>

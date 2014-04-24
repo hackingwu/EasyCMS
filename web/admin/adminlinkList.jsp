@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@page import="cn.freeteam.cms.model.Creditrule" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@taglib prefix="fs" uri="/fs-tags" %>
@@ -23,11 +22,11 @@
 </HEAD>
 <BODY style="padding:0;margin:0">
 <input type="hidden" id="pageFuncId" value="${param.pageFuncId }"/>
-<input type="hidden" id="type" value="${adminlink.type }"/>
+<input type="hidden" id="type" value="${adminLink.type }"/>
 <input type="hidden" id="ckfinderCurrentFolder" value="${currentFolder }"/>
 <input type="hidden" id="ckfinderBasePath" value="<%=checkParentPath %>"/>
 
-<s:if test='%{"1"==adminlink.type}'>
+<s:if test='%{"1"==adminLink.type}'>
 <DIV class=tab>
     <DIV class=tabOff>
         <A href="user_profile.jsp">个人资料</A>
@@ -42,10 +41,10 @@
 </DIV>
 <DIV class="column">
     </s:if>
-    <s:if test='%{"0"==adminlink.type}'>
+    <s:if test='%{"0"==adminLink.type}'>
     <DIV class="column" style="width:99%">
         <div class="columntitle">
-                ${"0" == adminlink.type ?"系统":"个人" }链接列表
+                ${"0" == adminLink.type ?"系统":"个人" }链接列表
         </div>
         </s:if>
 
@@ -70,13 +69,13 @@
                 </TD>
                 <TD>
 
-                    <fs:order colName="顺序" col="ordernum"/>
+                    <fs:order colName="顺序" col="orderNum"/>
                 </TD>
                 <TD>
                 </TD>
             </TR>
 
-            <s:iterator value="adminlinkList" id="bean">
+            <s:iterator value="adminLinkList" id="bean">
                 <TR class="tdbg" onMouseOver="this.className='tdbg-dark';" id="tr<s:property value="id"/>"
                     style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
                     <TD align="center">
@@ -93,10 +92,10 @@
                         </a>
                     </TD>
                     <TD align="left" id="isok<s:property value="id"/>">
-                        <s:property value="isokStr"/>
+                        <s:property value="isOkStr"/>
                     </TD>
-                    <TD align="left" id="ordernum<s:property value="id"/>">
-                        <s:property value="ordernum"/>
+                    <TD align="left" id="orderNum<s:property value="id"/>">
+                        <s:property value="orderNum"/>
                     </TD>
                 </TR>
             </s:iterator>

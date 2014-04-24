@@ -18,11 +18,16 @@
     <package name="root" extends="struts-default" namespace="/">
         <action name="User_*" class="UserAction" method="{1}">
             <result name="success" type="redirect">/admin/index.jsp</result>
+            <result name="login">login.jsp</result>
         </action>
 
     </package>
 
    <package name="admin" extends="struts-default" namespace="/admin">
+       <action name="adminlink_*" method="{1}" class="adminLinkAction">
+           <result name="list" >adminlinkList.jsp</result>
+           <result name="edit" >adminlinkEdit.jsp</result>
+       </action>
         <action name="*_*" class="{1}Action" method="{2}">
 
             <result name="{2}">{2}.jsp</result>
@@ -105,6 +110,11 @@
             <result name="list" >mailList.jsp</result>
             <result name="forward" >mailForward.jsp</result>
             <result name="pro" >mailPro.jsp</result>
+        </action>
+        <action name="report_*" method="{1}" class="reportAction">
+            <result name="list" >/admin/cms/reportList.jsp</result>
+            <result name="forward" >/admin/cms/reportForward.jsp</result>
+            <result name="pro" >/admin/cms/reportPro.jsp</result>
         </action>
         <action name="test_*" class="testAction" method="{1}">
 

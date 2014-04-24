@@ -15,9 +15,9 @@
     <script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
     <script>
         function checkform() {
-            if ($.trim($("#recontent").val()) == "") {
+            if ($.trim($("#reContent").val()) == "") {
                 alert("请输入办理结果");
-                $("#recontent").focus();
+                $("#reContent").focus();
                 return false;
             }
             return true;
@@ -76,7 +76,7 @@
             <b>联系人姓名</b>
         </TD>
         <TD align="left">
-                ${applyopen.linkman }
+                ${applyopen.linkMan }
         </TD>
     </TR>
     <TR>
@@ -250,7 +250,7 @@
         <b>查询码</b>
     </TD>
     <TD align="left" colspan="3">
-        ${applyopen.querycode }
+        ${applyopen.queryCode }
     </TD>
 </TR>
 
@@ -259,7 +259,7 @@
         <b>添加时间</b>
     </TD>
     <TD align="left">
-        <s:date name="applyopen.addtime" format="yyyy-MM-dd"/>
+        <s:date name="applyopen.addTime" format="yyyy-MM-dd"/>
     </TD>
     <TD align="left">
         <b>IP</b>
@@ -281,7 +281,7 @@
         <b>转办流程</b>
     </TD>
     <TD align="left" colspan="3">
-        ${applyopen.proflow }
+        ${applyopen.proFlow }
     </TD>
 </TR>
 <TR>
@@ -292,17 +292,17 @@
 
         <textarea onblur="this.className='colorblur';"
                   class=colorblur onfocus="this.className='colorfocus';"
-                  type=text id=recontent name=applyopen.recontent
-                  style="width:100%;height:100px">${applyopen.recontent }</textarea>
+                  type=text id=reContent name=applyopen.reContent
+                  style="width:100%;height:100px">${applyopen.reContent }</textarea>
     </TD>
 </TR>
-<s:if test="%{applyopen.retime != null}">
+<s:if test="%{applyopen.reTime != null}">
     <TR>
         <TD align="left">
             <b>办理时间</b>
         </TD>
         <TD align="left" colspan="3">
-            <s:date name="applyopen.retime" format="yyyy-MM-dd"/>
+            <s:date name="applyopen.reTime" format="yyyy-MM-dd"/>
         </TD>
     </TR>
 </s:if>

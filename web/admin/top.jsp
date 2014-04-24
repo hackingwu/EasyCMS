@@ -105,7 +105,7 @@
                 <li><a class="text" href="javascript:link('admin_right.do')">系统首页</a></li>
                 <li><a class="text" href="javascript:link('user_profile.jsp')">个人设置</a></li>
                 <li><a class="text" href="javascript:link('pwd.jsp')">更改密码</a></li>
-                <li><a class="text" href="../login_out.do" target="_top">退出</a></div></li>
+                <li><a class="text" href="../User_logout.do" target="_top">退出</a></div></li>
             </ul>
         </div>
     </div>

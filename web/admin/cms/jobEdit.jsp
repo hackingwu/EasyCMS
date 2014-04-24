@@ -166,8 +166,8 @@
                     </LABEL>
                 </TD>
                 <TD width="70%" align="left">
-                    <input name="job.addtime" id="addtime" class="Wdate" type="text" size="18"
-                           value="${job.addtimeStr }" onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd'})"/>
+                    <input name="job.addTime" id="addTime" class="Wdate" type="text" size="18"
+                           value="${job.addTimeStr }" onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd'})"/>
 
                 </TD>
             </TR>

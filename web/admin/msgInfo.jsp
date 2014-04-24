@@ -144,7 +144,7 @@
                 </LABEL>
             </TD>
             <TD align="left">
-                ${msg.addtimeStr }
+                ${msg.addTimeStr }
             </TD>
         </TR>
         <TR>

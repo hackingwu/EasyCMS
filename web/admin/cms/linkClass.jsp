@@ -110,7 +110,7 @@
             </TD>
             <TD>
 
-                <fs:order colName="顺序" col="ordernum"/>
+                <fs:order colName="顺序" col="orderNum"/>
             </TD>
         </TR>
 
@@ -129,8 +129,8 @@
                 <TD align="left" id="isok<s:property value="id"/>">
                     <s:property value="isokStr"/>
                 </TD>
-                <TD align="left" id="ordernum<s:property value="id"/>">
-                    <s:property value="ordernum"/>
+                <TD align="left" id="orderNum<s:property value="id"/>">
+                    <s:property value="orderNum"/>
                 </TD>
             </TR>
         </s:iterator>

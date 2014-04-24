@@ -79,7 +79,7 @@
                 </LABEL>
             </TD>
             <TD align="left">
-                <input type="text" id="ordernum" value="${link.ordernum }" name="link.ordernum"
+                <input type="text" id="orderNum" value="${link.orderNum }" name="link.orderNum"
                        onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')
                        class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
             </TD>

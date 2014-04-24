@@ -36,7 +36,7 @@
                 <TD height="30" align=left style="padding-left: 10px;">
                     查询码:
 
-                    <input name="mail.querycode" type="text" maxlength="500"
+                    <input name="mail.queryCode" type="text" maxlength="500"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     标题:
@@ -50,7 +50,7 @@
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     <br/>
-                    <s:if test="%{#session.loginAdmin.loginname == 'admin' and 'unit' == mail.type}">
+                    <s:if test="%{#session.loginAdmin.loginName == 'admin' and 'unit' == mail.type}">
                         部门:<select id="unitid" name="mail.unitid" >
                         <option value="">请选择
                         <s:iterator value="unitList" id="bean">
@@ -58,8 +58,8 @@
                         </s:iterator>
                         </select>
                     </s:if>
-                    <s:if test="%{#session.loginAdmin.loginname == 'admin' and 'user' == mail.type}">
-                        收信人:<select id="userid" name="mail.userid" >
+                    <s:if test="%{#session.loginAdmin.loginName == 'admin' and 'user' == mail.type}">
+                        收信人:<select id="userId" name="mail.userId" >
                         <option value="">请选择
                         <s:iterator value="userList" id="bean">
                             <option value="${bean.id }">${bean.name }
@@ -67,9 +67,9 @@
                         </select>
                     </s:if>
                     类型:
-                    <select name="mail.mailtype">
+                    <select name="mail.mailType">
                         <option value="">全部
-                            <s:iterator value="mailtypes" id="bean">
+                            <s:iterator value="mailTypes" id="bean">
                         <option value="${bean }">${bean }
                             </s:iterator>
                     </select>
@@ -81,7 +81,7 @@
                         <option value="1">已办结
                     </select>
                     公开:
-                    <select name="mail.isopen">
+                    <select name="mail.isOpen">
                         <option value="">全部
                         <option value="1">是
                         <option value="0">否
@@ -131,21 +131,21 @@
             <TD>
                 <INPUT onClick="checkAll(this.checked)" type="checkbox"/>
             </TD>
-            <s:if test="%{#session.loginAdmin.loginname == 'admin' and 'unit' == mail.type}">
+            <s:if test="%{#session.loginAdmin.loginName == 'admin' and 'unit' == mail.type}">
                 <TD>
-                    <fs:order colName="部门" col="unitid"/>
+                    <fs:order colName="部门" col="unitId"/>
                 </TD>
             </s:if>
-            <s:if test="%{#session.loginAdmin.loginname == 'admin' and 'user' == mail.type}">
+            <s:if test="%{#session.loginAdmin.loginName == 'admin' and 'user' == mail.type}">
                 <TD>
-                    <fs:order colName="收信人" col="userid"/>
+                    <fs:order colName="收信人" col="userId"/>
                 </TD>
             </s:if>
             <TD>
                 <fs:order colName="类型" col="mailtype"/>
             </TD>
             <TD>
-                <fs:order colName="查询码" col="querycode"/>
+                <fs:order colName="查询码" col="queryCode"/>
             </TD>
             <TD>
                 <fs:order colName="信件标题" col="title"/>
@@ -156,7 +156,7 @@
             </TD>
             <TD>
 
-                <fs:order colName="写信时间" col="addtime"/>
+                <fs:order colName="写信时间" col="addTime"/>
             </TD>
             <TD>
 
@@ -174,12 +174,12 @@
                 <TD align="center">
                     <INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 
-                <s:if test="%{#session.loginAdmin.loginname == 'admin' and 'unit' == mail.type}">
+                <s:if test="%{#session.loginAdmin.loginName == 'admin' and 'unit' == mail.type}">
                     <TD align="left" id="unit<s:property value="id"/>">
                         <s:property value="unitname"/>
                     </TD>
                 </s:if>
-                <s:if test="%{#session.loginAdmin.loginname == 'admin' and 'user' == mail.type}">
+                <s:if test="%{#session.loginAdmin.loginName == 'admin' and 'user' == mail.type}">
                     <TD align="left" id="user<s:property value="id"/>">
                         <s:property value="username"/>
                     </TD>
@@ -187,8 +187,8 @@
                 <TD align="left" id="mailtype<s:property value="id"/>">
                     <s:property value="mailtype"/>
                 </TD>
-                <TD align="left" id="querycode<s:property value="id"/>">
-                    <s:property value="querycode"/>
+                <TD align="left" id="queryCode<s:property value="id"/>">
+                    <s:property value="queryCode"/>
                 </TD>
                 <TD align="left" id="title<s:property value="id"/>">
                     <s:property value="title"/>
@@ -196,8 +196,8 @@
                 <TD align="left" id="writer<s:property value="id"/>">
                     <s:property value="writer"/>
                 </TD>
-                <TD align="left" id="addtime<s:property value="id"/>">
-                    <s:date name="addtime" format="yyyy-MM-dd"/>
+                <TD align="left" id="addTime<s:property value="id"/>">
+                    <s:date name="addTime" format="yyyy-MM-dd"/>
                 </TD>
                 <TD align="left" id="isopen<s:property value="id"/>">
                         ${"1"==bean.isopen?"是":"否" }

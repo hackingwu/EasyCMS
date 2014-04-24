@@ -38,7 +38,7 @@
                 <fs:order colName="名称" col="name"/>
             </TD>
             <TD>
-                <fs:order colName="排序号" col="ordernum"/>
+                <fs:order colName="排序号" col="orderNum"/>
             </TD>
             <TD>
                 <fs:order colName="经验值大于" col="beginexperience"/>
@@ -74,8 +74,8 @@
                         </font>
                         </s:if>
                     </TD>
-                    <TD align="left" id="ordernum<s:property value="id"/>">
-                        <s:property value="ordernum"/>
+                    <TD align="left" id="orderNum<s:property value="id"/>">
+                        <s:property value="orderNum"/>
                     </TD>
                     <TD align="left" id="beginexperience<s:property value="id"/>">
                         <s:property value="beginexperience"/>
@@ -113,7 +113,7 @@
                 <fs:order colName="名称" col="name"/>
             </TD>
             <TD>
-                <fs:order colName="排序号" col="ordernum"/>
+                <fs:order colName="排序号" col="orderNum"/>
             </TD>
             <TD>
                 <fs:order colName="附件最大大小(MB)" col="maxattchsize"/>
@@ -146,8 +146,8 @@
                         </font>
                         </s:if>
                     </TD>
-                    <TD align="left" id="ordernum<s:property value="id"/>">
-                        <s:property value="ordernum"/>
+                    <TD align="left" id="orderNum<s:property value="id"/>">
+                        <s:property value="orderNum"/>
                     </TD>
                     <TD align="left" id="maxattchsize<s:property value="id"/>">
                         <s:property value="maxattchsize"/>

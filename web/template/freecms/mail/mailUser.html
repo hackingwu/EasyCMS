@@ -46,7 +46,7 @@ onsubmit="return validata(this);">
             <span style="letter-spacing:6px; padding-left:6px">收信人</span></td>
         <td width="38%" height="25" align="left">&nbsp;&nbsp;
 
-            <select name="userid">
+            <select name="userId">
                 <option value=''>请选择</option>
                 <@userList filter="mail";user,index>
 
@@ -62,8 +62,8 @@ onsubmit="return validata(this);">
             <select name="mailtype" id="mailtype">
 
                 <option value="">请选择类型</option>
-                <@config code="mailType" split=",";configvalue,index>
-                <option value="${configvalue}">${configvalue}</option>
+                <@config code="mailType" split=",";configValue,index>
+                <option value="${configValue}">${configValue}</option>
 
             </@config>
             </select>        <font color="#FF0000"> * </font></td>

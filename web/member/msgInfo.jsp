@@ -68,7 +68,7 @@
             <td align="left"><b>发送时间</b>
             </TD>
             <td align="left">
-                ${msg.addtimeStr }
+                ${msg.addTimeStr }
             </TD>
         </TR>
         <TR class="tr1 tac s3">

@@ -125,7 +125,7 @@
             </TD>
             <TD width="20%">
 
-                <fs:order colName="添加时间" col="addtime"/>
+                <fs:order colName="添加时间" col="addTime"/>
             </TD>
         </TR>
 
@@ -154,8 +154,8 @@
                 <TD align="left" id="iscomment<s:property value="id"/>">
                     <s:property value="iscommentStr"/>
                 </TD>
-                <TD align="left" id="addtime<s:property value="id"/>">
-                    <s:property value="addtimeStr"/>
+                <TD align="left" id="addTime<s:property value="id"/>">
+                    <s:property value="addTimeStr"/>
                 </TD>
             </TR>
         </s:iterator>

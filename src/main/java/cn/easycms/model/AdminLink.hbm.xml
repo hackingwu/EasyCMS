@@ -13,6 +13,6 @@
         <property name="orderNum" type="java.lang.Integer"/>
         <property name="img" type="string"/>
         <property name="type" type="string"/>
-        <property name="userid" type="string"/>
+        <property name="userId" type="string"/>
     </class>
 </hibernate-mapping>

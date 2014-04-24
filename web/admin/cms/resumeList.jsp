@@ -117,7 +117,7 @@
             </TD>
             <TD>
 
-                <fs:order colName="添加时间" col="addtime"/>
+                <fs:order colName="添加时间" col="addTime"/>
             </TD>
             <TD>
 
@@ -143,8 +143,8 @@
                 <TD align="left" id="reusername<s:property value="id"/>">
                     <s:property value="reusername"/>
                 </TD>
-                <TD align="left" id="addtime<s:property value="id"/>">
-                    <s:date name="addtime" format="yyyy-MM-dd"/>
+                <TD align="left" id="addTime<s:property value="id"/>">
+                    <s:date name="addTime" format="yyyy-MM-dd"/>
                 </TD>
                 <TD align="left" id="state<s:property value="id"/>">
                     <s:property value="stateStr"/>

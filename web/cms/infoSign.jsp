@@ -78,13 +78,13 @@
             <TD style="WIDTH: 120px" align="left">
                 <s:property value="name"/>
             </TD>
-            <TD style="WIDTH: 120px" align="left" id="issign<s:property value="userid"/>">
+            <TD style="WIDTH: 120px" align="left" id="issign<s:property value="userId"/>">
                     ${not empty bean.signtime?"是":"否" }
             </TD>
-            <TD style="WIDTH: 120px" align="left" id="signtime<s:property value="userid"/>">
+            <TD style="WIDTH: 120px" align="left" id="signtime<s:property value="userId"/>">
                 <s:date name="signtime" format="yyyy-MM-dd"/>
             </TD>
-            <TD style="WIDTH: 120px" align="left" id="ip<s:property value="userid"/>">
+            <TD style="WIDTH: 120px" align="left" id="ip<s:property value="userId"/>">
                 <s:property value="ip"/>
             </TD>
         </TR>

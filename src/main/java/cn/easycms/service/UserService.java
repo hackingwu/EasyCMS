@@ -2,7 +2,11 @@ package cn.easycms.service;
 
 import cn.easycms.dao.UserDaoImpl;
 import cn.easycms.model.User;
+import cn.easycms.util.StringUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -45,5 +49,17 @@ public class UserService {
     public List<User> findAll() {
 
         return userDaoImpl.findAll();
+    }
+
+    public List<User> find(User user) {
+        Criteria criteria = userDaoImpl.getCurrentSession().createCriteria(User.class);
+        if (user!=null&& StringUtil.isNotEmpty(user.getIsmail()))
+            criteria.add(Restrictions.eq("ismail",user.getIsmail().trim()));
+        criteria.addOrder(Order.asc("loginName"));
+        return criteria.list();
+    }
+
+    public User findById(String userId) {
+        return (User)userDaoImpl.get(userId);
     }
 }

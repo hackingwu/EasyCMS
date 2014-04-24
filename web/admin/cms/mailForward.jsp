@@ -74,7 +74,7 @@
                                                                    value="${bean.name }"/>
                                                         </s:if>
                                                     </s:iterator>
-                                                    <select id="userid" name="mail.userid"
+                                                    <select id="userId" name="mail.userId"
                                                             onchange="$('#username').val(this.options[this.selectedIndex].text);"
                                                             style="display:${"user" == mail.type ?"block":"none"}">
                                                         <s:iterator value="userList" id="bean">

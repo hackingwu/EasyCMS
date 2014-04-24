@@ -92,7 +92,7 @@
         <TR class="tr1 tac s3">
             <TD align="left"><b>添加时间</b>
             </TD>
-            <TD align="left"><s:date name="resume.addtime" format="yyyy-MM-dd"/>
+            <TD align="left"><s:date name="resume.addTime" format="yyyy-MM-dd"/>
             </TD>
         </TR>
 
@@ -115,14 +115,14 @@
             <TD align="left"><b>回复内容</b>
             </TD>
             <TD align="left">
-                ${resume.recontent }
+                ${resume.reContent }
             </TD>
         </TR>
         <TR class="tr1 tac s3">
             <TD align="left"><b>回复时间</b>
             </TD>
             <TD align="left">
-                <s:date name="resume.retime" format="yyyy-MM-dd"/>
+                <s:date name="resume.reTime" format="yyyy-MM-dd"/>
             </TD>
         </TR>
         <TR class="tr1 tac s3">

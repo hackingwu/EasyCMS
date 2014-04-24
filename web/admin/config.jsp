@@ -57,7 +57,7 @@
                                   class=colorblur onfocus="this.className='colorfocus';"
                                   maxLength=500 type=text id='<s:property value="code"/>'
                                   name='<s:property value="code"/>'
-                                  cols="40" rows="3"><s:property value="configvalue"/></textarea>
+                                  cols="40" rows="3"><s:property value="configValue"/></textarea>
                     </TD>
                 </TR>
             </s:iterator>

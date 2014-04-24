@@ -35,7 +35,7 @@ public class Pager {
         if(params==null){
             params = new ArrayList<String>();
         }
-        if(param!=null&&!param.trim().equals("")&&params.contains(param)==false){
+        if(StringUtil.isNotEmpty(param)&&params.contains(param)==false){
             params.add(param);
         }
     }

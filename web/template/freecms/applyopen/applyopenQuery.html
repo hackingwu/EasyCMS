@@ -6,7 +6,7 @@
     <table border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td width="60" height="35" align="center" valign="middle">查询码：</td>
-            <td width="160" height="35" align="left" valign="middle"><input type="text" name="querycode"
+            <td width="160" height="35" align="left" valign="middle"><input type="text" name="queryCode"
                                                                             style="width:150px;"/></td>
         </tr>
         <tr>
@@ -18,7 +18,7 @@
     </table>
 </form>
 
-<@applyopenQuery querycode='${querycode!""}' cache='true';applyopen>
+<@applyopenQuery queryCode='${queryCode!""}' cache='true';applyopen>
 <#if (""!=(applyopen.id!""))>
 <table width="710" border="0" cellspacing="1" cellpadding="0" bgcolor="#D4DBDF">
     <tr>
@@ -166,7 +166,7 @@
                                 style="padding-left:6px;">联系人姓名
                             </td>
                             <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
-                                ${applyopen.linkman}
+                                ${applyopen.linkMan}
                             </td>
                         </tr>
                         <tr>
@@ -338,7 +338,7 @@
                         style="padding-left:6px;">转办流程
                     </td>
                     <td align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
-                        ${applyopen.proflow!""}
+                        ${applyopen.proFlow!""}
                     </td>
                 </tr>
                 <tr>
@@ -346,7 +346,7 @@
                         style="padding-left:6px;">办理结果
                     </td>
                     <td align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
-                        ${applyopen.recontent!""}
+                        ${applyopen.reContent!""}
                     </td>
                 </tr>
                 <tr>
@@ -354,7 +354,7 @@
                         style="padding-left:6px;">办理时间
                     </td>
                     <td align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:6px;">
-                        ${applyopen.retimeStr!""}
+                        ${applyopen.reTimeStr!""}
                     </td>
                 </tr>
             </table>

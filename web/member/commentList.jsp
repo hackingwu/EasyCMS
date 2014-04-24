@@ -121,8 +121,8 @@
                               type=text id="content<s:property value="id"/>" cols="60" rows="3"><s:property
                             value="content"/></textarea>
                 </TD>
-                <TD id="addtime<s:property value="id"/>">
-                    <s:property value="addtimeStr"/>
+                <TD id="addTime<s:property value="id"/>">
+                    <s:property value="addTimeStr"/>
                 </TD>
                 <TD id="state<s:property value="id"/>">
                     <s:property value="stateStr"/>

@@ -1,14 +1,21 @@
 package cn.easycms.base;
 
+import cn.easycms.model.Config;
 import cn.easycms.model.Site;
 import cn.easycms.model.User;
+import cn.easycms.service.ConfigService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,6 +26,7 @@ public class BaseAction extends ActionSupport {
     private String forwardUrl = "";
     private int forwardSeconds = 10;
     private Map<String,Object> config;
+    private ConfigService configService;
 
     public String getShowMessage() {
         return showMessage;
@@ -55,7 +63,9 @@ public class BaseAction extends ActionSupport {
     public HttpSession getHttpSession() {
         return getHttpRequest().getSession();
     }
-
+    public ApplicationContext getApplicationContext(){
+        return WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+    }
     public ServletContext getServletContext(){
         return ServletActionContext.getServletContext();
     }
@@ -117,10 +127,27 @@ public class BaseAction extends ActionSupport {
             return setConfig();
         }
     }
-    public void setConfig(){
-
+    public Map<String,Object> setConfig(){
+        configService = (ConfigService)getApplicationContext().getBean("ConfigService");
+        List<Config> configList = configService.findByOrder("");
+        Map<String,Object> config = new HashMap<String,Object>();
+        if (configList.size()>0) {
+            for (Config temp : configList)
+                config.put(temp.getCode(), temp.getConfigValue());
+            getApplication().put("config", config);
+        }
+        return config;
     }
     public Map<String,Object> getApplication(){
         return ServletActionContext.getContext().getApplication();
+    }
+    public void write(String content,String charset){
+        getHttpResponse().setCharacterEncoding(charset);
+        getHttpResponse().setContentType("text/html;charset="+charset);
+        try {
+            getHttpResponse().getWriter().print(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

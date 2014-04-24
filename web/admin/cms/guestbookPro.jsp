@@ -15,13 +15,13 @@
     <script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
     <script>
         function checkform() {
-            if ($.trim($("#recontent").val()) == "") {
+            if ($.trim($("#reContent").val()) == "") {
                 alert("请输入回复内容");
-                $("#recontent").focus();
+                $("#reContent").focus();
                 return false;
-            } else if ($.trim($("#recontent").val()).length > 500) {
+            } else if ($.trim($("#reContent").val()).length > 500) {
                 alert("回复内容不能超过500个字符");
-                $("#recontent").focus();
+                $("#reContent").focus();
                 return false;
             }
             return true;
@@ -107,7 +107,7 @@
                     <b>添加时间</b>
                 </TD>
                 <TD align="left" colspan="3">
-                    <s:date name="guestbook.addtime" format="yyyy-MM-dd"/>
+                    <s:date name="guestbook.addTime" format="yyyy-MM-dd"/>
                 </TD>
             </TR>
             <TR>
@@ -147,17 +147,17 @@
 
                     <textarea onblur="this.className='colorblur';"
                               class=colorblur onfocus="this.className='colorfocus';"
-                              type=text id=recontent name=guestbook.recontent
-                              style="width:100%;height:100px">${guestbook.recontent }</textarea>
+                              type=text id=reContent name=guestbook.reContent
+                              style="width:100%;height:100px">${guestbook.reContent }</textarea>
                 </TD>
             </TR>
-            <s:if test="%{guestbook.retime != null}">
+            <s:if test="%{guestbook.reTime != null}">
                 <TR>
                     <TD align="left">
                         <b>回复时间</b>
                     </TD>
                     <TD align="left" colspan="3">
-                        <s:date name="guestbook.retime" format="yyyy-MM-dd"/>
+                        <s:date name="guestbook.reTime" format="yyyy-MM-dd"/>
                     </TD>
                 </TR>
             </s:if>

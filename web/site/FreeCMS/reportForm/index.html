@@ -78,9 +78,9 @@ function validata(form){
 		document.getElementById("unit").focus();
 		return false;
 	}
-	if(document.getElementById("filename").value==""){
+	if(document.getElementById("fileName").value==""){
 		alert("请输入申报文件名称");
-		document.getElementById("filename").focus();
+		document.getElementById("fileName").focus();
 		return false;
 	}
 	if(document.getElementById("filenum").value==""){
@@ -88,9 +88,9 @@ function validata(form){
 		document.getElementById("filenum").focus();
 		return false;
 	}
-	if(document.getElementById("linkman").value==""){
+	if(document.getElementById("linkMan").value==""){
 		alert("请输入联系人");
-		document.getElementById("linkman").focus();
+		document.getElementById("linkMan").focus();
 		return false;
 	}
 	if(document.getElementById("issuer").value==""){
@@ -126,7 +126,7 @@ onsubmit="return validata(this);">
             </tr>
             <tr>
               <td width="150" height="30" align="right" valign="middle" bgcolor="#FFFFFF" class="lan_bwz" style="padding-right:10px">申报文件名称：</td>
-              <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:10px"><input name="report.filename" id="filename" type="text" class="ysqgk_box2" />
+              <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:10px"><input name="report.fileName" id="fileName" type="text" class="ysqgk_box2" />
                 <span class="hong_wz">*</span></td>
             </tr>
             <tr>
@@ -141,7 +141,7 @@ onsubmit="return validata(this);">
             
             <tr>
               <td width="150" height="30" align="right" valign="middle" bgcolor="#FFFFFF" class="lan_bwz" style="padding-right:10px">联系人：</td>
-              <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:10px"><input name="report.linkman" id="linkman" type="text" class="ysqgk_box1" />
+              <td height="30" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:10px"><input name="report.linkMan" id="linkMan" type="text" class="ysqgk_box1" />
                 <span class="hong_wz">*</span></td>
             </tr>
             <tr>

@@ -47,7 +47,7 @@
             text-shadow: 0 1px 0 #fff;
             background-color: #f7f5fa;
             align-content: space-between;
-            overflow: hidden;
+
         }
 
     </style>

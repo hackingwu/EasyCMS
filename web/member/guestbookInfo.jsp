@@ -60,7 +60,7 @@
         <TR class="tr1 tac s3">
             <TD align="left"><b>发表时间</b>
             </TD>
-            <TD align="left"> ${guestbook.addtimeStr }
+            <TD align="left"> ${guestbook.addTimeStr }
             </TD>
         </TR>
 
@@ -83,14 +83,14 @@
             <TD align="left"><b>回复内容</b>
             </TD>
             <TD align="left">
-                ${guestbook.recontent }
+                ${guestbook.reContent }
             </TD>
         </TR>
         <TR class="tr1 tac s3">
             <TD align="left"><b>回复时间</b>
             </TD>
             <TD align="left">
-                ${guestbook.retimeStr }
+                ${guestbook.reTimeStr }
             </TD>
         </TR>
         <TR class="tr1 tac s3">

@@ -29,7 +29,7 @@
     <br/>
     域名:<input type="text" name="site.sitedomain" value="${site.sitedomain}"/>
     <br/>
-    排序号:<input type="text" name="site.ordernum" value="${site.ordernum}"/>
+    排序号:<input type="text" name="site.orderNum" value="${site.orderNum}"/>
     <br/>
     有效:<input type="radio" name="site.state" value="1"
               <s:if test="site==null||site.state==null||site.state==1">checked="checked" </s:if>/>是

@@ -107,7 +107,7 @@
                 <fs:order colName="人数" col="num"/>
             </TD>
             <TD>
-                <fs:order colName="添加时间" col="addtime"/>
+                <fs:order colName="添加时间" col="addTime"/>
             </TD>
             <TD>
                 <fs:order colName="结束时间" col="endtime"/>
@@ -134,7 +134,7 @@
                     <s:property value="num"/>
                 </TD>
                 <TD align="left">
-                    <s:property value="addtimeStr"/>
+                    <s:property value="addTimeStr"/>
                 </TD>
                 <TD align="left">
                     <s:property value="endtimeStr"/>

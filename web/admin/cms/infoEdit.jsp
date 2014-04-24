@@ -351,7 +351,7 @@
                     <td><input name="signusers"
 
                     <s:iterator value="infoSignList" id="infosign">
-                        ${obj.id == infosign.userid ?"checked":"" }
+                        ${obj.id == infosign.userId ?"checked":"" }
                     </s:iterator>
                                type="checkbox" value="<s:property value="id"/>"><s:property value="name"/></td>
                     ${(bean.index+1)%6==0?"</tr><tr>":""  }
@@ -511,7 +511,7 @@
                                    onfocus="this.className='inputfocus';" onkeyup=if(!isInt(value))execCommand('undo')
                                    onafterpaste=if(!isInt(value))execCommand('undo') .
                             maxLength=10 size=4 type=text name=oldimgsordernum<s:property value="id"/>
-                            value='<s:property value="ordernum"/>'/>
+                            value='<s:property value="orderNum"/>'/>
                         </td>
                     </tr>
                     <tr>
@@ -616,7 +616,7 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input name="info.addtime" id="addtime" class="Wdate" type="text" size="24" value="${info.addtimeStr }"
+        <input name="info.addTime" id="addTime" class="Wdate" type="text" size="24" value="${info.addTimeStr }"
                onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 
     </TD>

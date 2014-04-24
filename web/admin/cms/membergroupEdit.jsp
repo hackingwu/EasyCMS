@@ -84,11 +84,11 @@
                     </LABEL>
                 </TD>
                 <TD width="70%" align="left">
-                    <INPUT onblur="this.className='inputblur';" id=ordernum
+                    <INPUT onblur="this.className='inputblur';" id=orderNum
                            class=inputblur onfocus="this.className='inputfocus';"
                            onkeyup=if(!isInt(value))execCommand('undo')
                            onafterpaste=if(!isInt(value))execCommand('undo')
-                           maxLength=50 type=text name=membergroup.ordernum value="${membergroup.ordernum }">
+                           maxLength=50 type=text name=membergroup.orderNum value="${membergroup.orderNum }">
                 </TD>
             </TR>
             <TR id="beginexperienceTr">

@@ -87,8 +87,8 @@
                 <TD>
                     <a href="resume_info.do?resume.id=<s:property value="id"/>"><s:property value="job"/></a>
                 </TD>
-                <TD id="addtime<s:property value="id"/>">
-                    <s:date name="addtime" format="yyyy-MM-dd"/>
+                <TD id="addTime<s:property value="id"/>">
+                    <s:date name="addTime" format="yyyy-MM-dd"/>
                 </TD>
                 <TD id="state<s:property value="id"/>">
                     <s:property value="stateStr"/>

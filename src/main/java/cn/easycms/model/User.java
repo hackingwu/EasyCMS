@@ -1,5 +1,6 @@
 package cn.easycms.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ public class User {
     private String name;
     private String pwd;
     private String sex;
-    private String birthday;
+    private Date birthday;
     private String tel;
     private String mobilephone;
     private String email;
@@ -26,6 +27,17 @@ public class User {
     private String unitNames;
     private String unitIds;
     private String ismail;
+    private String birthdayStr;
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    public String getBirthdayStr() {
+        if (birthday!=null)
+            return sdf.format(birthday);
+        return "";
+    }
+
+    public void setBirthdayStr(String birthdayStr) {
+        this.birthdayStr = birthdayStr;
+    }
 
     public Date getLastestLoginTime() {
         return lastestLoginTime;
@@ -83,11 +95,11 @@ public class User {
         this.sex = sex;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 

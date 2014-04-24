@@ -15,9 +15,9 @@
     <script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
     <script>
         function checkform() {
-            if ($.trim($("#recontent").val()) == "") {
+            if ($.trim($("#reContent").val()) == "") {
                 alert("请输入办理结果");
-                $("#recontent").focus();
+                $("#reContent").focus();
                 return false;
             }
             return true;
@@ -63,7 +63,7 @@
                     <b>申报文件名称</b>
                 </TD>
                 <TD align="left" colspan="3">
-                    ${report.filename }
+                    ${report.fileName }
                 </TD>
             </TR>
             <TR>
@@ -71,7 +71,7 @@
                     <b>申报文件名称</b>
                 </TD>
                 <TD align="left" colspan="3">
-                    ${report.filename }
+                    ${report.fileName }
                 </TD>
             </TR>
             <TR>
@@ -105,7 +105,7 @@
                     <b>查询码</b>
                 </TD>
                 <TD align="left" colspan="3">
-                    ${report.querycode }
+                    ${report.queryCode }
                 </TD>
             </TR>
             <TR>
@@ -113,7 +113,7 @@
                     <b>联系人</b>
                 </TD>
                 <TD align="left">
-                    ${report.linkman}
+                    ${report.linkMan}
                 </TD>
                 <TD align="left">
                     <b>联系电话</b>
@@ -127,7 +127,7 @@
                     <b>添加时间</b>
                 </TD>
                 <TD align="left">
-                    <s:date name="report.addtime" format="yyyy-MM-dd"/>
+                    <s:date name="report.addTime" format="yyyy-MM-dd"/>
                 </TD>
                 <TD align="left">
                     <b>IP</b>
@@ -149,7 +149,7 @@
                     <b>转办流程</b>
                 </TD>
                 <TD align="left" colspan="3">
-                    ${report.proflow }
+                    ${report.proFlow }
                 </TD>
             </TR>
             <TR>
@@ -160,17 +160,17 @@
 
                     <textarea onblur="this.className='colorblur';"
                               class=colorblur onfocus="this.className='colorfocus';"
-                              type=text id=recontent name=report.recontent
-                              style="width:100%;height:100px">${report.recontent }</textarea>
+                              type=text id=reContent name=report.reContent
+                              style="width:100%;height:100px">${report.reContent }</textarea>
                 </TD>
             </TR>
-            <s:if test="%{report.retime != null}">
+            <s:if test="%{report.reTime != null}">
                 <TR>
                     <TD align="left">
                         <b>办理时间</b>
                     </TD>
                     <TD align="left" colspan="3">
-                        <s:date name="report.retime" format="yyyy-MM-dd"/>
+                        <s:date name="report.reTime" format="yyyy-MM-dd"/>
                     </TD>
                 </TR>
             </s:if>
