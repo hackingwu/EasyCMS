@@ -82,6 +82,9 @@
     <bean id="ConfigDaoImpl" class="cn.easycms.dao.ConfigDaoImpl" parent="daoImplTemplate"/>
     <bean id="MailDaoImpl" class="cn.easycms.dao.MailDaoImpl" parent="daoImplTemplate"/>
     <bean id="ReportDaoImpl" class="cn.easycms.dao.ReportDaoImpl" parent="daoImplTemplate"/>
+    <bean id="VisitDaoImpl" class="cn.easycms.dao.VisitDaoImpl" parent="daoImplTemplate"/>
+    <bean id="GuestbookDaoImpl" class="cn.easycms.dao.GuestbookDaoImpl" parent="daoImplTemplate"/>
+    <bean id="CommentDaoImpl" class="cn.easycms.dao.CommentDaoImpl" parent="daoImplTemplate"/>
     <!-- *Service -->
     <bean id="UserService" class="cn.easycms.service.UserService">
         <property name="userDaoImpl" ref="UserDaoImpl"/>
@@ -141,6 +144,16 @@
     </bean>
     <bean id="ReportService" class="cn.easycms.service.ReportService">
         <property name="reportDaoImpl" ref="ReportDaoImpl"/>
+    </bean>
+    <bean id="VisitService" class="cn.easycms.service.VisitService">
+        <property name="visitDaoImpl" ref="VisitDaoImpl"/>
+    </bean>
+    <bean id="GuestbookService" class="cn.easycms.service.GuestbookService">
+        <property name="guestbookDaoImpl" ref="GuestbookDaoImpl"/>
+    </bean>
+
+    <bean id="CommentService" class="cn.easycms.service.CommentService">
+        <property name="commentDaoImpl" ref="CommentDaoImpl"/>
     </bean>
     <!--FreeMarkerUtil-->
     <bean id="FreeMarkerUtil" class="cn.easycms.util.FreeMarkerUtil">

@@ -4,7 +4,7 @@
     <TITLE>EasyCMS-管理中心</TITLE>
     <script>
         function changeDisplayMode() {
-            if (document.getElementById("bottomframes").cols == "140,7,*") {
+            if (document.getElementById("bottomframes").cols == "170,7,*") {
                 document.getElementById("bottomframes").cols = "0,7,*";
                 document.getElementById("separator").contentWindow.document.getElementById('ImgArrow').src = "../img/separator2.gif"
             } else {
@@ -27,7 +27,7 @@
         <frame name="top" scrolling="no" src="admin_top.do" border="false" framespacing="0">
         <!--所有.do都会被structs2处理-->
         <!-- cols="170,7,*" -->
-        <frameset id="bottomframes" framespacing="0" border="false" cols="140,7,*" frameborder="0" scrolling="yes">
+        <frameset id="bottomframes" framespacing="0" border="false" cols="170,7,*" frameborder="0" scrolling="yes">
             <frame name="left" scrolling="auto" marginwidth="0" marginheight="0" src="admin_left.do" />
             <frame id="separator" name="separator" src="separator.html"  scrolling="no" />
             <frame name="right" id="right" scrolling="auto"

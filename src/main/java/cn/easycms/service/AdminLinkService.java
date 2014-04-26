@@ -43,8 +43,8 @@ public class AdminLinkService {
                 if (StringUtil.isNotEmpty(adminLink.getType())) {
                     criteria.add(Restrictions.like("type","%"+adminLink.getType().trim()+"%"));
                 }
-                if (StringUtil.isNotEmpty(adminLink.getUserid())) {
-                    criteria.add(Restrictions.like("userid","%"+adminLink.getUserid().trim()+"%"));
+                if (StringUtil.isNotEmpty(adminLink.getUserId())) {
+                    criteria.add(Restrictions.like("userid","%"+adminLink.getUserId().trim()+"%"));
                 }
             }
 

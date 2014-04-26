@@ -53,11 +53,11 @@ public class ReportService {
             if (StringUtil.isNotEmpty(report.getLinkMan())) {
                 criteria.add(Restrictions.like("linkMan", "%" + report.getLinkMan().trim() + "%"));
             }
-            if (StringUtil.isNotEmpty(report.getIssuer()) {
+            if (StringUtil.isNotEmpty(report.getIssuer())) {
                 criteria.add(Restrictions.like("issuer", "%" + report.getIssuer().trim() + "%"));
             }
             if (StringUtil.isNotEmpty(report.getUserId())) {
-                criteria.add(Restrictions.like("userId", report.getUserId().trim());
+                criteria.add(Restrictions.like("userId","%" + report.getUserId().trim() + "%"));
             }
             if (StringUtil.isNotEmpty(report.getState())) {
                 if ("1".equals(report.getState())) {

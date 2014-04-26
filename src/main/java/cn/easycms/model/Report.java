@@ -1,6 +1,10 @@
 package cn.easycms.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Transient;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,6 +36,9 @@ public class Report {
     private String proFlow;
     private String userId;
 
+    @Id
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid",strategy="uuid")
     public String getId() {
         return id;
     }
@@ -86,6 +93,14 @@ public class Report {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public String getFileNum() {
+        return fileNum;
+    }
+
+    public void setFileNum(String fileNum) {
+        this.fileNum = fileNum;
     }
 
     public String getLinkMan() {
@@ -151,7 +166,7 @@ public class Report {
     public void setState(String state) {
         this.state = state;
     }
-
+    @Transient
     public String getStateStr() {
         return stateStr;
     }

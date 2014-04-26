@@ -13,7 +13,7 @@ public class AdminLink {
     private Integer orderNum;
     private String img;
     private String type;
-    private String userid;
+    private String userId;
 
     public String getId() {
         return id;
@@ -71,11 +71,11 @@ public class AdminLink {
         this.type = type;
     }
 
-    public String getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

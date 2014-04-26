@@ -48,7 +48,7 @@ public class AdminLinkAction extends BaseAction {
             adminLink=new AdminLink();
         }
         if (AdminLink.TYPE_USER.equals(adminLink.getType())) {
-            adminLink.setUserid(getLoginAdmin().getId());
+            adminLink.setUserId(getLoginAdmin().getId());
         }
         adminLinkList=adminLinkService.find(adminLink, order,false);
         return "list";
@@ -74,7 +74,7 @@ public class AdminLinkAction extends BaseAction {
             adminLink.setUrl(HtmlCodeUtil.url(adminLink.getUrl()));
             if (AdminLink.TYPE_USER.equals(adminLink.getType())) {
                 //个人链接，添加用户条件
-                adminLink.setUserid(getLoginAdmin().getId());
+                adminLink.setUserId(getLoginAdmin().getId());
             }
             if (adminLink!=null && adminLink.getId()!=null) {
                 oper="修改";

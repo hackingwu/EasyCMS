@@ -116,6 +116,42 @@
             <result name="forward" >/admin/cms/reportForward.jsp</result>
             <result name="pro" >/admin/cms/reportPro.jsp</result>
         </action>
+        <action name="stat_*" method="{1}" class="statAction">
+            <result name="workload" >/admin/cms/workload.jsp</result>
+            <result name="workloadExport" >/admin/cms/workloadExport.jsp</result>
+            <result name="sysWorkload" >/admin/cms/sysWorkload.jsp</result>
+            <result name="sysWorkloadExport" >/admin/cms/sysWorkloadExport.jsp</result>
+            <result name="sysSiteStat" >/admin/cms/sysSiteStat.jsp</result>
+            <result name="sysSiteStatExport" >/admin/cms/sysSiteStatExport.jsp</result>
+            <result name="channelStat" >/admin/cms/channelStat.jsp</result>
+            <result name="channelStatExport" >/admin/cms/channelStatExport.jsp</result>
+            <result name="infoUpdate" >/admin/cms/infoUpdateStat.jsp</result>
+            <result name="infoUpdateExport" >/admin/cms/infoUpdateStatExport.jsp</result>
+            <result name="sysInfoUpdate" >/admin/cms/sysInfoUpdateStat.jsp</result>
+            <result name="sysInfoUpdateExport" >/admin/cms/sysInfoUpdateStatExport.jsp</result>
+            <result name="channelVisit" >/admin/cms/channelVisit.jsp</result>
+            <result name="channelVisitExport" >/admin/cms/channelVisitExport.jsp</result>
+            <result name="sysSiteVisit" >/admin/cms/sysSiteVisit.jsp</result>
+            <result name="sysSiteVisitExport" >/admin/cms/sysSiteVisitExport.jsp</result>
+            <result name="infoVisit" >/admin/cms/infoVisit.jsp</result>
+            <result name="infoVisitExport" >/admin/cms/infoVisitExport.jsp</result>
+            <result name="visitStat" >/admin/cms/visitStat.jsp</result>
+            <result name="visitStatExport" >/admin/cms/visitStatExport.jsp</result>
+            <result name="sysVisitStat" >/admin/cms/sysVisitStat.jsp</result>
+            <result name="sysVisitStatExport" >/admin/cms/sysVisitStatExport.jsp</result>
+            <result name="guestbookUpdate" >/admin/cms/guestbookUpdateStat.jsp</result>
+            <result name="guestbookUpdateExport" >/admin/cms/guestbookUpdateStatExport.jsp</result>
+            <result name="sysGuestbookUpdate" >/admin/cms/sysGuestbookUpdateStat.jsp</result>
+            <result name="sysGuestbookUpdateExport" >/admin/cms/sysGuestbookUpdateStatExport.jsp</result>
+            <result name="sysSiteGuestbook" >/admin/cms/sysSiteGuestbook.jsp</result>
+            <result name="sysSiteGuestbookExport" >/admin/cms/sysSiteGuestbookExport.jsp</result>
+            <result name="commentUpdate" >/admin/cms/commentUpdateStat.jsp</result>
+            <result name="commentUpdateExport" >/admin/cms/commentUpdateStatExport.jsp</result>
+            <result name="sysCommentUpdate" >/admin/cms/sysCommentUpdateStat.jsp</result>
+            <result name="sysCommentUpdateExport" >/admin/cms/sysCommentUpdateStatExport.jsp</result>
+            <result name="sysSiteComment" >/admin/cms/sysSiteComment.jsp</result>
+            <result name="sysSiteCommentExport" >/admin/cms/sysSiteCommentExport.jsp</result>
+        </action>
         <action name="test_*" class="testAction" method="{1}">
 
         </action>

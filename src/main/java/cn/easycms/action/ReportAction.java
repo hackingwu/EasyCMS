@@ -7,6 +7,7 @@ import cn.easycms.service.OperlogsService;
 import cn.easycms.service.ReportService;
 import cn.easycms.service.UserService;
 import cn.easycms.util.Pager;
+import cn.easycms.util.StringUtil;
 
 import java.util.*;
 
@@ -17,6 +18,7 @@ public class ReportAction extends BaseAction{
     private ReportService reportService;
     private UserService userService;
     private OperlogsService operlogsService;
+    private String order;
 
     public void setOperlogsService(OperlogsService operlogsService) {
         this.operlogsService = operlogsService;
@@ -25,7 +27,6 @@ public class ReportAction extends BaseAction{
     private Report report;
     private List<Report> reportList;
     private List<User> userList;
-    private String order="addtime";
     private User user;
     private String msg;
     private String pageFuncId;
@@ -95,6 +96,13 @@ public class ReportAction extends BaseAction{
     }
 
 
+    public String getOrder() {
+        return StringUtil.isNotEmpty(order)?order:"addTime";
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
+    }
 
     /**
      * 列表
@@ -111,12 +119,12 @@ public class ReportAction extends BaseAction{
         reportList=reportService.find(report, order, currPage, pageSize,false);
         totalCount=reportService.count(report,false);
         Pager pager=new Pager(getHttpRequest());
-        pager.appendParam("report.querycode");
+        pager.appendParam("report.queryCode");
         pager.appendParam("report.name");
         pager.appendParam("report.issuer");
-        pager.appendParam("report.linkman");
+        pager.appendParam("report.linkMan");
         pager.appendParam("report.state");
-        pager.appendParam("report.userid");
+        pager.appendParam("report.userId");
         pager.appendParam("order");
         pager.appendParam("pageSize");
         pager.appendParam("pageFuncId");
@@ -285,13 +293,6 @@ public class ReportAction extends BaseAction{
     }
 
 
-    public String getOrder() {
-        return order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
 
 
     public String getMsg() {
