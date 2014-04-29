@@ -63,8 +63,10 @@
     <ul class="nav nav-tabs nav-stacked">
         <li>
             <s:if test="%{#session.manageSite != null}">
-                <span style="cursor:hand" title="点击选择管理站点" onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">&nbsp;&nbsp;请选择管理站点 </span>
-                <span onclick="window.open('<%=basePath %>site/${manageSite.sourcePath }/index.html');" title="点击预览"><i class="glyphicon glyphicon-globe"></i> </span>
+                <span style="cursor:hand" title="点击选择管理站点"
+                      onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">&nbsp;&nbsp;选择站点&nbsp;&nbsp; </span>
+                <img onclick="window.open('<%=basePath %>site/${manageSite.sourcePath }/index.html');"
+                     src="../img/www.gif" title="点击预览"> </span>
             </s:if>
             <s:else>
                 <span style="cursor:hand" title="点击选择管理站点" onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">请选择管理站点</span>

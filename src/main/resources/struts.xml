@@ -13,8 +13,8 @@
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.action.extension" value="do"/>
     <constant name="struts.devMode" value="true"/>
-    <constant name="struts.multipart.saveDir"  value ="/temp" />
-    <constant name="struts.multipart.maxSize"  value ="9000000000" />
+    <constant name="struts.multipart.saveDir" value="/temp"/>
+    <constant name="struts.multipart.maxSize" value="9000000000"/>
     <package name="root" extends="struts-default" namespace="/">
         <action name="User_*" class="UserAction" method="{1}">
             <result name="success" type="redirect">/admin/index.jsp</result>
@@ -23,15 +23,13 @@
 
     </package>
 
-   <package name="admin" extends="struts-default" namespace="/admin">
-       <action name="adminlink_*" method="{1}" class="adminLinkAction">
-           <result name="list" >adminlinkList.jsp</result>
-           <result name="edit" >adminlinkEdit.jsp</result>
-       </action>
+    <package name="admin" extends="struts-default" namespace="/admin">
+        <action name="adminlink_*" method="{1}" class="adminLinkAction">
+            <result name="list">adminlinkList.jsp</result>
+            <result name="edit">adminlinkEdit.jsp</result>
+        </action>
         <action name="*_*" class="{1}Action" method="{2}">
-
             <result name="{2}">{2}.jsp</result>
-
         </action>
 
     </package>
@@ -54,103 +52,103 @@
             <interceptor-ref name="fileUpload">
                 <param name="maximumSize">2048000</param>
             </interceptor-ref>
-            <interceptor-ref name="defaultStack" />
-            <result name="list" >templateList.jsp</result>
-            <result name="edit" >templateEdit.jsp</result>
-            <result name="fileManage" >templateFileManage.jsp</result>
-            <result name="fileSon" >templateFileSon.jsp</result>
-            <result name="fileSonSelect" >templateFileSonSelect.jsp</result>
-            <result name="fileEdit" >templateFileEdit.jsp</result>
-            <result name="folderEdit" >templateFolderEdit.jsp</result>
-            <result name="selectFile" >templateSelectFile.jsp</result>
-            <result name="data" >templateData.jsp</result>
+            <interceptor-ref name="defaultStack"/>
+            <result name="list">templateList.jsp</result>
+            <result name="edit">templateEdit.jsp</result>
+            <result name="fileManage">templateFileManage.jsp</result>
+            <result name="fileSon">templateFileSon.jsp</result>
+            <result name="fileSonSelect">templateFileSonSelect.jsp</result>
+            <result name="fileEdit">templateFileEdit.jsp</result>
+            <result name="folderEdit">templateFolderEdit.jsp</result>
+            <result name="selectFile">templateSelectFile.jsp</result>
+            <result name="data">templateData.jsp</result>
             <result name="select">templateSelect.jsp</result>
         </action>
         <action name="channel_*" method="{1}" class="channelAction">
             <!--<interceptor-ref name ="fileUploadStack" />-->
-            <result name="channel" >channel.jsp</result>
-            <result name="edit" >channelEdit.jsp</result>
-            <result name="channelSelect" >channelSelect.jsp</result>
-            <result name="auth" >channelAuth.jsp</result>
-            <result name="makehtml" >channelMakehtml.jsp</result>
+            <result name="channel">channel.jsp</result>
+            <result name="edit">channelEdit.jsp</result>
+            <result name="channelSelect">channelSelect.jsp</result>
+            <result name="auth">channelAuth.jsp</result>
+            <result name="makehtml">channelMakehtml.jsp</result>
         </action>
         <action name="info_*" method="{1}" class="infoAction">
             <interceptor-ref name="fileUpload">
                 <param name="maximumSize">2048000</param>
             </interceptor-ref>
-            <interceptor-ref name="defaultStack" />
+            <interceptor-ref name="defaultStack"/>
 
-            <result name="edit" >infoEdit.jsp</result>
-            <result name="info" >info.jsp</result>
-            <result name="list" >infoList.jsp</result>
-            <result name="makehtml" >infoMakehtml.jsp</result>
-            <result name="extract" >infoExtract.jsp</result>
-            <result name="extractMakehtml" >infoExtractMakehtml.jsp</result>
-            <result name="copyMakehtml" >infoCopyMakehtml.jsp</result>
-            <result name="moveMakehtml" >infoMoveMakehtml.jsp</result>
+            <result name="edit">infoEdit.jsp</result>
+            <result name="info">info.jsp</result>
+            <result name="list">infoList.jsp</result>
+            <result name="makehtml">infoMakehtml.jsp</result>
+            <result name="extract">infoExtract.jsp</result>
+            <result name="extractMakehtml">infoExtractMakehtml.jsp</result>
+            <result name="copyMakehtml">infoCopyMakehtml.jsp</result>
+            <result name="moveMakehtml">infoMoveMakehtml.jsp</result>
         </action>
         <action name="html_*" method="{1}" class="htmlAction">
-            <result name="index" >/admin/cms/htmlIndex.jsp</result>
-            <result name="indexConfirm" >/admin/cms/htmlIndexConfirm.jsp</result>
-            <result name="channel" >/admin/cms/htmlChannel.jsp</result>
-            <result name="info" >/admin/cms/htmlInfo.jsp</result>
-            <result name="msg" >/msg.jsp</result>
+            <result name="index">/admin/cms/htmlIndex.jsp</result>
+            <result name="indexConfirm">/admin/cms/htmlIndexConfirm.jsp</result>
+            <result name="channel">/admin/cms/htmlChannel.jsp</result>
+            <result name="info">/admin/cms/htmlInfo.jsp</result>
+            <result name="msg">/msg.jsp</result>
         </action>
         <action name="link_*" method="{1}" class="linkAction">
-            <result name="class" >/admin/cms/linkClass.jsp</result>
-            <result name="clazzEdit" >/admin/cms/linkClassEdit.jsp</result>
-            <result name="list" >/admin/cms/linkList.jsp</result>
-            <result name="edit" >/admin/cms/linkEdit.jsp</result>
+            <result name="class">/admin/cms/linkClass.jsp</result>
+            <result name="clazzEdit">/admin/cms/linkClassEdit.jsp</result>
+            <result name="list">/admin/cms/linkList.jsp</result>
+            <result name="edit">/admin/cms/linkEdit.jsp</result>
         </action>
         <action name="question_*" method="{1}" class="questionAction">
-            <result name="list" >questionList.jsp</result>
-            <result name="edit" >questionEdit.jsp</result>
+            <result name="list">questionList.jsp</result>
+            <result name="edit">questionEdit.jsp</result>
         </action>
         <action name="mail_*" method="{1}" class="mailAction">
-            <result name="list" >mailList.jsp</result>
-            <result name="forward" >mailForward.jsp</result>
-            <result name="pro" >mailPro.jsp</result>
+            <result name="list">mailList.jsp</result>
+            <result name="forward">mailForward.jsp</result>
+            <result name="pro">mailPro.jsp</result>
         </action>
         <action name="report_*" method="{1}" class="reportAction">
-            <result name="list" >/admin/cms/reportList.jsp</result>
-            <result name="forward" >/admin/cms/reportForward.jsp</result>
-            <result name="pro" >/admin/cms/reportPro.jsp</result>
+            <result name="list">/admin/cms/reportList.jsp</result>
+            <result name="forward">/admin/cms/reportForward.jsp</result>
+            <result name="pro">/admin/cms/reportPro.jsp</result>
         </action>
         <action name="stat_*" method="{1}" class="statAction">
-            <result name="workload" >/admin/cms/workload.jsp</result>
-            <result name="workloadExport" >/admin/cms/workloadExport.jsp</result>
-            <result name="sysWorkload" >/admin/cms/sysWorkload.jsp</result>
-            <result name="sysWorkloadExport" >/admin/cms/sysWorkloadExport.jsp</result>
-            <result name="sysSiteStat" >/admin/cms/sysSiteStat.jsp</result>
-            <result name="sysSiteStatExport" >/admin/cms/sysSiteStatExport.jsp</result>
-            <result name="channelStat" >/admin/cms/channelStat.jsp</result>
-            <result name="channelStatExport" >/admin/cms/channelStatExport.jsp</result>
-            <result name="infoUpdate" >/admin/cms/infoUpdateStat.jsp</result>
-            <result name="infoUpdateExport" >/admin/cms/infoUpdateStatExport.jsp</result>
-            <result name="sysInfoUpdate" >/admin/cms/sysInfoUpdateStat.jsp</result>
-            <result name="sysInfoUpdateExport" >/admin/cms/sysInfoUpdateStatExport.jsp</result>
-            <result name="channelVisit" >/admin/cms/channelVisit.jsp</result>
-            <result name="channelVisitExport" >/admin/cms/channelVisitExport.jsp</result>
-            <result name="sysSiteVisit" >/admin/cms/sysSiteVisit.jsp</result>
-            <result name="sysSiteVisitExport" >/admin/cms/sysSiteVisitExport.jsp</result>
-            <result name="infoVisit" >/admin/cms/infoVisit.jsp</result>
-            <result name="infoVisitExport" >/admin/cms/infoVisitExport.jsp</result>
-            <result name="visitStat" >/admin/cms/visitStat.jsp</result>
-            <result name="visitStatExport" >/admin/cms/visitStatExport.jsp</result>
-            <result name="sysVisitStat" >/admin/cms/sysVisitStat.jsp</result>
-            <result name="sysVisitStatExport" >/admin/cms/sysVisitStatExport.jsp</result>
-            <result name="guestbookUpdate" >/admin/cms/guestbookUpdateStat.jsp</result>
-            <result name="guestbookUpdateExport" >/admin/cms/guestbookUpdateStatExport.jsp</result>
-            <result name="sysGuestbookUpdate" >/admin/cms/sysGuestbookUpdateStat.jsp</result>
-            <result name="sysGuestbookUpdateExport" >/admin/cms/sysGuestbookUpdateStatExport.jsp</result>
-            <result name="sysSiteGuestbook" >/admin/cms/sysSiteGuestbook.jsp</result>
-            <result name="sysSiteGuestbookExport" >/admin/cms/sysSiteGuestbookExport.jsp</result>
-            <result name="commentUpdate" >/admin/cms/commentUpdateStat.jsp</result>
-            <result name="commentUpdateExport" >/admin/cms/commentUpdateStatExport.jsp</result>
-            <result name="sysCommentUpdate" >/admin/cms/sysCommentUpdateStat.jsp</result>
-            <result name="sysCommentUpdateExport" >/admin/cms/sysCommentUpdateStatExport.jsp</result>
-            <result name="sysSiteComment" >/admin/cms/sysSiteComment.jsp</result>
-            <result name="sysSiteCommentExport" >/admin/cms/sysSiteCommentExport.jsp</result>
+            <result name="workload">/admin/cms/workload.jsp</result>
+            <result name="workloadExport">/admin/cms/workloadExport.jsp</result>
+            <result name="sysWorkload">/admin/cms/sysWorkload.jsp</result>
+            <result name="sysWorkloadExport">/admin/cms/sysWorkloadExport.jsp</result>
+            <result name="sysSiteStat">/admin/cms/sysSiteStat.jsp</result>
+            <result name="sysSiteStatExport">/admin/cms/sysSiteStatExport.jsp</result>
+            <result name="channelStat">/admin/cms/channelStat.jsp</result>
+            <result name="channelStatExport">/admin/cms/channelStatExport.jsp</result>
+            <result name="infoUpdate">/admin/cms/infoUpdateStat.jsp</result>
+            <result name="infoUpdateExport">/admin/cms/infoUpdateStatExport.jsp</result>
+            <result name="sysInfoUpdate">/admin/cms/sysInfoUpdateStat.jsp</result>
+            <result name="sysInfoUpdateExport">/admin/cms/sysInfoUpdateStatExport.jsp</result>
+            <result name="channelVisit">/admin/cms/channelVisit.jsp</result>
+            <result name="channelVisitExport">/admin/cms/channelVisitExport.jsp</result>
+            <result name="sysSiteVisit">/admin/cms/sysSiteVisit.jsp</result>
+            <result name="sysSiteVisitExport">/admin/cms/sysSiteVisitExport.jsp</result>
+            <result name="infoVisit">/admin/cms/infoVisit.jsp</result>
+            <result name="infoVisitExport">/admin/cms/infoVisitExport.jsp</result>
+            <result name="visitStat">/admin/cms/visitStat.jsp</result>
+            <result name="visitStatExport">/admin/cms/visitStatExport.jsp</result>
+            <result name="sysVisitStat">/admin/cms/sysVisitStat.jsp</result>
+            <result name="sysVisitStatExport">/admin/cms/sysVisitStatExport.jsp</result>
+            <result name="guestbookUpdate">/admin/cms/guestbookUpdateStat.jsp</result>
+            <result name="guestbookUpdateExport">/admin/cms/guestbookUpdateStatExport.jsp</result>
+            <result name="sysGuestbookUpdate">/admin/cms/sysGuestbookUpdateStat.jsp</result>
+            <result name="sysGuestbookUpdateExport">/admin/cms/sysGuestbookUpdateStatExport.jsp</result>
+            <result name="sysSiteGuestbook">/admin/cms/sysSiteGuestbook.jsp</result>
+            <result name="sysSiteGuestbookExport">/admin/cms/sysSiteGuestbookExport.jsp</result>
+            <result name="commentUpdate">/admin/cms/commentUpdateStat.jsp</result>
+            <result name="commentUpdateExport">/admin/cms/commentUpdateStatExport.jsp</result>
+            <result name="sysCommentUpdate">/admin/cms/sysCommentUpdateStat.jsp</result>
+            <result name="sysCommentUpdateExport">/admin/cms/sysCommentUpdateStatExport.jsp</result>
+            <result name="sysSiteComment">/admin/cms/sysSiteComment.jsp</result>
+            <result name="sysSiteCommentExport">/admin/cms/sysSiteCommentExport.jsp</result>
         </action>
         <action name="test_*" class="testAction" method="{1}">
 
