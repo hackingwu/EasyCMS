@@ -1,11 +1,18 @@
 package cn.easycms.model;
 
-import cn.easycms.model.Site;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+
 
 /**
  * Created by hackingwu on 2014/4/12.
  */
+@Entity
 public class Link {
+    public final static String TYPE_DOWN = "1";
+    public final static String TYPE_IMG = "2";
+    public final static String TYPE_TEXT = "3";
     private String id;
     private String parId;
     private String name;
@@ -17,7 +24,16 @@ public class Link {
     private String img;
     //pageMark就是Name的首字母缩写
     private String pageMark;
+    //-----------------Link独有，数据库中没有
+    private String isClass;//是否查询分类,值为1，取类别，值为0，不取类别
+    private String className;//分类名称
+    private String isOkStr;
+    private String pageMarks;
+    private String classPageMarks;
 
+    @Id
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     public String getId() {
         return id;
     }
@@ -66,6 +82,8 @@ public class Link {
         this.orderNum = orderNum;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "site")
     public Site getSite() {
         return site;
     }
@@ -98,18 +116,7 @@ public class Link {
         this.pageMark = pageMark;
     }
 
-
-
-
-
-    //-----------------Link独有，数据库中没有
-    private String isClass;//是否查询分类
-    private String className;//分类名称
-
-    public final static String TYPE_DOWN = "1";
-    public final static String TYPE_IMG  = "2";
-    public final static String TYPE_TEXT = "3";
-
+    @Transient
     public String getPageMarks() {
         return pageMarks;
     }
@@ -118,6 +125,7 @@ public class Link {
         this.pageMarks = pageMarks;
     }
 
+    @Transient
     public String getClassPageMarks() {
         return classPageMarks;
     }
@@ -126,6 +134,7 @@ public class Link {
         this.classPageMarks = classPageMarks;
     }
 
+    @Transient
     public String getClassName() {
         return className;
     }
@@ -134,6 +143,7 @@ public class Link {
         this.className = className;
     }
 
+    @Transient
     public String getIsClass() {
         return isClass;
     }
@@ -142,7 +152,13 @@ public class Link {
         this.isClass = isClass;
     }
 
-    private String pageMarks;
-    private String classPageMarks;
+    @Transient
+    public String getIsOkStr() {
+        return isOk.equals("1") ? "是" : "否";
+    }
+
+    public void setIsOkStr(String isOkStr) {
+        this.isOkStr = isOkStr;
+    }
 
 }

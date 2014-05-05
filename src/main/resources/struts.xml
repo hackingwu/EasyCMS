@@ -13,8 +13,8 @@
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.action.extension" value="do"/>
     <constant name="struts.devMode" value="true"/>
-    <constant name="struts.multipart.saveDir" value="/temp"/>
     <constant name="struts.multipart.maxSize" value="9000000000"/>
+
     <package name="root" extends="struts-default" namespace="/">
         <action name="User_*" class="UserAction" method="{1}">
             <result name="success" type="redirect">/admin/index.jsp</result>
@@ -39,13 +39,16 @@
             <result name="showMessage">/showMessage.jsp</result>
         </global-results>
         <action name="site_*" class="siteAction" method="{1}">
-            <result name="{1}">{1}.jsp</result>
+
+            <result name="site">site.jsp</result>
+            <result name="edit">siteEdit.jsp</result>
             <result name="siteSelect">siteSelect.jsp</result>
             <result name="siteSelectPar">siteSelectPar.jsp</result>
             <result name="siteSelectPage">siteSelectPage.jsp</result>
             <result name="guideTemplate">siteGuideTemplate.jsp</result>
             <result name="guideCompleted">siteGuideCompleted.jsp</result>
             <result name="guideInit">siteGuideInit.jsp</result>
+            <result name="guide">siteGuide.jsp</result>
             <result name="config">siteConfig.jsp</result>
         </action>
         <action name="template_*" class="templateAction" method="{1}">
@@ -77,7 +80,6 @@
                 <param name="maximumSize">2048000</param>
             </interceptor-ref>
             <interceptor-ref name="defaultStack"/>
-
             <result name="edit">infoEdit.jsp</result>
             <result name="info">info.jsp</result>
             <result name="list">infoList.jsp</result>

@@ -2,17 +2,9 @@ package cn.easycms.service;
 
 import cn.easycms.dao.SiteDaoImpl;
 import cn.easycms.model.Site;
-import cn.easycms.util.FreeMarkerUtil;
-import cn.easycms.util.StringUtil;
-import freemarker.template.TemplateException;
 import org.hibernate.Query;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by hackingwu on 2014/4/4.
@@ -67,5 +59,22 @@ public class SiteService {
         siteDaoImpl.update(site);
     }
 
+
+    public void delByPrimaryKey(String siteId) {
+        //将以该site为parId的site的parId置空
+        //1.先取出他的子站点2.再将其parId置空
+        List<Site> sonList = selectByParId(siteId);
+        for (Site site : sonList)
+            resetParId(site.getId());
+        //再删除该站点
+        siteDaoImpl.delete(findById(siteId));
+
+    }
+
+    public void resetParId(String siteId) {
+        Site site = findById(siteId);
+        site.setParId("");
+        update(site);
+    }
 
 }

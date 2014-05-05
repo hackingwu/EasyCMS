@@ -4,6 +4,7 @@ import cn.easycms.base.BaseDirective;
 import cn.easycms.model.Link;
 import cn.easycms.service.LinkService;
 import cn.easycms.service.SiteService;
+import cn.easycms.util.StringUtil;
 import freemarker.core.Environment;
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans.BeansWrapper;
@@ -54,7 +55,8 @@ public class LinkDirective extends BaseDirective implements TemplateDirectiveMod
                 link.setParId(classId);
                 link.setPageMarks(pageMark);
                 link.setClassPageMarks(classPageMark);
-                link.setSite(siteService.findById(siteId));
+                if (StringUtil.isNotEmpty(siteId))
+                    link.setSite(siteService.findById(siteId));
                 link.setType(type);
                 link.setIsOk("1");
                 List<Link> linkList = linkService.find(link,"orderNum",1,num);

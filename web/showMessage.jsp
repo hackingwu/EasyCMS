@@ -118,7 +118,7 @@
                 <a href="${forwardUrl}">页面跳转中...</a>
             </s:if>
             <br/>
-            <a href="javascript:history.go(-1);">返回上一页</a> | <a href="<%=basePath %>">返回首页</a>
+                <a href="javascript:history.go(-1);">返回上一页</a> | <a href="javascript:location.reload();"> 返回首页</a>
 
         </div>
 

@@ -41,7 +41,7 @@
 			<span><font size="2"><b>站点管理</b></font>
 			<a href="#" onclick="location.reload();"><img src="../../img/refresh.gif" title="点击刷新站点"/></a>
 			
-			<s:if test="%{#session.loginAdmin.loginname == 'admin'}">
+			<s:if test="%{#session.loginAdmin.loginName == 'admin'}">
                 <br/><input type="button" class="button" value="添加一级站点"
                             onclick="document.getElementById('siteFrame').src='site_edit.do'">
                 </input>

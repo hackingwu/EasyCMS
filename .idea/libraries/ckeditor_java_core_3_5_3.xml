@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ckeditor-java-core-3.5.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/ckeditor-java-core-3.5.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/CKFinder-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/CKFinderPlugin-FileEditor-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/CKFinderPlugin-ImageResize-2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

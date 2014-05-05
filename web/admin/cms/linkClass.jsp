@@ -116,20 +116,20 @@
 
         <s:iterator value="linkList" status="bean">
             <TR class="tdbg" onMouseOver="this.className='tdbg-dark';" id="tr<s:property value="id"/>"
-                style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
+                style="HEIGHT: 25px" onMouseOut="this.className='tdbg';" align="center">
                 <TD align="center">
                     <INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 
-                <TD align="left" id="name<s:property value="id"/>">
+                <TD id="name<s:property value="id"/>">
                     <s:property value="name"/>
                 </TD>
-                <TD align="left" id="pagemark<s:property value="id"/>">
-                    <s:property value="pagemark"/>
+                <TD id="pagemark<s:property value="id"/>">
+                    <s:property value="pageMark"/>
                 </TD>
-                <TD align="left" id="isok<s:property value="id"/>">
+                <TD id="isok<s:property value="id"/>">
                     <s:property value="isokStr"/>
                 </TD>
-                <TD align="left" id="orderNum<s:property value="id"/>">
+                <TD id="orderNum<s:property value="id"/>">
                     <s:property value="orderNum"/>
                 </TD>
             </TR>

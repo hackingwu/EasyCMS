@@ -124,7 +124,7 @@
     <bean id="OperButtonService" class="cn.easycms.service.OperButtonService">
         <property name="operButtonDaoImpl" ref="OperButtonDaoImpl"/>
     </bean>
-    <bean id="HtmlQuartzService" class="cn.easycms.service.HtmlQuarztService">
+    <bean id="HtmlQuartzService" class="cn.easycms.service.HtmlQuartzService">
         <property name="htmlQuartzDaoImpl" ref="HtmlQuartzDaoImpl"/>
     </bean>
     <bean id="InfoImgService" class="cn.easycms.service.InfoImgService">
@@ -160,7 +160,7 @@
         <property name="linkDirective" ref="LinkDirective"/>
         <property name="channelDirective" ref="ChannelDirective"/>
         <property name="channelListDirective" ref="channelListDirective"/>
-        <property name="htmlDirective"        ref="HtmlDirective"/>
+        <property name="htmlDirective" ref="HtmlDirective"/>
         <property name="infoListDirective" ref="InfoListDirective"/>
     </bean>
     <!-- *Action-->
@@ -175,7 +175,7 @@
         <property name="siteService" ref="SiteService"/>
         <property name="adminLinkService" ref="AdminLinkService"/>
     </bean>
-    <bean id="siteAction" class="cn.easycms.action.SiteAction">
+    <bean id="siteAction" class="cn.easycms.action.SiteAction" scope="prototype">
         <property name="siteService" ref="SiteService"/>
         <property name="operlogsService" ref="OperlogsService"/>
         <property name="templateService" ref="TemplateService"/>
@@ -183,49 +183,54 @@
         <property name="templateLinkService" ref="TemplateLinkService"/>
         <property name="linkService" ref="LinkService"/>
         <property name="channelService" ref="ChannelService"/>
+        <property name="htmlQuartzService" ref="HtmlQuartzService"/>
         <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>
     </bean>
-    <bean id="templateAction" class="cn.easycms.action.TemplateAction">
+    <bean id="templateAction" class="cn.easycms.action.TemplateAction" scope="prototype">
         <property name="siteService" ref="SiteService"/>
         <property name="templateChannelService" ref="TemplateChannelService"/>
         <property name="templateLinkService" ref="TemplateLinkService"/>
         <property name="templateService" ref="TemplateService"/>
     </bean>
-    <bean id="channelAction" class="cn.easycms.action.ChannelAction">
+    <bean id="channelAction" class="cn.easycms.action.ChannelAction" scope="prototype">
         <property name="channelService" ref="ChannelService"/>
-        <property name="siteService"    ref="SiteService"/>
-        <property name="htmlQuarztService" ref="HtmlQuartzService"/>
+        <property name="siteService" ref="SiteService"/>
+        <property name="htmlQuartzService" ref="HtmlQuartzService"/>
     </bean>
-    <bean id="infoAction" class="cn.easycms.action.InfoAction">
+    <bean id="infoAction" class="cn.easycms.action.InfoAction" scope="prototype">
         <property name="infoService" ref="InfoService"/>
         <property name="channelService" ref="ChannelService"/>
         <property name="infoImgService" ref="InfoImgService"/>
         <property name="infoSignService" ref="InfoSignService"/>
         <property name="userService" ref="UserService"/>
     </bean>
-    <bean id="htmlAction" class="cn.easycms.action.HtmlAction">
+    <bean id="htmlAction" class="cn.easycms.action.HtmlAction" scope="prototype">
         <property name="channelService" ref="ChannelService"/>
+        <property name="siteService" ref="SiteService"/>
+        <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>
     </bean>
-    <bean id="linkAction" class="cn.easycms.action.LinkAction">
+    <bean id="linkAction" class="cn.easycms.action.LinkAction" scope="prototype">
         <property name="linkService" ref="LinkService"/>
+        <property name="operlogsService" ref="OperlogsService"/>
+        <property name="siteService" ref="SiteService"/>
     </bean>
-    <bean id="questionAction" class="cn.easycms.action.QuestionAction">
+    <bean id="questionAction" class="cn.easycms.action.QuestionAction" scope="prototype">
         <property name="questionService" ref="QuestionService"/>
     </bean>
-    <bean id="mailAction" class="cn.easycms.action.MailAction">
+    <bean id="mailAction" class="cn.easycms.action.MailAction" scope="prototype">
         <property name="userService" ref="UserService"/>
         <property name="mailService" ref="MailService"/>
     </bean>
-    <bean id="adminLinkAction" class="cn.easycms.action.AdminLinkAction">
+    <bean id="adminLinkAction" class="cn.easycms.action.AdminLinkAction" scope="prototype">
         <property name="adminLinkService" ref="AdminLinkService"/>
         <property name="operlogsService" ref="OperlogsService"/>
     </bean>
-    <bean id="reportAction" class="cn.easycms.action.ReportAction">
+    <bean id="reportAction" class="cn.easycms.action.ReportAction" scope="prototype">
         <property name="userService" ref="UserService"/>
         <property name="reportService" ref="ReportService"/>
         <property name="operlogsService" ref="OperlogsService"/>
     </bean>
-    <bean id="testAction" class="cn.easycms.action.TestAction">
+    <bean id="testAction" class="cn.easycms.action.TestAction" scope="prototype">
         <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>
     </bean>
 

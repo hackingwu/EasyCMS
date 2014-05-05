@@ -1,7 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@page import="java.util.UUID" %>
 <%@include file="../../util/checkParentFrame.jsp" %>
 <%@include file="checkSelectSite.jsp" %>
 
@@ -15,7 +14,7 @@
     <TABLE cellSpacing=4 cellPadding=4 width="95%" align=center>
         <TBODY>
 
-        <input type="hidden" name="link.site" id="siteId_edit" value="${site.id }"/>
+        <input type="hidden" name="link.site.id" id="siteId_edit" value="${site.id}"/>
 
         <TR>
             <TD width="30%" align="left">
@@ -29,7 +28,7 @@
                 </LABEL>
             </TD>
             <TD width="70%" align="left">
-                <select id="linkSelect" name="link.parid">
+                <select id="linkSelect" name="link.parId">
                     <s:iterator value="linkList" status="bean">
                     <option value="<s:property value="id"/>" ${id eq linkClass.id ?"selected":"" }
                             show="<s:property value="name"/>">
@@ -72,11 +71,11 @@
             <TD width="70%" align="left">
                 <INPUT onblur="this.className='colorblur';" id=pagemark_edit
                        class=colorblur onfocus="this.className='colorfocus';"
-                       maxLength=50 type=text name=link.pagemark value="${link.pagemark }">
+                       maxLength=50 type=text name=link.pageMark value="${link.pageMark }">
             </TD>
         </TR>
 
-        <TR style="display:${link.type=='2'?'block':'none' }">
+        <TR style="display:${link.type=='2'?'':'none' }">
             <TD width="30%">
                 <LABEL id=ctl02_ctl00_label>
                     <IMG
@@ -135,10 +134,10 @@
                 </LABEL>
             </TD>
             <TD align="left">
-                <input type="radio" name="link.isok" value="1"
-                       <s:if test="link==null || link.isok!=0">checked="checked"</s:if>>是
-                <input type="radio" id="isok0" name="link.isok" value="0"
-                       <s:if test="link.isok==0">checked="checked"</s:if> >否
+                <input type="radio" name="link.isOk" value="1"
+                       <s:if test="link==null || link.isOk!=0">checked="checked"</s:if>>是
+                <input type="radio" id="isok0" name="link.isOk" value="0"
+                       <s:if test="link.isOk==0">checked="checked"</s:if> >否
             </TD>
         </TR>
         <TR>
@@ -154,7 +153,7 @@
                 </LABEL>
             </TD>
             <TD align="left">
-                <input type="text" id="orderNum" value="${link.orderNum }" name="link.orderNum"
+                <input type="text" id="ordernum" value="${link.orderNum }" name="link.orderNum"
                        onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')
                        class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
             </TD>

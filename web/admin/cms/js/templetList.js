@@ -1,6 +1,6 @@
 //添加
 function add() {
-    location.href = "templetAdd.jsp?pageFuncId=" + $("#pageFuncId").val();
+    location.href = "templateAdd.jsp?pageFuncId=" + $("#pageFuncId").val();
     /*$.weeboxs.open('templet_edit.do', {title:'添加模板', contentType:'ajax',height:210,width:500,
      onok:function(){
      if($.trim($("#name").val())==""){

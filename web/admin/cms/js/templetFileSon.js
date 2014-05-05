@@ -96,7 +96,7 @@ function delFolderComplete(data) {
 }
 //上传文件
 function uploadFile() {
-    $.weeboxs.open('templetUploadFile.jsp', {title: '上传文件', contentType: 'ajax', height: 60, width: 350,
+    $.weeboxs.open('templateUploadFile.jsp', {title: '上传文件', contentType: 'ajax', height: 60, width: 350,
         onok: function () {
             if ($.trim($("#uploadFile").val()) == "") {
                 alert("请选择上传的文件!");

@@ -50,6 +50,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-test:3.1.2.RELEASE" />
           <element id="library" level="project" name="Maven: junit:junit:3.8.1" />
           <element id="library" level="project" name="Maven: net.coobird:thumbnailator:0.4.7" />
+          <element id="library" level="project" name="ckeditor-java-core-3.5.3" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="EasyCMS/web/Web" />

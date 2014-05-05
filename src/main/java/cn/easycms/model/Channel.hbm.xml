@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package = "cn.easycms.model">
+<hibernate-mapping package="cn.easycms.model">
     <class name="Channel" table="channel">
         <id name="id" type="string">
             <generator class="uuid"/>
@@ -15,7 +15,7 @@
             <column name="description" length="65536"/>
         </property>
         <property name="parId" type="string"/>
-        <many-to-one name="site" class="cn.easycms.model.Site" cascade="all"/>
+        <many-to-one name="site" class="cn.easycms.model.Site" cascade="none"/>
         <property name="url" type="string"/>
         <property name="state" type="string"/>
         <property name="orderNum" type="java.lang.Integer"/>

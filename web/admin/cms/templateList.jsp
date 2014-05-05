@@ -4,8 +4,6 @@
 <%@taglib prefix="fs" uri="/fs-tags" %>
 <%@include file="../../util/loading.jsp" %>
 <%@include file="../../util/checkParentFrame.jsp" %>
-<%@include file="checkSelectSite.jsp" %>
-
 <HTML>
 <HEAD>
     <LINK rel=stylesheet type=text/css href="../../img/style.css">
@@ -22,36 +20,26 @@
     <script src="../../js/jquery.treeview.edit.js" type="text/javascript"></script>
     <script src="../../js/jquery.treeview.async.js" type="text/javascript"></script>
 
-    <script type="text/javascript" src="js/linkList.js"></script>
-    <script type="text/javascript" src="../ckfinder/ckfinder.js"></script>
-    <script type="text/javascript" src="../../js/ckfinderUtil.jsp"></script>
+    <script type="text/javascript" src="js/templetList.js"></script>
 </HEAD>
 <BODY style="padding:0;margin:0">
-<input type="hidden" id="type" value="${link.type }"/>
-<input type="hidden" id="ckfinderCurrentFolder" value="${currentFolder }"/>
-<input type="hidden" id="ckfinderBasePath" value="<%=checkParentPath %>"/>
-
-<form name="myForm" method="post" action="link_list.do?pageFuncId=${param.pageFuncId }&link.type=${link.type }"
-      id="myForm"
+<form name="myForm" method="post" action="templet_list.do" id="myForm"
       style="margin: 0px">
+    <input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
+
     <DIV class="column" style="width:99%">
         <div class="columntitle">
-            ${link.type=="1"?"下拉":"" }${link.type=="2"?"图片":"" }${link.type=="3"?"文字":"" }链接搜索
+            模板搜索
         </div>
         <TABLE width="100%" border=0 align=center cellpadding="2"
                cellspacing="0">
             <TBODY>
             <TR class=summary-title>
                 <TD height="30" align=left style="padding-left: 10px;">
-                    <input type="hidden" name="link.site" id="siteId" value="${site.id }"/>
-                    链接名称：
 
-                    <input name="link.name" type="text" maxlength="500"
-                           class="colorblur" onfocus="this.className='colorfocus';"
-                           onblur="this.className='colorblur';"/>
-                    页面标识：
+                    模板名称：
 
-                    <input name="link.pagemark" type="text" maxlength="500"
+                    <input name="templet.name" type="text" maxlength="500"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     每页显示条数：
@@ -78,7 +66,7 @@
 
                     </select>
 
-                    <input type="button" name="Search" value="搜 索" id="Search" onclick="searchFormSubmit(this.form);"
+                    <input type="button" name="Search" value="搜 索" id="Search" onclick="this.form.submit();"
                            class="button" style="MARGIN-BOTTOM: 0px"/>
                 </TD>
             </TR>
@@ -89,7 +77,7 @@
 </form>
 <DIV class="column" style="width:99%">
     <div class="columntitle">
-        链接列表
+        模板列表
     </div>
 
     <table id="MyDataList" cellspacing="1" cellpadding="1"
@@ -102,56 +90,39 @@
 
             <TD>
 
-                <fs:order colName="链接分类" col="parid"/>
+                <fs:order colName="模板名称" col="name"/>
             </TD>
             <TD>
 
-                <fs:order colName="链接名称" col="name"/>
-            </TD>
-            <TD style="display:${link.type=='2'?'block':'none' }">
-
-                <fs:order colName="链接图片" col="img"/>
+                <fs:order colName="状态" col="state"/>
             </TD>
             <TD>
 
-                <fs:order colName="页面标识" col="pagemark"/>
+                <fs:order colName="限制使用站点" col="usesitenames"/>
             </TD>
             <TD>
 
-                <fs:order colName="有效" col="isok"/>
-            </TD>
-            <TD>
-
-                <fs:order colName="顺序" col="orderNum"/>
+                <fs:order colName="顺序" col="ordernum"/>
             </TD>
         </TR>
 
-        <s:iterator value="linkList" status="bean">
+        <s:iterator value="templetList" status="bean">
             <TR class="tdbg" onMouseOver="this.className='tdbg-dark';" id="tr<s:property value="id"/>"
-                style="HEIGHT: 25px" onMouseOut="this.className='tdbg';" align="center">
+                style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
                 <TD align="center">
                     <INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 
-                <TD id="class<s:property value="id"/>">
-                    <s:property value="className"/>
+                <TD style="WIDTH: 120px" align="left" id="name<s:property value="id"/>">
+                    <s:property value="name"/>
                 </TD>
-                <TD id="name<s:property value="id"/>">
-                    <a href="<s:property value="url"/>" title="点击查看链接" target="_blank"><s:property value="name"/></a>
+                <TD style="WIDTH: 120px" align="left" id="state<s:property value="id"/>">
+                    <s:property value="stateStr"/>
                 </TD>
-                <TD id="imgtd<s:property value="id"/>" style="display:${link.type=='2'?'block':'none' }">
-
-                    <a href="<s:property value="img"/>" title="点击查看原图" target="_blank">
-                        <img height="35" src="<s:property value="img"/>"/>
-                    </a>
+                <TD style="WIDTH: 120px" align="left" id="usesitenames<s:property value="id"/>">
+                    <s:property value="usesitenames"/>
                 </TD>
-                <TD id="pagemark<s:property value="id"/>">
-                    <s:property value="pageMark"/>
-                </TD>
-                <TD id="isok<s:property value="id"/>">
-                    <s:property value="isOkStr"/>
-                </TD>
-                <TD id="orderNum<s:property value="id"/>">
-                    <s:property value="orderNum"/>
+                <TD style="WIDTH: 120px" align="left" id="ordernum<s:property value="id"/>">
+                    <s:property value="ordernum"/>
                 </TD>
             </TR>
         </s:iterator>
@@ -170,7 +141,7 @@
         <td align="right">
             <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
-                    <td align="left">
+                    <td align="left" id="buttontd">
                         <fs:operButtons/>
                     </td>
                 </tr>

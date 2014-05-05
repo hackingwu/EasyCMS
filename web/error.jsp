@@ -111,7 +111,7 @@
         <div class="index_bg">
             对不起，没有找到您想要的网页!
             <br>
-            <a href="javascript:history.go(-1);">返回上一页</a> | <a href="<%=basePath %>">返回首页</a>
+            <a href="javascript:history.go(-1);">返回上一页</a> | <a href="<%=basePath %>/admin/right.jsp">返回首页</a>
 
         </div>
 

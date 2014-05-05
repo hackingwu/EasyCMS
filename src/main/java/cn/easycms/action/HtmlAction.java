@@ -4,6 +4,9 @@ import cn.easycms.base.BaseAction;
 import cn.easycms.model.Channel;
 import cn.easycms.model.Site;
 import cn.easycms.service.ChannelService;
+import cn.easycms.service.SiteService;
+import cn.easycms.util.FreeMarkerUtil;
+import cn.easycms.util.HtmlUtil;
 
 import java.util.List;
 
@@ -12,6 +15,19 @@ import java.util.List;
  */
 public class HtmlAction extends BaseAction{
     private ChannelService channelService;
+    private SiteService siteService;
+    private FreeMarkerUtil freeMarkerUtil;
+    private List<Channel> channelList;
+    private Channel channel;
+    private Site site;
+
+    public void setFreeMarkerUtil(FreeMarkerUtil freeMarkerUtil) {
+        this.freeMarkerUtil = freeMarkerUtil;
+    }
+
+    public void setSiteService(SiteService siteService) {
+        this.siteService = siteService;
+    }
 
     public List<Channel> getChannelList() {
         return channelList;
@@ -20,8 +36,6 @@ public class HtmlAction extends BaseAction{
     public void setChannelList(List<Channel> channelList) {
         this.channelList = channelList;
     }
-
-    private List<Channel> channelList;
 
     public void setChannelService(ChannelService channelService) {
         this.channelService = channelService;
@@ -35,8 +49,6 @@ public class HtmlAction extends BaseAction{
         this.channel = channel;
     }
 
-    private Channel channel;
-
     public Site getSite() {
         return site;
     }
@@ -45,8 +57,6 @@ public class HtmlAction extends BaseAction{
         this.site = site;
     }
 
-    private Site site;
-
     /**
      * 首页静态化页面
      * @return
@@ -54,6 +64,29 @@ public class HtmlAction extends BaseAction{
     public String indexConfirm(){
         return "indexConfirm";
     }
+
+    /**
+     * 首页静态化处理
+     *
+     * @return
+     */
+    public String indexDo() {
+        String showMessage = "";
+        try {
+            site = getManageSite();
+            if (site != null) {
+                //生成首页
+                HtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
+            }
+            showMessage = "首页静态化处理成功!";
+        } catch (Exception e) {
+            e.printStackTrace();
+            showMessage = "首页静态化处理失败，原因:" + e.getMessage().replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br/>");
+        }
+        return showMessage(showMessage, "", 0);
+    }
+
+
     /**
      * 栏目页静态化页面
      * @return

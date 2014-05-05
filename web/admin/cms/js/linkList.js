@@ -91,9 +91,9 @@ function add() {
             if (document.getElementById("isok0").checked) {
                 isok = "0";
             }
-            $.post("link_editDo.do", "link.name=" + $("#name_edit").val() + "&link.isok=" + isok + "&link.ordernum=" + $("#ordernum").val()
-                    + "&link.site=" + $("#siteId_edit").val() + "&link.parid=" + $("#linkSelect").val() + "&link.url=" + url($("#url").val())
-                    + "&link.type=" + $("#type").val() + "&link.pagemark=" + $("#pagemark_edit").val() + "&link.img=" + $("#img").val()
+            $.post("link_editDo.do", "link.name=" + $("#name_edit").val() + "&link.isOk=" + isok + "&link.orderNum=" + $("#ordernum").val()
+                    + "&link.site.id=" + $("#siteId_edit").val() + "&link.parId=" + $("#linkSelect").val() + "&link.url=" + url($("#url").val())
+                    + "&link.type=" + $("#type").val() + "&link.pageMark=" + $("#pagemark_edit").val() + "&link.img=" + $("#img").val()
                 , addComplete, "text");
         }
     });
@@ -131,9 +131,9 @@ function edit() {
                 if (document.getElementById("isok0").checked) {
                     isok = "0";
                 }
-                $.post("link_editDo.do", "link.id=" + getCheckOneValue() + "&link.name=" + $("#name_edit").val() + "&link.isok=" + isok + "&link.ordernum=" + $("#ordernum").val()
-                        + "&link.site=" + $("#siteId_edit").val() + "&link.parid=" + $("#linkSelect").val() + "&link.url=" + url($("#url").val())
-                        + "&link.type=" + $("#type").val() + "&link.pagemark=" + $("#pagemark_edit").val() + "&link.img=" + $("#img").val()
+                $.post("link_editDo.do", "link.id=" + getCheckOneValue() + "&link.name=" + $("#name_edit").val() + "&link.isOk=" + isok + "&link.orderNum=" + $("#ordernum").val()
+                        + "&link.site.id=" + $("#siteId_edit").val() + "&link.parId=" + $("#linkSelect").val() + "&link.url=" + url($("#url").val())
+                        + "&link.type=" + $("#type").val() + "&link.pageMark=" + $("#pagemark_edit").val() + "&link.img=" + $("#img").val()
                     , editComplete, "text");
             }
         });
@@ -142,11 +142,9 @@ function edit() {
     }
 }
 function addComplete(data) {
-    if (data.indexOf("succ") == 0) {
+    if (data.indexOf("success") == 0) {
         $.weeboxs.close();//增加事件方法后需手动关闭弹窗
-        var h = location.href.replace("link.site", "link.oldsite");
-        h = h + (h.indexOf("?") > -1 ? "&" : "?") + "link.site=" + data.replace("succ", "");
-        location.href = h;
+        location.reload();
     } else if (data.indexOf("msg") == 0) {
         alert(data.replace("msg", ""));
     } else {
@@ -154,7 +152,7 @@ function addComplete(data) {
     }
 }
 function editComplete(data) {
-    if (data.indexOf("succ") == 0) {
+    if (data.indexOf("success") == 0) {
         var id = getCheckOneValue();
         if ("SELECT" == $("#siteId_edit").attr("tagName")) {
             var opts = document.getElementById("siteId_edit").options;
@@ -203,8 +201,8 @@ function searchFormSubmit(form) {
 }
 function del() {
     if (isCheck()) {
-        if (confirm("确定删除操作么?此操作无法回退!")) {
-            $.post("link_clazzDel.do", "ids=" + getCheckValue(), delComplete, "text");
+        if (confirm("确定删除操作么?此操作无法回退111!")) {
+            $.post("link_del.do", "ids=" + getCheckValue(), delComplete, "text");
         }
     } else {
         alert("请选择要操作的记录!");
@@ -232,9 +230,10 @@ function selectImg() {
 }
 //选择图片处理
 function selectImgDo(fileUrl) {
-    fileUrl = ckfinderUrl(fileUrl, $("#ckfinderCurrentFolder").val());
+    var fileUrl = "/EasyCMS" + fileUrl;
+
     $("#imgSpan").html("<a href='" + fileUrl + "' target='_blank'>" +
-        "<img src='" + fileUrl + "' width='100' height='100' title='点击查看大图'/>" +
+        "<img src='" + fileUrl + "'  height='100' title='点击查看大图'/>" +
         "</a>");
     $("#imgDelBtn").fadeIn("slow");
     $("#img").val(fileUrl);

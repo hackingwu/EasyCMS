@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="cn.easycms.model">
-    <class name="TemplateChannel" table = "template_channel">
+    <class name="TemplateChannel" table="template_channel">
         <id name="id" column="id" type="string">
             <generator class="uuid"/>
         </id>
@@ -14,8 +14,9 @@
         <property name="description" type="string"/>
         <property name="parId" type="string"/>
         <property name="site" type="string"/>
-        <property name="state" type="string"/>
         <property name="url" type="string"/>
+        <property name="state" type="string"/>
+
         <property name="clickNum" type="java.lang.Integer"/>
         <property name="orderNum" type="java.lang.Integer"/>
         <property name="navigation" type="string"/>
