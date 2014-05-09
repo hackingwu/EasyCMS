@@ -38,14 +38,14 @@
                 <TD height="30" align=left style="padding-left: 10px;">
                     站点：
                     <input type="hidden" id="siteid" name="info.site" value="${info.site }"/>
-                    <input name="sitename" id="sitename" type="text" maxlength="500" readonly onclick="selectSite()"
-                           class="colorblur" onfocus="this.className='colorfocus';" value="${sitename }"
+                    <input name="siteName" id="siteName" type="text" maxlength="500" readonly onclick="selectSite()"
+                           class="colorblur" onfocus="this.className='colorfocus';" value="${siteName }"
                            onblur="this.className='colorblur';" style="cursor:hand" title="点击选择站点"/>
                     栏目：
                     <input type="hidden" id="channelid" name="info.channel" value="${info.channel }"/>
-                    <input name="channelname" id="channelname" type="text" maxlength="500" readonly
+                    <input name="channelName" id="channelName" type="text" maxlength="500" readonly
                            onclick="selectChannel()"
-                           class="colorblur" onfocus="this.className='colorfocus';" value="${channelname }"
+                           class="colorblur" onfocus="this.className='colorfocus';" value="${channelName }"
                            onblur="this.className='colorblur';" style="cursor:hand" title="点击选择栏目"/>
                     信息关键字：
 

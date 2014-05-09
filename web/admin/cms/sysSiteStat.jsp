@@ -36,7 +36,7 @@
                             <s:if test="%{#st.index>0}">
                             ,
                             </s:if>
-                            ['<s:property value="sitename"/>', <s:property value="countnum"/>]
+                            ['<s:property value="siteName"/>', <s:property value="countnum"/>]
                             </s:iterator>
                         ]
                     },
@@ -63,7 +63,7 @@
 
                     站点名称：
 
-                    <input name="info.sitename" type="text" maxlength="50" value="${ info.sitename}"
+                    <input name="info.siteName" type="text" maxlength="50" value="${ info.siteName}"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     时间范围：
@@ -141,7 +141,7 @@
 
                 <TD align="left">
                     <a href='../../visit_site.do?siteid=<s:property value="site"/>' target='_blank'><s:property
-                            value="sitename"/></a>
+                            value="siteName"/></a>
                 </TD>
                 <TD align="left">
                     <s:property value="countnum"/>

@@ -31,7 +31,7 @@
                 style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 
                 <TD align="left" id="adduser<s:property value="id"/>">
-                    <s:property value="sitename"/>
+                    <s:property value="siteName"/>
                 </TD>
                 <TD align="left" id="countnum<s:property value="id"/>">
                     <s:property value="countnum"/>

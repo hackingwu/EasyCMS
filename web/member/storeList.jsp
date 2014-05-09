@@ -36,12 +36,12 @@
                     </select>
                     站点
 
-                    <input name="store.sitename" size="10" type="text" maxlength="50"
+                    <input name="store.siteName" size="10" type="text" maxlength="50"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     栏目
 
-                    <input name="store.channelname" size="10" type="text" maxlength="50"
+                    <input name="store.channelName" size="10" type="text" maxlength="50"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     每页显示条数:
@@ -87,10 +87,10 @@
                 <b><fs:order colName="类型" col="objtype"/></b>
             </TD>
             <TD>
-                <b><fs:order colName="站点" col="sitename"/></b>
+                <b><fs:order colName="站点" col="siteName"/></b>
             </TD>
             <TD>
-                <b><fs:order colName="栏目" col="channelname"/></b>
+                <b><fs:order colName="栏目" col="channelName"/></b>
             </TD>
             <TD>
                 <b><fs:order colName="时间" col="storeime"/></b>
@@ -111,11 +111,11 @@
                 <TD id="objtype<s:property value="id"/>">
                     <s:property value="objtypeStr"/>
                 </TD>
-                <TD id="sitename<s:property value="id"/>">
-                    <s:property value="sitename"/>
+                <TD id="siteName<s:property value="id"/>">
+                    <s:property value="siteName"/>
                 </TD>
-                <TD id="channelname<s:property value="id"/>">
-                    <s:property value="channelname"/>
+                <TD id="channelName<s:property value="id"/>">
+                    <s:property value="channelName"/>
                 </TD>
                 <TD id="storetime<s:property value="id"/>">
                     <s:property value="storetimeStr"/>

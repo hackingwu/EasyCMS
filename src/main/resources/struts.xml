@@ -83,7 +83,7 @@
             <result name="edit">infoEdit.jsp</result>
             <result name="info">info.jsp</result>
             <result name="list">infoList.jsp</result>
-            <result name="makehtml">infoMakehtml.jsp</result>
+            <result name="makeHtml">infoMakehtml.jsp</result>
             <result name="extract">infoExtract.jsp</result>
             <result name="extractMakehtml">infoExtractMakehtml.jsp</result>
             <result name="copyMakehtml">infoCopyMakehtml.jsp</result>

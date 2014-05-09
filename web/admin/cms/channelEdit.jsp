@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%--<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>--%>
-<%--<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>--%>
+<%@   taglib uri="http://ckfinder.com" prefix="ckfinder" %>
+<%@   taglib uri="http://ckeditor.com" prefix="ckeditor" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";

@@ -3,6 +3,7 @@ package cn.easycms.service;
 import cn.easycms.dao.ChannelDaoImpl;
 import cn.easycms.model.Channel;
 import cn.easycms.model.Site;
+import cn.easycms.util.StringUtil;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
@@ -115,5 +116,38 @@ public class ChannelService {
         List<Channel> channels = findBySiteAndParAndStateAndNavi(site, null, null, null);
         for (Channel channel : channels)
             delete(channel);
+    }
+
+    /**
+     * 从父到子的顺序取得所有Channel
+     *
+     * @param channelId
+     * @return
+     */
+    public List<Channel> findPath(String channelId) {
+
+        List<Channel> channels = new ArrayList<Channel>();
+        findParPath(channelId, channels);
+        Channel temp = new Channel();
+        //倒序保存
+        for (int i = 0; i <= channels.size() / 2; i++) {
+            temp = channels.get(i);
+            channels.set(i, channels.get(channels.size() - 1 - i));
+            channels.set(channels.size() - 1 - i, temp);
+        }
+        return channels;
+    }
+
+    /**
+     * 迭代取得channel
+     *
+     * @param 父亲channelId
+     */
+    public void findParPath(String channelId, List<Channel> channels) {
+        Channel channel = findById(channelId);
+        if (channel != null)
+            channels.add(channel);
+        if (StringUtil.isNotEmpty(channel.getParId()))
+            findParPath(channel.getParId(), channels);
     }
 }

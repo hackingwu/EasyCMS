@@ -5,6 +5,8 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="EasyCMS" />
+          <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/htmlparser/htmllexer/2.1/htmllexer-2.1.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/htmlparser/htmlparser/2.1/htmlparser-2.1.jar" path-in-jar="/" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
@@ -48,9 +50,13 @@
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.7.4" />
           <element id="library" level="project" name="Maven: cglib:cglib-nodep:3.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:3.1.2.RELEASE" />
-          <element id="library" level="project" name="Maven: junit:junit:3.8.1" />
           <element id="library" level="project" name="Maven: net.coobird:thumbnailator:0.4.7" />
           <element id="library" level="project" name="ckeditor-java-core-3.5.3" />
+          <element id="library" level="project" name="Maven: org.htmlparser:htmllexer:2.1" />
+          <element id="library" level="project" name="Maven: org.htmlparser:htmlparser:2.1" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.7" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.7" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="EasyCMS/web/Web" />

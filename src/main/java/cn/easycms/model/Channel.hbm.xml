@@ -24,7 +24,7 @@
         <property name="pageMark" type="string"/>
         <property name="htmlChannel" type="string"/>
         <property name="htmlChannelOld" type="string"/>
-        <property name="htmlParchannel" type="string"/>
+        <property name="htmlParChannel" type="string"/>
         <property name="htmlSite" type="string"/>
         <property name="indexNum" type="java.lang.Integer"/>
         <property name="maxPage" type="java.lang.Integer"/>

@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by hackingwu on 2014/4/23.
  */
-public class HtmlAction extends BaseAction{
+public class HtmlAction extends BaseAction {
     private ChannelService channelService;
     private SiteService siteService;
     private FreeMarkerUtil freeMarkerUtil;
@@ -59,9 +59,10 @@ public class HtmlAction extends BaseAction{
 
     /**
      * 首页静态化页面
+     *
      * @return
      */
-    public String indexConfirm(){
+    public String indexConfirm() {
         return "indexConfirm";
     }
 
@@ -76,7 +77,7 @@ public class HtmlAction extends BaseAction{
             site = getManageSite();
             if (site != null) {
                 //生成首页
-                HtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
+                HtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest());
             }
             showMessage = "首页静态化处理成功!";
         } catch (Exception e) {
@@ -89,18 +90,19 @@ public class HtmlAction extends BaseAction{
 
     /**
      * 栏目页静态化页面
+     *
      * @return
      */
-    public String channel(){
-        site=getManageSite();
-        if (site!=null) {
+    public String channel() {
+        site = getManageSite();
+        if (site != null) {
             //获取当前管理站点
-            if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
+            if (channel != null && channel.getId() != null && channel.getId().trim().length() > 0) {
                 if (!channel.getId().equals("select")) {
-                    channel=channelService.findById(channel.getId());
+                    channel = channelService.findById(channel.getId());
                 }
-                channelList=channelService.findBySiteAndParAndStateAndNavi(site, "",null,null);
-                if (channelList!=null && channelList.size()>0) {
+                channelList = channelService.findBySiteAndParAndStateAndNavi(site, "", null, null);
+                if (channelList != null && channelList.size() > 0) {
                     for (int i = 0; i < channelList.size(); i++) {
                         if (channelService.hasChildren(channelList.get(i).getId())) {
                             channelList.get(i).setHasChildren("1");
@@ -115,12 +117,12 @@ public class HtmlAction extends BaseAction{
                     }
                 }
                 return "channelSelect";
-            }else {
+            } else {
                 //栏目管理页面
                 //获取一级栏目
-                channelList=channelService.findBySiteAndParAndStateAndNavi(site, "",null,null);
+                channelList = channelService.findBySiteAndParAndStateAndNavi(site, "", null, null);
                 //设置是否有子栏目
-                if (channelList!=null && channelList.size()>0) {
+                if (channelList != null && channelList.size() > 0) {
                     for (int i = 0; i < channelList.size(); i++) {
                         if (channelService.hasChildren(channelList.get(i).getId())) {
                             channelList.get(i).setHasChildren("1");
@@ -138,20 +140,22 @@ public class HtmlAction extends BaseAction{
         }
         return "channel";
     }
+
     /**
      * 信息静态化页面
+     *
      * @return
      */
-    public String info(){
-        site=getManageSite();
-        if (site!=null) {
+    public String info() {
+        site = getManageSite();
+        if (site != null) {
             //获取当前管理站点
-            if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
+            if (channel != null && channel.getId() != null && channel.getId().trim().length() > 0) {
                 if (!channel.getId().equals("select")) {
-                    channel=channelService.findById(channel.getId());
+                    channel = channelService.findById(channel.getId());
                 }
-                channelList=channelService.findBySiteAndParAndStateAndNavi(site, "",null,null);
-                if (channelList!=null && channelList.size()>0) {
+                channelList = channelService.findBySiteAndParAndStateAndNavi(site, "", null, null);
+                if (channelList != null && channelList.size() > 0) {
                     for (int i = 0; i < channelList.size(); i++) {
                         if (channelService.hasChildren(channelList.get(i).getId())) {
                             channelList.get(i).setHasChildren("1");
@@ -166,12 +170,12 @@ public class HtmlAction extends BaseAction{
                     }
                 }
                 return "channelSelect";
-            }else {
+            } else {
                 //栏目管理页面
                 //获取一级栏目
-                channelList=channelService.findBySiteAndParAndStateAndNavi(site, "",null,null);
+                channelList = channelService.findBySiteAndParAndStateAndNavi(site, "", null, null);
                 //设置是否有子栏目
-                if (channelList!=null && channelList.size()>0) {
+                if (channelList != null && channelList.size() > 0) {
                     for (int i = 0; i < channelList.size(); i++) {
                         if (channelService.hasChildren(channelList.get(i).getId())) {
                             channelList.get(i).setHasChildren("1");

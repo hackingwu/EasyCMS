@@ -36,7 +36,7 @@
                             <s:if test="%{#st.index>0}">
                             ,
                             </s:if>
-                            ['<s:property value="sitename"/>', <s:property value="countnum"/>]
+                            ['<s:property value="siteName"/>', <s:property value="countnum"/>]
                             </s:iterator>
                         ]
                     },
@@ -63,7 +63,7 @@
 
                     站点：
 
-                    <input name="comment.sitename" type="text" maxlength="50" value="${ comment.sitename}"
+                    <input name="comment.siteName" type="text" maxlength="50" value="${ comment.siteName}"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     审核状态:
@@ -153,8 +153,8 @@
             <TR class="tdbg" onMouseOver="this.className='tdbg-dark';" id="tr<s:property value="id"/>"
                 style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 
-                <TD align="left" id="sitename<s:property value="id"/>">
-                    <s:property value="sitename"/>
+                <TD align="left" id="siteName<s:property value="id"/>">
+                    <s:property value="siteName"/>
                 </TD>
                 <TD align="left" id="countnum<s:property value="id"/>">
                     <s:property value="countnum"/>

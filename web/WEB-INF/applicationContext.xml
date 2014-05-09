@@ -203,6 +203,9 @@
         <property name="infoImgService" ref="InfoImgService"/>
         <property name="infoSignService" ref="InfoSignService"/>
         <property name="userService" ref="UserService"/>
+        <property name="operlogsService" ref="OperlogsService"/>
+        <property name="siteService" ref="SiteService"/>
+        <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>
     </bean>
     <bean id="htmlAction" class="cn.easycms.action.HtmlAction" scope="prototype">
         <property name="channelService" ref="ChannelService"/>

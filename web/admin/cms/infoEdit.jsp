@@ -28,6 +28,23 @@
     <script type="text/javascript" src="js/infoEdit.js"></script>
     <script type="text/javascript" src="../ckfinder/ckfinder.js"></script>
     <script type="text/javascript" src="../../js/ckfinderUtil.jsp"></script>
+    <script type="text/javascript">
+        function selectChannel() {
+            if ($("#siteId").val() != "") {
+                $.weeboxs.open('channel_channel.do?noShowSite=1&channel.id=select&channel.site.id=' + $("#siteId").val(), {title: '选择栏目', contentType: 'ajax', height: 320, width: 280
+                });
+            } else {
+                alert("请先选择站点");
+            }
+        }
+        function showOne(id, name) {
+
+            $.weeboxs.close();
+
+            $("#channelId").val(id);
+            $("#channelName").val(name);
+        }
+    </script>
 
 </HEAD>
 <BODY>
@@ -81,7 +98,7 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="hidden" name="info.channel" id="channelId" value="${channel.id }"/>
+        <input type="hidden" name="info.channel.id" id="channelId" value="${channel.id }"/>
         <input type="hidden" name="oldChannelId" value="${channel.id }"/>
         <INPUT onblur="this.className='inputblur';" readonly id="channelName" onclick="selectChannel()"
                class=inputblur onfocus="this.className='inputfocus';" style="cursor:hand" title="点击选择栏目"
@@ -267,7 +284,6 @@
         <input type="radio" id="ishot1" name="info.isHot" value="1" <s:if test="info.isHot==1">checked="checked"</s:if>>是
         <input type="radio" id="ishot0" name="info.isHot" value="0"
                <s:if test="info==null || info.isHot==null || info.isHot==0">checked="checked"</s:if> >否
-
     </TD>
 </TR>
 <TR>
@@ -290,7 +306,6 @@
                 test="info==null || info.isTop==null || info.isTop==0"></s:if> class="Wdate" title="选择固顶结束时间，没有则表示永远固顶!"
                type="text" size="24" value="${info.topEndTimeStr }"
                onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
-
     </TD>
 </TR>
 <TR>
@@ -307,9 +322,9 @@
     <TD width="70%" align="left">
         <input type="radio" id="iscomment0" name="info.isComment" value="0"
                <s:if test="info==null || info.isComment==null || info.isComment==0">checked="checked"</s:if>>否
-        <input type="radio" id="iscomment1" name="info.iscomment" value="1"
+        <input type="radio" id="iscomment1" name="info.isComment" value="1"
                <s:if test="info.iscomment==1">checked="checked"</s:if> >会员评论
-        <input type="radio" id="iscomment2" name="info.iscomment" value="2"
+        <input type="radio" id="iscomment2" name="info.isComment" value="2"
                <s:if test="info.iscomment==2">checked="checked"</s:if> >会员和匿名评论
     </TD>
 </TR>
@@ -325,9 +340,9 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="radio" id="issign1" onclick="issign(1)" name="info.issign" value="1"
+        <input type="radio" id="issign1" onclick="issign(1)" name="info.isSign" value="1"
                <s:if test="info.issign==1">checked="checked"</s:if>>是
-        <input type="radio" id="issign0" onclick="issign(0)" name="info.issign" value="0"
+        <input type="radio" id="issign0" onclick="issign(0)" name="info.isSign" value="0"
                <s:if test="info==null || info.issign==null || info.issign==0">checked="checked"</s:if> >否
 
     </TD>
@@ -348,7 +363,7 @@
         <table>
             <tr>
                 <s:iterator value="userList" id="obj" status="bean">
-                    <td><input name="signusers"
+                    <td><input name="signUsers"
 
                     <s:iterator value="infoSignList" id="infosign">
                         ${obj.id == infosign.userId ?"checked":"" }
@@ -374,7 +389,7 @@
     <TD width="70%" align="left">
         <INPUT onblur="this.className='inputblur';" id=indexnum size="50"
                class=inputblur onfocus="this.className='inputfocus';"
-               maxLength=50 type=text name=info.indexnum value="${info.indexnum }">
+               maxLength=50 type=text name=info.indexNum value="${info.indexNum }">
     </TD>
 </TR>
 <TR>
@@ -389,10 +404,10 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="radio" name="info.opentype" value="1"
-               <s:if test="info==null || info.opentype==null || info.opentype==1">checked="checked"</s:if>>主动公开
-        <input type="radio" name="info.opentype" value="0"
-               <s:if test="info.opentype==0">checked="checked"</s:if> >依申请公开
+        <input type="radio" name="info.openType" value="1"
+               <s:if test="info==null || info.openType==null || info.openType==1">checked="checked"</s:if>>主动公开
+        <input type="radio" name="info.openType" value="0"
+               <s:if test="info.openType==0">checked="checked"</s:if> >依申请公开
 
     </TD>
 </TR>
@@ -408,13 +423,13 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <input type="radio" id="opentimetype1" onclick="opentimetype(1)" name="info.opentimetype" value="1"
-               <s:if test="info==null || info.opentimetype==null || info.opentimetype==1">checked="checked"</s:if>>常年公开
-        <input type="radio" id="opentimetype0" onclick="opentimetype(0)" name="info.opentimetype" value="0"
-               <s:if test="info.opentimetype==0">checked="checked"</s:if> >限时公开
-        <input name="info.openendtime" id="openendtime" style="display:${"0"==info.opentimetype?"block":"none"}"
+        <input type="radio" id="opentimetype1" onclick="opentimetype(1)" name="info.openTimeType" value="1"
+               <s:if test="info==null || info.openTimeType==null || info.openTimeType==1">checked="checked"</s:if>>常年公开
+        <input type="radio" id="opentimetype0" onclick="opentimetype(0)" name="info.openTimeType" value="0"
+               <s:if test="info.openTimeType==0">checked="checked"</s:if> >限时公开
+        <input name="info.openEndTime" id="openEndTime" style="display:${"0"==info.openTimeType?"block":"none"}"
                class="Wdate"
-               title="选择公开结束时间，没有则表示常年公开!" type="text" size="24" value="${info.openendtimeStr }"
+               title="选择公开结束时间，没有则表示常年公开!" type="text" size="24" value="${info.openEndTimeStr }"
                onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 
     </TD>
@@ -487,7 +502,7 @@
         </LABEL>
     </TD>
     <TD align="left">
-        <input type="hidden" name="delOldimgs" id="delOldimgs"/>
+        <input type="hidden" name="delOldImgs" id="delOldimgs"/>
 
         <div id="imgs">
             <s:iterator value="infoImgList" id="bean">

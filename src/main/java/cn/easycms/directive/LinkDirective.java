@@ -40,8 +40,7 @@ public class LinkDirective extends BaseDirective implements TemplateDirectiveMod
     }
 
     @Override
-    public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body) throws TemplateException,IOException {
-
+    public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body) throws TemplateException, IOException {
         String classId = getParam(params, "classId");
         String classPageMark = getParam(params, "classPageMark");
         String pageMark = getParam(params, "pageMark");
@@ -59,11 +58,11 @@ public class LinkDirective extends BaseDirective implements TemplateDirectiveMod
                     link.setSite(siteService.findById(siteId));
                 link.setType(type);
                 link.setIsOk("1");
-                List<Link> linkList = linkService.find(link,"orderNum",1,num);
-                if (linkList!=null && linkList.size()>0){
-                    for (int i = 0 ; i < linkList.size();i++){
-                        loopVars[0] = new BeanModel(linkList.get(i),new BeansWrapper());
-                        if (loopVars.length>1){
+                List<Link> linkList = linkService.find(link, "orderNum", 1, num);
+                if (linkList != null && linkList.size() > 0) {
+                    for (int i = 0; i < linkList.size(); i++) {
+                        loopVars[0] = new BeanModel(linkList.get(i), new BeansWrapper());
+                        if (loopVars.length > 1) {
                             loopVars[1] = new SimpleNumber(i);
                         }
                         body.render(env.getOut());

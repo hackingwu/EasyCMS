@@ -30,8 +30,8 @@
             <TR class="tdbg" onMouseOver="this.className='tdbg-dark';" id="tr<s:property value="id"/>"
                 style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 
-                <TD align="left" id="sitename<s:property value="id"/>">
-                    <s:property value="sitename"/>
+                <TD align="left" id="siteName<s:property value="id"/>">
+                    <s:property value="siteName"/>
                 </TD>
                 <TD align="left" id="countnum<s:property value="id"/>">
                     <s:property value="countnum"/>

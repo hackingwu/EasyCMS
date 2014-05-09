@@ -1,5 +1,7 @@
 package cn.easycms.model;
 
+import cn.easycms.util.StringUtil;
+
 /**
  * Created by hackingwu on 2014/4/11.
  */
@@ -11,7 +13,7 @@ public class Channel {
     private String img;
     private String description;
     private String parId;
-    private Site   site;
+    private Site site;
     private String url;
     private String state;
     private Integer orderNum;
@@ -20,11 +22,14 @@ public class Channel {
     private String pageMark;
     private String htmlChannel;
     private String htmlChannelOld;
-    private String htmlParchannel;
+    private String htmlParChannel;
     private String htmlSite;
     private Integer indexNum;
     private Integer maxPage;
     private String sitePath;
+    private String hasChildren;
+    private String pageUrl = "";
+    private String folder;
 
     public String getSitePath() {
         return sitePath;
@@ -162,12 +167,12 @@ public class Channel {
         this.htmlChannelOld = htmlChannelOld;
     }
 
-    public String getHtmlParchannel() {
-        return htmlParchannel;
+    public String getHtmlParChannel() {
+        return htmlParChannel;
     }
 
-    public void setHtmlParchannel(String htmlParchannel) {
-        this.htmlParchannel = htmlParchannel;
+    public void setHtmlParChannel(String htmlParChannel) {
+        this.htmlParChannel = htmlParChannel;
     }
 
     public String getHtmlSite() {
@@ -202,14 +207,30 @@ public class Channel {
         this.hasChildren = hasChildren;
     }
 
-    private String hasChildren;
-    private String pageUrl="";
-
     public String getPageUrl() {
+        if (StringUtil.isNotEmpty(url)) {
+            pageUrl = url;
+        } else {
+            pageUrl = (sitePath != null ? sitePath : "") + getFolder() + "/index.html";
+        }
         return pageUrl;
     }
 
     public void setPageUrl(String pageUrl) {
         this.pageUrl = pageUrl;
+    }
+
+    public String getFolder() {
+        if (StringUtil.isNotEmpty(pageMark))
+            folder = pageMark;
+        else if (indexNum > 0)
+            folder = String.valueOf(indexNum);
+        else
+            folder = id;
+        return folder;
+    }
+
+    public void setFolder(String folder) {
+        this.folder = folder;
     }
 }

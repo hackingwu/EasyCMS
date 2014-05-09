@@ -12,7 +12,7 @@ function showDetail(id, name, siteid) {
 }
 //点击栏目
 function showOne(id, name) {
-    $("#infoFrame").attr("src", "info_list.do?pageFuncId=" + $("#pageFuncId").val() + "&info.channel=" + id);
+    $("#infoFrame").attr("src", "info_list.do?pageFuncId=" + $("#pageFuncId").val() + "&info.channel.id=" + id);
 }
 function selectChange(obj) {
     var url = location.href;

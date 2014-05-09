@@ -312,7 +312,7 @@ public class SiteAction extends BaseAction {
         try {
             if (StringUtil.isNotEmpty(site.getId()) && StringUtil.isNotEmpty(site.getIndexTemplate())) {
                 site = siteService.findById(site.getId());
-                template = templateService.findById(template.getId());
+                template = templateService.findById(site.getIndexTemplate());
                 if (site != null && template != null) {
                     importSiteChannels(template, site);
                     importSiteLinks(template, site);
@@ -344,7 +344,7 @@ public class SiteAction extends BaseAction {
             site = siteService.findById(site.getId());
 
             try {
-                HtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
+                HtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest());
                 log("首页静态化：" + site.getName());
                 getHttpResponse().sendRedirect("/EasyCMS/site/" + site.getSourcePath() + "/index.html");
             } catch (Exception e) {
@@ -471,7 +471,7 @@ public class SiteAction extends BaseAction {
         channel.setPageMark(templateChannel.getPageMark());
         channel.setHtmlChannel(templateChannel.getHtmlChannel());
         channel.setHtmlChannelOld(templateChannel.getHtmlChannelOld());
-        channel.setHtmlParchannel(templateChannel.getHtmlParChannel());
+        channel.setHtmlParChannel(templateChannel.getHtmlParChannel());
         channel.setHtmlSite(templateChannel.getHtmlSite());
         channel.setSite(site);
         return channel;

@@ -22,7 +22,11 @@
     <script type="text/javascript" src="../../js/weebox0.4/bgiframe.js"></script>
     <script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
     <link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css"/>
-    <script type="text/javascript" src="js/info.js">
+    <script type="text/javascript" src="js/info.js"></script>
+    <script type="text/javascript">
+        function showOne(id, name) {
+            $("#infoFrame").attr("src", "info_list.do?pageFuncId=" + $("#pageFuncId").val() + "&info.channel.id=" + id);
+        }
     </script>
 </head>
 <body>
@@ -36,63 +40,65 @@
 </DIV>
 <DIV class=column>
     <div id="man_zone">
-        <table width="99%" border="0" align="left" cellpadding="3" cellspacing="1">
+        <table border="0" align="left" cellpadding="3" cellspacing="1">
             <tr>
-                <td width="20%" align="left" class="treetd" valign="top">
+                <td width="10%" align="left" class="treetd" valign="top">
                     <input type="hidden" id="siteId" name="site.id" value="${site.id }"></input>
                     <ul id="mixed">
                         <s:iterator value="channelList" var="bean" status="stuts">
                             <li id="<s:property value="id"/>" class="hasChildren">
 					<span><font size="2">
-                        <%--<s:if test='%{#session.siteAdmin || "1" == #bean.haveChannelRole }'>--%>
+                            <%--<s:if test='%{#session.siteAdmin || "1" == #bean.haveChannelRole }'>--%>
                             <%--<b><a href="#"--%>
-                                  <%--onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')"><s:property--%>
-                                    <%--value="name"/></a></b>--%>
-                        <%--</s:if>--%>
-                        <%--<s:if test='%{!#session.siteAdmin && "1"!=#bean.haveChannelRole}'>--%>
+                            <%--onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')"><s:property--%>
+                            <%--value="name"/></a></b>--%>
+                            <%--</s:if>--%>
+                            <%--<s:if test='%{!#session.siteAdmin && "1"!=#bean.haveChannelRole}'>--%>
                             <%--<s:property value="name"></s:property>--%>
-                        <%--</s:if>--%>
-                            <b>
-                                <a href="#" onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')"><s:property value="name"/></a>
-                            </b>
-            </font>
+                            <%--</s:if>--%>
+                        <b>
+                            <a href="#"
+                               onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')"><s:property
+                                    value="name"/></a>
+                        </b>
+                    </font>
             </span>
-                        <s:if test='%{"1"==#bean.hasChildren}'>
-                            <ul>
-                                <li><span>&nbsp;</span></li>
-                            </ul>
-                        </s:if>
-                    </li>
-                </s:iterator>
-            </ul>
-        </td>
-        <td width="70%">
+                                <s:if test='%{"1"==#bean.hasChildren}'>
+                                    <ul>
+                                        <li><span>&nbsp;</span></li>
+                                    </ul>
+                                </s:if>
+                            </li>
+                        </s:iterator>
+                    </ul>
+                </td>
+                <td width="90%">
 
-            <iframe width="100%" height="500" id="infoFrame" framespacing="0" border="false"
-                    frameborder="0"></iframe>
+                    <iframe width="100%" height="500" id="infoFrame" framespacing="0" border="false"
+                            frameborder="0"></iframe>
 
 
-        </td>
-    </tr>
-</table>
-</div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </DIV>
 <script type="text/javascript">
-$("#infoFrame").height($(document).height() - 80);
-function initTrees() {
-$("#mixed").treeview({
-    url: "channel_son.do?auth=1",
-    ajax: {
-        data: {
-            "additional": function () {
-                return "yeah: " + new Date;
+    $("#infoFrame").height($(document).height() - 80);
+    function initTrees() {
+        $("#mixed").treeview({
+            url: "channel_son.do?auth=1",
+            ajax: {
+                data: {
+                    "additional": function () {
+                        return "yeah: " + new Date;
+                    }
+                },
+                type: "post"
             }
-        },
-        type: "post"
+        });
     }
-});
-}
-initTrees();
+    initTrees();
 </script>
 </body>
 </html>

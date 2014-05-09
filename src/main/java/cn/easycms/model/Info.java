@@ -9,6 +9,10 @@ import java.util.List;
  * Created by hackingwu on 2014/4/18.
  */
 public class Info {
+    public final static String ISCOMMENT_NO     = "0";
+    public final static String ISCOMMENT_MEMBER = "1";
+    public final static String ISCOMMENT_ALL    = "2";
+    public String searchKey;
     private String id;
     private String site;
     private Channel channel;
@@ -43,6 +47,21 @@ public class Info {
     private String isImgs;
     private String checkOpenEndTime;
     private String topEndTimeStr;
+    private String channelFolder;
+    //非数据库内容----------------------------
+    private String isCommentStr;
+    private String channelPageMark;
+    private int channelIndexNum;
+    private List<Channel> channels;
+    private int showTitleLen;
+    private String dateFormat;
+    private String isNew;
+    private String sitePath;
+    private String pageUrl = "";//本信息的链接地址
+    //title或者shortTitle都是纯文本，showTitle根据titleColor和titleBlod（粗体）来增加标题的样式，为html中的最终title。
+    private String showTitle;
+    private String htmlFileName;
+    private List<Channel> channelPageMarkList;
 
     public String getTopEndTimeStr() {
         return topEndTimeStr;
@@ -261,7 +280,7 @@ public class Info {
     }
 
     public String getIndexNum() {
-        return indexNum;
+        return indexNum==null?"":indexNum;
     }
 
     public void setIndexNum(String indexNum) {
@@ -308,24 +327,21 @@ public class Info {
         this.isImgs = isImgs;
     }
 
+    public int getChannelIndexNum() {
+        return channelIndexNum;
+    }
 
+    public void setChannelIndexNum(int channelIndexNum) {
+        this.channelIndexNum = channelIndexNum;
+    }
 
-
-    //非数据库内容----------------------------
-    private String isCommentStr;
-    public final static String ISCOMMENT_NO     = "0";
-    public final static String ISCOMMENT_MEMBER = "1";
-    public final static String ISCOMMENT_ALL    = "2";
-    private List<Channel> channelPageMark;
-
-    public List<Channel> getChannelPageMark() {
+    public String getChannelPageMark() {
         return channelPageMark;
     }
 
-    public void setChannelPageMark(List<Channel> channelPageMark) {
+    public void setChannelPageMark(String channelPageMark) {
         this.channelPageMark = channelPageMark;
     }
-    private List<Channel> channels;
 
     public List<Channel> getChannels() {
         return channels;
@@ -335,14 +351,13 @@ public class Info {
         this.channels = channels;
     }
 
-    public void setCheckOpenEndTime(String checkOpenedTime) {
-        this.checkOpenEndTime = checkOpenEndTime;
-    }
-
     public String getCheckOpenEndTime() {
         return checkOpenEndTime;
     }
-    public String searchKey;
+
+    public void setCheckOpenEndTime(String checkOpenedTime) {
+        this.checkOpenEndTime = checkOpenEndTime;
+    }
 
     public String getSearchKey() {
         return searchKey;
@@ -352,8 +367,6 @@ public class Info {
         this.searchKey = searchKey;
     }
 
-    private int showTitleLen;
-
     public int getShowTitleLen() {
         return showTitleLen;
     }
@@ -361,7 +374,6 @@ public class Info {
     public void setShowTitleLen(int showTitleLen) {
         this.showTitleLen = showTitleLen;
     }
-    private String dateFormat;
 
     public String getDateFormat() {
         return dateFormat;
@@ -371,8 +383,6 @@ public class Info {
         this.dateFormat = dateFormat;
     }
 
-    private String isNew;
-
     public String getIsNew() {
         return isNew;
     }
@@ -380,7 +390,6 @@ public class Info {
     public void setIsNew(String isNew) {
         this.isNew = isNew;
     }
-    private String sitePath;
 
     public String getSitePath() {
         return sitePath;
@@ -389,7 +398,6 @@ public class Info {
     public void setSitePath(String sitePath) {
         this.sitePath = sitePath;
     }
-    private String pageUrl = "";//本信息的链接地址
 
     public String getPageUrl() {
         return pageUrl;
@@ -398,26 +406,25 @@ public class Info {
     public void setPageurl(String pageUrl) {
         this.pageUrl = pageUrl;
     }
-    //title或者shortTitle都是纯文本，showTitle根据titleColor和titleBlod（粗体）来增加标题的样式，为html中的最终title。
-    private String showTitle;
+
     public String getShowTitle() {
         if (!StringUtil.isNotEmpty(showTitle)) {
             //showTitle为空
             //默认为标题
-            showTitle=this.title;
+            showTitle = this.title;
             //判断是否有短标题
             if (StringUtil.isNotEmpty(shortTitle)) {
-                showTitle=shortTitle;
+                showTitle = shortTitle;
             }
             //判断标题长度
-            if (showTitleLen>0 && showTitle.length()>showTitleLen) {
-                showTitle=showTitle.substring(0, showTitleLen);
+            if (showTitleLen > 0 && showTitle.length() > showTitleLen) {
+                showTitle = showTitle.substring(0, showTitleLen);
             }
             //添加标题颜色
-            showTitle="<font color='"+titleColor+"'>"+showTitle+"</font>";
+            showTitle = "<font color='" + titleColor + "'>" + showTitle + "</font>";
             //判断是否粗体
             if ("1".equals(titleBlod)) {
-                showTitle="<b>"+showTitle+"</b>";
+                showTitle = "<b>" + showTitle + "</b>";
             }
         }
         return showTitle;
@@ -425,5 +432,36 @@ public class Info {
 
     public void setShowTitle(String showTitle) {
         this.showTitle = showTitle;
+    }
+
+    public String getChannelFolder() {
+        return channelFolder;
+    }
+
+    public void setChannelFolder(String channelFolder) {
+        if (StringUtil.isNotEmpty(getChannelPageMark())) {
+            channelFolder = getChannelPageMark();
+        } else if (getChannelIndexNum() > 0) {
+            channelFolder = String.valueOf(getChannelIndexNum());
+        } else {
+            channelFolder = channel.getName();
+        }
+
+    }
+
+    public String getHtmlFileName() {
+        return htmlFileName;
+    }
+
+    public void setHtmlFileName(String htmlFileName) {
+        this.htmlFileName = htmlFileName;
+    }
+
+    public List<Channel> getChannelPageMarkList() {
+        return channelPageMarkList;
+    }
+
+    public void setChannelPageMarkList(List<Channel> channelPageMarkList) {
+        this.channelPageMarkList = channelPageMarkList;
     }
 }

@@ -36,7 +36,7 @@
                             <s:if test="%{#st.index>0}">
                             ,
                             </s:if>
-                            ['<s:property value="channelname"/>', <s:property value="countnum"/>]
+                            ['<s:property value="channelName"/>', <s:property value="countnum"/>]
                             </s:iterator>
                         ]
                     },
@@ -63,7 +63,7 @@
 
                     栏目名称：
 
-                    <input name="info.channelname" type="text" maxlength="50" value="${ info.channelname}"
+                    <input name="info.channelName" type="text" maxlength="50" value="${ info.channelName}"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     时间范围：
@@ -117,7 +117,7 @@
 
                 <TD align="left">
                     <a href='../../visit_channel.do?channelid=<s:property value="channel"/>' target='_blank'><s:property
-                            value="channelname"/></a>
+                            value="channelName"/></a>
                 </TD>
                 <TD align="left">
                     <s:property value="countnum"/>

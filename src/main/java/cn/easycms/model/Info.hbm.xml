@@ -31,7 +31,7 @@
             <property name="isSign" type="string"/>
             <property name="video" type="string"/>
             <property name="isComment" type="string"/>
-            <property name="indexNum" type="string"/>
+            <property name="indexNum" type="string" not-null="false"/>
             <property name="openType" type="string"/>
             <property name="openTimeType" type="string"/>
             <property name="openEndTime" type="timestamp"/>

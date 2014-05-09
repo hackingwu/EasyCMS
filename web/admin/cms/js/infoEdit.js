@@ -1,10 +1,12 @@
 //选择栏目
 function selectChannel() {
     if ($("#siteId").val() != "") {
-        $.weeboxs.open('channel_channel.do?noShowSite=1&channel.id=select&channel.site=' + $("#siteId").val(), {title: '选择栏目', contentType: 'ajax', height: 320, width: 280
+
+        $.weeboxs.open('channel_channel.do?noShowSite=1&channel.id=select&channel.site.id=' + $("#siteId").val(), {title: '选择栏目', contentType: 'ajax', height: 320, width: 280
         });
     } else {
         alert("请先选择站点");
+        selectSite();
     }
 }
 //点击栏目

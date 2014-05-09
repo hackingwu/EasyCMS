@@ -25,7 +25,7 @@
 <BODY style="padding:0;margin:0">
 <form name="myForm" method="post" action="info_list.do" id="myForm"
       style="margin: 0px">
-    <input type="hidden" name="info.channel" id="channelId" value="${info.channel }"/>
+    <input type="hidden" name="info.channel" id="channelId" value="${info.channel.id }"/>
     <input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 
     <DIV class="column" style="width:99%">
@@ -40,7 +40,7 @@
 
                     html索引号：
 
-                    <input name="info.htmlIndexnum" type="text" maxlength="500"
+                    <input name="info.htmlIndexNum" type="text" maxlength="500"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     信息标题：
@@ -49,13 +49,13 @@
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     签收:
-                    <select name="info.issign">
+                    <select name="info.isSign">
                         <option value="">全部</option>
                         <option value="1">是</option>
                         <option value="0">否</option>
                     </select>
                     评论:
-                    <select name="info.iscomment">
+                    <select name="info.isComment">
                         <option value="">全部</option>
                         <option value="0">否</option>
                         <option value="1">会员评论</option>
@@ -109,7 +109,7 @@
 
             <TD width="8%">
 
-                <fs:order colName="html索引号" col="htmlIndexnum"/>
+                <fs:order colName="html索引号" col="htmlIndexNum"/>
             </TD>
             <TD width="50%">
 
@@ -117,11 +117,11 @@
             </TD>
             <TD width="5%">
 
-                <fs:order colName="签收" col="issign"/>
+                <fs:order colName="签收" col="isSign"/>
             </TD>
             <TD width="12%">
 
-                <fs:order colName="评论" col="iscomment"/>
+                <fs:order colName="评论" col="isComment"/>
             </TD>
             <TD width="20%">
 
@@ -135,24 +135,24 @@
                 <TD align="center">
                     <INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 
-                <TD align="left" id="htmlIndexnum<s:property value="id"/>">
-                    <s:property value="htmlIndexnum"/>
+                <TD align="left" id="htmlIndexum<s:property value="id"/>">
+                    <s:property value="htmlIndexNum"/>
                 </TD>
                 <TD align="left" id="title<s:property value="id"/>">
                     <a title="点击打开信息页面"
-                       href='<%=basePath %>site/${manageSite.sourcepath }/<s:property value="pageurl"/>'
+                       href='<%=basePath %>site/${manageSite.sourcePath }/<s:property value="pageUrl"/>'
                        target="_blank"><s:property value="title"/></a>
                 </TD>
                 <TD align="left" id="issign<s:property value="id"/>">
-                    <s:if test='%{"1" == #obj.issign }'>
+                    <s:if test='%{"1" == #obj.isSign }'>
                         <a href='#' onclick='infosign("${obj.id }")' title="点击查看签收统计">是</a>
                     </s:if>
-                    <s:if test='%{"1" != #obj.issign }'>
+                    <s:if test='%{"1" != #obj.isSign }'>
                         否
                     </s:if>
                 </TD>
                 <TD align="left" id="iscomment<s:property value="id"/>">
-                    <s:property value="iscommentStr"/>
+                    <s:property value="isCommentStr"/>
                 </TD>
                 <TD align="left" id="addTime<s:property value="id"/>">
                     <s:property value="addTimeStr"/>

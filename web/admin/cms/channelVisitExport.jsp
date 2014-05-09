@@ -31,7 +31,7 @@
                 style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 
                 <TD align="left">
-                    <s:property value="channelname"/>
+                    <s:property value="channelName"/>
                 </TD>
                 <TD align="left" id="countnum<s:property value="id"/>">
                     <s:property value="countnum"/>

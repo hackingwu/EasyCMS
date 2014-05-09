@@ -5,7 +5,10 @@ import cn.easycms.model.Info;
 import cn.easycms.util.SqlUtil;
 import cn.easycms.util.StringUtil;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.*;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -81,8 +84,8 @@ public class InfoService {
             if (info.getChannels() != null && info.getChannels().size() > 0) {
                 criteria.add(Restrictions.in("channel", info.getChannels()));
             }
-            if (info.getChannelPageMark() != null && info.getChannelPageMark().size() > 0) {
-                criteria.add(Restrictions.in("channel", info.getChannelPageMark()));
+            if (info.getChannelPageMarkList() != null && info.getChannelPageMarkList().size() > 0) {
+                criteria.add(Restrictions.in("channel", info.getChannelPageMarkList()));
             }
             if (StringUtil.isNotEmpty(info.getImg())) {
                 criteria.add(Restrictions.and(Restrictions.ne("img", ""), Restrictions.isNotNull("img")));
@@ -104,15 +107,16 @@ public class InfoService {
 
     public List<Info> workload(Info info) {
         Criteria criteria = infoDaoImpl.getCurrentSession().createCriteria(Info.class);
-        proSearchParam(info,criteria);
+        proSearchParam(info, criteria);
         return criteria.list();
     }
-    public List<Info> workload(Info info,int currPage,int pageSize){
+
+    public List<Info> workload(Info info, int currPage, int pageSize) {
 
         Criteria criteria = infoDaoImpl.getCurrentSession().createCriteria(Info.class);
-        proSearchParam(info,criteria);
+        proSearchParam(info, criteria);
         criteria.setMaxResults(pageSize);
-        criteria.setFirstResult((currPage-1)*pageSize);
+        criteria.setFirstResult((currPage - 1) * pageSize);
         return criteria.list();
     }
 
@@ -128,12 +132,32 @@ public class InfoService {
     }
 
     public int count(Info info) {
-        if (info!=null)
-        {
+        if (info != null) {
             Criteria criteria = infoDaoImpl.getCurrentSession().createCriteria(Info.class);
-            proSearchParam(info,criteria);
+            proSearchParam(info, criteria);
             return criteria.list().size();
         }
         return 0;
+    }
+
+    public List<Info> find(Info info, String order, int currPage, int pageSize) {
+        Criteria criteria = infoDaoImpl.getCurrentSession().createCriteria(Info.class);
+        proSearchParam(info, criteria);
+        if (StringUtil.isNotEmpty(order)) {
+            criteria.addOrder(Order.desc(order));
+        }
+        if (currPage >= 1 && pageSize >= 1) {
+            criteria.setFirstResult((currPage - 1) * pageSize);
+            criteria.setMaxResults(pageSize);
+        }
+        return criteria.list();
+    }
+
+    public void update(Info info) {
+        infoDaoImpl.update(info);
+    }
+
+    public void insert(Info info) {
+        infoDaoImpl.save(info);
     }
 }
