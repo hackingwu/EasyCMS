@@ -1,14 +1,9 @@
 package cn.easycms.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-
-
 /**
  * Created by hackingwu on 2014/4/12.
  */
-@Entity
+
 public class Link {
     public final static String TYPE_DOWN = "1";
     public final static String TYPE_IMG = "2";
@@ -31,9 +26,6 @@ public class Link {
     private String pageMarks;
     private String classPageMarks;
 
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     public String getId() {
         return id;
     }
@@ -82,8 +74,6 @@ public class Link {
         this.orderNum = orderNum;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "site")
     public Site getSite() {
         return site;
     }
@@ -116,7 +106,6 @@ public class Link {
         this.pageMark = pageMark;
     }
 
-    @Transient
     public String getPageMarks() {
         return pageMarks;
     }
@@ -125,7 +114,6 @@ public class Link {
         this.pageMarks = pageMarks;
     }
 
-    @Transient
     public String getClassPageMarks() {
         return classPageMarks;
     }
@@ -134,7 +122,6 @@ public class Link {
         this.classPageMarks = classPageMarks;
     }
 
-    @Transient
     public String getClassName() {
         return className;
     }
@@ -143,7 +130,6 @@ public class Link {
         this.className = className;
     }
 
-    @Transient
     public String getIsClass() {
         return isClass;
     }
@@ -152,7 +138,6 @@ public class Link {
         this.isClass = isClass;
     }
 
-    @Transient
     public String getIsOkStr() {
         return isOk.equals("1") ? "是" : "否";
     }

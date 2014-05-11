@@ -106,23 +106,23 @@
             </TD>
         </TR>
 
-        <s:iterator value="templetList" status="bean">
+        <s:iterator value="templateList" status="bean">
             <TR class="tdbg" onMouseOver="this.className='tdbg-dark';" id="tr<s:property value="id"/>"
                 style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
-                <TD align="center">
+                <TD style="width: 20px">
                     <INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 
-                <TD style="WIDTH: 120px" align="left" id="name<s:property value="id"/>">
+                <TD style="WIDTH: 300px" align="center" id="name<s:property value="id"/>">
                     <s:property value="name"/>
                 </TD>
-                <TD style="WIDTH: 120px" align="left" id="state<s:property value="id"/>">
+                <TD style="WIDTH: 120px" align="center" id="state<s:property value="id"/>">
                     <s:property value="stateStr"/>
                 </TD>
-                <TD style="WIDTH: 120px" align="left" id="usesitenames<s:property value="id"/>">
-                    <s:property value="usesitenames"/>
+                <TD style="WIDTH: 120px" align="center" id="usesitenames<s:property value="id"/>">
+                    <s:property value="useSiteNames"/>
                 </TD>
-                <TD style="WIDTH: 120px" align="left" id="ordernum<s:property value="id"/>">
-                    <s:property value="ordernum"/>
+                <TD style="WIDTH: 120px" align="center" id="ordernum<s:property value="id"/>">
+                    <s:property value="orderNum"/>
                 </TD>
             </TR>
         </s:iterator>

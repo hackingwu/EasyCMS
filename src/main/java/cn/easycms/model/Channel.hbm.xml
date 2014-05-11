@@ -26,7 +26,7 @@
         <property name="htmlChannelOld" type="string"/>
         <property name="htmlParChannel" type="string"/>
         <property name="htmlSite" type="string"/>
-        <property name="indexNum" type="java.lang.Integer"/>
+        <property name="indexNum" type="java.lang.Integer" generated="insert"/>
         <property name="maxPage" type="java.lang.Integer"/>
 
     </class>

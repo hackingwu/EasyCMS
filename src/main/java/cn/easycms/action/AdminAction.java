@@ -7,7 +7,6 @@ import cn.easycms.model.Site;
 import cn.easycms.service.AdminLinkService;
 import cn.easycms.service.FuncService;
 import cn.easycms.service.SiteService;
-import freemarker.template.utility.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -40,11 +39,6 @@ public class AdminAction extends BaseAction {
         this.adminLinkService = adminLinkService;
     }
 
-    public void setSiteService(SiteService siteService) {
-        this.siteService = siteService;
-    }
-    public void setFuncService(FuncService funcService) { this.funcService = funcService; }
-
     public List<Func> getFuncList() {
         return funcList;
     }
@@ -57,8 +51,16 @@ public class AdminAction extends BaseAction {
         return siteService;
     }
 
+    public void setSiteService(SiteService siteService) {
+        this.siteService = siteService;
+    }
+
     public FuncService getFuncService() {
         return funcService;
+    }
+
+    public void setFuncService(FuncService funcService) {
+        this.funcService = funcService;
     }
 
     public String getFuncid() {
@@ -108,11 +110,14 @@ public class AdminAction extends BaseAction {
                 if (funcList != null && funcList.size() > 0) {
                     //菜单管理func.jsp
                     funcid = funcList.get(0).getId();
+
                 }
             }
         }
         //已经有的更新，没有的存进去。
         getHttpSession().setAttribute("funcid", funcid);
+        String funcName = funcService.findById(funcid).getName();
+        getHttpSession().setAttribute("funcName", funcName.equals("资源") ? "" : funcName);
         if (isAdminLogin()) {
             getHttpSession().setAttribute("siteAdmin", true);
         } else {
@@ -150,13 +155,14 @@ public class AdminAction extends BaseAction {
         }
         return "top";
     }
+
     /**
      * 右侧
      */
-    public String right(){
+    public String right() {
         sysLink = adminLinkService.findLinkByType(AdminLink.TYPE_SYSTEM);
 
-        userLink= adminLinkService.findLinkByType(AdminLink.TYPE_USER);
+        userLink = adminLinkService.findLinkByType(AdminLink.TYPE_USER);
 
         return "right";
     }

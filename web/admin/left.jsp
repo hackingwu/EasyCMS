@@ -14,29 +14,22 @@
     <link href="../bootstrap/css/bootstrap.css">
     <style>
         a:hover {
-            padding: 10px;
-            color: #000000;
+            color: #696969;
         }
 
-        .dropdown {
-            display: none;
-        }
-
-        .dropdown ul {
-
-            padding-left: 10px;
-
-        }
+        /*.dropdown {*/
+        /*display: none;*/
+        /*}*/
 
         li, ul {
             list-style-type: none;
-            padding: 2px;
-            color: #777777;
+            padding: 2px 0px 2px 0px;
+
         }
 
         a {
             text-decoration: none;
-            color: #777777
+            color: #000000;
         }
 
         hr {
@@ -51,7 +44,7 @@
         body {
             text-shadow: 0 1px 0 #fff;
             background-color: #f7f5fa;
-            align-content: space-between;
+            overflow: hidden;
 
         }
 
@@ -67,11 +60,16 @@
 
 <ul class="nav nav-tabs nav-stacked">
     <li>
+
         <s:if test="%{#session.manageSite != null}">
+            <br>
                 <span style="cursor:hand" title="点击选择管理站点"
                       onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'">&nbsp;&nbsp;${manageSite.name}&nbsp;&nbsp; </span>
             <img onclick="window.open('<%=basePath %>site/${manageSite.sourcePath }/index.html');"
-                 src="../img/www.gif" title="点击预览"> </span>
+                 src="../img/browser.png" title="点击预览"> </span>
+            <br><br>
+            <hr>
+
         </s:if>
         <s:else>
             <span style="cursor:hand" title="点击选择管理站点"
@@ -79,54 +77,79 @@
         </s:else>
     </li>
     <li class="nav-divider">
-        <s:iterator value="#session.funcs" id="bean">
+    <li style="color: #808080">${funcName}</li>
+    <s:iterator value="#session.funcs" id="leaf">
+        <s:if test="%{#leaf.parId==funcid}">
+            <s:if test='%{"1"!=#leaf.hasChildren}'>
+                <ul>
+                    <li style="position: relative;left:5px" class="hover">
+                        <a target="right"
+                                <s:if test="%{url!=''}">
+                                    href="<s:property value="url"/><s:if
+                                        test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property
+                                        value="id"/></s:if><s:else>?pageFuncId=<s:property
+                                        value="id"/></s:else>"
+                                </s:if> >
+                            <img src="../img/left.png" width="10" height="10">&nbsp;&nbsp;<s:property value="name"/>
+                        </a>
+                    </li>
+                </ul>
+            </s:if>
+        </s:if>
+    </s:iterator>
+    <s:if test='%{""!=#session.funcName}'>
+        <br>
+        <hr>
+    </s:if>
+    <s:iterator value="#session.funcs" id="bean">
 
         <s:if test="%{#bean.parId==funcid}">
-    <li>
+            <li>
 
-        <ul>
-            <s:if test='%{"1" == #bean.hasChildren}'>
+                <ul>
+                    <s:if test='%{"1" == #bean.hasChildren}'>
 
-                <li class="dropdown-menu">
+                        <li class="dropdown-menu">
 
-                    <a>
-                        <img src="../img/plus.jpg" width="10" height="10">&nbsp;<s:property value="name"/>
-                    </a>
-                    <hr>
-                </li>
-                <li class="dropdown">
-                    <ul>
-                        <s:iterator value="#session.funcs" id="sonbean">
-                            <s:if test="%{#sonbean.parId==#bean.id}">
-                                <li><a target="right"
-                                       <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"
-                                </s:if> ><s:property value="name"/></a>
-                                    <hr>
-                                </li>
-                            </s:if>
-                        </s:iterator>
-                    </ul>
-                </li>
-            </s:if>
-            <s:else>
-                <li>
-                    <a target="right"
-                            <s:if test="%{url!=''}">
-                                href="<s:property value="url"/><s:if
-                                    test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property
-                                    value="id"/></s:else>"
-                            </s:if> >
-                        &nbsp;&nbsp;&nbsp;<s:property value="name"/></a>
-                    <hr>
-                </li>
-            </s:else>
-        </ul>
-    </li>
-    </s:if>
+                            <a style="color: #808080">
+                                    <%--<img src="../img/down.png" width="10" height="10">--%>
+                                <s:property value="name"/>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <ul>
+                                <s:iterator value="#session.funcs" id="sonbean">
+                                    <s:if test="%{#sonbean.parId==#bean.id}">
+                                        <li style="position: relative;left:5px" class="hover">
+                                            <a target="right"
+                                               <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"
+                                            </s:if> >
+                                                <img src="../img/left.png" width="10"
+                                                     height="10">&nbsp;&nbsp;<s:property value="name"/></a>
+                                        </li>
+                                    </s:if>
+                                </s:iterator>
+                                <br>
+                                <hr>
+                            </ul>
+                        </li>
+                    </s:if>
+                </ul>
+            </li>
+        </s:if>
     </s:iterator>
 </ul>
 
 
 <script type="text/javascript" src="../js/menu.js"></script>
+<script>
+    $("li.hover").hover(
+            function () {
+                $(this).animate({left: "+=5"}, 400);
+            }, function () {
+                $(this).animate({left: "-=5"}, 400);
+            }
+    );
+</script>
 </body>
 </html>

@@ -1,24 +1,17 @@
 package cn.easycms.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by hackingwu on 2014/4/22.
  */
-@Entity
 public class InfoSign {
     private String id;
-    private User   user;
-    private Info   info;
-    private Date   signTime;
+    private User user;
+    private Info info;
+    private Date signTime;
     private String ip;
 
-    @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name = "system-uuid",strategy = "uuid")
     public String getId() {
         return id;
     }
@@ -26,8 +19,7 @@ public class InfoSign {
     public void setId(String id) {
         this.id = id;
     }
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user")
+
     public User getUser() {
         return user;
     }
@@ -35,8 +27,7 @@ public class InfoSign {
     public void setUser(User user) {
         this.user = user;
     }
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "info")
+
     public Info getInfo() {
         return info;
     }

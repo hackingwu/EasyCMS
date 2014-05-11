@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.easycms.model">
+    <class name="InfoSign" table="InfoSign">
+        <id name="id">
+            <generator class="uuid"/>
+        </id>
+        <many-to-one name="user" class="cn.easycms.model.User" cascade="none"/>
+        <many-to-one name="info" class="cn.easycms.model.Info" cascade="none"/>
+        <property name="signTime" type="timestamp"/>
+        <property name="ip"/>
+    </class>
+</hibernate-mapping>

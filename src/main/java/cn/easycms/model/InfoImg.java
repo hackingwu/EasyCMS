@@ -1,17 +1,16 @@
 package cn.easycms.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-
 /**
  * Created by hackingwu on 2014/4/22.
  */
-@Entity
 public class InfoImg {
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid",strategy = "uuid")
+    private String id;
+    private Info info;
+    private String img;
+    private String title;
+    private String content;
+    private Integer orderNum;
+
     public String getId() {
         return id;
     }
@@ -20,8 +19,6 @@ public class InfoImg {
         this.id = id;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "info")
     public Info getInfo() {
         return info;
     }
@@ -61,11 +58,4 @@ public class InfoImg {
     public void setOrderNum(Integer orderNum) {
         this.orderNum = orderNum;
     }
-
-    private String id;
-    private Info info;
-    private String img;
-    private String title;
-    private String content;
-    private Integer orderNum;
 }
