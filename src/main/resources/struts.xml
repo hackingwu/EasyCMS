@@ -28,6 +28,9 @@
             <result name="list">adminlinkList.jsp</result>
             <result name="edit">adminlinkEdit.jsp</result>
         </action>
+        <action name="operLog_*" method="{1}" class="operLogAction">
+            <result name="list">operLog.jsp</result>
+        </action>
         <action name="*_*" class="{1}Action" method="{2}">
             <result name="{2}">{2}.jsp</result>
         </action>

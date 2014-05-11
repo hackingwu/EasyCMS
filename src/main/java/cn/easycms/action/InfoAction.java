@@ -612,9 +612,12 @@ public class InfoAction extends BaseAction{
                 }
                 //处理签收用户
                 List<User> users = new ArrayList<User>();
-                for (String signUser : signUsers) {
-                    users.add(userService.findById(signUser));
+                if (signUsers != null) {
+                    for (String signUser : signUsers) {
+                        users.add(userService.findById(signUser));
+                    }
                 }
+
 
                 infoSignService.infoEdit(info, users);
                 //处理图片集

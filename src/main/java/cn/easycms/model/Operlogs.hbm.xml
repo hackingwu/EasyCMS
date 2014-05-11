@@ -8,7 +8,7 @@
             <generator class="uuid"/>
         </id>
         <property name="loginName" column="loginName" type="string"/>
-        <property name="operTime" column="operTime" type="timestamp"/>
+        <property name="operTime" column="operTime" type="date"/>
         <property name="content" column="content" type="string"/>
         <property name="ip" column="ip" type="string"/>
     </class>

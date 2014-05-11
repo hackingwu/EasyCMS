@@ -35,7 +35,7 @@
 
                     操作人：
 
-                    <input name="operlog.loginname" type="text" maxlength="50"
+                    <input name="operlog.loginName" type="text" maxlength="50"
                            class="colorblur" onfocus="this.className='colorfocus';"
                            onblur="this.className='colorblur';"/>
                     操作内容：
@@ -110,10 +110,10 @@
                 style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 
                 <TD align="left" id="name<s:property value="id"/>">
-                    <s:property value="loginname"/>
+                    <s:property value="loginName"/>
                 </TD>
                 <TD align="left" id="isok<s:property value="id"/>">
-                    <s:property value="opertimeStr"/>
+                    <s:property value="operTime"/>
                 </TD>
                 <TD align="left" id="isopennewwin<s:property value="id"/>">
                     <s:property value="content"/>

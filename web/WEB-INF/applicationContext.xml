@@ -169,7 +169,9 @@
 
         <property name="operlogsService" ref="OperlogsService"/>
     </bean>
-
+    <bean id="operLogAction" class="cn.easycms.action.OperlogAction" scope="prototype">
+        <property name="operlogsService" ref="OperlogsService"/>
+    </bean>
     <bean id="adminAction" class="cn.easycms.action.AdminAction" scope="prototype">
         <property name="funcService" ref="FuncService"/>
         <property name="siteService" ref="SiteService"/>
