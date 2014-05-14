@@ -46,7 +46,7 @@
     <li style="position: relative;left:10px" class="fade">Chips</li>
     <li style="position: relative;left:10px" class="fade">Socks</li>
 </ul>
-<%=request.getRemoteAddr()%>
+
 <script>
     $("li").hover(
             function () {

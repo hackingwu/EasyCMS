@@ -162,6 +162,7 @@
         <property name="channelListDirective" ref="channelListDirective"/>
         <property name="htmlDirective" ref="HtmlDirective"/>
         <property name="infoListDirective" ref="InfoListDirective"/>
+        <property name="channelPathDirective" ref="ChannelPathDirective"/>
     </bean>
     <!-- *Action-->
     <bean id="UserAction" class="cn.easycms.action.UserAction" scope="prototype">
@@ -260,6 +261,9 @@
     <bean id="HtmlDirective" class="cn.easycms.directive.HtmlDirective">
 
     </bean>
-
+    <bean id="ChannelPathDirective" class="cn.easycms.directive.ChannelPathDirective">
+        <property name="channelService" ref="ChannelService"/>
+        <property name="siteService" ref="SiteService"/>
+    </bean>
 
 </beans>

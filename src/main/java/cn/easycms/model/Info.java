@@ -1,5 +1,6 @@
 package cn.easycms.model;
 
+import cn.easycms.util.DateUtil;
 import cn.easycms.util.StringUtil;
 
 import java.util.Date;
@@ -9,9 +10,9 @@ import java.util.List;
  * Created by hackingwu on 2014/4/18.
  */
 public class Info {
-    public final static String ISCOMMENT_NO     = "0";
+    public final static String ISCOMMENT_NO = "0";
     public final static String ISCOMMENT_MEMBER = "1";
-    public final static String ISCOMMENT_ALL    = "2";
+    public final static String ISCOMMENT_ALL = "2";
     public String searchKey;
     private String id;
     private String site;
@@ -28,11 +29,11 @@ public class Info {
     private String img;
     private String url;
     private String attchs;
-    private Date   addTime;
+    private Date addTime;
     private String template;
     private String isHot;
     private String isTop;
-    private Date   topEndTime;
+    private Date topEndTime;
     private Integer clickNum;
     private String addUser;
     private String state;
@@ -42,7 +43,7 @@ public class Info {
     private String indexNum;
     private String openType;
     private String openTimeType;
-    private Date   openEndTime;
+    private Date openEndTime;
     private Integer htmlIndexNum;
     private String isImgs;
     private String checkOpenEndTime;
@@ -62,6 +63,42 @@ public class Info {
     private String showTitle;
     private String htmlFileName;
     private List<Channel> channelPageMarkList;
+    private String openEndTimeStr;
+    private String addTimeStr = "";
+
+    public String getAddTimeStr() {
+        if (!StringUtil.isNotEmpty(addTimeStr)) {
+            if (addTime != null)
+                setAddTimeStr(DateUtil.format(addTime));
+        }
+        return addTimeStr;
+    }
+
+    public void setAddTimeStr(String addTimeStr) {
+        this.addTimeStr = addTimeStr;
+    }
+
+    public String getOpenEndTimeStr() {
+        if (!StringUtil.isNotEmpty(openEndTimeStr)) {
+            if (openEndTime != null) {
+                openEndTimeStr = DateUtil.format(openEndTime);
+            }
+        }
+
+        return openEndTimeStr;
+    }
+
+    public void setOpenEndTimeStr(String openEndTimeStr) {
+        this.openEndTimeStr = openEndTimeStr;
+    }
+
+    public String getIsCommentStr() {
+        return isCommentStr;
+    }
+
+    public void setIsCommentStr(String isCommentStr) {
+        this.isCommentStr = isCommentStr;
+    }
 
     public String getTopEndTimeStr() {
         return topEndTimeStr;
@@ -280,7 +317,7 @@ public class Info {
     }
 
     public String getIndexNum() {
-        return indexNum==null?"":indexNum;
+        return indexNum == null ? "" : indexNum;
     }
 
     public void setIndexNum(String indexNum) {
@@ -336,6 +373,10 @@ public class Info {
     }
 
     public String getChannelPageMark() {
+        if (!StringUtil.isNotEmpty(channelPageMark)) {
+            if (channel != null)
+                channelPageMark = channel.getPageMark();
+        }
         return channelPageMark;
     }
 
@@ -400,10 +441,19 @@ public class Info {
     }
 
     public String getPageUrl() {
+
+        if (!StringUtil.isNotEmpty(pageUrl)) {
+            if (StringUtil.isNotEmpty(getUrl())) {
+                setPageUrl(getUrl());
+            } else {
+                setPageUrl((getSitePath() != null ? getSitePath() : "") + getChannelFolder() + "/info/" + (DateUtil.getYear(getAddTime())) + "/" + getHtmlFileName() + ".html");
+            }
+        }
+
         return pageUrl;
     }
 
-    public void setPageurl(String pageUrl) {
+    public void setPageUrl(String pageUrl) {
         this.pageUrl = pageUrl;
     }
 
@@ -435,21 +485,25 @@ public class Info {
     }
 
     public String getChannelFolder() {
+        if (!StringUtil.isNotEmpty(channelFolder)) {
+            channelFolder = channel.getId();
+        }
+
         return channelFolder;
     }
 
     public void setChannelFolder(String channelFolder) {
-        if (StringUtil.isNotEmpty(getChannelPageMark())) {
-            channelFolder = getChannelPageMark();
-        } else if (getChannelIndexNum() > 0) {
-            channelFolder = String.valueOf(getChannelIndexNum());
-        } else {
-            channelFolder = channel.getName();
-        }
 
+        this.channelFolder = channelFolder;
     }
 
     public String getHtmlFileName() {
+        if (!StringUtil.isNotEmpty(htmlFileName)) {
+
+            htmlFileName = id;
+
+        }
+
         return htmlFileName;
     }
 

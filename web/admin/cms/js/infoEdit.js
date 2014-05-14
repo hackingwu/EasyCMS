@@ -47,6 +47,10 @@ function save() {
         alert("请输入标题");
         return false;
     }
+    if ($.trim($("#template").val()) == "") {
+        alert("请选择信息模版");
+        return false;
+    }
     $("#MyForm").submit();
 }
 //选择图片
@@ -108,10 +112,10 @@ function opentimetype(opentimetype) {
     }
 }
 var templetFileWeeboxs;
-function selectTempletFile(inputid) {
+function selectTemplateFile(inputid) {
     var siteId = $("#siteId").val();
     if (siteId != "") {
-        templetFileWeeboxs = $.weeboxs.open('templet_selectFile.do?inputid=' + inputid + '&site.id=' + siteId, {title: '选择模板文件', contentType: 'ajax', height: 400, width: 500,
+        templetFileWeeboxs = $.weeboxs.open('template_selectFile.do?inputid=' + inputid + '&site.id=' + siteId, {title: '选择模板文件', contentType: 'ajax', height: 400, width: 500,
             onok: function () {
             }});
     } else {

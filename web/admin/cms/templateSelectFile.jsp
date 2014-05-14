@@ -28,15 +28,16 @@
     <table width="99%" border="0" align="left" cellpadding="3" cellspacing="1">
         <tr>
             <td width="20%" align="left" class="treetd" valign="top">
-                <font size="2">${templet.name }</font>
+                <font size="2">${template.name }</font>
                 <input type="hidden" id="inputid" value="${inputid }"/>
                 <br/>
                 <ul id="mixed">
-                    <li id="<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"templet/","utf-8")%>${templet.id }"
+                    <li id="<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"template/","utf-8")%>${template.id }"
                         class="hasChildren">
 			<span><font size="2"><b><a href="#"
-                                       onclick="showOne('<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"templet/","utf-8")%>
-                                       ${templet.id }')">根目录</a></b></font>
+                                       onclick="showOne('<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"template/","utf-8")%>
+                                       ${template.id }')">
+                根目录</a></b></font>
 			</span>
                         ${rootHasSon =='1'?'<ul><li><span  >&nbsp;</span></li></ul>':''}
                     </li>
@@ -55,7 +56,7 @@
 <script type="text/javascript">
     function initTrees() {
         $("#mixed").treeview({
-            url: "templet_folderSon.do",
+            url: "template_folderSon.do",
             ajax: {
                 data: {
                     "additional": function () {

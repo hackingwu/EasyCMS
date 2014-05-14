@@ -56,7 +56,8 @@
             style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
             <TD align="left" id="name<s:property value="id"/>">
                 <a title="点击选择此文件" href="#"
-                   onclick="selectFile('<%=currFolder %>/<%=sonFiles.get(i).getName() %>')"><%=sonFiles.get(i).getName() %>
+                   onclick="selectFile('<%=currFolder %>/<%=sonFiles.get(i).getName() %>')">
+                    <%=sonFiles.get(i).getName() %>
                 </a>
             </TD>
         </TR>

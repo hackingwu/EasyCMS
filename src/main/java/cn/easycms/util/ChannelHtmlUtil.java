@@ -1,7 +1,6 @@
 package cn.easycms.util;
 
 import cn.easycms.model.Channel;
-import cn.easycms.model.Info;
 import cn.easycms.model.Site;
 import freemarker.template.TemplateException;
 
@@ -13,84 +12,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by hackingwu on 14-5-5.
+ * Created by hackingwu on 5/11/14.
  */
-public class HtmlUtil {
-    /**
-     * freemarker生成首页html
-     * 静态化site
-     */
-
-    public static void html(Site site, FreeMarkerUtil freeMarkerUtil, ServletContext servletContext, String contextPath, HttpServletRequest httpRequest) throws IOException, TemplateException {
+public class ChannelHtmlUtil {
 
 
-        //有site并且site有模板
-        if (site != null && StringUtil.isNotEmpty(site.getIndexTemplate())) {
-            Map<String, Object> data = new HashMap<String, Object>();
-            data.put("site", site);
-            //contextPath 比getContextPath多了"/";
-            data.put("contextPath", contextPath);
-            data.put("contextPathNo", httpRequest.getContextPath());
-            String realPath = httpRequest.getSession().getServletContext().getRealPath("/");
-            freeMarkerUtil.createHTML(servletContext, data,
-                    "template/" + site.getIndexTemplate().trim() + "/index.html",
-                    realPath + "/site/" + site.getSourcePath() + "/index.html");
-
-        }
-    }
-
-    /**
-     * 生成信息页
-     * 静态化Info
-     *
-     * @throws TemplateException
-     * @throws IOException
-     */
-    public static void html(Info info, Channel channel, Site site, FreeMarkerUtil freeMarkerUtil, ServletContext context, String contextPath, HttpServletRequest request) throws IOException, TemplateException {
-        if (info != null) {
-            //Channel channel=channelService.findById(info.getChannel());
-            String template = "info.html";
-            //判断info是否有信息页模板
-            template = null;
-            if (StringUtil.isNotEmpty(info.getTemplate())) {
-                template = info.getTemplate();
-            } else if (channel != null && StringUtil.isNotEmpty(channel.getContentTemplate())) {
-                template = channel.getContentTemplate();
-            }
-            //Site site=siteService.findById(info.getSite());
-            if (site != null && StringUtil.isNotEmpty(site.getIndexTemplate())) {
-                //生成静态页面
-                Map<String, Object> data = new HashMap<String, Object>();
-                //传递site参数
-                data.put("site", site);
-                channel.setSitePath(contextPath + "site/" + site.getSourcePath() + "/");
-                data.put("currChannel", channel);
-                data.put("currInfo", info);
-                data.put("contextPath", contextPath);
-                data.put("contextPathNo", request.getContextPath());
-                //生成目录
-                String rootFolder = request.getSession().getServletContext().getRealPath("/") + "/site/" + site.getSourcePath() + "/" + info.getChannelFolder() + "/info/" + (info.getAddTime().getYear() + 1900) + "/";
-                File folder = new File(rootFolder);
-                if (!folder.exists()) {
-                    folder.mkdirs();
-                }
-                freeMarkerUtil.createHTML(context, data,
-                        "template/" + site.getIndexTemplate().trim() + "/" + template,
-                        rootFolder + info.getHtmlFileName() + ".html");
-
-            }
-        }
-    }
     /**
      * 静态化channel
      */
     /**
      * 栏目页静态化
      *
-     * @throws TemplateException
-     * @throws IOException
+     * @throws freemarker.template.TemplateException
+     * @throws java.io.IOException
      */
-    public static void html(Site site, Channel channel, FreeMarkerUtil freeMarkerUtil, ServletContext context, HttpServletRequest request, int pageNum) throws IOException, TemplateException {
+    public static void html(Channel channel, Site site, FreeMarkerUtil freeMarkerUtil, ServletContext context, HttpServletRequest request, int pageNum) throws IOException, TemplateException {
         if (site != null && channel != null
                 && StringUtil.isNotEmpty(site.getIndexTemplate())) {
             //生成模板位置
@@ -149,6 +85,5 @@ public class HtmlUtil {
             }
         }
     }
-
 
 }

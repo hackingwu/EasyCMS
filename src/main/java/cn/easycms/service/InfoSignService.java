@@ -23,7 +23,7 @@ public class InfoSignService {
 
         if (info != null) {
             return infoSignDaoImpl.getCurrentSession()
-                    .createCriteria(Info.class)
+                    .createCriteria(InfoSign.class)
                     .add(Restrictions.eq("info", info))
                     .list();
         }

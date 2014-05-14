@@ -29,15 +29,18 @@
                 </a>
             </@channel>
         </div><!-- end of title_works-->
-        <@infoList siteId="${site.id}" channelPageMark="jcal" num="2" titleLen="23" ; info,index>
+
+    <@infoList siteId="${site.id}" channelPageMark="jcal" num="2" titleLen="23" ; info,index>
             <div class="h_works_box">
             <div class="h_works_box_left"></div>
             <div class="h_works_box_middle">
-                <div class="h_works_image">
-                    <a href="${info.pageUrl!}">
-                        <img src="${contextPath}${(info.img!)?replace("/", "" , "f")}" width="189" height="124" />
-                    </a>
-                </div>
+                <#if info.img??>
+                    <div class="h_works_image">
+                        <a href="${info.pageUrl!}">
+                            <img src="${info.img!}" width="189" height="124"/>
+                        </a>
+                    </div>
+                </#if>
                 <div class="h_works_text">
                     <div class="h_works_title">
                         <ul>
@@ -55,18 +58,22 @@
                             </@html>
                         </a>
                     </div>
+                    <!--end of h_works_content-->
+                </div>
+                <!--end of h_works_text-->
                 </div><!-- end of box_middle-->
                 <div class="h_works_box_right"></div>
             </div><!-- enf of h_works_box-->
         </@infoList>
-    </div><!--end of title_left-->
+
+</div><!--end of title_left-->
     <div class="main_middle">
         <div class="title_news">
         <table border="0" cellspacing="0" cellpadding="0" id="secTable"
                style="margin-left: 10px; margin-top: 15px;">
             <tr>
                 <td width="70" height="24" align="center" valign="middle" class="sec6">
-                    <@channel siteId="${site.id}" pageMark="bfdt" ;channel>
+                    <@channel siteId="${site.id}" pageMark="bfdt" ;channel><!--博丰动态-->
                         <a href="${channel.pageUrl!}">${channel.name}</a>
                     </@channel>
                 </td>
@@ -84,7 +91,7 @@
                             <tbody style="DISPLAY: block">
                             <tr>
                                 <td height="273" align="center" valign="top">
-                                    <div>
+                                    <div><!--波风动态有Img-->
                                         <@infoList siteId="${site.id}" num="1" channelPageMark="bfdt" titleLen="18" img="1"; info,index>
                                             <div class="h_news_image">
                                                 <a href="${info.pageUrl}" title='${info.title}'>
@@ -128,7 +135,7 @@
     </div><!--end of main_middle-->
     <div class="main_right">
         <div class="title_blog">
-			<span class="title_works">
+			<span class="title_works"><!--观点-->
 				<@channel siteId="${site.id}" pageMark="gd" ;channel>
 					<a href="${channel.pageUrl}">
                         <img src="${contextPath}site/${site.sourcePath}/resources/images/title_blog.jpg" width="92" height="37"/>

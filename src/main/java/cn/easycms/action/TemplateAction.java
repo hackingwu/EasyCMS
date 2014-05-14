@@ -1,6 +1,5 @@
 package cn.easycms.action;
 
-import antlr.StringUtils;
 import cn.easycms.base.BaseAction;
 import cn.easycms.model.Site;
 import cn.easycms.model.Template;
@@ -8,9 +7,14 @@ import cn.easycms.service.SiteService;
 import cn.easycms.service.TemplateChannelService;
 import cn.easycms.service.TemplateLinkService;
 import cn.easycms.service.TemplateService;
+import cn.easycms.util.FileUtil;
 import cn.easycms.util.Pager;
 import cn.easycms.util.StringUtil;
 
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -28,6 +32,71 @@ public class TemplateAction extends BaseAction {
     private int currPage;
     private int pageSize;
     private String pageStr;
+    private String root;
+    private String inputid;
+    private List<File> sonFiles;
+    private String type;
+    private String currFolder;
+    private String onClick;
+    private String rootHasSon;
+    private int totalCount;
+    private String order;
+
+    public String getInputid() {
+        return inputid;
+    }
+
+    public void setInputid(String inputid) {
+        this.inputid = inputid;
+    }
+
+    public List<File> getSonFiles() {
+        return sonFiles;
+    }
+
+    public void setSonFiles(List<File> sonFiles) {
+        this.sonFiles = sonFiles;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCurrFolder() {
+        return currFolder;
+    }
+
+    public void setCurrFolder(String currFolder) {
+        this.currFolder = currFolder;
+    }
+
+    public String isOnClick() {
+        return onClick;
+    }
+
+    public void setOnClick(String onClick) {
+        this.onClick = onClick;
+    }
+
+    public String getRoot() {
+        return root;
+    }
+
+    public void setRoot(String root) {
+        this.root = root;
+    }
+
+    public String getRootHasSon() {
+        return rootHasSon;
+    }
+
+    public void setRootHasSon(String rootHasSon) {
+        this.rootHasSon = rootHasSon;
+    }
 
     public String getPageStr() {
         return pageStr;
@@ -44,8 +113,6 @@ public class TemplateAction extends BaseAction {
     public void setTotalCount(int totalCount) {
         this.totalCount = totalCount;
     }
-
-    private int totalCount;
 
     public int getCurrPage() {
         return currPage;
@@ -70,8 +137,6 @@ public class TemplateAction extends BaseAction {
     public void setOrder(String order) {
         this.order = order;
     }
-
-    private String order;
 
     public List<Template> getTemplateList() {
         return templateList;
@@ -114,19 +179,16 @@ public class TemplateAction extends BaseAction {
     }
 
 
+    public String select() {
 
-
-
-    public String select(){
-
-        if (site!=null && StringUtil.isNotEmpty(site.getId())){
+        if (site != null && StringUtil.isNotEmpty(site.getId())) {
             //编辑站点的时候
             site = siteService.findById(site.getId());
-            if (template==null)
+            if (template == null)
                 template = new Template();
             templateList = templateService.findAll();
 
-        }else{
+        } else {
             //添加新站点时
             templateList = templateService.findAll();
         }
@@ -137,11 +199,12 @@ public class TemplateAction extends BaseAction {
     /**
      * 模板管理
      * 列表
+     *
      * @return
      */
-    public String list(){
-        if (template==null) {
-            template=new Template();
+    public String list() {
+        if (template == null) {
+            template = new Template();
         }
         template.setNoDel("1");
         //普通用户只查看自己添加的
@@ -149,11 +212,11 @@ public class TemplateAction extends BaseAction {
             template.setAddUser(getLoginAdmin());
         }
         if (!StringUtil.isNotEmpty(order)) {
-            order="orderNum";
+            order = "orderNum";
         }
-        templateList=templateService.find(template, order, currPage, pageSize);
-        totalCount=templateService.count(template);
-        Pager pager=new Pager(getHttpRequest());
+        templateList = templateService.find(template, order, currPage, pageSize);
+        totalCount = templateService.count(template);
+        Pager pager = new Pager(getHttpRequest());
         pager.appendParam("template.name");
         pager.appendParam("order");
         pager.appendParam("pageSize");
@@ -162,8 +225,107 @@ public class TemplateAction extends BaseAction {
         pager.setPageSize(pageSize);
         pager.setTotalCount(totalCount);
         pager.setOutStr("template_list.do");
-        pageStr=pager.getOutStr();
+        pageStr = pager.getOutStr();
         return "list";
     }
+
+    /**
+     * 选择模板文件
+     *
+     * @return
+     */
+    public String selectFile() {
+        if (site != null && site.getId() != null && site.getId().trim().length() > 0) {
+            //如果有site.id参数则查询站点的模板
+            site = siteService.findById(site.getId());
+            if (site != null) {
+                if (template == null) {
+                    template = new Template();
+                }
+                template.setId(site.getIndexTemplate());
+            }
+        }
+        if (template != null && StringUtil.isNotEmpty(template.getId())) {
+            template = templateService.findById(template.getId());
+            //判断根目录有无子文件夹
+            if (FileUtil.hasSonFolder(getHttpRequest().getSession().getServletContext().getRealPath("/") + "/template/" + template.getId())) {
+                rootHasSon = "1";
+            }
+        }
+        return "selectFile";
+    }
+
+    /**
+     * 查询子文件夹
+     *
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    public String folderSon() throws UnsupportedEncodingException {
+        if (root != null && root.trim().length() > 0) {
+            root = URLDecoder.decode(root, "utf-8");
+            List<File> sonFiles = FileUtil.getFolders(root);
+            //生成树
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("[");
+            if (sonFiles != null && sonFiles.size() > 0) {
+                for (int i = 0; i < sonFiles.size(); i++) {
+                    if (sonFiles.get(i).isDirectory()) {
+                        if (!"[".equals(stringBuilder.toString())) {
+                            stringBuilder.append(",");
+                        }
+                        stringBuilder.append("{ \"text\": \"<a  onclick=");
+                        if (StringUtil.isNotEmpty(onClick)) {
+                            stringBuilder.append(onClick);
+                        } else {
+                            stringBuilder.append("showOne");
+                        }
+                        stringBuilder.append("('");
+                        stringBuilder.append(URLEncoder.encode(sonFiles.get(i).getPath().replace("\\", "/"), "UTF-8"));
+                        stringBuilder.append("')>");
+                        stringBuilder.append(sonFiles.get(i).getName());
+                        stringBuilder.append("</a>\", \"hasChildren\": ");
+                        if (FileUtil.hasSonFolder(sonFiles.get(i))) {
+                            stringBuilder.append("true");
+                        } else {
+                            stringBuilder.append("false");
+                        }
+                        stringBuilder.append(",\"id\":\"");
+                        stringBuilder.append(URLEncoder.encode(sonFiles.get(i).getPath().replace("\\", "/"), "UTF-8"));
+                        stringBuilder.append("\" }");
+                    }
+                }
+            }
+            stringBuilder.append("]");
+            write(stringBuilder.toString(), "UTF-8");
+        }
+        return null;
+    }
+
+    /**
+     * 获取目录下所有文件
+     *
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    public String fileSon() throws UnsupportedEncodingException {
+        if (root != null && root.trim().length() > 0) {
+            root = URLDecoder.decode(root, "utf-8");
+
+            String realPath = getHttpRequest().getSession().getServletContext().getRealPath("/").replace("\\", "/");
+            currFolder = root.replace(realPath + "template/", "");
+            if (currFolder.indexOf("/") > -1) {
+                currFolder = currFolder.substring(currFolder.indexOf("/"));
+            } else {
+                currFolder = "根目录";
+            }
+            sonFiles = FileUtil.getFiles(root);
+        }
+        if ("select".equals(type)) {
+            return "fileSonSelect";
+        }
+        return "fileSon";
+    }
+
 
 }

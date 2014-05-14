@@ -153,9 +153,9 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <INPUT onblur="this.className='inputblur';" id=templet readonly style="cursor:hand" title="点击选择模板文件"
-               class=inputblur onfocus="this.className='inputfocus';" onclick="selectTempletFile('templet')"
-               maxLength=50 type=text name=info.template value="${info.template }"/>
+        <INPUT onblur="this.className='inputblur';" id=template readonly style="cursor:hand" title="点击选择模板文件"
+               class=inputblur onfocus="this.className='inputfocus';" onclick="selectTemplateFile('template')"
+               maxLength=50 type=text name=info.template value="${info.template }"/>＊
     </TD>
 </TR>
 <TR>
@@ -347,7 +347,7 @@
 
     </TD>
 </TR>
-<TR style="display:${"1"==info.issign?"block":"none" }" id="signtr">
+<TR style="display:${"1"==info.isSign?"block":"none" }" id="signtr">
     <TD width="30%" align="left">
         <LABEL id=ctl01_ctl00_label><IMG
                 style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
@@ -427,7 +427,7 @@
                <s:if test="info==null || info.openTimeType==null || info.openTimeType==1">checked="checked"</s:if>>常年公开
         <input type="radio" id="opentimetype0" onclick="opentimetype(0)" name="info.openTimeType" value="0"
                <s:if test="info.openTimeType==0">checked="checked"</s:if> >限时公开
-        <input name="info.openEndTime" id="openEndTime" style="display:${"0"==info.openTimeType?"block":"none"}"
+        <input name="info.openEndTime" id="openEndTime" style="display:${'0'==info.openTimeType?'block':'none'}"
                class="Wdate"
                title="选择公开结束时间，没有则表示常年公开!" type="text" size="24" value="${info.openEndTimeStr }"
                onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>

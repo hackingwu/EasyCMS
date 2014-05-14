@@ -1,5 +1,4 @@
 function add() {
-    alert($("#channelId").val());
     location.href = "info_edit.do?pageFuncId=" + $("#pageFuncId").val() + "&channel.id=" + $("#channelId").val();
 }
 function edit() {

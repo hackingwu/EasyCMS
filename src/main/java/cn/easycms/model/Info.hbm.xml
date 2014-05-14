@@ -8,7 +8,7 @@
             <generator class="uuid"/>
         </id>
         <property name="site" type="string"/>
-        <many-to-one name="channel" class="cn.easycms.model.Channel" cascade="none"/>
+        <many-to-one name="channel" class="cn.easycms.model.Channel" cascade="none" lazy="false"/>
         <property name="title" type="string"/>
         <property name="shortTitle" type="string"/>
         <property name="titleColor" type="string"/>
@@ -16,9 +16,8 @@
         <property name="source" type="string"/>
         <property name="author" type="string"/>
         <property name="description" type="string"/>
-        <property name="content" type="string">
-            <column name="content" length="65536"/>
-        </property>
+        <property name="content" type="string" length="500"/>
+
         <property name="tags" type="string"/>
         <property name="img" type="string"/>
         <property name="url" type="string"/>

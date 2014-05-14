@@ -18,8 +18,13 @@ public class FreeMarkerUtil {
     private LinkDirective linkDirective;
     private InfoListDirective infoListDirective;
     private ChannelListDirective channelListDirective;
-    private ChannelDirective     channelDirective;
-    private HtmlDirective        htmlDirective;
+    private ChannelDirective channelDirective;
+    private HtmlDirective htmlDirective;
+    private ChannelPathDirective channelPathDirective;
+
+    public void setChannelPathDirective(ChannelPathDirective channelPathDirective) {
+        this.channelPathDirective = channelPathDirective;
+    }
 
     public void setLinkDirective(LinkDirective linkDirective) {
         this.linkDirective = linkDirective;
@@ -43,61 +48,65 @@ public class FreeMarkerUtil {
 
     /**
      * 生成静态页面的主方法 默认编码为UTF-8
+     *
      * @param servletContext
-     * @param data ftl的数据集
-     * @param templatePath ftl模板路径
-     * @param htmlPath 生成静态页面的路径
+     * @param data           ftl的数据集
+     * @param templatePath   ftl模板路径
+     * @param htmlPath       生成静态页面的路径
      */
-    public  void createHTML(ServletContext servletContext, Map<String, Object> data, String templatePath, String htmlPath) throws IOException,TemplateException{
-        createHTML(servletContext,data,templatePath,"UTF-8",htmlPath,"UTF-8");
+    public void createHTML(ServletContext servletContext, Map<String, Object> data, String templatePath, String htmlPath) throws IOException, TemplateException {
+        createHTML(servletContext, data, templatePath, "UTF-8", htmlPath, "UTF-8");
 
     }
 
     /**
      * 生成静态页面主方法
+     *
      * @param servletContext
-     * @param data ftl所有的数据集
-     * @param templatePath ftl模板的路径
+     * @param data           ftl所有的数据集
+     * @param templatePath   ftl模板的路径
      * @param templateEncode ftl模板的编码
-     * @param htmlPath 生成静态页面的路径
-     * @param htmlEncode 生成静态页面的编码
+     * @param htmlPath       生成静态页面的路径
+     * @param htmlEncode     生成静态页面的编码
      */
 
-     public  void createHTML(ServletContext servletContext,Map<String,Object> data,String templatePath,String templateEncode,String htmlPath,String htmlEncode)throws TemplateException,IOException{
+    public void createHTML(ServletContext servletContext, Map<String, Object> data, String templatePath, String templateEncode, String htmlPath, String htmlEncode) throws TemplateException, IOException {
 
-            Configuration freemarkerCfg = initCfg(servletContext, templateEncode);
-            Template template = freemarkerCfg.getTemplate(templatePath, templateEncode);
-            template.setEncoding(templateEncode);
-            File htmlFile = new File(htmlPath);
-            System.out.println(htmlFile.getCanonicalPath());
-            if (!htmlFile.getParentFile().exists()) {
-                htmlFile.getParentFile().mkdirs();
-            }
-            Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(htmlFile), htmlEncode));
-            template.process(data, writer);
-            writer.flush();
+        Configuration freemarkerCfg = initCfg(servletContext, templateEncode);
+        Template template = freemarkerCfg.getTemplate(templatePath, templateEncode);
+        template.setEncoding(templateEncode);
+        File htmlFile = new File(htmlPath);
+        System.out.println(htmlFile.getCanonicalPath());
+        if (!htmlFile.getParentFile().exists()) {
+            htmlFile.getParentFile().mkdirs();
+        }
+        Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(htmlFile), htmlEncode));
+        template.process(data, writer);
+        writer.flush();
 
     }
 
-    private Configuration initCfg(ServletContext servletContext, String templateEncode) throws IOException{
-        Configuration freemarkerCfg = null ;
-        if (servletContext!=null && servletContext.getAttribute("freemarkerCfg")!=null){
+    private Configuration initCfg(ServletContext servletContext, String templateEncode) throws IOException {
+        Configuration freemarkerCfg = null;
+        if (servletContext != null && servletContext.getAttribute("freemarkerCfg") != null) {
 
-            freemarkerCfg = (Configuration)servletContext.getAttribute("freemarkerCfg");
+            freemarkerCfg = (Configuration) servletContext.getAttribute("freemarkerCfg");
 
-        }else{
+        } else {
             freemarkerCfg = new Configuration();
-            freemarkerCfg.setServletContextForTemplateLoading(servletContext,"/");
+            freemarkerCfg.setServletContextForTemplateLoading(servletContext, "/");
 
 //            freemarkerCfg.setDirectoryForTemplateLoading(new File("E:\\workspace\\IdeaProjects\\EasyCMS\\src\\main\\java\\cn\\easycms\\directive"));
-            freemarkerCfg.setEncoding(Locale.SIMPLIFIED_CHINESE,templateEncode);
+            freemarkerCfg.setEncoding(Locale.SIMPLIFIED_CHINESE, templateEncode);
             //加载自定义标签
-            freemarkerCfg.setSharedVariable("channelList",channelListDirective);
-            freemarkerCfg.setSharedVariable("link"       ,linkDirective);
-            freemarkerCfg.setSharedVariable("channel"   ,channelDirective);
-            freemarkerCfg.setSharedVariable("infoList"   ,infoListDirective);
-            freemarkerCfg.setSharedVariable("html"       ,htmlDirective);
-            servletContext.setAttribute("freemarkerCfg",freemarkerCfg);
+            freemarkerCfg.setSharedVariable("channelList", channelListDirective);
+            freemarkerCfg.setSharedVariable("link", linkDirective);
+            freemarkerCfg.setSharedVariable("channel", channelDirective);
+            freemarkerCfg.setSharedVariable("infoList", infoListDirective);
+            freemarkerCfg.setSharedVariable("html", htmlDirective);
+            freemarkerCfg.setSharedVariable("channelPath", channelPathDirective);
+            servletContext.setAttribute("freemarkerCfg", freemarkerCfg);
+
         }
 
         return freemarkerCfg;

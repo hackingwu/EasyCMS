@@ -1,6 +1,8 @@
 package cn.easycms.util;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hackingwu on 2014/4/8.
@@ -122,5 +124,46 @@ public class FileUtil {
             System.err.println("File is not exits!");
         }
         return output;
+    }
+
+    public static boolean hasSonFolder(String fileName) {
+        File file = new File(fileName);
+        return hasSonFolder(file);
+    }
+
+    public static boolean hasSonFolder(File file) {
+        File[] files = file.listFiles();
+        for (File temp : files) {
+            if (temp.isDirectory())
+                return true;
+        }
+        return false;
+    }
+
+    public static List<File> getFolders(String parent) {
+        File parentFile = new File(parent);
+        List<File> folders = new ArrayList<File>();
+        File[] files = parentFile.listFiles();
+        for (File file : files) {
+            if (file.isDirectory()) {
+                folders.add(file);
+            }
+        }
+        return folders;
+
+    }
+
+    public static List<File> getFiles(String parent) {
+        File parentFile = new File(parent);
+        File[] files = parentFile.listFiles();
+        List<File> sonFiles = new ArrayList<File>();
+        if (parentFile.exists()) {
+            for (File temp : files) {
+                if (temp.isFile()) {
+                    sonFiles.add(temp);
+                }
+            }
+        }
+        return sonFiles;
     }
 }

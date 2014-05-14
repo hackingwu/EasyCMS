@@ -1,11 +1,13 @@
 <div class="sub_main_left">
 
-    <@channelList siteid="${site.id}" parid="${currChannel.parid}" ;sonChannel>
-    <a id="about_subnav" href="${sonChannel.pageurl}"
+    <@channelList siteId="${site.id}" parid="${currChannel.parId}" ;sonChannel>
+    <a id="about_subnav" href="${sonChannel.pageUrl}"
     <#if currChannel.id==sonChannel.id>
         style="background-position:0 100%;color:#FFF;"
     </#if>
-    >${sonChannel.name}</a>
+    >
+    ${sonChannel.name}
+    </a>
 </@channelList>
 
 </div>

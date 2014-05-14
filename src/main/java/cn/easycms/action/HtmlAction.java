@@ -6,7 +6,7 @@ import cn.easycms.model.Site;
 import cn.easycms.service.ChannelService;
 import cn.easycms.service.SiteService;
 import cn.easycms.util.FreeMarkerUtil;
-import cn.easycms.util.HtmlUtil;
+import cn.easycms.util.IndexHtmlUtil;
 
 import java.util.List;
 
@@ -77,7 +77,7 @@ public class HtmlAction extends BaseAction {
             site = getManageSite();
             if (site != null) {
                 //生成首页
-                HtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest());
+                IndexHtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest());
             }
             showMessage = "首页静态化处理成功!";
         } catch (Exception e) {

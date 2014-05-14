@@ -160,4 +160,8 @@ public class InfoService {
     public void insert(Info info) {
         infoDaoImpl.save(info);
     }
+
+    public void del(String infoId) {
+        infoDaoImpl.delete(findById(infoId));
+    }
 }

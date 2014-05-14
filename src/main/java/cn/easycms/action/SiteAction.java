@@ -344,7 +344,7 @@ public class SiteAction extends BaseAction {
             site = siteService.findById(site.getId());
 
             try {
-                HtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest());
+                IndexHtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest());
                 log("首页静态化：" + site.getName());
                 getHttpResponse().sendRedirect("/EasyCMS/site/" + site.getSourcePath() + "/index.html");
             } catch (Exception e) {
