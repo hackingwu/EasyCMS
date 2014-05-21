@@ -31,7 +31,35 @@
     <script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
     <link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css"/>
     <script type="text/javascript" src="../../js/checkLoginName.js"></script>
+    <script type="text/javascript" src="../ckfinder/ckfinder.js"></script>
+    <script type="text/javascript" src="../../js/ckfinderUtil.jsp"></script>
     <script type="text/javascript" src="js/siteConfig.js"></script>
+    <script type="text/javascript">
+        //选择图片
+        function selectImg() {
+
+            var finder = new CKFinder();
+            finder.basePath = '../../';
+            finder.selectActionFunction = selectImgDo;
+            finder.popup();
+        }
+        //选择图片处理
+        function selectImgDo(fileUrl) {
+            var fileUrl = "/EasyCMS" + fileUrl;
+
+            $("#imgSpan").html("<a href='" + fileUrl + "' target='_blank'>" +
+                    "<img src='" + fileUrl + "'  height='100' title='点击查看大图'/>" +
+                    "</a>");
+            $("#imgDelBtn").fadeIn("slow");
+            $("#img").val(fileUrl);
+        }
+        //删除图片
+        function delImg() {
+            $("#imgSpan").empty();
+            $("#imgDelBtn").fadeOut("slow");
+            $("#img").val("");
+        }
+    </script>
 </head>
 <body>
 
@@ -184,19 +212,33 @@
         </LABEL>
     </TD>
     <TD align="left">
-        <input type="hidden" id="oldLogo" name="oldLogo" value="${site.logo }"/>
-        <s:if test='%{site.logo!=null && site.logo != "" && site.logo != "null"}'>
-							<span id="oldLogoSpan">
-							<a href="<%=basePath %>${site.logo }?date=<%=UUID.randomUUID() %>" target="_blank">
-                                <img src="<%=basePath %>${site.logo }?date=<%=UUID.randomUUID() %>" width="180"
-                                     height="42" title="点击查看大图"/>
-                            </a>
-							<a href="javascript:delLogo()">删除</a>
-							</span>
+        <%--<input type="hidden" id="oldLogo" name="oldLogo" value="${site.logo }"/>--%>
+        <%--<s:if test='%{site.logo!=null && site.logo != "" && site.logo != "null"}'>--%>
+							<%--<span id="oldLogoSpan">--%>
+							<%--<a href="<%=basePath %>${site.logo }?date=<%=UUID.randomUUID() %>" target="_blank">--%>
+                                <%--<img src="<%=basePath %>${site.logo }?date=<%=UUID.randomUUID() %>" width="180"--%>
+                                     <%--height="42" title="点击查看大图"/>--%>
+                            <%--</a>--%>
+							<%--<a href="javascript:delLogo()">删除</a>--%>
+							<%--</span>--%>
+            <%--<br/>--%>
+        <%--</s:if>--%>
+        <%--<input type="file" onblur="this.className='inputblur';"--%>
+               <%--class=inputblur onfocus="this.className='inputfocus';" name="logo" id="logo">--%>
+            <input type="hidden" id="img" name="site.logo"/>
+
+							<span id="imgSpan">
+                                <s:if test='%{site.logo!=null && site.logo != "" && site.logo != "null"}'>
+                                    <a href="<%=basePath %>${site.logo }?date=<%=UUID.randomUUID() %>" target="_blank">
+                                        <img src="${site.logo }?date=<%=UUID.randomUUID() %>" height="42" title="点击查看大图"/>
+                                    </a>
+                                </s:if>
+                            </span>
+            <a style="display:none" id="imgDelBtn" href="javascript:delImg()">删除</a>
+
             <br/>
-        </s:if>
-        <input type="file" onblur="this.className='inputblur';"
-               class=inputblur onfocus="this.className='inputfocus';" name="logo" id="logo">
+
+            <input type="button" class="button" value="选择Logo" onclick="selectImg()"/><span>＊建议宽度256px，高度81px</span>
     </TD>
 </TR>
 <TR>

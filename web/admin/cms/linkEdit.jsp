@@ -93,7 +93,7 @@
 							<span id="imgSpan">
 							<s:if test='%{link.img!=null && link.img != "" && link.img != "null"}'>
                                 <a href="${link.img }?date=<%=UUID.randomUUID() %>" target="_blank">
-                                    <img src="${link.img }?date=<%=UUID.randomUUID() %>" width="60" height="40"
+                                    <img src="${link.img }?date=<%=UUID.randomUUID() %>"  height="40"
                                          title="点击查看大图"/>
                                 </a>
                             </s:if>

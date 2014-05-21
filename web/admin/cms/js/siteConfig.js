@@ -67,3 +67,5 @@ function intervalTypeChange(obj) {
         $("#intervalminTd").fadeIn("slow");
     }
 }
+
+

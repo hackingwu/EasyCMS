@@ -376,6 +376,25 @@ public class SiteAction extends BaseAction {
 
     }
 
+    /**
+     * 编辑处理
+     * @return
+     */
+    public String configDo(){
+
+        try {
+            siteService.update(site);
+            IndexHtmlUtil.html(site, freeMarkerUtil, getServletContext(), getContextPath(), getHttpRequest());
+            operlogsService.log(getLoginName(),"修改站点"+site.getName()+"成功！",getHttpRequest());
+            write("<script>alert('操作成功');location.href='site_config.do?site.id="+site.getId()+"';</script>", "GBK");
+        }catch (Exception e){
+            e.printStackTrace();
+            operlogsService.log(getLoginName(),"修改站点"+site.getName()+"失败，",getHttpRequest());
+            write("<script>alert('操作失败');location.href='site_config.do?site.id="+site.getId()+"';</script>","GBK");
+        }
+
+        return null;
+    }
     public String edit() {
         if (site != null && StringUtil.isNotEmpty(site.getId())) {
             site = siteService.findById(site.getId());
@@ -387,6 +406,7 @@ public class SiteAction extends BaseAction {
         }
         return "edit";
     }
+
 
     public void del() {
         if (site != null && StringUtil.isNotEmpty(site.getId()))

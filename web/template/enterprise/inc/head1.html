@@ -108,16 +108,14 @@
 <div id="container">
     <div class="head">
         <div class="logo">
-            <#if site.logo??>
-                <img src="${site.logo!}" height="81"/>
-            </#if>
+            <img src="${contextPath}site/${site.sourcePath}/resources/images/logo.png" width="256" height="81"/>
         </div>
         <!--end of logo-->
         <div class="topnav">
             业务咨询
             <a target=blank
                href=tencent://message/?uin=565321924&Site=博丰软件&Menu=yes><img
-                    border="0" SRC=http://wpa.qq.com/pa?p=1:215867983:1
+                    border="0" SRC=http://wpa.qq.com/pa?p=1:565321924:1
                     alt="点击这里给我发消息">
             </a> 售后服务
             <a target=blank
@@ -139,10 +137,10 @@
                     </li>
                 </a>
                 <@channelList siteId="${site.id}" parId="" navigation="1" state="1";channel,index>
-                <a onmouseout="pfout()" onclick="javascript:window.top.location.href='${channel.pageUrl}'" href="${channel.pageUrl}">
-                    <li onmouseover="pfgd(${index+1},this)">${channel.name}</li>
-                </a>
-            </@channelList>
+                    <a onmouseout="pfout()" onclick="javascript:window.top.location.href='${channel.pageUrl}'" href="${channel.pageUrl}">
+                        <li onmouseover="pfgd(${index+1},this)">${channel.name}</li>
+                    </a>
+                </@channelList>
             <div id="pf"></div>
         </div>
         <!--end of banner_pf-->

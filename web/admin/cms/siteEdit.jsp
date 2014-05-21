@@ -162,7 +162,7 @@
         <s:if test='%{site.logo!=null && site.logo != "" && site.logo != "null"}'>
 							<span id="oldLogoSpan">
 							<a href="<%=basePath %>${site.logo }?date=<%=UUID.randomUUID() %>" target="_blank">
-                                <img src="<%=basePath %>${site.logo }?date=<%=UUID.randomUUID() %>" width="180"
+                                <img src="${site.logo }?date=<%=UUID.randomUUID() %>" width="180"
                                      height="42" title="点击查看大图"/>
                             </a>
 							<a href="javascript:delLogo()">删除</a>

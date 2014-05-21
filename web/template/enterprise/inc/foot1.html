@@ -4,21 +4,21 @@
     <div class="bottom_menu">
         友情链接：&nbsp;&nbsp;
         <@link siteId="${site.id}" classPageMark="yqlj" ;link><a href="${link.url!}" target="_blank">${link.name!}</a>&nbsp;&nbsp;&nbsp;&nbsp;</@link>
-</div><!--end of bottom_menu-->
-<div class="bottom_copy">
-    <p>
+    </div><!--end of bottom_menu-->
+    <div class="bottom_copy">
+        <p>
                 <span class="x_menu_wz">
                     <a onclick="javascript:window.top.location.href='/Default.aspx'" href="/Default.aspx">首页</a>
                         <@channelList siteId="${site.id}" parId="" navigation="1" state="1";channel,index>
                                 | &nbsp;<a href="${channel.pageUrl!}">${channel.name!}</a> &nbsp;
                         </@channelList>
-        </span>
-        <br/>
-        版权所有:${site.name!} Copyright ©2010-2012 , Inc. All Rights Reserved ${site.recordCode!}
-        <br/>
-        建议使用1024*768分辨率浏览
-    </p>
-</div><!-- end of bottom_copy-->
+            </span>
+            <br/>
+            版权所有:${site.name!} Copyright ©2010-2012 , Inc. All Rights Reserved ${site.recordCode!}
+            <br/>
+            建议使用1024*768分辨率浏览
+        </p>
+    </div><!-- end of bottom_copy-->
 </div><!--end of foot-->
 </div><!--end of container-->
 
@@ -179,7 +179,7 @@
         }
         if (pos != old) {
             tips.style.top = pos + "px";
-            tt = 10; //alert(tips.style.top);
+            tt = 10; //alert(tips.style.top); 
         }
         old = pos;
         setTimeout(moveTips, tt);
