@@ -32,6 +32,20 @@
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.UUID" %>
 
+<script type="text/javascript">
+    var templateFileWeeboxs;
+    function selectChannelTemplateFile(templateId, inputId) {
+        templateFileWeeboxs = $.weeboxs.open('template_selectFile.do?inputid=' + inputId + '&template.id=' + templateId, {title: '选择模板文件', contentType: 'ajax', height: 400, width: 500,
+            onok: function () {
+            }});
+    }
+    function closeWeebox() {
+        templateFileWeeboxs.close();
+    }
+
+
+</script>
+
 <%
     DiskFileItemFactory factory = new DiskFileItemFactory();
     factory.setRepository(new File(""));
@@ -43,7 +57,7 @@
 <form action="channel_editDo.do" method="post" enctype="multipart/form-data">
 
 <input type="hidden" name="site.id" value="${site.id}">
-<input type="hidden" name="channel.site" value="${site.id }">
+<input type="hidden" name="channel.site.id" value="${site.id}">
 <input type="hidden" name="channel.parId" value="${channel.parId }">
 <input type="hidden" name="channel.id" id="channelId" value="${channel.id }">
 
@@ -224,9 +238,9 @@
         </LABEL>
     </TD>
     <TD width="70%" align="left">
-        <INPUT onblur="this.className='colorblur';" id=templet readonly style="cursor:hand" title="点击选择模板文件"
+        <INPUT onblur="this.className='colorblur';" id=template readonly style="cursor:hand" title="点击选择模板文件"
                class=colorblur onfocus="this.className='colorfocus';"
-               onclick="selectTempletFile('${site.indexTemplate }','templet')"
+               onclick="selectChannelTemplateFile('${site.indexTemplate }','template')"
                maxLength=50 type=text name=channel.template value="${channel.template }">
     </TD>
 </TR>
@@ -244,7 +258,7 @@
     <TD width="70%" align="left">
         <INPUT onblur="this.className='colorblur';" id=contenttemplet readonly style="cursor:hand" title="点击选择模板文件"
                class=colorblur onfocus="this.className='colorfocus';"
-               onclick="selectTempletFile('${site.indexTemplate }','contenttemplet')"
+               onclick="selectChannelTemplateFile('${site.indexTemplate }','contenttemplet')"
                maxLength=50 type=text name=channel.contentTemplate value="${channel.contentTemplate }">
     </TD>
 </TR>

@@ -7,9 +7,10 @@ import cn.easycms.model.Site;
 import cn.easycms.service.ChannelService;
 import cn.easycms.service.HtmlQuartzService;
 import cn.easycms.service.SiteService;
-import cn.easycms.util.ResponseUtil;
-import cn.easycms.util.StringUtil;
+import cn.easycms.util.*;
+import freemarker.template.TemplateException;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -26,6 +27,38 @@ public class ChannelAction extends BaseAction {
     private ChannelService channelService;
     private SiteService siteService;
     private HtmlQuartzService htmlQuartzService;
+    private String htmlindex;//首页静态化
+    private String htmlChannel;//本栏目静态化
+    private String htmlChannelPar;//本栏目的父栏目静态化
+    private FreeMarkerUtil freeMarkerUtil;
+
+    public void setFreeMarkerUtil(FreeMarkerUtil freeMarkerUtil) {
+        this.freeMarkerUtil = freeMarkerUtil;
+    }
+
+    public String getHtmlindex() {
+        return htmlindex;
+    }
+
+    public void setHtmlindex(String htmlindex) {
+        this.htmlindex = htmlindex;
+    }
+
+    public String getHtmlChannel() {
+        return htmlChannel;
+    }
+
+    public void setHtmlChannel(String htmlChannel) {
+        this.htmlChannel = htmlChannel;
+    }
+
+    public String getHtmlChannelPar() {
+        return htmlChannelPar;
+    }
+
+    public void setHtmlChannelPar(String htmlChannelPar) {
+        this.htmlChannelPar = htmlChannelPar;
+    }
 
     public HtmlQuartz getHtmlQuartz() {
         return htmlQuartz;
@@ -211,5 +244,66 @@ public class ChannelAction extends BaseAction {
             site = siteService.findById(channel.getSite().getId());
         }
         return "edit";
+    }
+    /**
+     * 编辑页面保存
+     *
+     */
+    public String editDo(){
+        site = siteService.findById(site.getId());
+        if(StringUtil.isNotEmpty(channel.getId())){
+            //channel已经有了id，说明已经保存至数据库中，那么就是更新操作
+            Channel oldChannel = channelService.findById(channel.getId());
+            //如果修改了channel的pageMark，则返回一个提醒
+            if (StringUtil.isNotEmpty(channel.getPageMark())&&StringUtil.isNotEmpty(oldChannel.getPageMark())&&!channel.getPageMark().equals(oldChannel.getPageMark())){
+                if(channelService.hasPageMark(channel.getSite(),channel.getPageMark())){
+                    write("<script>alert('该页面标识已经存在');history.back();</script>","UTF-8");
+                    return null;
+                }
+            }
+            channelService.update(channel);
+        }else{
+            channelService.insert(channel);
+        }
+        return "makehtml";
+    }
+    public String makehtml(){
+        String message = "";
+        if (channel!=null&&StringUtil.isNotEmpty(channel.getId())){
+            channel = channelService.findById(channel.getId());
+            site = siteService.findById(channel.getSite().getId());
+        }
+        try{
+            //选中首页静态化
+            if("1".equals(htmlindex)){
+                IndexHtmlUtil.html(site,freeMarkerUtil,getServletContext(),getContextPath(),getHttpRequest());
+            }
+            //选中本栏目静态化
+            if("1".equals(htmlChannel)){
+                ChannelHtmlUtil.html(channel,site,freeMarkerUtil,getServletContext(),getHttpRequest(),0);
+            }
+            //本栏目的所有父栏目静态化
+            if ("1".equals(htmlChannelPar)){
+                //从父栏目到本栏目的静态化
+                List<Channel> channels = channelService.findPath(channel.getId());
+                if (channels!=null&&channels.size()>0){
+                    for(Channel temp : channels){
+                        //排除本栏目的静态化
+                        if (!temp.getId().equals(channel.getId())){
+                            ChannelHtmlUtil.html(temp,site,freeMarkerUtil,getServletContext(),getHttpRequest(),0);
+                        }
+                    }
+                }
+
+            }
+            message = "静态化成功!";
+        } catch (TemplateException e) {
+            e.printStackTrace();
+            message = "静态化失败，原因："+e.getMessage().replace("<","&lt;").replace(">","&gt;").replace("\n","<br/>");
+        } catch (IOException e) {
+            e.printStackTrace();
+            message = "静态化失败，原因："+e.getMessage().replace("<","&lt;").replace(">","&gt;").replace("\n","<br/>");
+        }
+        return showMessage(message);
     }
 }

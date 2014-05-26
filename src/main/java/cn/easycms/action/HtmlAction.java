@@ -5,8 +5,10 @@ import cn.easycms.model.Channel;
 import cn.easycms.model.Site;
 import cn.easycms.service.ChannelService;
 import cn.easycms.service.SiteService;
+import cn.easycms.util.ChannelHtmlUtil;
 import cn.easycms.util.FreeMarkerUtil;
 import cn.easycms.util.IndexHtmlUtil;
+import cn.easycms.util.StringUtil;
 
 import java.util.List;
 
@@ -20,6 +22,33 @@ public class HtmlAction extends BaseAction {
     private List<Channel> channelList;
     private Channel channel;
     private Site site;
+    private String pageNum;//选择要静态化的前几页
+    private String createType;//选择要静态化的类型
+    private String[] channels;//选中的channels数组
+
+    public String[] getChannels() {
+        return channels;
+    }
+
+    public void setChannels(String[] channels) {
+        this.channels = channels;
+    }
+
+    public String getPageNum() {
+        return pageNum;
+    }
+
+    public void setPageNum(String pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    public String getCreateType() {
+        return createType;
+    }
+
+    public void setCreateType(String createType) {
+        this.createType = createType;
+    }
 
     public void setFreeMarkerUtil(FreeMarkerUtil freeMarkerUtil) {
         this.freeMarkerUtil = freeMarkerUtil;
@@ -140,7 +169,40 @@ public class HtmlAction extends BaseAction {
         }
         return "channel";
     }
+    public String channelDo(){
+        String message = "";//返回首页的静态化信息，成功或者失败
+        site = getManageSite();
+        int page = 0;
+        if(StringUtil.isNotEmpty(pageNum))
+            page = Integer.parseInt(pageNum);
 
+        try{
+            //对不同的生成类型进行页面的静态化
+            if("channels".equals(createType)){
+                //静态化选中的channel；
+                if(channels!=null&&channels.length>0){
+                    for(String channelStr : channels){
+                        Channel channel = channelService.findById(channelStr);
+                        if (channel!=null){
+                            ChannelHtmlUtil.html(channel,site,freeMarkerUtil,getServletContext(),getHttpRequest(),page);
+                        }
+                    }
+                }
+            }else if("all".equals(createType)){
+                //静态化所有的channel；
+                List<Channel> channelList = channelService.findListBySiteAndPageMark(site,null);
+                for(Channel channel : channelList){
+                    if (channel!=null)
+                        ChannelHtmlUtil.html(channel,site,freeMarkerUtil,getServletContext(),getHttpRequest(),page);
+                }
+            }
+            message = "栏目页面静态化成功!";
+        }catch (Exception e){
+            e.printStackTrace();
+            message="静态化失败，原因："+e.getMessage().replace("<","&lt;").replace(">","&gt;").replace("\n","<br/>");
+        }
+        return showMessage(message);
+    }
     /**
      * 信息静态化页面
      *

@@ -22,6 +22,7 @@
     <link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css"/>
     <script type="text/javascript" src="js/templetSelectFile.js">
     </script>
+
 </head>
 <body>
 <div id="man_zone">
@@ -35,8 +36,7 @@
                     <li id="<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"template/","utf-8")%>${template.id }"
                         class="hasChildren">
 			<span><font size="2"><b><a href="#"
-                                       onclick="showOne('<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"template/","utf-8")%>
-                                       ${template.id }')">
+                                       onclick="showOne('<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"template/","utf-8")%>'+'${template.id }')">
                 根目录</a></b></font>
 			</span>
                         ${rootHasSon =='1'?'<ul><li><span  >&nbsp;</span></li></ul>':''}

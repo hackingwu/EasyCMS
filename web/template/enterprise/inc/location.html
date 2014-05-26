@@ -4,12 +4,7 @@
     <div class="location_middle">
         <div class="location_title">
             <a href="${contextPath}site/${site.sourcePath}/index.html">首页</a>
-            <@channelPath siteId="${site.id}" id="${currChannel.id}" ;channel>
-            -> <a href="${channel.pageUrl}">${channel.name}</a>
-        </
-        @channelPath>
-
-
+            <@channelPath siteId="${site.id}" id="${currChannel.id}" ;channel>-> <a href="${channel.pageUrl}">${channel.name}</a></@channelPath>
         <#if currInfo??>-${currInfo.title!""}</#if>
     </div>
     <div class="loaction_title_right"></div>

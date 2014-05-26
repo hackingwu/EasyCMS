@@ -54,7 +54,7 @@ public class ChannelHtmlUtil {
         if (site != null && channel != null
                 && StringUtil.isNotEmpty(site.getIndexTemplate())) {
             //如果设置了最大生成页数
-            if (channel.getMaxPage() > 0) {
+            if (channel.getMaxPage()!=null&&channel.getMaxPage() > 0) {
                 pageNum = channel.getMaxPage();
             }
             if (pageNum == 0 || (pageNum > 0 && pageNum >= page)) {

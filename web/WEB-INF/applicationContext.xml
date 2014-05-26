@@ -199,6 +199,7 @@
         <property name="channelService" ref="ChannelService"/>
         <property name="siteService" ref="SiteService"/>
         <property name="htmlQuartzService" ref="HtmlQuartzService"/>
+        <property name="freeMarkerUtil" ref="FreeMarkerUtil"/>
     </bean>
     <bean id="infoAction" class="cn.easycms.action.InfoAction" scope="prototype">
         <property name="infoService" ref="InfoService"/>

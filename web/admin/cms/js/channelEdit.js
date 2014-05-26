@@ -36,8 +36,9 @@ function parComplete(data) {
     parent.location.reload();
 }
 var templetFileWeeboxs;
-function selectTempletFile(templetid, inputid) {
-    templetFileWeeboxs = $.weeboxs.open('templet_selectFile.do?inputid=' + inputid + '&templet.id=' + templetid, {title: '选择模板文件', contentType: 'ajax', height: 400, width: 500,
+function selectChannelTemplateFile(templateId, inputId) {
+    alert("test")
+    templetFileWeeboxs = $.weeboxs.open('template_selectFile.do?inputid=' + inputId + '&template.id=' + templateId, {title: '选择模板文件', contentType: 'ajax', height: 400, width: 500,
         onok: function () {
         }});
 }

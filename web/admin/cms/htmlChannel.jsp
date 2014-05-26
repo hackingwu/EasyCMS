@@ -77,7 +77,7 @@
                                   class=colorblur onfocus="this.className='colorfocus';"
                                   onkeyup=if(!isInt(value))execCommand('undo')
                                   onafterpaste=if(!isInt(value))execCommand('undo')
-                                  maxLength=50 type=text name=pagenum value="">页(不填生成所有)
+                                  maxLength=50 type=text name=pageNum value="">页(不填生成所有)
                     </td>
                 </tr>
                 <tr>

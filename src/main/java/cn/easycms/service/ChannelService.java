@@ -72,11 +72,13 @@ public class ChannelService {
     }
 
     public List<Channel> findListBySiteAndPageMark(Site site, String pageMark) {
-        return channelDaoImpl.getCurrentSession()
-                .createCriteria(Channel.class)
-                .add(Restrictions.eq("site", site))
-                .add(Restrictions.eq("pageMark", pageMark))
-                .list();
+        Criteria criteria = channelDaoImpl.getCurrentSession()
+                .createCriteria(Channel.class);
+                if (site!=null)
+                    criteria.add(Restrictions.eq("site", site));
+                if(StringUtil.isNotEmpty(pageMark))
+                    criteria.add(Restrictions.eq("pageMark", pageMark));
+                return criteria.list();
 
     }
 
@@ -149,5 +151,18 @@ public class ChannelService {
             channels.add(channel);
         if (StringUtil.isNotEmpty(channel.getParId()))
             findParPath(channel.getParId(), channels);
+    }
+
+    public boolean hasPageMark(Site site, String pageMark){
+        Criteria criteria = channelDaoImpl.getCurrentSession().createCriteria(Channel.class);
+        criteria.add(Restrictions.eq("site",site));
+        criteria.add(Restrictions.eq("pageMark",pageMark));
+        return criteria.list().size()>0;
+
+    }
+
+    public void update(Channel channel) {
+        if (channel!=null)
+            channelDaoImpl.getCurrentSession().update(channel);
     }
 }
